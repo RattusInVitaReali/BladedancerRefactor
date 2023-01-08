@@ -1,13 +1,13 @@
 package code.relics;
 
-import code.CharacterFile;
+import code.BlademasterCharacter;
 
-import static code.ModFile.makeID;
+import static code.Blademaster.makeID;
 
 public class TodoItem extends AbstractEasyRelic {
     public static final String ID = makeID("TodoItem");
 
     public TodoItem() {
-        super(ID, RelicTier.STARTER, LandingSound.FLAT, CharacterFile.Enums.TODO_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
     }
 }
