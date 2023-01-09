@@ -6,13 +6,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static code.Blademaster.makeID;
 
 public class Defend extends AbstractBlademasterCard {
+
     public final static String ID = makeID("Defend");
-    // intellij stuff skill, self, basic, , ,  5, 3, , 
+    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardType TYPE = CardType.SKILL;
+    private static final int COST = 1;
+    private static final int BLOCK = 5;
+    private static final int UPGRADE_BLOCK = 3;
 
     public Defend() {
-        super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-        baseBlock = 5;
-        tags.add(CardTags.STARTER_DEFEND);
+        super(ID, COST, TYPE, RARITY, TARGET);
+        baseBlock = BLOCK;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -20,6 +25,6 @@ public class Defend extends AbstractBlademasterCard {
     }
 
     public void onUpgrade() {
-        upgradeBlock(3);
+        upgradeBlock(UPGRADE_BLOCK);
     }
 }

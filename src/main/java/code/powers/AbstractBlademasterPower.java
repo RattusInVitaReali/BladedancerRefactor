@@ -11,19 +11,18 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import code.util.TexLoader;
 
-public abstract class AbstractEasyPower extends AbstractPower {
+public abstract class AbstractBlademasterPower extends AbstractPower {
     public int amount2 = -1;
     public boolean isTwoAmount = false;
     public static Color redColor2 = Color.RED.cpy();
     public static Color greenColor2 = Color.GREEN.cpy();
     public boolean canGoNegative2 = false;
 
-    public AbstractEasyPower(String ID, String NAME, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
+
+    public AbstractBlademasterPower(String ID, String NAME, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
         this.ID = ID;
         this.isTurnBased = isTurnBased;
-
         this.name = NAME;
-
         this.owner = owner;
         this.amount = amount;
         this.type = powerType;

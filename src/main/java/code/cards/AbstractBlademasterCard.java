@@ -20,8 +20,6 @@ import code.util.CardArtRoller;
 
 import static code.Blademaster.makeImagePath;
 import static code.Blademaster.modID;
-import static code.util.Wiz.atb;
-import static code.util.Wiz.att;
 
 public abstract class AbstractBlademasterCard extends CustomCard {
 
@@ -51,41 +49,22 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         name = originalName = cardStrings.NAME;
         initializeTitle();
         initializeDescription();
-
-        if (textureImg.contains("ui/missing.png")) {
-            if (CardLibrary.getAllCards() != null && !CardLibrary.getAllCards().isEmpty()) {
-                CardArtRoller.computeCard(this);
-            } else
-                needsArtRefresh = true;
-        }
-    }
-
-    @Override
-    protected Texture getPortraitImage() {
-        if (textureImg.contains("ui/missing.png")) {
-            return CardArtRoller.getPortraitTexture(this);
-        } else {
-            return super.getPortraitImage();
-        }
     }
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
-        String textureString;
-
-        switch (cardType) {
-            case ATTACK:
-            case POWER:
-            case SKILL:
-                textureString = makeImagePath("cards/" + cardName + ".png");
-                break;
-            default:
-                textureString = makeImagePath("ui/missing.png");
-                break;
-        }
-
+        String textureString = makeImagePath("cards/" + cardName + ".png");
         FileHandle h = Gdx.files.internal(textureString);
         if (!h.exists()) {
-            textureString = makeImagePath("ui/missing.png");
+            switch (cardType) {
+                case ATTACK:
+                    textureString = makeImagePath("cards/Attack.png");
+                    break;
+                case POWER:
+                    textureString = makeImagePath("cards/Power.png");
+                    break;
+                default:
+                    textureString = makeImagePath("cards/Skill.png");
+            }
         }
         return textureString;
     }
@@ -181,25 +160,16 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         }
     }
 
-    // These shortcuts are specifically for cards. All other shortcuts that aren't specifically for cards can go in Wiz.
-    protected void damageAction(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
-        atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
-    }
-
-    protected void damageActionTop(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
-        att(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
+   protected void damageAction(AbstractMonster m, int damageOrSecondDamage, AbstractGameAction.AttackEffect fx) {
+        addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damageOrSecondDamage, damageTypeForTurn), fx));
     }
 
     protected void damageAllAction(AbstractGameAction.AttackEffect fx) {
-        atb(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
-    }
-
-    protected void damageAllActionTop(AbstractGameAction.AttackEffect fx) {
-        att(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
+        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
     }
 
     protected void blockAction() {
-        atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
+        addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 
     public String cardArtCopy() {
