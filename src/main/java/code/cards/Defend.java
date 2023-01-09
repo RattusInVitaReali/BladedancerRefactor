@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
 
-public class Defend extends AbstractEasyCard {
+public class Defend extends AbstractBlademasterCard {
     public final static String ID = makeID("Defend");
     // intellij stuff skill, self, basic, , ,  5, 3, , 
 
@@ -16,10 +16,10 @@ public class Defend extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        blck();
+        blockAction();
     }
 
-    public void upp() {
+    public void onUpgrade() {
         upgradeBlock(3);
     }
 }

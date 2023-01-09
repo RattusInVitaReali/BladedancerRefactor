@@ -1,6 +1,7 @@
 package code.cards.democards.complex;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import code.cards.AbstractBlademasterCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,13 +9,12 @@ import com.megacrit.cardcrawl.cards.tempCards.Safety;
 import com.megacrit.cardcrawl.cards.tempCards.Smite;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.cards.AbstractEasyCard;
 
 import static code.Blademaster.makeID;
 import static code.util.Wiz.atb;
 import static code.util.Wiz.shuffleIn;
 
-public class MultiCardPreviewAndDrawCallback extends AbstractEasyCard {
+public class MultiCardPreviewAndDrawCallback extends AbstractBlademasterCard {
     public final static String ID = makeID(MultiCardPreviewAndDrawCallback.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,
 
@@ -36,13 +36,13 @@ public class MultiCardPreviewAndDrawCallback extends AbstractEasyCard {
             public void update() {
                 isDone = true; // is done immediately AND...
                 if (DrawCardAction.drawnCards.stream().anyMatch(q -> q.color.equals(CardColor.COLORLESS))) { // checks if any cards drawn were colorless...
-                    allDmgTop(AttackEffect.SLASH_VERTICAL); // and if so deals the damage to ALL enemies.
+                    damageAllActionTop(AttackEffect.SLASH_VERTICAL); // and if so deals the damage to ALL enemies.
                 }
             }
         }));
     }
 
-    public void upp() {
+    public void onUpgrade() {
         upgradeDamage(1); // here, we show upgraded smite and safeties.
         AbstractCard q = new Smite();
         q.upgrade();
@@ -50,6 +50,6 @@ public class MultiCardPreviewAndDrawCallback extends AbstractEasyCard {
         q2.upgrade();
         MultiCardPreview.clear(this);
         MultiCardPreview.add(this, q, q2);
-        uDesc();
+        setUpgradeDescription();
     }
 }

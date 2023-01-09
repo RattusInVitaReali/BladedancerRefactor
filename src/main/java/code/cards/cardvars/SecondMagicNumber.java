@@ -1,8 +1,8 @@
 package code.cards.cardvars;
 
 import basemod.abstracts.DynamicVariable;
+import code.cards.AbstractBlademasterCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import code.cards.AbstractEasyCard;
 
 import static code.Blademaster.makeID;
 
@@ -15,38 +15,38 @@ public class SecondMagicNumber extends DynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isSecondMagicModified;
+        if (card instanceof AbstractBlademasterCard) {
+            return ((AbstractBlademasterCard) card).isSecondMagicModified;
         }
         return false;
     }
 
     @Override
     public int value(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).secondMagic;
+        if (card instanceof AbstractBlademasterCard) {
+            return ((AbstractBlademasterCard) card).secondMagic;
         }
         return -1;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
-        if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isSecondMagicModified = v;
+        if (card instanceof AbstractBlademasterCard) {
+            ((AbstractBlademasterCard) card).isSecondMagicModified = v;
         }
     }
 
     @Override
     public int baseValue(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseSecondMagic;
+        if (card instanceof AbstractBlademasterCard) {
+            return ((AbstractBlademasterCard) card).baseSecondMagic;
         }
         return -1;
     }
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedSecondMagic;
+        if (card instanceof AbstractBlademasterCard) {
+            return ((AbstractBlademasterCard) card).upgradedSecondMagic;
         }
         return false;
     }

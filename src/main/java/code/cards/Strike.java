@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
 
-public class Strike extends AbstractEasyCard {
+public class Strike extends AbstractBlademasterCard {
     public final static String ID = makeID("Strike");
     // intellij stuff attack, enemy, basic, 6, 3,  , , , 
 
@@ -18,10 +18,10 @@ public class Strike extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.NONE);
+        damageAction(m, AbstractGameAction.AttackEffect.NONE);
     }
 
-    public void upp() {
+    public void onUpgrade() {
         upgradeDamage(3);
     }
 }

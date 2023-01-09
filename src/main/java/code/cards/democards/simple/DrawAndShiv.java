@@ -1,15 +1,15 @@
 package code.cards.democards.simple;
 
+import code.cards.AbstractBlademasterCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.cards.AbstractEasyCard;
 
 import static code.Blademaster.makeID;
 import static code.util.Wiz.*;
 
-public class DrawAndShiv extends AbstractEasyCard {
+public class DrawAndShiv extends AbstractBlademasterCard {
     public final static String ID = makeID(DrawAndShiv.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , , 
 
@@ -23,7 +23,7 @@ public class DrawAndShiv extends AbstractEasyCard {
         makeInHand(new Shiv()); // Add to the bottom of the action queue an action which adds a Shiv into your hand. (This is shorthanded by makeInHand).
     }
 
-    public void upp() {
+    public void onUpgrade() {
         upgradeBaseCost(0); // Upgrade the base cost to 0. Other upgrade logic isn't necessary.
     }
 }

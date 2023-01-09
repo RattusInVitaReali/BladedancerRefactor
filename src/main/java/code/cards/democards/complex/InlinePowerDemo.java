@@ -6,14 +6,14 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import code.cards.AbstractEasyCard;
+import code.cards.AbstractBlademasterCard;
 import code.powers.LambdaPower;
 
 import static code.Blademaster.makeID;
 import static code.util.Wiz.applyToSelf;
 import static code.util.Wiz.atb;
 
-public class InlinePowerDemo extends AbstractEasyCard {
+public class InlinePowerDemo extends AbstractBlademasterCard {
 
     public final static String ID = makeID(InlinePowerDemo.class.getSimpleName());
     // intellij stuff power, self, uncommon
@@ -49,7 +49,7 @@ public class InlinePowerDemo extends AbstractEasyCard {
         });
     }
 
-    public void upp() {
+    public void onUpgrade() {
         upgradeMagicNumber(UPG_MAGIC);
     }
 } 

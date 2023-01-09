@@ -23,7 +23,7 @@ import static code.Blademaster.modID;
 import static code.util.Wiz.atb;
 import static code.util.Wiz.att;
 
-public abstract class AbstractEasyCard extends CustomCard {
+public abstract class AbstractBlademasterCard extends CustomCard {
 
     protected final CardStrings cardStrings;
 
@@ -39,11 +39,11 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     private boolean needsArtRefresh = false;
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
+    public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
     }
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+    public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
@@ -160,7 +160,7 @@ public abstract class AbstractEasyCard extends CustomCard {
         upgradedSecondDamage = true;
     }
 
-    protected void uDesc() {
+    protected void setUpgradeDescription() {
         rawDescription = cardStrings.UPGRADE_DESCRIPTION;
         initializeDescription();
     }
@@ -168,11 +168,11 @@ public abstract class AbstractEasyCard extends CustomCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upp();
+            onUpgrade();
         }
     }
 
-    public abstract void upp();
+    public abstract void onUpgrade();
 
     public void update() {
         super.update();
@@ -182,27 +182,23 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     // These shortcuts are specifically for cards. All other shortcuts that aren't specifically for cards can go in Wiz.
-    protected void dmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
+    protected void damageAction(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
         atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
     }
 
-    protected void dmgTop(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
+    protected void damageActionTop(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
         att(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
     }
 
-    protected void allDmg(AbstractGameAction.AttackEffect fx) {
+    protected void damageAllAction(AbstractGameAction.AttackEffect fx) {
         atb(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
     }
 
-    protected void allDmgTop(AbstractGameAction.AttackEffect fx) {
+    protected void damageAllActionTop(AbstractGameAction.AttackEffect fx) {
         att(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
     }
 
-    protected void altDmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
-        atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, secondDamage, damageTypeForTurn), fx));
-    }
-
-    protected void blck() {
+    protected void blockAction() {
         atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 
@@ -214,15 +210,4 @@ public abstract class AbstractEasyCard extends CustomCard {
         return null;
     }
 
-    protected void upMagic(int x) {
-        upgradeMagicNumber(x);
-    }
-
-    protected void upSecondMagic(int x) {
-        upgradeSecondMagic(x);
-    }
-
-    protected void upSecondDamage(int x) {
-        upgradeSecondDamage(x);
-    }
 }

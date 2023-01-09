@@ -4,11 +4,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import code.cards.AbstractEasyCard;
+import code.cards.AbstractBlademasterCard;
 
 import static code.Blademaster.makeID;
 
-public class TwoTypesOfDamage extends AbstractEasyCard {
+public class TwoTypesOfDamage extends AbstractBlademasterCard {
     public final static String ID = makeID(TwoTypesOfDamage.class.getSimpleName());
     // intellij stuff skill, self, uncommon, , , , , ,
 
@@ -20,13 +20,13 @@ public class TwoTypesOfDamage extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(VulnerablePower.POWER_ID)) { // If you have VulnerablePower (vulnerable),
-            altDmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY); // Deal damage based on secondDamage.
+            secondDamageAction(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY); // Deal damage based on secondDamage.
         } else {
-            dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT); // Otherwise deal normal damage.
+            damageAction(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT); // Otherwise deal normal damage.
         }
     }
 
-    public void upp() {
+    public void onUpgrade() {
         upgradeDamage(2);
         upgradeSecondDamage(5); // We can upgrade both damage and secondDamage.
     }

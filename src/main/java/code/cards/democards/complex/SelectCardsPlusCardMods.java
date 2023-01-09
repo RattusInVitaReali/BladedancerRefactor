@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.cards.AbstractEasyCard;
+import code.cards.AbstractBlademasterCard;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +16,7 @@ import java.util.Collections;
 import static code.Blademaster.makeID;
 import static code.util.Wiz.*;
 
-public class SelectCardsPlusCardMods extends AbstractEasyCard {
+public class SelectCardsPlusCardMods extends AbstractBlademasterCard {
 
     public final static String ID = makeID(SelectCardsPlusCardMods.class.getSimpleName());
     // intellij stuff skill, self, uncommon
@@ -39,7 +39,7 @@ public class SelectCardsPlusCardMods extends AbstractEasyCard {
         }));
     }
 
-    public void upp() {
+    public void onUpgrade() {
         upgradeBaseCost(0);
     }
 } 
