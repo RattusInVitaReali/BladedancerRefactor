@@ -3,7 +3,7 @@ package code.relics;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import code.util.TexLoader;
+import code.util.TextureLoader;
 
 import static code.Blademaster.makeRelicPath;
 import static code.Blademaster.modID;
@@ -16,8 +16,8 @@ public abstract class AbstractEasyRelic extends CustomRelic {
     }
 
     public AbstractEasyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx, AbstractCard.CardColor color) {
-        super(setId, TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + ".png")), tier, sfx);
-        outlineImg = TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + "Outline.png"));
+        super(setId, TextureLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + ".png")), tier, sfx);
+        outlineImg = TextureLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + "Outline.png"));
         this.color = color;
     }
 

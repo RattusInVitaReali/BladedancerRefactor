@@ -3,7 +3,6 @@ package code.cards;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -12,11 +11,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.BlademasterCharacter;
-import code.util.CardArtRoller;
+import code.characters.BlademasterCharacter;
 
 import static code.Blademaster.makeImagePath;
 import static code.Blademaster.modID;
@@ -153,31 +150,16 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
     public abstract void onUpgrade();
 
-    public void update() {
-        super.update();
-        if (needsArtRefresh) {
-            CardArtRoller.computeCard(this);
-        }
+    protected void damageMonster(AbstractMonster m, int amount, AbstractGameAction.AttackEffect fx) {
+        addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, amount, damageTypeForTurn), fx));
     }
 
-   protected void damageAction(AbstractMonster m, int damageOrSecondDamage, AbstractGameAction.AttackEffect fx) {
-        addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damageOrSecondDamage, damageTypeForTurn), fx));
+    protected void damageAllMonsters(int[] amounts, AbstractGameAction.AttackEffect fx) {
+        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, amounts, damageTypeForTurn, fx));
     }
 
-    protected void damageAllAction(AbstractGameAction.AttackEffect fx) {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
-    }
-
-    protected void blockAction() {
-        addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
-    }
-
-    public String cardArtCopy() {
-        return null;
-    }
-
-    public CardArtRoller.ReskinInfo reskinInfo(String ID) {
-        return null;
+    protected void block(int amount) {
+        addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, amount));
     }
 
 }

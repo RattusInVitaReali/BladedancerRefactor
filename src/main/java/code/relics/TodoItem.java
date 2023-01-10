@@ -1,6 +1,6 @@
 package code.relics;
 
-import code.BlademasterCharacter;
+import code.characters.BlademasterCharacter;
 
 import static code.Blademaster.makeID;
 

@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 import static code.Blademaster.makeImagePath;
 
-public class TexLoader {
+public class TextureLoader {
     private static HashMap<String, Texture> textures = new HashMap<>();
 
     /**

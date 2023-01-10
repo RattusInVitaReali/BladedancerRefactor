@@ -21,7 +21,7 @@ public class Defend extends AbstractBlademasterCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        blockAction();
+        block(block);
     }
 
     public void onUpgrade() {

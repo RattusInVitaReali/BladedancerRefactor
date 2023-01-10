@@ -1,4 +1,4 @@
-package code;
+package code.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
@@ -7,6 +7,7 @@ import code.cards.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -24,29 +25,34 @@ import code.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static code.BlademasterCharacter.Enums.BLADEMASTER_COLOR;
+import static code.characters.BlademasterCharacter.Enums.BLADEMASTER_COLOR;
 import static code.Blademaster.*;
 
 public class BlademasterCharacter extends CustomPlayer {
 
-    static final String ID = makeID("ModdedCharacter");
-    static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
-    static final String[] NAMES = characterStrings.NAMES;
-    static final String[] TEXT = characterStrings.TEXT;
+    public static final String ID = makeID("ModdedCharacter");
+    public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
+    public static final String[] NAMES = characterStrings.NAMES;
+    public static final String[] TEXT = characterStrings.TEXT;
 
 
     public BlademasterCharacter(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
-                modID + "Resources/images/char/mainChar/static.scml"));
+        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), null, null);
         initializeClass(null,
                 SHOULDER1,
                 SHOULDER2,
                 CORPSE,
                 getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
 
-
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
+
+        loadAnimation(BLADEMASTER_SKELETON_ATLAS, BLADEMASTER_SKELETON_JSON, 0.95f);
+        if (MathUtils.random(100) == 69) {
+            state.setAnimation(0, "Thonk", true);
+        } else {
+            state.setAnimation(0, "Idle", true);
+        }
     }
 
     @Override

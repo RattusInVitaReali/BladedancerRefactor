@@ -24,7 +24,7 @@ public class Strike extends AbstractBlademasterCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        damageAction(m, damage, AttackEffect.SLASH_DIAGONAL);
+        damageMonster(m, damage, AttackEffect.SLASH_DIAGONAL);
     }
 
     public void onUpgrade() {
