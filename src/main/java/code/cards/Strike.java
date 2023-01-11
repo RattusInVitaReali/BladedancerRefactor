@@ -26,16 +26,12 @@ public class Strike extends AbstractStanceCard {
         baseConduit = CONDUIT;
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
+        setDescription(cardStrings.DESCRIPTION);
     }
 
     @Override
     public void useBasic(AbstractPlayer p, AbstractMonster m) {
         damageMonster(m, damage, AttackEffect.SLASH_DIAGONAL);
-    }
-
-    @Override
-    public int getConduit() {
-        return conduit;
     }
 
     public void onUpgrade() {

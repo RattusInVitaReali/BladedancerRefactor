@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.Blademaster;
 import code.characters.BlademasterCharacter;
 import code.powers.stances.AbstractStancePower;
 import code.powers.stances.LightningStance;
@@ -40,14 +41,10 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         useBasic(p, m);
     }
 
-    public int getConduit() {
-        return 0;
-    }
-
     protected void conduit(AbstractPlayer p) {
         AbstractStancePower stance = BlademasterUtil.getPlayerStance();
         if (stance != null) {
-            addToBot(new ApplyPowerAction(p, p, stance.getChargePower(p, getConduit())));
+            addToBot(new ApplyPowerAction(p, p, stance.getChargePower(p, conduit)));
         }
     }
 
@@ -74,12 +71,9 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     protected void setDescription(String description) {
         rawDescription = description;
         if (baseConduit > 0) {
-            rawDescription += " Conduit !${ModID}:cn!.";
+            rawDescription += " Conduit !" + Blademaster.modID + ":cn!.";
         }
-    }
-
-    public void setUpgradeDescription() {
-        setDescription(cardStrings.UPGRADE_DESCRIPTION);
         initializeDescription();
     }
+
 }

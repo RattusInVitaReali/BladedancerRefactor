@@ -43,7 +43,6 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         setDescription(cardStrings.DESCRIPTION);
         name = originalName = cardStrings.NAME;
         initializeTitle();
-        initializeDescription();
     }
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
@@ -136,11 +135,11 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
     protected void setDescription(String description) {
         rawDescription = description;
+        initializeDescription();
     }
 
     protected void setUpgradeDescription() {
         setDescription(cardStrings.UPGRADE_DESCRIPTION);
-        initializeDescription();
     }
 
     public void upgrade() {
