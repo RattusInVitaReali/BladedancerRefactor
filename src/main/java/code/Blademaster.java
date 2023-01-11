@@ -39,15 +39,15 @@ public class Blademaster implements
     public static final String CORPSE = modID + "Resources/images/characters/blademaster/corpse.png";
     public static final String BLADEMASTER_SKELETON_ATLAS = modID + "Resources/images/characters/blademaster/skeleton.atlas";
     public static final String BLADEMASTER_SKELETON_JSON = modID + "Resources/images/characters/blademaster/skeleton.json";
-    private static final String ATTACK_S_ART = modID + "Resources/images/512/attack.png";
-    private static final String SKILL_S_ART = modID + "Resources/images/512/skill.png";
-    private static final String POWER_S_ART = modID + "Resources/images/512/power.png";
-    private static final String CARD_ENERGY_S = modID + "Resources/images/512/energy.png";
-    private static final String TEXT_ENERGY = modID + "Resources/images/512/text_energy.png";
-    private static final String ATTACK_L_ART = modID + "Resources/images/1024/attack.png";
-    private static final String SKILL_L_ART = modID + "Resources/images/1024/skill.png";
-    private static final String POWER_L_ART = modID + "Resources/images/1024/power.png";
-    private static final String CARD_ENERGY_L = modID + "Resources/images/1024/energy.png";
+    private static final String ATTACK_S_ART = modID + "Resources/images/512/Attack.png";
+    private static final String SKILL_S_ART = modID + "Resources/images/512/Skill.png";
+    private static final String POWER_S_ART = modID + "Resources/images/512/Power.png";
+    private static final String CARD_ENERGY_S = modID + "Resources/images/512/Energy.png";
+    private static final String TEXT_ENERGY = modID + "Resources/images/512/TextEnergy.png";
+    private static final String ATTACK_L_ART = modID + "Resources/images/1024/Attack.png";
+    private static final String SKILL_L_ART = modID + "Resources/images/1024/Skill.png";
+    private static final String POWER_L_ART = modID + "Resources/images/1024/Power.png";
+    private static final String CARD_ENERGY_L = modID + "Resources/images/1024/Energy.png";
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/characterSelect/blademaster/characterButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/characterSelect/blademaster/background.png";
     public static Color blademasterColor = new Color(.27f, .4f, .4f, 1);
@@ -150,12 +150,15 @@ public class Blademaster implements
     public void receiveEditKeywords() {
         Gson gson = new Gson();
         String json = Gdx.files.internal(modID + "Resources/localization/eng/Keywordstrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
+                System.out.println("REGISTERING KEYWORD: " + modID + ":" + keyword.PROPER_NAME);
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
+        } else {
+            System.out.println("KEYWORDS ARE NULL! I REPEAT! KEYWORDS ARE NULL!");
         }
     }
 

@@ -2,6 +2,7 @@ package code.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
+import code.actions.BasicStanceAction;
 import code.cards.Defend;
 import code.cards.Strike;
 import code.relics.TodoItem;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -33,20 +35,20 @@ public class BlademasterCharacter extends CustomPlayer {
     public static final String[] NAMES = characterStrings.NAMES;
     public static final String[] TEXT = characterStrings.TEXT;
     private static final String[] orbTextures = {
-            modID + "Resources/images/char/mainChar/orb/layer1.png",
-            modID + "Resources/images/char/mainChar/orb/layer2.png",
-            modID + "Resources/images/char/mainChar/orb/layer3.png",
-            modID + "Resources/images/char/mainChar/orb/layer4.png",
-            modID + "Resources/images/char/mainChar/orb/layer5.png",
-            modID + "Resources/images/char/mainChar/orb/layer6.png",
-            modID + "Resources/images/char/mainChar/orb/layer1d.png",
-            modID + "Resources/images/char/mainChar/orb/layer2d.png",
-            modID + "Resources/images/char/mainChar/orb/layer3d.png",
-            modID + "Resources/images/char/mainChar/orb/layer4d.png",
-            modID + "Resources/images/char/mainChar/orb/layer5d.png",};
+            modID + "Resources/images/characters/blademaster/orb/layer1.png",
+            modID + "Resources/images/characters/blademaster/orb/layer2.png",
+            modID + "Resources/images/characters/blademaster/orb/layer3.png",
+            modID + "Resources/images/characters/blademaster/orb/layer4.png",
+            modID + "Resources/images/characters/blademaster/orb/layer5.png",
+            modID + "Resources/images/characters/blademaster/orb/layer6.png",
+            modID + "Resources/images/characters/blademaster/orb/layer1d.png",
+            modID + "Resources/images/characters/blademaster/orb/layer2d.png",
+            modID + "Resources/images/characters/blademaster/orb/layer3d.png",
+            modID + "Resources/images/characters/blademaster/orb/layer4d.png",
+            modID + "Resources/images/characters/blademaster/orb/layer5d.png",};
 
     public BlademasterCharacter(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), null, null);
+        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/characters/blademaster/orb/vfx.png", null), null, null);
         initializeClass(null,
                 SHOULDER1,
                 SHOULDER2,
@@ -171,8 +173,13 @@ public class BlademasterCharacter extends CustomPlayer {
         return TEXT[2];
     }
 
+    @Override
+    public void preBattlePrep() {
+        super.preBattlePrep();
+        AbstractDungeon.actionManager.addToBottom(new BasicStanceAction());
+    }
+
     public static class Enums {
-        //TODO: Change these.
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_BLADEMASTER;
         @SpireEnum(name = "BLADEMASTER_COLOR")

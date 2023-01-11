@@ -1,11 +1,11 @@
 {
-  "${ModID}:WindStance": {
+  "${ModID}:WindStancePower": {
     "NAME": "Wind Stance",
     "DESCRIPTIONS": [
       "You are in #yWind #yStance."
     ]
   },
-  "${ModID}:LightningStance": {
+  "${ModID}:LightningStancePower": {
     "NAME": "Lighting Stance",
     "DESCRIPTIONS": [
       "You are in #yLighting #yStance."

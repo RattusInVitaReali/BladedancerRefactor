@@ -18,11 +18,11 @@ public class BetterFireBurstParticleEffect extends AbstractGameEffect {
     }
 
     private final AtlasRegion img;
+    private final float floor;
     private float x;
     private float y;
     private float vX;
     private float vY;
-    private final float floor;
 
     public BetterFireBurstParticleEffect(float x, float y, Color color) {
         int roll = MathUtils.random(0, 2);

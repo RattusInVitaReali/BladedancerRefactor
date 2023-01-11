@@ -6,5 +6,22 @@
       "stances"
     ],
     "DESCRIPTION": "A #yStance which modifies how certain cards function."
+  },
+
+  {
+    "PROPER_NAME": "Conduit",
+    "NAMES": [
+      "conduit"
+    ],
+    "DESCRIPTION": "If you're in a #yStance, gain #yCharges."
+  },
+
+  {
+    "PROPER_NAME": "Charge",
+    "NAMES": [
+      "charge",
+      "charges"
+    ],
+    "DESCRIPTION": "Some #yStance-based cards have bonuses that depend on these."
   }
 ]

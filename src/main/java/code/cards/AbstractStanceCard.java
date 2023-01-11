@@ -5,23 +5,23 @@ import code.Blademaster.BlademasterStance;
 import code.characters.BlademasterCharacter;
 import code.powers.stances.AbstractStancePower;
 import code.util.BlademasterUtil;
+import code.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
+    private final BasicState BASIC_STATE = new BasicState();
+    private final WindState WIND_STATE = new WindState();
+    private final LightningState LIGHTNING_STATE = new LightningState();
     public int conduit;
     public int baseConduit;
     public boolean upgradedConduit;
     public boolean isConduitModified;
-
-    private final BasicState BASIC_STATE = new BasicState();
-    private final WindState WIND_STATE = new WindState();
-    private final LightningState LIGHTNING_STATE = new LightningState();
-
-    private StanceState state;
+    public StanceState state;
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
@@ -45,74 +45,13 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
         state = new_state;
         loadCardImage(state.getCardTextureString());
-        //flash(state.getFlashColor()); NO FLASHING IT BREAKS THE GAME
+        flash(state.getFlashColor().cpy());
     }
 
-    private abstract class StanceState {
-
-        public abstract void use(AbstractPlayer p, AbstractMonster m);
-
-        public abstract String getCardTextureString();
-
-        public abstract Color getFlashColor();
-
-    }
-
-    private class BasicState extends StanceState {
-
-        @Override
-        public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractStanceCard.this.useBasic(p, m);
-        }
-
-        @Override
-        public String getCardTextureString() {
-            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type);
-        }
-
-        @Override
-        public Color getFlashColor() {
-            return Color.WHITE;
-        }
-
-    }
-
-    private class WindState extends StanceState {
-
-        @Override
-        public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractStanceCard.this.useWind(p, m);
-            AbstractStanceCard.this.conduit(p);
-        }
-
-        @Override
-        public String getCardTextureString() {
-            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type).replace("cards/", "cards/wind/");
-        }
-
-        @Override
-        public Color getFlashColor() {
-            return Color.GREEN;
-        }
-    }
-
-    private class LightningState extends StanceState {
-
-        @Override
-        public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractStanceCard.this.useLightning(p, m);
-            AbstractStanceCard.this.conduit(p);
-        }
-
-        @Override
-        public String getCardTextureString() {
-            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type).replace("cards/", "cards/lightning/");
-        }
-
-        @Override
-        public Color getFlashColor() {
-            return Color.BLUE;
-        }
+    public Texture getBackgroundOverlayTexture() {
+        if (state != null)
+            return state.getBackgroundOverlayTexture();
+        return null;
     }
 
     @Override
@@ -128,14 +67,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
-    }
-
-    protected String getWindTextureString() {
-        return getCardTextureString(this.name, this.type).replace("cards/", "cards/Wind");
-    }
-
-    protected String getLightningTextureString() {
-        return getCardTextureString(this.name, this.type).replace("cards/", "cards/Lightning");
     }
 
     protected void conduit(AbstractPlayer p) {
@@ -171,9 +102,119 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     protected void setDescription(String description) {
         rawDescription = description;
         if (baseConduit > 0) {
-            rawDescription += " Conduit !" + Blademaster.modID + ":cn!.";
+            rawDescription += " " + Blademaster.modID + ":Conduit !" + Blademaster.modID + ":cn!.";
         }
         initializeDescription();
+    }
+
+    private abstract class StanceState {
+
+        public abstract void use(AbstractPlayer p, AbstractMonster m);
+
+        public abstract String getCardTextureString();
+
+        public abstract Color getFlashColor();
+
+        public abstract Texture getBackgroundOverlayTexture();
+
+    }
+
+    private class BasicState extends StanceState {
+
+        @Override
+        public void use(AbstractPlayer p, AbstractMonster m) {
+            AbstractStanceCard.this.useBasic(p, m);
+        }
+
+        @Override
+        public String getCardTextureString() {
+            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type);
+        }
+
+        @Override
+        public Color getFlashColor() {
+            return Color.WHITE;
+        }
+
+        @Override
+        public Texture getBackgroundOverlayTexture() {
+            return null;
+        }
+
+    }
+
+    private class WindState extends StanceState {
+
+        @Override
+        public void use(AbstractPlayer p, AbstractMonster m) {
+            AbstractStanceCard.this.useWind(p, m);
+            AbstractStanceCard.this.conduit(p);
+        }
+
+        @Override
+        public String getCardTextureString() {
+            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type).replace("cards/", "cards/wind/");
+        }
+
+        @Override
+        public Color getFlashColor() {
+            return Color.GREEN;
+        }
+
+        @Override
+        public Texture getBackgroundOverlayTexture() {
+            String cardType = "";
+            switch (AbstractStanceCard.this.type) {
+                case ATTACK:
+                    cardType = "Attack";
+                    break;
+                case SKILL:
+                    cardType = "Skill";
+                    break;
+                case POWER:
+                    cardType = "Power";
+                    break;
+            }
+            return TextureLoader.getTexture(Blademaster.modID + "Resources/images/512/Wind" + cardType + "Small.png");
+        }
+
+    }
+
+    private class LightningState extends StanceState {
+
+        @Override
+        public void use(AbstractPlayer p, AbstractMonster m) {
+            AbstractStanceCard.this.useLightning(p, m);
+            AbstractStanceCard.this.conduit(p);
+        }
+
+        @Override
+        public String getCardTextureString() {
+            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type).replace("cards/", "cards/lightning/");
+        }
+
+        @Override
+        public Color getFlashColor() {
+            return Color.BLUE;
+        }
+
+        @Override
+        public Texture getBackgroundOverlayTexture() {
+            String cardType = "";
+            switch (AbstractStanceCard.this.type) {
+                case ATTACK:
+                    cardType = "Attack";
+                    break;
+                case SKILL:
+                    cardType = "Skill";
+                    break;
+                case POWER:
+                    cardType = "Power";
+                    break;
+            }
+            return TextureLoader.getTexture(Blademaster.modID + "Resources/images/512/Lightning" + cardType + "Small.png");
+        }
+
     }
 
 }
