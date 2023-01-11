@@ -2,12 +2,12 @@ package code.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
-import code.cards.*;
+import code.cards.Defend;
+import code.cards.Strike;
+import code.relics.TodoItem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -20,13 +20,11 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import code.cards.Defend;
-import code.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static code.characters.BlademasterCharacter.Enums.BLADEMASTER_COLOR;
 import static code.Blademaster.*;
+import static code.characters.BlademasterCharacter.Enums.BLADEMASTER_COLOR;
 
 public class BlademasterCharacter extends CustomPlayer {
 

@@ -1,5 +1,7 @@
 package code.cards;
 
+import code.powers.stances.LightningStance;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -22,6 +24,7 @@ public class Defend extends AbstractBlademasterCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         block(block);
+        addToBot(new ApplyPowerAction(p, p, new LightningStance(p)));
     }
 
     public void onUpgrade() {

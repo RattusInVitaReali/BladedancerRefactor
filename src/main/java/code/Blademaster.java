@@ -4,7 +4,12 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import code.cards.AbstractBlademasterCard;
+import code.cards.cardvars.ConduitNumber;
+import code.cards.cardvars.SecondDamage;
+import code.cards.cardvars.SecondMagicNumber;
 import code.characters.BlademasterCharacter;
+import code.relics.AbstractEasyRelic;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -17,10 +22,6 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import code.cards.AbstractBlademasterCard;
-import code.cards.cardvars.SecondDamage;
-import code.cards.cardvars.SecondMagicNumber;
-import code.relics.AbstractEasyRelic;
 
 import java.nio.charset.StandardCharsets;
 
@@ -70,6 +71,12 @@ public class Blademaster implements
             }
         }
         return "eng";
+    }
+
+    public enum BlademasterStance {
+        BASIC,
+        WIND,
+        LIGHTNING
     }
 
     public Blademaster() {
@@ -132,6 +139,7 @@ public class Blademaster implements
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new SecondMagicNumber());
         BaseMod.addDynamicVariable(new SecondDamage());
+        BaseMod.addDynamicVariable(new ConduitNumber());
         new AutoAdd(modID)
                 .packageFilter(AbstractBlademasterCard.class)
                 .setDefaultSeen(true)

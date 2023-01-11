@@ -1,15 +1,17 @@
 package code.powers;
 
 import code.Blademaster;
+import code.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import code.util.TextureLoader;
 
 public abstract class AbstractBlademasterPower extends AbstractPower {
     public int amount2 = -1;
@@ -18,17 +20,20 @@ public abstract class AbstractBlademasterPower extends AbstractPower {
     public static Color greenColor2 = Color.GREEN.cpy();
     public boolean canGoNegative2 = false;
 
+    protected final PowerStrings powerStrings;
 
-    public AbstractBlademasterPower(String ID, String NAME, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
+    public AbstractBlademasterPower(String ID, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
         this.ID = ID;
         this.isTurnBased = isTurnBased;
-        this.name = NAME;
         this.owner = owner;
         this.amount = amount;
         this.type = powerType;
 
-        Texture normalTexture = TextureLoader.getTexture(Blademaster.modID + "Resources/images/powers/" + ID.replaceAll(Blademaster.modID + ":", "") + "32.png");
-        Texture hiDefImage = TextureLoader.getTexture(Blademaster.modID + "Resources/images/powers/" + ID.replaceAll(Blademaster.modID + ":", "") + "84.png");
+        this.powerStrings = CardCrawlGame.languagePack.getPowerStrings(ID);
+        this.name = powerStrings.NAME;
+
+        Texture normalTexture = TextureLoader.getTexture(Blademaster.modID + "Resources/images/powers/" + ID.replaceAll(Blademaster.modID + ":", "") + "Small.png");
+        Texture hiDefImage = TextureLoader.getTexture(Blademaster.modID + "Resources/images/powers/" + ID.replaceAll(Blademaster.modID + ":", "") + ".png");
         if (hiDefImage != null) {
             region128 = new TextureAtlas.AtlasRegion(hiDefImage, 0, 0, hiDefImage.getWidth(), hiDefImage.getHeight());
             if (normalTexture != null)
@@ -41,6 +46,7 @@ public abstract class AbstractBlademasterPower extends AbstractPower {
         updateDescription();
     }
 
+    @Override
     public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
         super.renderAmount(sb, x, y, c);
         if (!isTwoAmount)
@@ -58,4 +64,10 @@ public abstract class AbstractBlademasterPower extends AbstractPower {
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount2), x, y + 15.0F * Settings.scale, fontScale, c);
         }
     }
+
+    @Override
+    public void updateDescription() {
+        description = powerStrings.DESCRIPTIONS[0];
+    }
+
 }

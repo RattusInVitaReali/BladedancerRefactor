@@ -1,6 +1,7 @@
 package code.cards;
 
 import basemod.abstracts.CustomCard;
+import code.characters.BlademasterCharacter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,7 +14,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.characters.BlademasterCharacter;
 
 import static code.Blademaster.makeImagePath;
 import static code.Blademaster.modID;
@@ -32,8 +32,6 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public boolean upgradedSecondDamage;
     public boolean isSecondDamageModified;
 
-    private boolean needsArtRefresh = false;
-
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
     }
@@ -42,7 +40,7 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
-        rawDescription = cardStrings.DESCRIPTION;
+        setDescription(cardStrings.DESCRIPTION);
         name = originalName = cardStrings.NAME;
         initializeTitle();
         initializeDescription();
@@ -136,8 +134,12 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         upgradedSecondDamage = true;
     }
 
+    protected void setDescription(String description) {
+        rawDescription = description;
+    }
+
     protected void setUpgradeDescription() {
-        rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        setDescription(cardStrings.UPGRADE_DESCRIPTION);
         initializeDescription();
     }
 

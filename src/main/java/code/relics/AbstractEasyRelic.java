@@ -1,9 +1,9 @@
 package code.relics;
 
 import basemod.abstracts.CustomRelic;
+import code.util.TextureLoader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import code.util.TextureLoader;
 
 import static code.Blademaster.makeRelicPath;
 import static code.Blademaster.modID;

@@ -1,10 +1,29 @@
 {
-  "${ModID}:ExampleTwoAmountPower": {
-    "NAME": "Example 2",
+  "${ModID}:WindStance": {
+    "NAME": "Wind Stance",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
-      " #yStrength and #b",
-      " #yDexterity."
+      "You are in #yWind #yStance."
+    ]
+  },
+
+  "${ModID}:LightningStance": {
+    "NAME": "Lighting Stance",
+    "DESCRIPTIONS": [
+      "You are in #yLighting #yStance."
+    ]
+  },
+
+  "${ModID}:WindCharge": {
+    "NAME": "Wind Charges",
+    "DESCRIPTIONS": [
+      "#yWind #yStance #yCharges. Used for #yWind #yStance cards."
+    ]
+  },
+
+  "${ModID}:LightningCharge": {
+    "NAME": "Lightning Charges",
+    "DESCRIPTIONS": [
+      "#Lightning #yStance #yCharges. Used for #Lightning #yStance cards."
     ]
   }
 }
