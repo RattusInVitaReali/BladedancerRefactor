@@ -14,13 +14,12 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractBlademasterPower extends AbstractPower {
-    public int amount2 = -1;
-    public boolean isTwoAmount = false;
     public static Color redColor2 = Color.RED.cpy();
     public static Color greenColor2 = Color.GREEN.cpy();
-    public boolean canGoNegative2 = false;
-
     protected final PowerStrings powerStrings;
+    public int amount2 = -1;
+    public boolean isTwoAmount = false;
+    public boolean canGoNegative2 = false;
 
     public AbstractBlademasterPower(String ID, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
         this.ID = ID;

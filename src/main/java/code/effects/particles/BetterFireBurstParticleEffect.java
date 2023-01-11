@@ -17,12 +17,12 @@ public class BetterFireBurstParticleEffect extends AbstractGameEffect {
         GRAVITY = 180.0F * Settings.scale;
     }
 
-    private AtlasRegion img;
+    private final AtlasRegion img;
     private float x;
     private float y;
     private float vX;
     private float vY;
-    private float floor;
+    private final float floor;
 
     public BetterFireBurstParticleEffect(float x, float y, Color color) {
         int roll = MathUtils.random(0, 2);
@@ -46,6 +46,7 @@ public class BetterFireBurstParticleEffect extends AbstractGameEffect {
         this.floor = MathUtils.random(100.0F, 250.0F) * Settings.scale;
     }
 
+    @Override
     public void update() {
         this.vY += GRAVITY / this.scale * Gdx.graphics.getDeltaTime();
         this.x += this.vX * Gdx.graphics.getDeltaTime() * MathUtils.sinDeg(Gdx.graphics.getDeltaTime());
@@ -73,6 +74,7 @@ public class BetterFireBurstParticleEffect extends AbstractGameEffect {
 
     }
 
+    @Override
     public void render(SpriteBatch sb) {
         sb.setBlendFunction(770, 1);
         sb.setColor(this.color);
@@ -80,6 +82,7 @@ public class BetterFireBurstParticleEffect extends AbstractGameEffect {
         sb.setBlendFunction(770, 771);
     }
 
+    @Override
     public void dispose() {
     }
 }

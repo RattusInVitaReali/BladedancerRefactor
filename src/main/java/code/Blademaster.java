@@ -12,7 +12,6 @@ import code.characters.BlademasterCharacter;
 import code.relics.AbstractEasyRelic;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -35,16 +34,11 @@ public class Blademaster implements
         EditCharactersSubscriber {
 
     public static final String modID = "blademaster";
-
-    public static String makeID(String idText) {
-        return modID + ":" + idText;
-    }
-
-    public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
-
     public static final String SHOULDER1 = modID + "Resources/images/characters/blademaster/shoulder.png";
     public static final String SHOULDER2 = modID + "Resources/images/characters/blademaster/shoulder2.png";
     public static final String CORPSE = modID + "Resources/images/characters/blademaster/corpse.png";
+    public static final String BLADEMASTER_SKELETON_ATLAS = modID + "Resources/images/characters/blademaster/skeleton.atlas";
+    public static final String BLADEMASTER_SKELETON_JSON = modID + "Resources/images/characters/blademaster/skeleton.json";
     private static final String ATTACK_S_ART = modID + "Resources/images/512/attack.png";
     private static final String SKILL_S_ART = modID + "Resources/images/512/skill.png";
     private static final String POWER_S_ART = modID + "Resources/images/512/power.png";
@@ -56,28 +50,10 @@ public class Blademaster implements
     private static final String CARD_ENERGY_L = modID + "Resources/images/1024/energy.png";
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/characterSelect/blademaster/characterButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/characterSelect/blademaster/background.png";
-
-    public static final String BLADEMASTER_SKELETON_ATLAS = modID + "Resources/images/characters/blademaster/skeleton.atlas";
-    public static final String BLADEMASTER_SKELETON_JSON = modID + "Resources/images/characters/blademaster/skeleton.json";
-
+    public static Color characterColor = new Color(.35f, .4f, .43f, 1); // This should be changed eventually
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
     };
-
-    private String getLangString() {
-        for (Settings.GameLanguage lang : SupportedLanguages) {
-            if (lang.equals(Settings.language)) {
-                return Settings.language.name().toLowerCase();
-            }
-        }
-        return "eng";
-    }
-
-    public enum BlademasterStance {
-        BASIC,
-        WIND,
-        LIGHTNING
-    }
 
     public Blademaster() {
         BaseMod.subscribe(this);
@@ -87,6 +63,10 @@ public class Blademaster implements
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
+    }
+
+    public static String makeID(String idText) {
+        return modID + ":" + idText;
     }
 
     public static String makePath(String resourcePath) {
@@ -110,7 +90,16 @@ public class Blademaster implements
     }
 
     public static void initialize() {
-        Blademaster thismod = new Blademaster();
+        Blademaster thisMod = new Blademaster();
+    }
+
+    private String getLangString() {
+        for (Settings.GameLanguage lang : SupportedLanguages) {
+            if (lang.equals(Settings.language)) {
+                return Settings.language.name().toLowerCase();
+            }
+        }
+        return "eng";
     }
 
     @Override
@@ -146,7 +135,6 @@ public class Blademaster implements
                 .cards();
     }
 
-
     @Override
     public void receiveEditStrings() {
         BaseMod.loadCustomStringsFile(CardStrings.class, modID + "Resources/localization/" + getLangString() + "/Cardstrings.json");
@@ -169,5 +157,11 @@ public class Blademaster implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    public enum BlademasterStance {
+        BASIC,
+        WIND,
+        LIGHTNING
     }
 }

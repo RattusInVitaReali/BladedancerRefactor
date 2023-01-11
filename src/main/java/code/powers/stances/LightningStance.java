@@ -9,12 +9,11 @@ import static code.Blademaster.makeID;
 public class LightningStance extends AbstractStancePower {
 
     public static final String POWER_ID = makeID("LightningStance");
+    static Color particleColor = new Color(.3f, 1f, 1f, 1f);
 
     public LightningStance(AbstractCreature owner) {
         super(POWER_ID, TYPE, TURN_BASED, owner, -1);
     }
-
-    static Color particleColor = new Color(.3f, 1f, 1f, 1f);
 
     @Override
     public AbstractPower getChargePower(AbstractCreature owner, int amount) {

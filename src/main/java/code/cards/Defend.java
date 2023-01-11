@@ -22,11 +22,13 @@ public class Defend extends AbstractBlademasterCard {
         baseBlock = BLOCK;
     }
 
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         block(block);
         addToBot(new ApplyPowerAction(p, p, new LightningStance(p)));
     }
 
+    @Override
     public void onUpgrade() {
         upgradeBlock(UPGRADE_BLOCK);
     }

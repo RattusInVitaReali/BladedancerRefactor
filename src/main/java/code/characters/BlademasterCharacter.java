@@ -32,7 +32,18 @@ public class BlademasterCharacter extends CustomPlayer {
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     public static final String[] NAMES = characterStrings.NAMES;
     public static final String[] TEXT = characterStrings.TEXT;
-
+    private static final String[] orbTextures = {
+            modID + "Resources/images/char/mainChar/orb/layer1.png",
+            modID + "Resources/images/char/mainChar/orb/layer2.png",
+            modID + "Resources/images/char/mainChar/orb/layer3.png",
+            modID + "Resources/images/char/mainChar/orb/layer4.png",
+            modID + "Resources/images/char/mainChar/orb/layer5.png",
+            modID + "Resources/images/char/mainChar/orb/layer6.png",
+            modID + "Resources/images/char/mainChar/orb/layer1d.png",
+            modID + "Resources/images/char/mainChar/orb/layer2d.png",
+            modID + "Resources/images/char/mainChar/orb/layer3d.png",
+            modID + "Resources/images/char/mainChar/orb/layer4d.png",
+            modID + "Resources/images/char/mainChar/orb/layer5d.png",};
 
     public BlademasterCharacter(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), null, null);
@@ -72,6 +83,7 @@ public class BlademasterCharacter extends CustomPlayer {
         return retVal;
     }
 
+    @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(TodoItem.ID);
@@ -84,19 +96,6 @@ public class BlademasterCharacter extends CustomPlayer {
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false);
     }
-
-    private static final String[] orbTextures = {
-            modID + "Resources/images/char/mainChar/orb/layer1.png",
-            modID + "Resources/images/char/mainChar/orb/layer2.png",
-            modID + "Resources/images/char/mainChar/orb/layer3.png",
-            modID + "Resources/images/char/mainChar/orb/layer4.png",
-            modID + "Resources/images/char/mainChar/orb/layer5.png",
-            modID + "Resources/images/char/mainChar/orb/layer6.png",
-            modID + "Resources/images/char/mainChar/orb/layer1d.png",
-            modID + "Resources/images/char/mainChar/orb/layer2d.png",
-            modID + "Resources/images/char/mainChar/orb/layer3d.png",
-            modID + "Resources/images/char/mainChar/orb/layer4d.png",
-            modID + "Resources/images/char/mainChar/orb/layer5d.png",};
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {

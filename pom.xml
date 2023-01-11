@@ -7,7 +7,6 @@
     <version>0.0.1</version>
     <name>The Bladedancer [Refactor]</name>
     <description>Bladed Ancer.</description>
-    <!-- Change the above for mod information. -->
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -16,12 +15,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
-
-        <!-- CHANGE THIS TO MATCH YOUR MODID FIELD IN THE MAIN TodoMod CLASS FILE -->
         <ModID>blademaster</ModID>
-        <!-- CHANGE THIS TO MATCH YOUR MODID FIELD IN THE MAIN TodoMod CLASS FILE -->
-
-        <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>D:/Steam/steamapps/</Steam.path>
 
     </properties>

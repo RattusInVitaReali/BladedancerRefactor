@@ -29,6 +29,7 @@ public class ConduitNumber extends DynamicVariable {
         return -1;
     }
 
+    @Override
     public void setIsModified(AbstractCard card, boolean v) {
         if (card instanceof AbstractStanceCard) {
             ((AbstractStanceCard) card).isConduitModified = v;

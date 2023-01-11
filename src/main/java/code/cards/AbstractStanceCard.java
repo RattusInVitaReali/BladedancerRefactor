@@ -21,6 +21,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
     }
 
+    @Override
     public final void use(AbstractPlayer p, AbstractMonster m) {
         if (BlademasterUtil.getPlayerStance() instanceof WindStance) {
             useWind(p, m);
@@ -48,17 +49,19 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
     }
 
+    @Override
     public void resetAttributes() {
         super.resetAttributes();
         conduit = baseConduit;
         isConduitModified = false;
     }
 
+    @Override
     public void displayUpgrades() {
         super.displayUpgrades();
         if (upgradedConduit) {
             conduit = baseConduit;
-            isConduitModified= true;
+            isConduitModified = true;
         }
     }
 
@@ -68,6 +71,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         upgradedConduit = true;
     }
 
+    @Override
     protected void setDescription(String description) {
         rawDescription = description;
         if (baseConduit > 0) {

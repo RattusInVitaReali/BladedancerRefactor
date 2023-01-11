@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class RepeatCardAction extends AbstractGameAction {
-    private AbstractCard funCard;
+    private final AbstractCard funCard;
 
     public RepeatCardAction(AbstractMonster target, AbstractCard card) {
         this.duration = Settings.ACTION_DUR_FAST;
@@ -22,6 +22,7 @@ public class RepeatCardAction extends AbstractGameAction {
         this(null, card);
     }
 
+    @Override
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             isDone = true;

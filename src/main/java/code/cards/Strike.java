@@ -1,8 +1,6 @@
 package code.cards;
 
-import code.powers.stances.WindStance;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -34,6 +32,8 @@ public class Strike extends AbstractStanceCard {
         damageMonster(m, damage, AttackEffect.SLASH_DIAGONAL);
     }
 
+
+    @Override
     public void onUpgrade() {
         upgradeDamage(UPGRADE_DAMAGE);
         upgradeConduit(UPGRADE_CONDUIT);

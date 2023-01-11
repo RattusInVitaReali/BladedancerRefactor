@@ -27,6 +27,7 @@ public abstract class AbstractStancePower extends AbstractBlademasterPower {
 
     protected abstract Color getParticleColor();
 
+    @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.getClass() == this.getClass()) {
             return;

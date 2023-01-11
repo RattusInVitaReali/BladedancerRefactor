@@ -21,6 +21,7 @@ public class SecondDamage extends DynamicVariable {
         return false;
     }
 
+    @Override
     public void setIsModified(AbstractCard card, boolean v) {
         if (card instanceof AbstractBlademasterCard) {
             ((AbstractBlademasterCard) card).isSecondDamageModified = v;

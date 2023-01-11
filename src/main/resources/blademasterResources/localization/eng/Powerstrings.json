@@ -5,25 +5,22 @@
       "You are in #yWind #yStance."
     ]
   },
-
   "${ModID}:LightningStance": {
     "NAME": "Lighting Stance",
     "DESCRIPTIONS": [
       "You are in #yLighting #yStance."
     ]
   },
-
   "${ModID}:WindCharge": {
     "NAME": "Wind Charges",
     "DESCRIPTIONS": [
       "#yWind #yStance #yCharges. Used for #yWind #yStance cards."
     ]
   },
-
   "${ModID}:LightningCharge": {
     "NAME": "Lightning Charges",
     "DESCRIPTIONS": [
-      "#Lightning #yStance #yCharges. Used for #Lightning #yStance cards."
+      "#yLightning #yStance #yCharges. Used for #yLightning #yStance cards."
     ]
   }
 }

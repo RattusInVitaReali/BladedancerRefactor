@@ -12,7 +12,7 @@ import java.util.HashMap;
 import static code.Blademaster.makeImagePath;
 
 public class TextureLoader {
-    private static HashMap<String, Texture> textures = new HashMap<>();
+    private static final HashMap<String, Texture> textures = new HashMap<>();
 
     /**
      * @param textureString - String path to the texture you want to load relative to resources,

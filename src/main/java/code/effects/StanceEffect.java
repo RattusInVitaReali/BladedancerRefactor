@@ -11,13 +11,13 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 public class StanceEffect extends AbstractGameEffect {
+    private final float durDiv2;
+    private final float dvy;
+    private final float dvx;
     private float x;
     private float y;
     private float vX;
     private float vY;
-    private final float durDiv2;
-    private final float dvy;
-    private final float dvx;
 
     public StanceEffect(Color color) {
         this.duration = MathUtils.random(0.6F, 1.0F);
@@ -33,6 +33,7 @@ public class StanceEffect extends AbstractGameEffect {
         this.dvy = 100.0F * Settings.scale;
     }
 
+    @Override
     public void update() {
         this.x += this.vX * Gdx.graphics.getDeltaTime();
         this.y += this.vY * Gdx.graphics.getDeltaTime();
@@ -52,6 +53,7 @@ public class StanceEffect extends AbstractGameEffect {
 
     }
 
+    @Override
     public void render(SpriteBatch sb) {
         sb.setColor(this.color);
         sb.setBlendFunction(770, 1);
@@ -59,6 +61,7 @@ public class StanceEffect extends AbstractGameEffect {
         sb.setBlendFunction(770, 771);
     }
 
+    @Override
     public void dispose() {
     }
 }

@@ -101,6 +101,7 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         } else super.calculateCardDamage(mo);
     }
 
+    @Override
     public void resetAttributes() {
         super.resetAttributes();
         secondMagic = baseSecondMagic;
@@ -109,6 +110,7 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         isSecondDamageModified = false;
     }
 
+    @Override
     public void displayUpgrades() {
         super.displayUpgrades();
         if (upgradedSecondMagic) {
@@ -142,6 +144,7 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         setDescription(cardStrings.UPGRADE_DESCRIPTION);
     }
 
+    @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();

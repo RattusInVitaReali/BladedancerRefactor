@@ -1,10 +1,10 @@
 [
   {
-    "PROPER_NAME": "TODO",
+    "PROPER_NAME": "Stance",
     "NAMES": [
-      "todo",
-      "todos"
+      "stance",
+      "stances"
     ],
-    "DESCRIPTION": "TODO: Make your own epic keywords"
+    "DESCRIPTION": "A #yStance which modifies how certain cards function."
   }
 ]

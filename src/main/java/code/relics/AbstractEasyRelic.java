@@ -21,6 +21,7 @@ public abstract class AbstractEasyRelic extends CustomRelic {
         this.color = color;
     }
 
+    @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];
     }
