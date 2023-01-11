@@ -114,7 +114,7 @@ public class BlademasterCharacter extends CustomPlayer {
 
     @Override
     public Color getCardTrailColor() {
-        return characterColor.cpy();
+        return blademasterColor.cpy();
     }
 
     @Override
@@ -145,12 +145,12 @@ public class BlademasterCharacter extends CustomPlayer {
 
     @Override
     public Color getCardRenderColor() {
-        return characterColor.cpy();
+        return blademasterColor.cpy();
     }
 
     @Override
     public Color getSlashAttackColor() {
-        return characterColor.cpy();
+        return blademasterColor.cpy();
     }
 
     @Override

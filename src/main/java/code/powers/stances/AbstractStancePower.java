@@ -1,5 +1,6 @@
 package code.powers.stances;
 
+import code.Blademaster;
 import code.effects.StanceEffect;
 import code.effects.particles.BetterFireBurstParticleEffect;
 import code.powers.AbstractBlademasterPower;
@@ -24,6 +25,8 @@ public abstract class AbstractStancePower extends AbstractBlademasterPower {
     }
 
     public abstract AbstractPower getChargePower(AbstractCreature owner, int amount);
+
+    public abstract Blademaster.BlademasterStance getStance();
 
     protected abstract Color getParticleColor();
 

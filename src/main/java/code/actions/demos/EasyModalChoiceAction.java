@@ -1,4 +1,4 @@
-package code.actions;
+package code.actions.demos;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsCenteredAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

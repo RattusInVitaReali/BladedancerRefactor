@@ -50,7 +50,7 @@ public class Blademaster implements
     private static final String CARD_ENERGY_L = modID + "Resources/images/1024/energy.png";
     private static final String CHARSELECT_BUTTON = modID + "Resources/images/characterSelect/blademaster/characterButton.png";
     private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/characterSelect/blademaster/background.png";
-    public static Color characterColor = new Color(.35f, .4f, .43f, 1); // This should be changed eventually
+    public static Color blademasterColor = new Color(.27f, .4f, .4f, 1);
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
     };
@@ -58,8 +58,8 @@ public class Blademaster implements
     public Blademaster() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(BlademasterCharacter.Enums.BLADEMASTER_COLOR, characterColor, characterColor, characterColor,
-                characterColor, characterColor, characterColor, characterColor,
+        BaseMod.addColor(BlademasterCharacter.Enums.BLADEMASTER_COLOR, blademasterColor, blademasterColor, blademasterColor,
+                blademasterColor, blademasterColor, blademasterColor, blademasterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
                 CARD_ENERGY_L, TEXT_ENERGY);
