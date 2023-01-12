@@ -9,7 +9,7 @@ import static code.Blademaster.makeID;
 
 public class LightningStancePower extends AbstractStancePower {
 
-    public static final String POWER_ID = makeID("LightningStancePower");
+    public static final String POWER_ID = makeID("LightningStance");
     private final static Color particleColor = new Color(.3f, 1f, 1f, 1f);
 
     public LightningStancePower(AbstractCreature owner) {

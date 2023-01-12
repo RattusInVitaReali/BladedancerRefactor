@@ -7,7 +7,6 @@
     ],
     "DESCRIPTION": "A #yStance which modifies how certain cards function."
   },
-
   {
     "PROPER_NAME": "Conduit",
     "NAMES": [
@@ -15,7 +14,6 @@
     ],
     "DESCRIPTION": "If you're in a #yStance, gain #yCharges."
   },
-
   {
     "PROPER_NAME": "Charge",
     "NAMES": [

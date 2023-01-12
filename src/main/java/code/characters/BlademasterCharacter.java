@@ -5,12 +5,15 @@ import basemod.abstracts.CustomPlayer;
 import code.actions.BasicStanceAction;
 import code.cards.Defend;
 import code.cards.Strike;
+import code.powers.ComboPower;
+import code.powers.FuryPower;
 import code.relics.TodoItem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,6 +25,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 
 import java.util.ArrayList;
 
@@ -177,6 +181,8 @@ public class BlademasterCharacter extends CustomPlayer {
     public void preBattlePrep() {
         super.preBattlePrep();
         AbstractDungeon.actionManager.addToBottom(new BasicStanceAction());
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ComboPower(this, 0)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FuryPower(this, 0)));
     }
 
     public static class Enums {

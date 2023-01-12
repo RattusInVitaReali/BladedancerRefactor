@@ -1,13 +1,10 @@
 package code.patches;
 
 import basemod.ReflectionHacks;
-import basemod.patches.com.megacrit.cardcrawl.screens.SingleCardViewPopup.BackgroundFix;
 import code.cards.AbstractStanceCard;
-import code.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
@@ -17,7 +14,6 @@ import java.lang.reflect.Method;
 public class CardRenderPatch {
 
     private static Method cardRenderHelperMethod;
-    private static Method screenRenderHelperMethod;
     private static boolean renderReflectFailureNotified = false;
     private static boolean renderActualFailureNotified = false;
 
@@ -45,7 +41,7 @@ public class CardRenderPatch {
                 Texture texture = ((AbstractStanceCard) __card_instance).getBackgroundOverlayTexture();
                 if (texture != null) {
                     try {
-                        Color reflectedColor = (Color) ReflectionHacks.getPrivate(__card_instance, AbstractCard.class, "renderColor");
+                        Color reflectedColor = ReflectionHacks.getPrivate(__card_instance, AbstractCard.class, "renderColor");
                         cardRenderHelperMethod.setAccessible(true);
                         cardRenderHelperMethod.invoke(__card_instance, sb, reflectedColor, texture, x - 512, y - 512);
                     } catch (IllegalAccessException | InvocationTargetException e) {

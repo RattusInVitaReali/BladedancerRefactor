@@ -1,11 +1,11 @@
 {
-  "${ModID}:WindStancePower": {
+  "${ModID}:WindStance": {
     "NAME": "Wind Stance",
     "DESCRIPTIONS": [
       "You are in #yWind #yStance."
     ]
   },
-  "${ModID}:LightningStancePower": {
+  "${ModID}:LightningStance": {
     "NAME": "Lighting Stance",
     "DESCRIPTIONS": [
       "You are in #yLighting #yStance."
@@ -21,6 +21,20 @@
     "NAME": "Lightning Charges",
     "DESCRIPTIONS": [
       "#yLightning #yStance #yCharges. Used for #yLightning #yStance cards."
+    ]
+  },
+  "${ModID}:Combo": {
+    "NAME": "Combo",
+    "DESCRIPTIONS": [
+      "Resource used for playing #bFinishers. Combo is reset to 0 at the end of your turn. NL You currently have #b",
+      " Combo. Gain more by playing cards!"
+    ]
+  },
+  "${ModID}:Fury": {
+    "NAME": "Fury",
+    "DESCRIPTIONS": [
+      "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
+      " Fury. Gain more by dealing damage!"
     ]
   }
 }

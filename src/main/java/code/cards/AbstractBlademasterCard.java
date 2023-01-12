@@ -2,6 +2,7 @@ package code.cards;
 
 import basemod.abstracts.CustomCard;
 import code.characters.BlademasterCharacter;
+import code.patches.BlademasterTags;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -10,13 +11,13 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static code.Blademaster.makeImagePath;
-import static code.Blademaster.modID;
+import static code.Blademaster.*;
 
 public abstract class AbstractBlademasterCard extends CustomCard {
 
@@ -34,6 +35,9 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
+        if (furyReq() + comboReq() > 0) {
+            tags.add(BlademasterTags.FINISHER);
+        }
     }
 
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
@@ -153,6 +157,33 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     }
 
     public abstract void onUpgrade();
+
+    protected int furyReq() {
+        return 0;
+    }
+
+    protected int comboReq() {
+        return 0;
+    }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (!super.canUse(p, m))
+            return false;
+        if (AbstractDungeon.player.hasPower(makeID("Fury"))) {
+            if (AbstractDungeon.player.getPower(makeID("Fury")).amount < furyReq()) {
+                cantUseMessage = "I'm not angry enough!";
+                return false;
+            }
+        }
+        if (AbstractDungeon.player.hasPower(makeID("Combo"))) {
+            if (AbstractDungeon.player.getPower(makeID("Combo")).amount < comboReq()) {
+                cantUseMessage = "I'm not.. comboing? enough!";
+                return false;
+            }
+        }
+        return true;
+    }
 
     protected void damageMonster(AbstractMonster m, int amount, AbstractGameAction.AttackEffect fx) {
         addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, amount, damageTypeForTurn), fx));

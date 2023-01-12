@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import static code.Blademaster.modID;
+
 public abstract class AbstractBlademasterPower extends AbstractPower {
     public static Color redColor2 = Color.RED.cpy();
     public static Color greenColor2 = Color.GREEN.cpy();
@@ -31,8 +33,8 @@ public abstract class AbstractBlademasterPower extends AbstractPower {
         this.powerStrings = CardCrawlGame.languagePack.getPowerStrings(ID);
         this.name = powerStrings.NAME;
 
-        Texture normalTexture = TextureLoader.getTexture(Blademaster.modID + "Resources/images/powers/" + ID.replaceAll(Blademaster.modID + ":", "") + "Small.png");
-        Texture hiDefImage = TextureLoader.getTexture(Blademaster.modID + "Resources/images/powers/" + ID.replaceAll(Blademaster.modID + ":", "") + ".png");
+        Texture normalTexture = TextureLoader.getTexture(modID + "Resources/images/powers/" + this.ID.replace(modID + ":", "") + "Small.png");
+        Texture hiDefImage = TextureLoader.getTexture(modID + "Resources/images/powers/" + this.ID.replace(modID + ":", "") + ".png");
         if (hiDefImage != null) {
             region128 = new TextureAtlas.AtlasRegion(hiDefImage, 0, 0, hiDefImage.getWidth(), hiDefImage.getHeight());
             if (normalTexture != null)

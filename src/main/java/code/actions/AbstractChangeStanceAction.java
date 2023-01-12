@@ -19,13 +19,12 @@ public abstract class AbstractChangeStanceAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (BlademasterUtil.getPlayerStance() == stance) {
+        if (BlademasterUtil.getPlayerStance() == stance && BlademasterUtil.getPlayerStancePower() != null) {
             isDone = true;
             return;
         }
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new ApplyPowerAction(p, p, getStancePower(p)));
-        addToBot(new UpdateCardStancesAction());
         isDone = true;
     }
 

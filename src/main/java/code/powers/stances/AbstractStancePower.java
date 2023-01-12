@@ -1,6 +1,7 @@
 package code.powers.stances;
 
 import code.Blademaster;
+import code.actions.UpdateCardStancesAction;
 import code.effects.StanceEffect;
 import code.effects.particles.BetterFireBurstParticleEffect;
 import code.powers.AbstractBlademasterPower;
@@ -37,6 +38,7 @@ public abstract class AbstractStancePower extends AbstractBlademasterPower {
         }
         if (power instanceof AbstractStancePower) {
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+            addToBot(new UpdateCardStancesAction());
         }
     }
 
@@ -46,13 +48,13 @@ public abstract class AbstractStancePower extends AbstractBlademasterPower {
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer < 0.0F) {
             int xOff = MathUtils.random(-70, 70);
-            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY + 20F, getParticleColor()));
-            AbstractDungeon.effectsQueue.add(new StanceEffect(getParticleColor()));
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY + 20F, getParticleColor().cpy()));
+            AbstractDungeon.effectsQueue.add(new StanceEffect(getParticleColor().cpy()));
             this.particleTimer = 0.06F;
         }
         if (this.particleTimer2 < 0.0F) {
             int xOff = MathUtils.random(-70, 70);
-            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY + 20F, getParticleColor()));
+            AbstractDungeon.effectList.add(new BetterFireBurstParticleEffect(this.owner.drawX + xOff, this.owner.drawY + 20F, getParticleColor().cpy()));
             this.particleTimer2 = 0.06F;
         }
     }
