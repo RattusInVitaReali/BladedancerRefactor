@@ -6,8 +6,6 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import static code.Blademaster.makeID;
 
@@ -22,6 +20,7 @@ public class FuryPower extends AbstractBlademasterPower {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
+    @Override
     public void atStartOfTurn() {
         if (owner != null) {
             amount = 0;

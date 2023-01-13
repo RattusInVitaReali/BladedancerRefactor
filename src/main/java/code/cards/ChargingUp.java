@@ -1,28 +1,27 @@
 package code.cards;
 
-import code.actions.LightningStanceAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
 
-public class Defend extends AbstractStanceCard {
+public class ChargingUp extends AbstractStanceCard {
 
-    public final static String ID = makeID("Defend");
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    public final static String ID = makeID("ChargingUp");
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
-    private static final int BLOCK = 5;
+    private static final int BLOCK = 6;
     private static final int UPGRADE_BLOCK = 3;
-    private static final int CONDUIT = 1;
+    private static final int CONDUIT = 4;
     private static final int UPGRADE_CONDUIT = 2;
 
-    public Defend() {
+    public ChargingUp() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
-        baseConduit = conduit = CONDUIT;
-        updateDescription();
+        conduit = CONDUIT;
+        setDescription(cardStrings.DESCRIPTION);
     }
 
     @Override

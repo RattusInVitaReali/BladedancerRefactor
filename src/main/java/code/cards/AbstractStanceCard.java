@@ -6,14 +6,23 @@ import code.characters.BlademasterCharacter;
 import code.powers.stances.AbstractStancePower;
 import code.util.BlademasterUtil;
 import code.util.TextureLoader;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import static code.Blademaster.modID;
+import static code.util.BlademasterUtil.playerApplyPower;
 
 public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
+    protected final CardStrings cardStringsWind;
+    protected final CardStrings cardStringsLightning;
     private final BasicState BASIC_STATE = new BasicState();
     private final WindState WIND_STATE = new WindState();
     private final LightningState LIGHTNING_STATE = new LightningState();
@@ -25,6 +34,10 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
+        CardStrings windStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":WIND");
+        cardStringsWind = windStrings.NAME.equals("[MISSING]") ? cardStrings : windStrings;
+        CardStrings lightningStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":LIGHTNING");
+        cardStringsLightning = lightningStrings.NAME.equals("[MISSING_TITLE]") ? cardStrings : lightningStrings;
         setStance(BlademasterStance.BASIC);
     }
 
@@ -45,7 +58,10 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
         state = new_state;
         loadCardImage(state.getCardTextureString());
-        flash(state.getFlashColor().cpy());
+        updateDescription();
+        superFlash(state.getFlashColor().cpy());
+        if (AbstractDungeon.isPlayerInDungeon())
+            onStanceChanged(stance);
     }
 
     public Texture getBackgroundOverlayTexture() {
@@ -69,10 +85,14 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         useBasic(p, m);
     }
 
+    public void onStanceChanged(BlademasterStance stance) {
+
+    }
+
     protected void conduit(AbstractPlayer p) {
         AbstractStancePower stance = BlademasterUtil.getPlayerStancePower();
         if (stance != null) {
-            addToBot(new ApplyPowerAction(p, p, stance.getChargePower(p, conduit)));
+            playerApplyPower(p, stance.getChargePower(p, conduit));
         }
     }
 
@@ -98,6 +118,14 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         upgradedConduit = true;
     }
 
+    protected void updateDescription() {
+        if (upgraded) {
+            setDescription(state.getUpgradeDescription());
+        } else {
+            setDescription(state.getDescription());
+        }
+    }
+
     @Override
     protected void setDescription(String description) {
         rawDescription = description;
@@ -106,6 +134,43 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
         initializeDescription();
     }
+
+    protected String getDescription() {
+        return cardStrings.DESCRIPTION;
+    }
+
+    protected String getUpgradeDescription() {
+        if (cardStrings.UPGRADE_DESCRIPTION != null && !cardStrings.UPGRADE_DESCRIPTION.equals(""))
+            return cardStrings.UPGRADE_DESCRIPTION;
+        return cardStrings.DESCRIPTION;
+    }
+
+    protected String getWindDescription() {
+        return cardStringsWind.DESCRIPTION;
+    }
+
+    protected String getWindUpgradeDescription() {
+        if (cardStringsWind.UPGRADE_DESCRIPTION != null && !cardStringsWind.UPGRADE_DESCRIPTION.equals(""))
+            return cardStringsWind.UPGRADE_DESCRIPTION;
+        return cardStringsWind.DESCRIPTION;
+    }
+
+    protected String getLightningDescription() {
+        return cardStringsLightning.DESCRIPTION;
+    }
+
+    protected String getLightningUpgradeDescription() {
+        if (cardStringsLightning.UPGRADE_DESCRIPTION != null && !cardStringsLightning.UPGRADE_DESCRIPTION.equals(""))
+            return cardStringsLightning.UPGRADE_DESCRIPTION;
+        return cardStringsLightning.DESCRIPTION;
+    }
+
+    @Override
+    public void upgrade() {
+        super.upgrade();
+        updateDescription();
+    }
+
 
     private abstract class StanceState {
 
@@ -116,6 +181,10 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         public abstract Color getFlashColor();
 
         public abstract Texture getBackgroundOverlayTexture();
+
+        public abstract String getDescription();
+
+        public abstract String getUpgradeDescription();
 
     }
 
@@ -128,7 +197,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
         @Override
         public String getCardTextureString() {
-            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type);
+            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.cardID.replace(modID + ":", ""), AbstractStanceCard.this.type);
         }
 
         @Override
@@ -139,6 +208,16 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         @Override
         public Texture getBackgroundOverlayTexture() {
             return null;
+        }
+
+        @Override
+        public String getDescription() {
+            return AbstractStanceCard.this.getDescription();
+        }
+
+        @Override
+        public String getUpgradeDescription() {
+            return AbstractStanceCard.this.getUpgradeDescription();
         }
 
     }
@@ -153,7 +232,12 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
         @Override
         public String getCardTextureString() {
-            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type).replace("cards/", "cards/wind/");
+            String textureString = BASIC_STATE.getCardTextureString().replace("cards/", "cards/wind/");
+            FileHandle h = Gdx.files.internal(textureString);
+            if (!h.exists()) {
+                return BASIC_STATE.getCardTextureString();
+            }
+            return textureString;
         }
 
         @Override
@@ -178,6 +262,16 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
             return TextureLoader.getTexture(Blademaster.modID + "Resources/images/512/Wind" + cardType + "Small.png");
         }
 
+        @Override
+        public String getDescription() {
+            return AbstractStanceCard.this.getWindDescription();
+        }
+
+        @Override
+        public String getUpgradeDescription() {
+            return AbstractStanceCard.this.getWindUpgradeDescription();
+        }
+
     }
 
     private class LightningState extends StanceState {
@@ -190,7 +284,12 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
         @Override
         public String getCardTextureString() {
-            return AbstractBlademasterCard.getCardTextureString(AbstractStanceCard.this.name, AbstractStanceCard.this.type).replace("cards/", "cards/lightning/");
+            String textureString = BASIC_STATE.getCardTextureString().replace("cards/", "cards/lightning/");
+            FileHandle h = Gdx.files.internal(textureString);
+            if (!h.exists()) {
+                return BASIC_STATE.getCardTextureString();
+            }
+            return textureString;
         }
 
         @Override
@@ -213,6 +312,16 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
                     break;
             }
             return TextureLoader.getTexture(Blademaster.modID + "Resources/images/512/Lightning" + cardType + "Small.png");
+        }
+
+        @Override
+        public String getDescription() {
+            return AbstractStanceCard.this.getLightningDescription();
+        }
+
+        @Override
+        public String getUpgradeDescription() {
+            return AbstractStanceCard.this.getLightningUpgradeDescription();
         }
 
     }

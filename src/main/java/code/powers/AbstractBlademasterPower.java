@@ -1,6 +1,5 @@
 package code.powers;
 
-import code.Blademaster;
 import code.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;

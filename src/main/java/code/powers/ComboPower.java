@@ -5,9 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import static code.Blademaster.makeID;
 
@@ -17,7 +15,7 @@ public class ComboPower extends AbstractBlademasterPower {
     public static final PowerType TYPE = PowerType.BUFF;
     public static final boolean TURN_BASED = true;
     private boolean canGain = true;
-    
+
     public ComboPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
@@ -49,5 +47,5 @@ public class ComboPower extends AbstractBlademasterPower {
             updateDescription();
         }
     }
-    
+
 }

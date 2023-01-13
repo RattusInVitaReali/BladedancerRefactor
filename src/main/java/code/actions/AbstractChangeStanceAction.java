@@ -3,10 +3,11 @@ package code.actions;
 import code.Blademaster;
 import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import static code.util.BlademasterUtil.playerApplyPower;
 
 public abstract class AbstractChangeStanceAction extends AbstractGameAction {
 
@@ -24,7 +25,7 @@ public abstract class AbstractChangeStanceAction extends AbstractGameAction {
             return;
         }
         AbstractPlayer p = AbstractDungeon.player;
-        addToBot(new ApplyPowerAction(p, p, getStancePower(p)));
+        playerApplyPower(p, getStancePower(p));
         isDone = true;
     }
 

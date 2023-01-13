@@ -1,4 +1,11 @@
 {
+  "${ModID}:BasicStance": {
+    "NAME": "Basic Stance",
+    "DESCRIPTIONS": [
+      "You are in #yBasic #yStance."
+    ]
+  },
+
   "${ModID}:WindStance": {
     "NAME": "Wind Stance",
     "DESCRIPTIONS": [

@@ -35,9 +35,6 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
-        if (furyReq() + comboReq() > 0) {
-            tags.add(BlademasterTags.FINISHER);
-        }
     }
 
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
@@ -46,6 +43,9 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         setDescription(cardStrings.DESCRIPTION);
         name = originalName = cardStrings.NAME;
+        if (furyReq() + comboReq() > 0) {
+            tags.add(BlademasterTags.FINISHER);
+        }
         initializeTitle();
     }
 
