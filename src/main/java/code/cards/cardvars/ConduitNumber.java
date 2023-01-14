@@ -10,7 +10,7 @@ public class ConduitNumber extends DynamicVariable {
 
     @Override
     public String key() {
-        return makeID("cn");
+        return makeID("C");
     }
 
     @Override

@@ -15,7 +15,7 @@ public class DeadlyDance extends AbstractBlademasterCard {
 
     public final static String ID = makeID("DeadlyDance");
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 2;
     private static final int BLOCK = 7;

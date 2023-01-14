@@ -20,7 +20,7 @@ public class ChargingUp extends AbstractStanceCard {
     public ChargingUp() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
-        conduit = CONDUIT;
+        baseConduit = conduit = CONDUIT;
         setDescription(cardStrings.DESCRIPTION);
     }
 

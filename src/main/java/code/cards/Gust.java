@@ -19,6 +19,8 @@ public class Gust extends AbstractBlademasterCard {
     public Gust() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
+        this.isInnate = true;
+        this.exhaust = true;
     }
 
     @Override

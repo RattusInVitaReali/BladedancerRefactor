@@ -1,8 +1,12 @@
 package code.cards;
 
 import basemod.abstracts.CustomCard;
+import code.Blademaster;
 import code.characters.BlademasterCharacter;
 import code.patches.BlademasterTags;
+import code.powers.ComboPower;
+import code.powers.FuryPower;
+import code.util.BlademasterUtil;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -170,17 +174,13 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         if (!super.canUse(p, m))
             return false;
-        if (AbstractDungeon.player.hasPower(makeID("Fury"))) {
-            if (AbstractDungeon.player.getPower(makeID("Fury")).amount < furyReq()) {
-                cantUseMessage = "I'm not angry enough!";
-                return false;
-            }
+        if (BlademasterUtil.getPowerAmount(p, FuryPower.POWER_ID) < furyReq()) {
+            cantUseMessage = "I'm not furious enough!";
+            return false;
         }
-        if (AbstractDungeon.player.hasPower(makeID("Combo"))) {
-            if (AbstractDungeon.player.getPower(makeID("Combo")).amount < comboReq()) {
-                cantUseMessage = "I'm not.. comboing? enough!";
-                return false;
-            }
+        if (BlademasterUtil.getPowerAmount(p, ComboPower.POWER_ID) < comboReq()) {
+            cantUseMessage = "I'm not.. comboing? enough!";
+            return false;
         }
         return true;
     }

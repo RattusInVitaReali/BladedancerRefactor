@@ -2,6 +2,7 @@ package code.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
@@ -33,12 +34,14 @@ public class Thrust extends AbstractStanceCard {
 
     @Override
     public void useWind(AbstractPlayer p, AbstractMonster m) {
+        useBasic(p, m);
         damageMonster(m, getPlayerWindCharges(), AbstractGameAction.AttackEffect.NONE);
         addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
     }
 
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
+        useBasic(p, m);
         damageMonster(m, getPlayerLightningCharges(), AbstractGameAction.AttackEffect.NONE);
         addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
     }

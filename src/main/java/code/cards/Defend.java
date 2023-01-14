@@ -16,7 +16,7 @@ public class Defend extends AbstractStanceCard {
     private static final int BLOCK = 5;
     private static final int UPGRADE_BLOCK = 3;
     private static final int CONDUIT = 1;
-    private static final int UPGRADE_CONDUIT = 2;
+    private static final int UPGRADE_CONDUIT = 1;
 
     public Defend() {
         super(ID, COST, TYPE, RARITY, TARGET);

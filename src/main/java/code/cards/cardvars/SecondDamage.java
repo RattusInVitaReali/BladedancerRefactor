@@ -10,7 +10,7 @@ public class SecondDamage extends DynamicVariable {
 
     @Override
     public String key() {
-        return makeID("sd");
+        return makeID("D2");
     }
 
     @Override

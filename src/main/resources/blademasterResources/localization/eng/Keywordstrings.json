@@ -21,5 +21,12 @@
       "charges"
     ],
     "DESCRIPTION": "Some #yStance-based cards have bonuses that depend on these."
+  },
+  {
+    "PROPER_NAME": "Bleeding",
+    "NAMES": [
+      "bleeding"
+    ],
+    "DESCRIPTION": "Take damage at the start of the turn, and take 20% more damage from attacks."
   }
 ]

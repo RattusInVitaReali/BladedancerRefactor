@@ -35,7 +35,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
         CardStrings windStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":WIND");
-        cardStringsWind = windStrings.NAME.equals("[MISSING]") ? cardStrings : windStrings;
+        cardStringsWind = windStrings.NAME.equals("[MISSING_TITLE]") ? cardStrings : windStrings;
         CardStrings lightningStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":LIGHTNING");
         cardStringsLightning = lightningStrings.NAME.equals("[MISSING_TITLE]") ? cardStrings : lightningStrings;
         setStance(BlademasterStance.BASIC);
@@ -130,7 +130,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     protected void setDescription(String description) {
         rawDescription = description;
         if (baseConduit > 0) {
-            rawDescription += " " + Blademaster.modID + ":Conduit !" + Blademaster.modID + ":cn!.";
+            rawDescription += " " + Blademaster.modID + ":Conduit !" + Blademaster.modID + ":C!.";
         }
         initializeDescription();
     }

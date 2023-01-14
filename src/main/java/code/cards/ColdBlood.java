@@ -15,7 +15,7 @@ public class ColdBlood extends AbstractBlademasterCard {
     public final static String ID = makeID("ColdBlood");
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     private static final int COST = 0;
     private static final int MAGIC = 4;
     private static final int UPGRADE_MAGIC = 2;

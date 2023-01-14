@@ -22,6 +22,8 @@ public class ThunderingOpener extends AbstractBlademasterCard {
     public ThunderingOpener() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
+        this.isInnate = true;
+        this.exhaust = true;
     }
 
     @Override

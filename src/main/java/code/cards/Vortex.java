@@ -18,12 +18,13 @@ public class Vortex extends AbstractStanceCard {
 
     public final static String ID = makeID("Vortex");
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
     private static final int MAGIC = 5;
     private static final int UPGRADE_MAGIC = 2;
     private static final int SECOND_MAGIC = 1;
+    private static final int UPGRADE_SECOND_MAGIC = 1;
 
     public Vortex() {
         super(ID, COST, TYPE, RARITY, TARGET);
@@ -60,5 +61,6 @@ public class Vortex extends AbstractStanceCard {
     @Override
     public void onUpgrade() {
         upgradeMagicNumber(UPGRADE_MAGIC);
+        upgradeSecondMagic(UPGRADE_SECOND_MAGIC);
     }
 }

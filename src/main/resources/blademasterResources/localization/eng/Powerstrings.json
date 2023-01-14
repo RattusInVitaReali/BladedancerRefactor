@@ -43,5 +43,13 @@
       "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
       " Fury. Gain more by dealing damage!"
     ]
+  },
+  "${ModID}:Bleeding": {
+    "NAME": "Bleeding",
+    "DESCRIPTIONS": [
+      "Take 20% more damage from attacks. At the start of your turn, lose #b",
+      " HP. Bleeding decays by 3 at the end of each round.",
+      "Takes 20% more damage from attacks. At the start of its turn, loses #b"
+    ]
   }
 }

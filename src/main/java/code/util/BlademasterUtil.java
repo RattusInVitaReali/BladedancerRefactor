@@ -2,6 +2,8 @@ package code.util;
 
 import code.Blademaster;
 import code.powers.stances.AbstractStancePower;
+import code.powers.stances.LightningCharge;
+import code.powers.stances.WindCharge;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -31,18 +33,20 @@ public class BlademasterUtil {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, p, power));
     }
 
-    public static int getPlayerWindCharges() {
-        if (AbstractDungeon.player.hasPotion(makeID("WindCharge"))) {
-            return AbstractDungeon.player.getPower(makeID("WindCharge")).amount;
+    public static int getPowerAmount(AbstractCreature c, String powerId) {
+        AbstractPower power = c.getPower(powerId);
+        if (power != null) {
+            return power.amount;
         }
         return 0;
     }
 
+    public static int getPlayerWindCharges() {
+        return getPowerAmount(AbstractDungeon.player, WindCharge.POWER_ID);
+    }
+
     public static int getPlayerLightningCharges() {
-        if (AbstractDungeon.player.hasPotion(makeID("LightningCharge"))) {
-            return AbstractDungeon.player.getPower(makeID("LightningCharge")).amount;
-        }
-        return 0;
+        return getPowerAmount(AbstractDungeon.player, LightningCharge.POWER_ID);
     }
 
 }

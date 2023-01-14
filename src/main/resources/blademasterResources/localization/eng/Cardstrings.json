@@ -1,9 +1,9 @@
 {
-  "${ModID}:Strike": {
+  "blademaster:Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
   },
-  "${ModID}:Defend": {
+  "blademaster:Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
@@ -19,6 +19,11 @@
     "DESCRIPTION": "Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. NL Exhaust.",
     "NAME":"Aspect of Lightning",
     "UPGRADE_DESCRIPTION": "Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
+  },
+  "blademaster:AspectOfLightning:LIGHTNING": {
+    "DESCRIPTION": "blademaster:Conduit !M!. NL Exhaust.",
+    "NAME":"Aspect of Lightning",
+    "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
   },
   "blademaster:AspectOfWind": {
     "DESCRIPTION": "Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Exhaust.",
@@ -43,7 +48,7 @@
     "NAME": "Furious Strike"
   },
   "blademaster:Empower": {
-    "DESCRIPTION": "Gain [E] . Draw !M! card. NL Conduit !M!. NL Exhaust.",
+    "DESCRIPTION": "Gain [E] . Draw !M! card. NL Exhaust.",
     "NAME": "Empower",
     "UPGRADE_DESCRIPTION": "Gain [E] [E] . Draw !M! cards. NL Exhaust."
   },
@@ -57,18 +62,14 @@
   },
   "blademaster:TraverseCut": {
     "DESCRIPTION": "Deal !D! damage twice.",
-    "EXTENDED_DESCRIPTION": [
-      " NL [#00FF2A]Apply[] !M! Weak[#00FF2A].[]",
-      " NL [#4A8CFF]Apply[] !M! Vulnerable[#4A8CFF].[]"
-    ],
     "NAME": "Traverse Cut"
   },
   "blademaster:TraverseCut:WIND": {
-    "DESCRIPTION": "Deal !D! damage twice. NL [#00FF2A]Apply[] !M! Weak[#00FF2A].[]",
+    "DESCRIPTION": "Deal !D! damage twice. NL Apply !M! Weak.",
     "NAME": "Traverse Cut"
   },
   "blademaster:TraverseCut:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage twice. NL [#4A8CFF]Apply[] !M! Vulnerable[#4A8CFF].[]",
+    "DESCRIPTION": "Deal !D! damage twice. NL Apply !M! Vulnerable.",
     "NAME": "Traverse Cut"
   },
   "blademaster:Thrust": {
@@ -76,11 +77,48 @@
     "NAME": "Thrust"
   },
   "blademaster:Thrust:WIND": {
-    "DESCRIPTION": "Deal !D! damage. NL #yTODO: add [W] and !W!",
+    "DESCRIPTION": "Deal !D! damage. NL Deal damage equal to your Wind Charges.",
     "NAME": "Thrust"
   },
   "blademaster:Thrust:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage. NL #yTODO: add [L] and !L!",
+    "DESCRIPTION": "Deal !D! damage. NL Deal damage equal to your πLightning Charges.",
     "NAME": "Thrust"
+  },
+  "blademaster:ChargingUp": {
+    "DESCRIPTION": "Gain !B! Block.",
+    "NAME": "Charging Up"
+  },
+  "blademaster:Frontflip": {
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards.",
+    "NAME": "Frontflip"
+  },
+  "blademaster:Vortex": {
+    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies.",
+    "NAME": "Vortex"
+  },
+  "blademaster:Vortex:WIND": {
+    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. Apply !blademaster:M2! Weak to ALL enemies.",
+    "NAME": "Vortex"
+  },
+  "blademaster:Vortex:LIGHTNING": {
+    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. Apply !blademaster:M2! Vulnerable to ALL enemies.",
+    "NAME": "Vortex"
+  },
+  "blademaster:Slice": {
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
+    "NAME": "Slice"
+  },
+  "blademaster:ColdBlood": {
+    "DESCRIPTION": "Finisher. Requires 6 [#860037]Combo[]. NL Gain !M! Dexterity. NL Gain !M! Strength.",
+    "NAME": "Cold Blood"
+  },
+  "blademaster:Sharpen": {
+    "DESCRIPTION": "Gain !B! Block. NL Upgrade a random card in your hand for the rest of the combat.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Upgrade !M! random cards in your hand for the rest of the combat.",
+    "NAME": "Sharpen"
+  },
+  "blademaster:DeadlyDance": {
+    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. NL Gain !B! Block.",
+    "NAME": "Deadly Dance"
   }
 }
