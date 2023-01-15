@@ -27,6 +27,21 @@
     "NAMES": [
       "bleeding"
     ],
-    "DESCRIPTION": "Take damage at the start of the turn, and take 20% more damage from attacks."
+    "DESCRIPTION": "Take damage at the start of the turn, and take #y20% more damage from attacks."
+  },
+  {
+    "PROPER_NAME": "Finisher",
+    "NAMES": [
+      "finisher",
+      "finishers"
+    ],
+    "DESCRIPTION": "Requires #yFury or #yCombo to be played."
+  },
+  {
+    "PROPER_NAME": "Bloodied",
+    "NAMES": [
+      "bloodied"
+    ],
+    "DESCRIPTION": "Applies if the target is below #y50% health."
   }
 ]

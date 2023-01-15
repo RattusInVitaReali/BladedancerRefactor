@@ -1,6 +1,7 @@
 package code.powers.stances;
 
 import code.Blademaster;
+import code.actions.BasicStanceAction;
 import code.actions.UpdateCardStancesAction;
 import code.effects.StanceEffect;
 import code.effects.particles.BetterFireBurstParticleEffect;
@@ -38,7 +39,6 @@ public abstract class AbstractStancePower extends AbstractBlademasterPower {
         }
         if (power instanceof AbstractStancePower) {
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-            addToBot(new UpdateCardStancesAction());
         }
     }
 

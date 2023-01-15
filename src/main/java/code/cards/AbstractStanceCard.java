@@ -15,8 +15,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static code.Blademaster.modID;
+import static code.util.BlademasterUtil.getPlayerStance;
 import static code.util.BlademasterUtil.playerApplyPower;
 
 public abstract class AbstractStanceCard extends AbstractBlademasterCard {
@@ -57,11 +59,16 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
             return;
         }
         state = new_state;
+        System.out.println("CARD CHANGED STATE: " + this.name + " STATE: " + this.state);
         loadCardImage(state.getCardTextureString());
         updateDescription();
         superFlash(state.getFlashColor().cpy());
-        if (AbstractDungeon.isPlayerInDungeon())
-            onStanceChanged(stance);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        setStance(getPlayerStance());
     }
 
     public Texture getBackgroundOverlayTexture() {
@@ -242,7 +249,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
         @Override
         public Color getFlashColor() {
-            return Color.GREEN;
+            return Color.GREEN.cpy();
         }
 
         @Override
@@ -294,7 +301,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
         @Override
         public Color getFlashColor() {
-            return Color.BLUE;
+            return Color.BLUE.cpy();
         }
 
         @Override

@@ -57,7 +57,7 @@
     "NAME": "Gust"
   },
   "blademaster:ThunderingOpener": {
-    "DESCRIPTION": "Innate. NL Deal !D! damage. Enter [#4A8CFF]πLightning Stance[]. NL Exhaust.",
+    "DESCRIPTION": "Innate. NL Deal !D! damage. Enter [#4A8CFF]πLightning[] [#4A8CFF]Stance[]. NL Exhaust.",
     "NAME": "Thundering Opener"
   },
   "blademaster:TraverseCut": {
@@ -109,7 +109,7 @@
     "NAME": "Slice"
   },
   "blademaster:ColdBlood": {
-    "DESCRIPTION": "Finisher. Requires 6 [#860037]Combo[]. NL Gain !M! Dexterity. NL Gain !M! Strength.",
+    "DESCRIPTION": "blademaster:Finisher. Gain !M! Dexterity. NL Gain !M! Strength.",
     "NAME": "Cold Blood"
   },
   "blademaster:Sharpen": {
@@ -120,5 +120,21 @@
   "blademaster:DeadlyDance": {
     "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. NL Gain !B! Block.",
     "NAME": "Deadly Dance"
+  },
+  "blademaster:RagingBlow": {
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL blademaster:Bloodied: Deals double damage.",
+    "NAME": "Raging Blow"
+  },
+  "blademaster:RagingBlow:WIND": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. NL blademaster:Bloodied: Deals double damage. NL Deal [WC] damage to ALL enemies.",
+    "NAME": "Raging Blow"
+  },
+  "blademaster:RagingBlow:LIGHTNING": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. NL blademaster:Bloodied: Deals double damage. NL Deal [LC] [LC] damage.",
+    "NAME": "Raging Blow"
+  },
+  "blademaster:LightningDraw": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage and apply !M! blademaster:Bleeding to ALL enemies. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "NAME": "Lightning Draw"
   }
 }

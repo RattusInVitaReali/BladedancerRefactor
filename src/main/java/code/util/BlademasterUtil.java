@@ -4,17 +4,36 @@ import code.Blademaster;
 import code.powers.stances.AbstractStancePower;
 import code.powers.stances.LightningCharge;
 import code.powers.stances.WindCharge;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import static code.Blademaster.makeID;
 
 public class BlademasterUtil {
 
+    private static void addToBot(AbstractGameAction a) {
+        AbstractDungeon.actionManager.addToBottom(a);
+    }
+
+    private static void addToTop(AbstractGameAction a) {
+        AbstractDungeon.actionManager.addToTop(a);
+    }
+
+    public static void lightningEffect(AbstractCreature creature) {
+        addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        addToTop(new VFXAction(new LightningEffect(creature.drawX, creature.drawY), .2f));
+    }
+
     public static AbstractStancePower getPlayerStancePower() {
+        if (!AbstractDungeon.isPlayerInDungeon())
+            return null;
         for (AbstractPower power : AbstractDungeon.player.powers) {
             if (power instanceof AbstractStancePower) return (AbstractStancePower) power;
         }

@@ -5,5 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class BlademasterTags {
     @SpireEnum
-    public static AbstractCard.CardTags FINISHER;
+    public static AbstractCard.CardTags COMBO_FINISHER;
+    @SpireEnum
+    public static AbstractCard.CardTags FURY_FINISHER;
 }

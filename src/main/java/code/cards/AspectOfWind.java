@@ -36,11 +36,6 @@ public class AspectOfWind extends AbstractStanceCard {
     }
 
     @Override
-    public void useLightning(AbstractPlayer p, AbstractMonster m) {
-        // Delete if same as useBasic
-    }
-
-    @Override
     public void onUpgrade() {
         upgradeMagicNumber(UPGRADE_MAGIC);
         exhaust = false;

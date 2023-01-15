@@ -1,6 +1,8 @@
 package code.cards;
 
+import code.Blademaster;
 import code.actions.LightningStanceAction;
+import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,7 +31,7 @@ public class ThunderingOpener extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         damageMonster(m, damage, AbstractGameAction.AttackEffect.NONE);
-        addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
+        BlademasterUtil.lightningEffect(m);
         addToBot(new LightningStanceAction());
     }
 

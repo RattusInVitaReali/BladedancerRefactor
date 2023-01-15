@@ -30,7 +30,7 @@ public class FuryPower extends AbstractBlademasterPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.hasTag(BlademasterTags.FINISHER)) {
+        if (card.hasTag(BlademasterTags.COMBO_FINISHER) || card.hasTag(BlademasterTags.FURY_FINISHER)) {
             canGain = false;
         }
     }

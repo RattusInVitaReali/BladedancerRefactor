@@ -27,14 +27,15 @@ public class ColdBlood extends AbstractBlademasterCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        playerApplyPower(p, new DexterityPower(p, magicNumber));
-        playerApplyPower(p, new StrengthPower(p, magicNumber));
+    public int comboReq() {
+        return COMBO_REQ;
     }
 
     @Override
-    protected int comboReq() {
-        return COMBO_REQ;
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        consumeFinisherCost();
+        playerApplyPower(p, new DexterityPower(p, magicNumber));
+        playerApplyPower(p, new StrengthPower(p, magicNumber));
     }
 
     @Override

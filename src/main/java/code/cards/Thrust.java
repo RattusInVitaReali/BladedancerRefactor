@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -35,15 +36,15 @@ public class Thrust extends AbstractStanceCard {
     @Override
     public void useWind(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
+        BlademasterUtil.lightningEffect(m);
         damageMonster(m, getPlayerWindCharges(), AbstractGameAction.AttackEffect.NONE);
-        addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
     }
 
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
+        BlademasterUtil.lightningEffect(m);
         damageMonster(m, getPlayerLightningCharges(), AbstractGameAction.AttackEffect.NONE);
-        addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
     }
 
     @Override

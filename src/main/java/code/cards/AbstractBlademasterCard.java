@@ -7,9 +7,13 @@ import code.patches.BlademasterTags;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
 import code.util.BlademasterUtil;
+import code.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -47,9 +51,10 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         setDescription(cardStrings.DESCRIPTION);
         name = originalName = cardStrings.NAME;
-        if (furyReq() + comboReq() > 0) {
-            tags.add(BlademasterTags.FINISHER);
-        }
+        if (furyReq() > 0)
+            this.tags.add(BlademasterTags.FURY_FINISHER);
+        if (comboReq() > 0)
+            this.tags.add(BlademasterTags.COMBO_FINISHER);
         initializeTitle();
     }
 
@@ -88,6 +93,26 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
             isSecondDamageModified = (secondDamage != baseSecondDamage);
         } else super.applyPowers();
+
+        if (comboReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq()) {
+            if (!this.isGlowing) {
+                glowColor = Color.RED.cpy();
+                superFlash(glowColor);
+                beginGlowing();
+            }
+        } else {
+            stopGlowing();
+        }
+
+        if (furyReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq()) {
+            if (!this.isGlowing) {
+                glowColor = Color.ORANGE.cpy();
+                superFlash(glowColor);
+                beginGlowing();
+            }
+        } else {
+            stopGlowing();
+        }
     }
 
     @Override
@@ -162,12 +187,35 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
     public abstract void onUpgrade();
 
-    protected int furyReq() {
+    public int furyReq() {
         return 0;
     }
 
-    protected int comboReq() {
+    public int comboReq() {
         return 0;
+    }
+
+    public Texture getFuryOverlayTexture() {
+        return TextureLoader.getTexture(modID + "Resources/images/512/Fury.png");
+    }
+
+    public Texture getComboOverlayTexture() {
+        return TextureLoader.getTexture(modID + "Resources/images/512/Combo.png");
+    }
+
+    protected final void consumeFinisherCost() {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (furyReq() > 0) {
+            BlademasterUtil.playerApplyPower(p, new FuryPower(p, -furyReq()));
+        }
+        if (comboReq() > 0) {
+            BlademasterUtil.playerApplyPower(p, new ComboPower(p, -comboReq()));
+        }
+
+    }
+
+    protected boolean isBloodied(AbstractMonster m ) {
+        return (m.currentHealth <= m.maxHealth / 2);
     }
 
     @Override

@@ -21,6 +21,7 @@ public class UpdateCardStancesAction extends AbstractGameAction {
         for (AbstractCard card : allCards) {
             if (card instanceof AbstractStanceCard) {
                 ((AbstractStanceCard) card).setStance(stance);
+                ((AbstractStanceCard) card).onStanceChanged(stance);
             }
         }
         isDone = true;

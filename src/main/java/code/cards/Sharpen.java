@@ -35,5 +35,6 @@ public class Sharpen extends AbstractBlademasterCard {
     @Override
     public void onUpgrade() {
         upgradeMagicNumber(UPGRADE_MAGIC);
+        setUpgradeDescription();
     }
 }

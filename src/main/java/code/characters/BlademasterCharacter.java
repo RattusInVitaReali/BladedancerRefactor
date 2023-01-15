@@ -4,6 +4,7 @@ import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import code.actions.BasicStanceAction;
 import code.cards.Defend;
+import code.cards.RagingBlow;
 import code.cards.Strike;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
@@ -85,6 +86,7 @@ public class BlademasterCharacter extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Defend.ID);
         }
+        retVal.add(RagingBlow.ID);
         return retVal;
     }
 
