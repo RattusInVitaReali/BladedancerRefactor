@@ -1,8 +1,7 @@
 package code.powers.stances;
 
 import code.Blademaster;
-import code.actions.BasicStanceAction;
-import code.actions.UpdateCardStancesAction;
+import code.actions.UpdateStanceAction;
 import code.effects.StanceEffect;
 import code.effects.particles.BetterFireBurstParticleEffect;
 import code.powers.AbstractBlademasterPower;
@@ -33,12 +32,17 @@ public abstract class AbstractStancePower extends AbstractBlademasterPower {
     protected abstract Color getParticleColor();
 
     @Override
+    public void onInitialApplication() {
+        addToBot(new UpdateStanceAction());
+    }
+
+    @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (power.getClass() == this.getClass()) {
             return;
         }
         if (power instanceof AbstractStancePower) {
-            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+            addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
         }
     }
 

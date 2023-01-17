@@ -10,8 +10,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -33,6 +35,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public boolean upgradedConduit;
     public boolean isConduitModified;
     public StanceState state;
+
+    private AbstractStanceCard PREVIEW_WIND = null;
+    private AbstractStanceCard PREVIEW_LIGHTNING = null;
+    private boolean renderPreviewCards = false;
+
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
@@ -178,6 +185,50 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         updateDescription();
     }
 
+    @Override
+    public void hover() {
+        super.hover();
+        renderPreviewCards = true;
+    }
+
+    @Override
+    public void unhover() {
+        super.unhover();
+        renderPreviewCards = false;
+    }
+
+    @Override
+    public void renderCardTip(SpriteBatch sb) {
+        super.renderCardTip(sb);
+        if (!Settings.hideCards && this.renderPreviewCards) {
+            if (AbstractDungeon.player != null && AbstractDungeon.player.isDraggingCard) {
+                return;
+            }
+            generatePreviewCards();
+            if (current_x > Settings.WIDTH * .75f) {
+                PREVIEW_WIND.current_x = PREVIEW_LIGHTNING.current_x = current_x + IMG_WIDTH * drawScale * .9f;
+            } else {
+                PREVIEW_WIND.current_x = PREVIEW_LIGHTNING.current_x = current_x - IMG_WIDTH * drawScale * .9f;
+            }
+            PREVIEW_WIND.current_y = current_y + IMG_HEIGHT / 2f * drawScale;
+            PREVIEW_LIGHTNING.current_y = current_y - IMG_HEIGHT / 6f * drawScale;
+            float previewDrawScale = drawScale / 1.5f;
+            PREVIEW_WIND.drawScale = PREVIEW_LIGHTNING.drawScale = previewDrawScale;
+            PREVIEW_WIND.render(sb);
+            PREVIEW_LIGHTNING.render(sb);
+        }
+    }
+
+    private void generatePreviewCards() {
+        if (PREVIEW_WIND == null) {
+            PREVIEW_WIND = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_WIND.setStance(BlademasterStance.WIND);
+        }
+        if (PREVIEW_LIGHTNING == null) {
+            PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
+        }
+    }
 
     private abstract class StanceState {
 

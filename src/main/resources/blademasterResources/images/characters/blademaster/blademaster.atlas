@@ -1,0 +1,132 @@
+
+blademaster.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ironclad
+  rotate: false
+  xy: 1, 355
+  size: 352, 31
+  orig: 611, 113
+  offset: 138, 4
+  index: -1
+Sword_Back_Middle
+  rotate: false
+  xy: 203, 146
+  size: 148, 151
+  orig: 148, 151
+  offset: 0, 0
+  index: -1
+Sword_Back_Bottom
+  rotate: false
+  xy: 1, 179
+  size: 185, 106
+  orig: 185, 106
+  offset: 0, 0
+  index: -1
+Sword_Back_Top
+  rotate: false
+  xy: 203, 1
+  size: 184, 143
+  orig: 184, 143
+  offset: 0, 0
+  index: -1
+Neck
+  rotate: false
+  xy: 422, 117
+  size: 27, 18
+  orig: 27, 18
+  offset: 0, 0
+  index: -1
+Arm_Right
+  rotate: false
+  xy: 389, 37
+  size: 28, 54
+  orig: 28, 54
+  offset: 0, 0
+  index: -1
+Forearm_Right
+  rotate: false
+  xy: 422, 87
+  size: 46, 28
+  orig: 46, 28
+  offset: 0, 0
+  index: -1
+Sword_Left
+  rotate: false
+  xy: 240, 299
+  size: 175, 46
+  orig: 252, 54
+  offset: 50, 0
+  index: -1
+Pants
+  rotate: false
+  xy: 1, 1
+  size: 200, 176
+  orig: 236, 226
+  offset: 21, 36
+  index: -1
+Chest_copy
+  rotate: false
+  xy: 353, 146
+  size: 94, 101
+  orig: 94, 101
+  offset: 0, 0
+  index: -1
+Arm_Left
+  rotate: false
+  xy: 462, 249
+  size: 42, 47
+  orig: 42, 47
+  offset: 0, 0
+  index: -1
+Shoulder_Right
+  rotate: false
+  xy: 355, 249
+  size: 105, 44
+  orig: 105, 44
+  offset: 0, 0
+  index: -1
+Forearm_Left
+  rotate: false
+  xy: 419, 37
+  size: 28, 48
+  orig: 28, 48
+  offset: 0, 0
+  index: -1
+Shoulder_Left
+  rotate: false
+  xy: 389, 1
+  size: 47, 34
+  orig: 47, 34
+  offset: 0, 0
+  index: -1
+Hair
+  rotate: false
+  xy: 389, 93
+  size: 31, 44
+  orig: 31, 44
+  offset: 0, 0
+  index: -1
+Helmet
+  rotate: false
+  xy: 449, 1
+  size: 47, 42
+  orig: 52, 44
+  offset: 3, 0
+  index: -1
+Sword_Right
+  rotate: false
+  xy: 1, 299
+  size: 237, 54
+  orig: 252, 54
+  offset: 15, 0
+  index: -1
+Hand_Left
+  rotate: false
+  xy: 449, 45
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1

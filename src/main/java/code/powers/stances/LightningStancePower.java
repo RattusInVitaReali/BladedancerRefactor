@@ -18,7 +18,7 @@ public class LightningStancePower extends AbstractStancePower {
 
     @Override
     public AbstractPower getChargePower(AbstractCreature owner, int amount) {
-        return new LightningCharge(owner, amount);
+        return new LightningChargePower(owner, amount);
     }
 
     @Override

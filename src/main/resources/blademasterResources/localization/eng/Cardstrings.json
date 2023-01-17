@@ -65,11 +65,11 @@
     "NAME": "Traverse Cut"
   },
   "blademaster:TraverseCut:WIND": {
-    "DESCRIPTION": "Deal !D! damage twice. NL Apply !M! Weak.",
+    "DESCRIPTION": "Deal !D! damage twice. NL [#9AFC9F]Apply[] !M! [#9AFC9F]Weak.[]",
     "NAME": "Traverse Cut"
   },
   "blademaster:TraverseCut:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage twice. NL Apply !M! Vulnerable.",
+    "DESCRIPTION": "Deal !D! damage twice. NL [#9AE1FC]Apply[] !M! [#9AE1FC]Vulnerable.[]",
     "NAME": "Traverse Cut"
   },
   "blademaster:Thrust": {
@@ -77,11 +77,11 @@
     "NAME": "Thrust"
   },
   "blademaster:Thrust:WIND": {
-    "DESCRIPTION": "Deal !D! damage. NL Deal damage equal to your Wind Charges.",
+    "DESCRIPTION": "Deal !D! damage. NL [#9AFC9F]Deal [WC] [#9AFC9F]damage.[]",
     "NAME": "Thrust"
   },
   "blademaster:Thrust:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage. NL Deal damage equal to your πLightning Charges.",
+    "DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Deal[] [LC] [#9AE1FC]damage.[]",
     "NAME": "Thrust"
   },
   "blademaster:ChargingUp": {
@@ -97,11 +97,11 @@
     "NAME": "Vortex"
   },
   "blademaster:Vortex:WIND": {
-    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. Apply !blademaster:M2! Weak to ALL enemies.",
+    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. [#9AFC9F]Apply[] !blademaster:M2! Weak [#9AFC9F]to[] [#9AFC9F]ALL[] [#9AFC9F]enemies.[]",
     "NAME": "Vortex"
   },
   "blademaster:Vortex:LIGHTNING": {
-    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. Apply !blademaster:M2! Vulnerable to ALL enemies.",
+    "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. [#9AE1FC]Apply[] !blademaster:M2! Vulnerable [#9AE1FC]to[] [#9AE1FC]ALL[] [#9AE1FC]enemies.[]",
     "NAME": "Vortex"
   },
   "blademaster:Slice": {
@@ -122,19 +122,99 @@
     "NAME": "Deadly Dance"
   },
   "blademaster:RagingBlow": {
-    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL blademaster:Bloodied: Deals double damage.",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage.",
     "NAME": "Raging Blow"
   },
   "blademaster:RagingBlow:WIND": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. NL blademaster:Bloodied: Deals double damage. NL Deal [WC] damage to ALL enemies.",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AFC9F]Consume[] [#9AFC9F]your [] [WC] [#9AFC9F]to[] [#9AFC9F]deal[] [WC] [#9AFC9F]damage[] [#9AFC9F]to[] [#9AFC9F]ALL[] [#9AFC9F]enemies.[]",
     "NAME": "Raging Blow"
   },
   "blademaster:RagingBlow:LIGHTNING": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. NL blademaster:Bloodied: Deals double damage. NL Deal [LC] [LC] damage.",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AE1FC]Consume[] [#9AE1FC]your[] [LC] [#9AE1FC]to[] [#9AE1FC]deal[] [LC] [LC] [#9AE1FC]damage.[]",
     "NAME": "Raging Blow"
   },
   "blademaster:LightningDraw": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage and apply !M! blademaster:Bleeding to ALL enemies. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage and apply !M! blademaster:Bleeding to ALL enemies. Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
     "NAME": "Lightning Draw"
+  },
+  "blademaster:Discharge": {
+    "DESCRIPTION": "Gain !B! Block.",
+    "NAME": "Discharge"
+  },
+  "blademaster:Discharge:WIND": {
+    "DESCRIPTION": "Gain !B! Block. NL [#9AFC9F]Deal [WC] [#9AFC9F]damage[] [#9AFC9F]and[] [#9AFC9F]apply[] !M! Weak [#9AFC9F]to[] [#9AFC9F]a[] [#9AFC9F]random[] [#9AFC9F]enemy.[]",
+    "NAME": "Discharge"
+  },
+  "blademaster:Discharge:LIGHTNING": {
+    "DESCRIPTION": "Gain !B! Block. NL [#9AE1FC]Deal [LC] [#9AE1FC]damage[] [#9AE1FC]and[] [#9AE1FC]apply[] !M! Vulnerable [#9AE1FC]to[] [#9AE1FC]a[] [#9AE1FC]random[] [#9AE1FC]enemy.[]",
+    "NAME": "Discharge"
+  },
+  "blademaster:Momentum": {
+    "DESCRIPTION": "Whenever you change Stances, deal !M! damage to ALL enemies.",
+    "NAME": "Momentum"
+  },
+  "blademaster:Quickness": {
+    "DESCRIPTION": "Whenever you change Stances, draw 1 card.",
+    "NAME": "Quickness",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you change Stances, draw 1 card."
+  },
+  "blademaster:RollingTyphoon": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage.",
+   "NAME": "Rolling Typhoon"
+  },
+  "blademaster:RollingTyphoon:WIND": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AFC9F]Apply[] [WC] blademaster:Bleeding.",
+    "NAME": "Rolling Typhoon"
+  },
+  "blademaster:RollingTyphoon:LIGHTNING": {
+    "DESCRIPTION": "Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AE1FC]Gain[] [LC] [LC] [#9AE1FC]block.[]",
+    "NAME": "Rolling Typhoon"
+  },
+  "blademaster:StanceMastery": {
+    "DESCRIPTION": "Whenever you gain a blademaster:Charge, gain an additional blademaster:Charge.",
+    "NAME": "Stance Mastery"
+  },
+  "blademaster:Stormstrike": {
+    "DESCRIPTION": "Deal !D! damage. Consume ALL your [LC] to deal [LC] [LC] additional damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Consume ALL your  [LC] to deal [LC] [LC] [LC] additional damage.",
+    "NAME": "Stormstrike"
+  },
+  "blademaster:EnchantedCuirass": {
+    "DESCRIPTION": "Finisher. Gain !M! block at the end of each turn.",
+    "NAME": "Enchanted Cuirass"
+  },
+  "blademaster:FuryOfTheElements": {
+    "DESCRIPTION": "Finisher. Consume ALL your [WC] [LC] to deal [WC] [WC] + [LC] [LC] damage to ALL enemies.",
+    "NAME": "Fury Of The Elements"
+  },
+  "blademaster:Hailwind": {
+    "DESCRIPTION": "Consume ALL your [WC] to deal !D! damage per [WC].",
+    "NAME": "Hailwind"
+  },
+  "blademaster:Reversal": {
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block.",
+    "NAME": "Reversal"
+  },
+  "blademaster:Reversal:WIND": {
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block. NL [#9AFC9F]Enter[] [#4A8CFF]Lightning[] [#4A8CFF]Stance[][#9AFC9F].[]",
+    "NAME": "Reversal"
+  },
+  "blademaster:Reversal:LIGHTNING": {
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block. NL [#9AE1FC]Enter[] [#00FF2A]Wind[] [#00FF2A]Stance[][#9AE1FC].[]",
+    "NAME": "Reversal"
+  },
+  "blademaster:ThreePointStrike": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage thrice. Gain !B! block. Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Finisher. Deal !D! damage thrice. Gain !B! block. Draw !M! cards.",
+    "NAME": "Three Point Strike"
+  },
+  "blademaster:UnrelentingWind": {
+    "DESCRIPTION": "blademaster:Finisher. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! block and [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies.",
+    "NAME": "Unrelenting Wind",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! block and [WC] [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies."
+  },
+  "blademaster:Sunder": {
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage.",
+    "NAME": "Sunder"
   }
 }

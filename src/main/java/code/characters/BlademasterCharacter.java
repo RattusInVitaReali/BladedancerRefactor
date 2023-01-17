@@ -62,7 +62,7 @@ public class BlademasterCharacter extends CustomPlayer {
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
 
-        loadAnimation(BLADEMASTER_SKELETON_ATLAS, BLADEMASTER_SKELETON_JSON, 0.95f);
+        loadAnimation(BLADEMASTER_SKELETON_ATLAS, BLADEMASTER_SKELETON_JSON, 1f);
         if (MathUtils.random(100) == 69) {
             state.setAnimation(0, "Thonk", true);
         } else {

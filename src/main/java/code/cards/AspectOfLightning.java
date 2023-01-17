@@ -1,7 +1,7 @@
 package code.cards;
 
 import code.actions.LightningStanceAction;
-import code.powers.stances.LightningCharge;
+import code.powers.stances.LightningChargePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -32,7 +32,7 @@ public class AspectOfLightning extends AbstractStanceCard {
 
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
-        playerApplyPower(p, new LightningCharge(p, magicNumber));
+        playerApplyPower(p, new LightningChargePower(p, magicNumber));
     }
 
     @Override

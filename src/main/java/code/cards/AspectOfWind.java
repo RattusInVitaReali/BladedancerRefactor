@@ -1,7 +1,7 @@
 package code.cards;
 
 import code.actions.WindStanceAction;
-import code.powers.stances.WindCharge;
+import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -32,7 +32,7 @@ public class AspectOfWind extends AbstractStanceCard {
 
     @Override
     public void useWind(AbstractPlayer p, AbstractMonster m) {
-        playerApplyPower(p, new WindCharge(p, magicNumber));
+        playerApplyPower(p, new WindChargePower(p, magicNumber));
     }
 
     @Override

@@ -8,21 +8,38 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import static code.Blademaster.makeID;
+import static code.util.BlademasterUtil.playerApplyPower;
 
 public class ComboPower extends AbstractBlademasterPower {
 
     public static final String POWER_ID = makeID("Combo");
     public static final PowerType TYPE = PowerType.BUFF;
     public static final boolean TURN_BASED = true;
-    private boolean canGain = true;
 
     public ComboPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        canGain = true;
+    protected boolean renderAtZero() {
+        return true;
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        if (AbstractDungeon.player != null) {
+            amount = 0;
+            updateDescription();
+        }
+    }
+
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (!card.hasTag(BlademasterTags.COMBO_FINISHER) && !card.hasTag(BlademasterTags.FURY_FINISHER)) {
+            flash();
+            amount++;
+            updateDescription();
+        }
     }
 
     @Override
@@ -31,21 +48,8 @@ public class ComboPower extends AbstractBlademasterPower {
     }
 
     @Override
-    public void atStartOfTurn() {
-        if (AbstractDungeon.player != null) {
-            amount = 0;
-        }
-    }
-
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.hasTag(BlademasterTags.COMBO_FINISHER) || card.hasTag(BlademasterTags.FURY_FINISHER)) {
-            canGain = false;
-        }
-        if ((owner != null)) {
-            addToBot(new ApplyPowerAction(owner, owner, new ComboPower(owner, 1)));
-            updateDescription();
-        }
+    public void onRemove() {
+        addToBot(new ApplyPowerAction(owner, owner, new ComboPower(owner, 0)));
     }
 
 }

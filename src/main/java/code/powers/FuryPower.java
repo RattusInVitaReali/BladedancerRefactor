@@ -2,6 +2,7 @@ package code.powers;
 
 import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -18,6 +19,11 @@ public class FuryPower extends AbstractBlademasterPower {
 
     public FuryPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+    }
+
+    @Override
+    protected boolean renderAtZero() {
+        return true;
     }
 
     @Override
@@ -48,8 +54,15 @@ public class FuryPower extends AbstractBlademasterPower {
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if ((info.type == DamageInfo.DamageType.NORMAL) && (owner != null) && canGain) {
-            addToBot(new ApplyPowerAction(owner, owner, new FuryPower(owner, info.output)));
+            flash();
+            amount += info.output;
+            updateDescription();
         }
+    }
+
+    @Override
+    public void onRemove() {
+        addToBot(new ApplyPowerAction(owner, owner, new FuryPower(owner, 0)));
     }
 
 }

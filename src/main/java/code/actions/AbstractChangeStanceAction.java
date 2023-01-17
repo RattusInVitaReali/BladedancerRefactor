@@ -26,7 +26,6 @@ public abstract class AbstractChangeStanceAction extends AbstractGameAction {
         }
         AbstractPlayer p = AbstractDungeon.player;
         playerApplyPower(p, getStancePower(p));
-        addToBot(new UpdateCardStancesAction());
         isDone = true;
     }
 

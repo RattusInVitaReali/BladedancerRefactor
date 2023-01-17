@@ -46,10 +46,10 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
 
     @Override
     public void updateDescription() {
-        if (this.owner != null && ! this.owner.isPlayer) {
-            this.description = powerStrings.DESCRIPTIONS[2] + this.amount + powerStrings.DESCRIPTIONS[1];
+        if (owner != null && ! owner.isPlayer) {
+            description = powerStrings.DESCRIPTIONS[2] + amount + powerStrings.DESCRIPTIONS[1];
         } else {
-            this.description = powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1];
+            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];
         }
     }
 

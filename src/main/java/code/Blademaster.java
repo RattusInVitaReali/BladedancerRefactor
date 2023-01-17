@@ -37,8 +37,8 @@ public class Blademaster implements
     public static final String SHOULDER1 = modID + "Resources/images/characters/blademaster/shoulder.png";
     public static final String SHOULDER2 = modID + "Resources/images/characters/blademaster/shoulder2.png";
     public static final String CORPSE = modID + "Resources/images/characters/blademaster/corpse.png";
-    public static final String BLADEMASTER_SKELETON_ATLAS = modID + "Resources/images/characters/blademaster/skeleton.atlas";
-    public static final String BLADEMASTER_SKELETON_JSON = modID + "Resources/images/characters/blademaster/skeleton.json";
+    public static final String BLADEMASTER_SKELETON_ATLAS = modID + "Resources/images/characters/blademaster/blademaster.atlas";
+    public static final String BLADEMASTER_SKELETON_JSON = modID + "Resources/images/characters/blademaster/blademaster.json";
     private static final String ATTACK_S_ART = modID + "Resources/images/512/Attack.png";
     private static final String SKILL_S_ART = modID + "Resources/images/512/Skill.png";
     private static final String POWER_S_ART = modID + "Resources/images/512/Power.png";

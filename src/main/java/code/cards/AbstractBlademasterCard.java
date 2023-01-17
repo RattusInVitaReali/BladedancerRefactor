@@ -93,25 +93,20 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
             isSecondDamageModified = (secondDamage != baseSecondDamage);
         } else super.applyPowers();
+    }
 
-        if (comboReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq()) {
-            if (!this.isGlowing) {
-                glowColor = Color.RED.cpy();
-                superFlash(glowColor);
-                beginGlowing();
-            }
-        } else {
-            stopGlowing();
-        }
-
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
         if (furyReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq()) {
-            if (!this.isGlowing) {
-                glowColor = Color.ORANGE.cpy();
+            this.glowColor = Color.ORANGE.cpy();
+            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq())
                 superFlash(glowColor);
-                beginGlowing();
-            }
-        } else {
-            stopGlowing();
+        }
+        if (comboReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq()) {
+            this.glowColor = Color.RED.cpy();
+            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) == comboReq())
+                superFlash(glowColor);
         }
     }
 
@@ -195,6 +190,14 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         return 0;
     }
 
+    public boolean hasEnoughFury() {
+        return BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq();
+    }
+
+    public boolean hasEnoughCombo() {
+        return BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq();
+    }
+
     public Texture getFuryOverlayTexture() {
         return TextureLoader.getTexture(modID + "Resources/images/512/Fury.png");
     }
@@ -222,11 +225,11 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         if (!super.canUse(p, m))
             return false;
-        if (BlademasterUtil.getPowerAmount(p, FuryPower.POWER_ID) < furyReq()) {
+        if (!hasEnoughFury()) {
             cantUseMessage = "I'm not furious enough!";
             return false;
         }
-        if (BlademasterUtil.getPowerAmount(p, ComboPower.POWER_ID) < comboReq()) {
+        if (!hasEnoughCombo()) {
             cantUseMessage = "I'm not.. comboing? enough!";
             return false;
         }

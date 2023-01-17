@@ -18,7 +18,7 @@ public class WindStancePower extends AbstractStancePower {
 
     @Override
     public AbstractPower getChargePower(AbstractCreature owner, int amount) {
-        return new WindCharge(owner, amount);
+        return new WindChargePower(owner, amount);
     }
 
     @Override

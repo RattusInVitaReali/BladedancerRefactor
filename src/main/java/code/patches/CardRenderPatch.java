@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 
 import java.lang.reflect.InvocationTargetException;
@@ -87,7 +88,11 @@ public class CardRenderPatch {
                     Texture texture = ((AbstractBlademasterCard) __card_instance).getFuryOverlayTexture();
                     renderImage(__card_instance, sb, __card_instance.current_x - 512, __card_instance.current_y - 512, texture);
 
+
                     Color costColor = Color.WHITE.cpy();
+                    if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(__card_instance) && !((AbstractBlademasterCard) __card_instance).hasEnoughFury()) {
+                        costColor = new Color(1.0F, 0.3F, 0.3F, 1.0F);
+                    }
                     costColor.a = __card_instance.transparency;
                     String text = Integer.toString(((AbstractBlademasterCard)__card_instance).furyReq());
                     FontHelper.cardEnergyFont_L.getData().setScale(__card_instance.drawScale);
@@ -95,7 +100,7 @@ public class CardRenderPatch {
                     FontHelper.renderRotatedText(sb, font, text,
                             __card_instance.current_x, __card_instance.current_y,
                             -132.0F * __card_instance.drawScale * Settings.scale,
-                            132.0F * __card_instance.drawScale * Settings.scale,
+                            128.0F * __card_instance.drawScale * Settings.scale,
                             __card_instance.angle, false, costColor);
 
                 }
@@ -105,6 +110,9 @@ public class CardRenderPatch {
                     renderImage(__card_instance, sb, __card_instance.current_x - 512, __card_instance.current_y - 512, texture);
 
                     Color costColor = Color.WHITE.cpy();
+                    if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(__card_instance) && !((AbstractBlademasterCard) __card_instance).hasEnoughCombo()) {
+                        costColor = new Color(1.0F, 0.3F, 0.3F, 1.0F);
+                    }
                     costColor.a = __card_instance.transparency;
                     String text = Integer.toString(((AbstractBlademasterCard)__card_instance).comboReq());
                     FontHelper.cardEnergyFont_L.getData().setScale(__card_instance.drawScale);
@@ -112,7 +120,7 @@ public class CardRenderPatch {
                     FontHelper.renderRotatedText(sb, font, text,
                             __card_instance.current_x, __card_instance.current_y,
                             -132.0F * __card_instance.drawScale * Settings.scale,
-                            72.0F * __card_instance.drawScale * Settings.scale,
+                            70.0F * __card_instance.drawScale * Settings.scale,
                             __card_instance.angle, false, costColor);
 
                 }

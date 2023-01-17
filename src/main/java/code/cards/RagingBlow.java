@@ -1,10 +1,10 @@
 package code.cards;
 
-import code.powers.stances.LightningCharge;
-import code.powers.stances.WindCharge;
-import code.util.BlademasterUtil;
+import code.powers.stances.LightningChargePower;
+import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -49,7 +49,7 @@ public class RagingBlow extends AbstractStanceCard {
             lightningEffect(monster);
             damageMonster(monster, getPlayerWindCharges(), AbstractGameAction.AttackEffect.NONE);
         }
-        playerApplyPower(p, new WindCharge(p, -getPlayerWindCharges()));
+        addToBot(new RemoveSpecificPowerAction(p, p, WindChargePower.POWER_ID));
     }
 
     @Override
@@ -57,7 +57,7 @@ public class RagingBlow extends AbstractStanceCard {
         useBasic(p, m);
         lightningEffect(m);
         damageMonster(m, 2 * getPlayerLightningCharges(), AbstractGameAction.AttackEffect.NONE);
-        playerApplyPower(p, new LightningCharge(p, -getPlayerLightningCharges()));
+        addToBot(new RemoveSpecificPowerAction(p, p, LightningChargePower.POWER_ID));
     }
 
     @Override

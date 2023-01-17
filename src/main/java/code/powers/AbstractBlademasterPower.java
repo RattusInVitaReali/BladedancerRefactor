@@ -46,6 +46,10 @@ public abstract class AbstractBlademasterPower extends AbstractPower {
         updateDescription();
     }
 
+    protected boolean renderAtZero() {
+        return false;
+    }
+
     @Override
     public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
         super.renderAmount(sb, x, y, c);
@@ -62,6 +66,9 @@ public abstract class AbstractBlademasterPower extends AbstractPower {
             redColor2.a = c.a;
             c = redColor2;
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount2), x, y + 15.0F * Settings.scale, fontScale, c);
+        }
+        if (amount == 0 && renderAtZero()) {
+            FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(this.amount), x, y, this.fontScale, c);
         }
     }
 
