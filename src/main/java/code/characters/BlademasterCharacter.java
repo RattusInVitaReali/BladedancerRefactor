@@ -8,11 +8,13 @@ import code.cards.RagingBlow;
 import code.cards.Strike;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
-import code.relics.TodoItem;
+import code.relics.DancersAmulet;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -93,7 +95,7 @@ public class BlademasterCharacter extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TodoItem.ID);
+        retVal.add(DancersAmulet.ID);
         return retVal;
     }
 
@@ -136,8 +138,7 @@ public class BlademasterCharacter extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        System.out.println("YOU NEED TO SET getStartCardForEvent() in your " + getClass().getSimpleName() + " file!");
-        return null;
+        return new RagingBlow();
     }
 
     @Override

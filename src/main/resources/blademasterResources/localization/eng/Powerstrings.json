@@ -1,50 +1,50 @@
 {
-  "${ModID}:BasicStance": {
+  "blademaster:BasicStance": {
     "NAME": "Basic Stance",
     "DESCRIPTIONS": [
       "You are in #yBasic #yStance."
     ]
   },
 
-  "${ModID}:WindStance": {
+  "blademaster:WindStance": {
     "NAME": "Wind Stance",
     "DESCRIPTIONS": [
       "You are in #yWind #yStance."
     ]
   },
-  "${ModID}:LightningStance": {
+  "blademaster:LightningStance": {
     "NAME": "Lighting Stance",
     "DESCRIPTIONS": [
       "You are in #yLighting #yStance."
     ]
   },
-  "${ModID}:WindCharge": {
+  "blademaster:WindCharge": {
     "NAME": "Wind Charges",
     "DESCRIPTIONS": [
       "#yWind #yStance #yCharges. Used for #yWind #yStance cards."
     ]
   },
-  "${ModID}:LightningCharge": {
+  "blademaster:LightningCharge": {
     "NAME": "Lightning Charges",
     "DESCRIPTIONS": [
       "#yLightning #yStance #yCharges. Used for #yLightning #yStance cards."
     ]
   },
-  "${ModID}:Combo": {
+  "blademaster:Combo": {
     "NAME": "Combo",
     "DESCRIPTIONS": [
       "Resource used for playing #bFinishers. Combo is reset to 0 at the end of your turn. NL You currently have #b",
       " Combo. Gain more by playing cards!"
     ]
   },
-  "${ModID}:Fury": {
+  "blademaster:Fury": {
     "NAME": "Fury",
     "DESCRIPTIONS": [
       "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
       " Fury. Gain more by dealing damage!"
     ]
   },
-  "${ModID}:Bleeding": {
+  "blademaster:Bleeding": {
     "NAME": "Bleeding",
     "DESCRIPTIONS": [
       "Take 20% more damage from attacks. At the start of your turn, lose #b",
@@ -52,14 +52,14 @@
       "Takes 20% more damage from attacks. At the start of its turn, loses #b"
     ]
   },
-  "${ModID}:Momentum": {
+  "blademaster:Momentum": {
     "NAME": "Momentum",
     "DESCRIPTIONS": [
       "Whenever you switch #yStances, deal #b",
       " damage to ALL enemies."
     ]
   },
-  "${ModID}:Quickness": {
+  "blademaster:Quickness": {
     "NAME": "Quickness",
     "DESCRIPTIONS": [
       "Whenever you change your #yStance, draw #b",
@@ -67,12 +67,32 @@
       " cards."
     ]
   },
-  "${ModID}:StanceMastery": {
+  "blademaster:StanceMastery": {
     "NAME": "Stance Mastery",
     "DESCRIPTIONS": [
       "Whenever you gain a #yCharge, gain #b",
       " additional #yCharge.",
       " additional #yCharges."
+    ]
+  },
+  "blademaster:Bloodbath": {
+    "NAME": "Bloodbath",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySkill, apply #b",
+      " #yBleeding to ALL enemies."
+    ]
+  },
+  "blademaster:Massacre": {
+    "NAME": "Massacre",
+    "DESCRIPTIONS": [
+      "Your #yBloodied effects are applied an additional time."
+    ]
+  },
+  "blademaster:Overcharge": {
+    "NAME": "Overcharge",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to a random enemy."
     ]
   }
 }

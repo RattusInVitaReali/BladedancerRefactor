@@ -28,14 +28,9 @@ public class LightningDraw extends AbstractBlademasterCard {
     private static final int FURY_REQ = 20;
 
     public LightningDraw() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-    }
-
-    @Override
-    public int furyReq() {
-        return FURY_REQ;
     }
 
     @Override

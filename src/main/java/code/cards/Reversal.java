@@ -12,7 +12,7 @@ public class Reversal extends AbstractStanceCard {
 
     public final static String ID = makeID("Reversal");
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;

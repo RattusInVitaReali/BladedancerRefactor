@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.powers.MassacrePower;
 import code.powers.stances.LightningChargePower;
 import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -25,20 +26,15 @@ public class RagingBlow extends AbstractStanceCard {
     private static final int FURY_REQ = 10;
 
     public RagingBlow() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ,0);
         baseDamage = DAMAGE;
         setDescription(cardStrings.DESCRIPTION);
     }
 
     @Override
-    public int furyReq() {
-        return FURY_REQ;
-    }
-
-    @Override
     public void useBasic(AbstractPlayer p, AbstractMonster m) {
         consumeFinisherCost();
-        addToBot(new VFXAction(new ClashEffect(m.drawX, m.drawY)));
+        addToBot(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.1F));
         damageMonster(m, damage, AbstractGameAction.AttackEffect.NONE);
     }
 
@@ -64,7 +60,10 @@ public class RagingBlow extends AbstractStanceCard {
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
         if (isBloodied(m)) {
-            damage *= 2;
+            if (AbstractDungeon.player.hasPower(MassacrePower.POWER_ID))
+                damage *= 3;
+            else
+                damage *= 2;
             this.isDamageModified = true;
         }
     }

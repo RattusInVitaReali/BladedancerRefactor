@@ -28,15 +28,10 @@ public class UnrelentingWind extends AbstractBlademasterCard {
     private static final int UPGRADE_SECOND_MAGIC = 1;
 
     public UnrelentingWind() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
         baseSecondMagic = secondMagic = SECOND_MAGIC;
-    }
-
-    @Override
-    public int comboReq() {
-        return COMBO_REQ;
     }
 
     @Override

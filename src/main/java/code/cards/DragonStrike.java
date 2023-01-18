@@ -18,9 +18,9 @@ public class DragonStrike extends AbstractStanceCard {
     private static final int DAMAGE = 5;
     private static final int UPGRADE_DAMAGE = 2;
     private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 1;
     private static final int CONDUIT = 1;
-    private static final int UPGRADE_CONDUIT = 2;
+    private static final int UPGRADE_CONDUIT = 1;
 
     public DragonStrike() {
         super(ID, COST, TYPE, RARITY, TARGET);

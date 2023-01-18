@@ -1,9 +1,9 @@
 {
-  "${ModID}:TodoItem": {
-    "NAME": "Todo Item",
-    "FLAVOR": "TODO: make this a sweet relic.",
+  "blademaster:DancersAmulet": {
+    "NAME": "Dancer's Amulet",
+    "FLAVOR": "Given to you by the fabled Bladed Ancer.",
     "DESCRIPTIONS": [
-      "Has no effect."
+      "Whenever you play 3 cards in a turn, draw 1 card."
     ]
   }
 }

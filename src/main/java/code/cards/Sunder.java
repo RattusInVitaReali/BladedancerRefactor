@@ -20,15 +20,10 @@ public class Sunder extends AbstractStanceCard {
     private static final int UPGRADE_CONDUIT = 2;
 
     public Sunder() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);
         baseDamage = DAMAGE;
         baseConduit = conduit = CONDUIT;
         setDescription(cardStrings.DESCRIPTION);
-    }
-
-    @Override
-    public int comboReq() {
-        return COMBO_REQ;
     }
 
     @Override

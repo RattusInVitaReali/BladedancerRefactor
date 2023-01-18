@@ -37,12 +37,17 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public StanceState state;
 
     private AbstractStanceCard PREVIEW_WIND = null;
+    private AbstractStanceCard PREVIEW_WIND_UPGRADED = null;
     private AbstractStanceCard PREVIEW_LIGHTNING = null;
+    private AbstractStanceCard PREVIEW_LIGHTNING_UPGRADED = null;
     private boolean renderPreviewCards = false;
 
-
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
+        this(cardID, cost, type, rarity, target, 0, 0);
+    }
+
+    public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, int furyCost, int comboCost) {
+        super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR, furyCost, comboCost);
         CardStrings windStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":WIND");
         cardStringsWind = windStrings.NAME.equals("[MISSING_TITLE]") ? cardStrings : windStrings;
         CardStrings lightningStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":LIGHTNING");
@@ -105,7 +110,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     protected void conduit(AbstractPlayer p) {
         AbstractStancePower stance = BlademasterUtil.getPlayerStancePower();
-        if (stance != null) {
+        if (stance != null && conduit > 0) {
             playerApplyPower(p, stance.getChargePower(p, conduit));
         }
     }
@@ -205,17 +210,19 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
                 return;
             }
             generatePreviewCards();
+            AbstractStanceCard previewWind = upgraded ? PREVIEW_WIND_UPGRADED : PREVIEW_WIND;
+            AbstractStanceCard previewLightning = upgraded ? PREVIEW_LIGHTNING_UPGRADED : PREVIEW_LIGHTNING;
             if (current_x > Settings.WIDTH * .75f) {
-                PREVIEW_WIND.current_x = PREVIEW_LIGHTNING.current_x = current_x + IMG_WIDTH * drawScale * .9f;
+                previewWind.current_x = previewLightning.current_x = current_x + IMG_WIDTH * drawScale * .9f;
             } else {
-                PREVIEW_WIND.current_x = PREVIEW_LIGHTNING.current_x = current_x - IMG_WIDTH * drawScale * .9f;
+                previewWind.current_x = previewLightning.current_x = current_x - IMG_WIDTH * drawScale * .9f;
             }
-            PREVIEW_WIND.current_y = current_y + IMG_HEIGHT / 2f * drawScale;
-            PREVIEW_LIGHTNING.current_y = current_y - IMG_HEIGHT / 6f * drawScale;
+            previewWind.current_y = current_y + IMG_HEIGHT / 2f * drawScale;
+            previewLightning.current_y = current_y - IMG_HEIGHT / 6f * drawScale;
             float previewDrawScale = drawScale / 1.5f;
-            PREVIEW_WIND.drawScale = PREVIEW_LIGHTNING.drawScale = previewDrawScale;
-            PREVIEW_WIND.render(sb);
-            PREVIEW_LIGHTNING.render(sb);
+            previewWind.drawScale = previewLightning.drawScale = previewDrawScale;
+            previewWind.render(sb);
+            previewLightning.render(sb);
         }
     }
 
@@ -223,10 +230,14 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         if (PREVIEW_WIND == null) {
             PREVIEW_WIND = (AbstractStanceCard) this.makeCopy();
             PREVIEW_WIND.setStance(BlademasterStance.WIND);
+            PREVIEW_WIND_UPGRADED = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_WIND_UPGRADED.setStance(BlademasterStance.WIND);
         }
         if (PREVIEW_LIGHTNING == null) {
             PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeCopy();
             PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
+            PREVIEW_LIGHTNING_UPGRADED = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_LIGHTNING_UPGRADED.setStance(BlademasterStance.LIGHTNING);
         }
     }
 

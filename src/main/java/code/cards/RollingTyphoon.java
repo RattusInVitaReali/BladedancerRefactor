@@ -24,16 +24,11 @@ public class RollingTyphoon extends AbstractStanceCard {
     private static final int FURY_REQ = 30;
 
     public RollingTyphoon() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);
         this.isMultiDamage = true;
         baseDamage = MULTI_DAMAGE;
         baseSecondDamage = DAMAGE;
         setDescription(cardStrings.DESCRIPTION);
-    }
-
-    @Override
-    public int furyReq() {
-        return FURY_REQ;
     }
 
     @Override

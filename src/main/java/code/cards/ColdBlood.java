@@ -22,13 +22,8 @@ public class ColdBlood extends AbstractBlademasterCard {
     private static final int COMBO_REQ = 6;
 
     public ColdBlood() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);
         baseMagicNumber = magicNumber = MAGIC;
-    }
-
-    @Override
-    public int comboReq() {
-        return COMBO_REQ;
     }
 
     @Override

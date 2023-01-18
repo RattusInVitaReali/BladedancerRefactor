@@ -9,7 +9,7 @@ import code.cards.cardvars.ConduitNumber;
 import code.cards.cardvars.SecondDamage;
 import code.cards.cardvars.SecondMagicNumber;
 import code.characters.BlademasterCharacter;
-import code.relics.AbstractEasyRelic;
+import code.relics.AbstractBlademasterRelic;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
@@ -111,8 +111,8 @@ public class Blademaster implements
     @Override
     public void receiveEditRelics() {
         new AutoAdd(modID)
-                .packageFilter(AbstractEasyRelic.class)
-                .any(AbstractEasyRelic.class, (info, relic) -> {
+                .packageFilter(AbstractBlademasterRelic.class)
+                .any(AbstractBlademasterRelic.class, (info, relic) -> {
                     if (relic.color == null) {
                         BaseMod.addRelic(relic, RelicType.SHARED);
                     } else {

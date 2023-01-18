@@ -79,19 +79,26 @@ public class CardRenderPatch {
     )
     public static class FinisherRequirementsPatch {
 
+        private static final Color MODIFIED_COST_COLOR = new Color(0.4F, 1.0F, 0.4F, 1.0F);
+        private static final Color RESTRICTED_COST_COLOR = new Color(1.0F, 0.3F, 0.3F, 1.0F);
+
         public static void Postfix(AbstractCard __card_instance, SpriteBatch sb) {
 
             getRenderMethod();
 
             if (__card_instance instanceof AbstractBlademasterCard) {
+
                 if (__card_instance.hasTag(BlademasterTags.FURY_FINISHER)) {
                     Texture texture = ((AbstractBlademasterCard) __card_instance).getFuryOverlayTexture();
                     renderImage(__card_instance, sb, __card_instance.current_x - 512, __card_instance.current_y - 512, texture);
 
 
                     Color costColor = Color.WHITE.cpy();
-                    if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(__card_instance) && !((AbstractBlademasterCard) __card_instance).hasEnoughFury()) {
-                        costColor = new Color(1.0F, 0.3F, 0.3F, 1.0F);
+                    if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(__card_instance)) {
+                        if (((AbstractBlademasterCard) __card_instance).isFuryCostModified)
+                            costColor = MODIFIED_COST_COLOR;
+                        if (!((AbstractBlademasterCard) __card_instance).hasEnoughFury())
+                            costColor = RESTRICTED_COST_COLOR;
                     }
                     costColor.a = __card_instance.transparency;
                     String text = Integer.toString(((AbstractBlademasterCard)__card_instance).furyReq());
@@ -110,8 +117,11 @@ public class CardRenderPatch {
                     renderImage(__card_instance, sb, __card_instance.current_x - 512, __card_instance.current_y - 512, texture);
 
                     Color costColor = Color.WHITE.cpy();
-                    if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(__card_instance) && !((AbstractBlademasterCard) __card_instance).hasEnoughCombo()) {
-                        costColor = new Color(1.0F, 0.3F, 0.3F, 1.0F);
+                    if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(__card_instance)) {
+                        if (((AbstractBlademasterCard) __card_instance).isComboCostModified)
+                            costColor = MODIFIED_COST_COLOR;
+                        if (!((AbstractBlademasterCard) __card_instance).hasEnoughCombo())
+                            costColor = RESTRICTED_COST_COLOR;
                     }
                     costColor.a = __card_instance.transparency;
                     String text = Integer.toString(((AbstractBlademasterCard)__card_instance).comboReq());

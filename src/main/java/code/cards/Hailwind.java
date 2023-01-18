@@ -2,8 +2,10 @@ package code.cards;
 
 import code.cards.AbstractBlademasterCard;
 
+import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
@@ -32,6 +34,7 @@ public class Hailwind extends AbstractBlademasterCard {
             addToBot(new VFXAction(new ThrowDaggerEffect(m.hb_x, m.hb_y)));
             damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
         }
+        addToBot(new RemoveSpecificPowerAction(p, p, WindChargePower.POWER_ID));
     }
 
     @Override

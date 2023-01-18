@@ -25,15 +25,10 @@ public class ThreePointStrike extends AbstractBlademasterCard {
     private static final int UPGRADE_MAGIC = 1;
 
     public ThreePointStrike() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);
         baseDamage = DAMAGE;
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
-    }
-
-    @Override
-    public int comboReq() {
-        return COMBO_REQ;
     }
 
     @Override

@@ -24,13 +24,8 @@ public class FuryOfTheElements extends AbstractBlademasterCard {
     private static final int FURY_REQ = 25;
     private static final int UPGRADE_FURY_REQ = 20;
 
-    @Override
-    public int furyReq() {
-        return this.upgraded ? UPGRADE_FURY_REQ : FURY_REQ;
-    }
-
     public FuryOfTheElements() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);
     }
 
     @Override

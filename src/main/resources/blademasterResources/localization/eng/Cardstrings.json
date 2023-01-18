@@ -167,7 +167,7 @@
     "NAME": "Rolling Typhoon"
   },
   "blademaster:RollingTyphoon:LIGHTNING": {
-    "DESCRIPTION": "Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AE1FC]Gain[] [LC] [LC] [#9AE1FC]block.[]",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AE1FC]Gain[] [LC] [LC] [#9AE1FC]Block.[]",
     "NAME": "Rolling Typhoon"
   },
   "blademaster:StanceMastery": {
@@ -180,11 +180,11 @@
     "NAME": "Stormstrike"
   },
   "blademaster:EnchantedCuirass": {
-    "DESCRIPTION": "Finisher. Gain !M! block at the end of each turn.",
+    "DESCRIPTION": "blademaster:Finisher. Gain !M! Block at the end of each turn.",
     "NAME": "Enchanted Cuirass"
   },
   "blademaster:FuryOfTheElements": {
-    "DESCRIPTION": "Finisher. Consume ALL your [WC] [LC] to deal [WC] [WC] + [LC] [LC] damage to ALL enemies.",
+    "DESCRIPTION": "blademaster:Finisher. Consume ALL your [WC] [LC] to deal [WC] [WC] + [LC] [LC] damage to ALL enemies.",
     "NAME": "Fury Of The Elements"
   },
   "blademaster:Hailwind": {
@@ -192,29 +192,96 @@
     "NAME": "Hailwind"
   },
   "blademaster:Reversal": {
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block.",
     "NAME": "Reversal"
   },
   "blademaster:Reversal:WIND": {
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block. NL [#9AFC9F]Enter[] [#4A8CFF]Lightning[] [#4A8CFF]Stance[][#9AFC9F].[]",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL [#9AFC9F]Enter[] [#4A8CFF]Lightning[] [#4A8CFF]Stance[][#9AFC9F].[]",
     "NAME": "Reversal"
   },
   "blademaster:Reversal:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block. NL [#9AE1FC]Enter[] [#00FF2A]Wind[] [#00FF2A]Stance[][#9AE1FC].[]",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL [#9AE1FC]Enter[] [#00FF2A]Wind[] [#00FF2A]Stance[][#9AE1FC].[]",
     "NAME": "Reversal"
   },
   "blademaster:ThreePointStrike": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage thrice. Gain !B! block. Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Finisher. Deal !D! damage thrice. Gain !B! block. Draw !M! cards.",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage thrice. Gain !B! Block. Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. Deal !D! damage thrice. Gain !B! Block. Draw !M! cards.",
     "NAME": "Three Point Strike"
   },
   "blademaster:UnrelentingWind": {
-    "DESCRIPTION": "blademaster:Finisher. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! block and [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies.",
+    "DESCRIPTION": "blademaster:Finisher. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies.",
     "NAME": "Unrelenting Wind",
-    "UPGRADE_DESCRIPTION": "blademaster:Finisher. [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! block and [WC] [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies."
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [WC] [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies."
   },
   "blademaster:Sunder": {
     "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage.",
     "NAME": "Sunder"
+  },
+  "blademaster:Backstep": {
+    "DESCRIPTION":"Gain !B! Block. NL Enter [#737373]Basic[] [#737373]Stance[].",
+    "NAME": "Backstep"
+  },
+  "blademaster:Flash": {
+    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a copy of this card to your hand that costs 10 more [#FF4500]Fury[].",
+    "NAME": "Flash"
+  },
+  "blademaster:KiBarrier": {
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !B! block",
+    "NAME": "Ki Barrier"
+  },
+  "blademaster:HighVoltage": {
+    "DESCRIPTION": "Gain [WC] + [LC] Block.",
+    "NAME": "High Voltage"
+  },
+  "blademaster:Stability": {
+    "DESCRIPTION": "Gain !B! Block. Gain !M! Artifact. NL Exhaust.",
+    "NAME": "Stability"
+  },
+  "blademaster:BloodyBlow": {
+    "DESCRIPTION": "Dead !D! damage. NL blademaster:Bloodied: apply !M! blademaster:Bleeding.",
+    "NAME": "Bloody Blow"
+  },
+  "blademaster:AncestralHealing": {
+    "DESCRIPTION": "Restore !M! health. Exhaust.",
+    "NAME": "Ancestral Healing"
+  },
+  "blademaster:Bloodbath": {
+    "DESCRIPTION": "Whenever you play a skill, apply !M! blademaster:Bleeding to ALL enemies.",
+    "NAME": "Bloodbath"
+  },
+  "blademaster:Breeze": {
+    "DESCRIPTION": "Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a Gale to your hand.",
+    "NAME": "Breeze"
+  },
+  "blademaster:Gale": {
+    "DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a Zephyr to your hand. Exhaust.",
+    "NAME": "Gale"
+  },
+  "blademaster:Zephyr": {
+    "DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Exhaust.",
+    "NAME": "Zephyr"
+  },
+  "blademaster:CombatPrep": {
+    "DESCRIPTION": "Next turn, gain [E] and draw !M! card.",
+    "NAME": "Combat Prep",
+    "UPGRADE_DESCRIPTION": "Next turn, gain [E] [E] and draw !M! cards."
+  },
+  "blademaster:Execute": {
+    "DESCRIPTION": "Deal !D! damage. NL blademaster:Bloodied: deal !blademaster:D2! additional damage.",
+    "NAME": "Execute"
+  },
+  "blademaster:Massacre": {
+    "DESCRIPTION": "blademaster:Bloodied effects apply an additional time.",
+    "NAME": "Massacre"
+  },
+  "blademaster:Overcharge": {
+    "DESCRIPTION": "At the end of your turn, deal [WC] + [LC] damage to a random enemy.",
+    "NAME": "Overcharge"
+  },
+  "blademaster:Rupture": {
+    "DESCRIPTION": "Double an enemy's blademaster:Bleeding. Exhaust.",
+    "NAME": "Rupture",
+    "UPGRADE_DESCRIPTION": "Triple na enemy's blademaster:Bleeding. Exhaust."
   }
+
 }

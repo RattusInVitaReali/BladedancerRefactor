@@ -6,6 +6,7 @@ import code.characters.BlademasterCharacter;
 import code.patches.BlademasterTags;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
+import code.powers.MassacrePower;
 import code.util.BlademasterUtil;
 import code.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
@@ -24,6 +25,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import jdk.internal.jline.internal.Log;
 
 import static code.Blademaster.*;
 
@@ -41,16 +43,29 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public boolean upgradedSecondDamage;
     public boolean isSecondDamageModified;
 
+    public int furyCost = 0;
+    public int furyCostForTurn = furyCost;
+    public boolean isFuryCostModified = false;
+    public int comboCost = 0;
+    public int comboCostForTurn = comboCost;
+    public boolean isComboCostModified = false;
+
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR);
+        this(cardID, cost, type, rarity, target, 0, 0);
     }
 
-    public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+    public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, int furyCost, int comboCost) {
+        this(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR, furyCost, comboCost);
+    }
+
+    public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color, int furyCost, int comboCost) {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
         setDescription(cardStrings.DESCRIPTION);
         name = originalName = cardStrings.NAME;
+        this.furyCost = this.furyCostForTurn = furyCost;
+        this.comboCost = this.comboCostForTurn = comboCost;
         if (furyReq() > 0)
             this.tags.add(BlademasterTags.FURY_FINISHER);
         if (comboReq() > 0)
@@ -136,6 +151,23 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         isSecondMagicModified = false;
         secondDamage = baseSecondDamage;
         isSecondDamageModified = false;
+        furyCostForTurn = furyCost;
+        comboCostForTurn = comboCost;
+        isFuryCostModified = false;
+        isComboCostModified = false;
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard abstractCard = super.makeStatEquivalentCopy();
+        AbstractBlademasterCard card = (AbstractBlademasterCard) abstractCard;
+        card.baseSecondDamage = baseSecondDamage;
+        card.baseSecondMagic = baseSecondMagic;
+        card.furyCost = furyCost;
+        card.furyCostForTurn = furyCostForTurn;
+        card.comboCost = comboCost;
+        card.comboCostForTurn = comboCostForTurn;
+        return card;
     }
 
     @Override
@@ -183,11 +215,30 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public abstract void onUpgrade();
 
     public int furyReq() {
-        return 0;
+        return furyCostForTurn;
     }
 
     public int comboReq() {
-        return 0;
+        return comboCostForTurn;
+    }
+
+    @Override
+    public void setCostForTurn(int amt) {
+        super.setCostForTurn(amt);
+        if (amt == 0) {
+            setComboCostForTurn(amt);
+            setFuryCostForTurn(amt);
+        }
+    }
+
+    public void setComboCostForTurn(int comboCostForTurn) {
+        this.comboCostForTurn = comboCostForTurn;
+        if (comboCostForTurn != comboCost) isComboCostModified = true;
+    }
+
+    public void setFuryCostForTurn(int furyCostForTurn) {
+        this.furyCostForTurn = furyCostForTurn;
+        if (furyCostForTurn != furyCost) isFuryCostModified = true;
     }
 
     public boolean hasEnoughFury() {
@@ -208,10 +259,10 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
     protected final void consumeFinisherCost() {
         AbstractPlayer p = AbstractDungeon.player;
-        if (furyReq() > 0) {
+        if (furyReq() > 0 && !isInAutoplay) {
             BlademasterUtil.playerApplyPower(p, new FuryPower(p, -furyReq()));
         }
-        if (comboReq() > 0) {
+        if (comboReq() > 0 && !isInAutoplay) {
             BlademasterUtil.playerApplyPower(p, new ComboPower(p, -comboReq()));
         }
 
@@ -221,15 +272,28 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         return (m.currentHealth <= m.maxHealth / 2);
     }
 
+    protected final void useBloodiedWrapper(AbstractPlayer p, AbstractMonster m) {
+        if (isBloodied(m)) {
+            useBloodied(p, m);
+            if (p.hasPower(MassacrePower.POWER_ID)) {
+                useBloodied(p, m);
+            }
+        }
+    }
+
+    protected void useBloodied(AbstractPlayer p, AbstractMonster m) {
+
+    }
+
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         if (!super.canUse(p, m))
             return false;
-        if (!hasEnoughFury()) {
+        if (!hasEnoughFury() && !isInAutoplay) {
             cantUseMessage = "I'm not furious enough!";
             return false;
         }
-        if (!hasEnoughCombo()) {
+        if (!hasEnoughCombo() && !isInAutoplay) {
             cantUseMessage = "I'm not.. comboing? enough!";
             return false;
         }
