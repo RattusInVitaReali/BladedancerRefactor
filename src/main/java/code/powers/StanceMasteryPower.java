@@ -1,12 +1,9 @@
 package code.powers;
 
-import code.powers.AbstractBlademasterPower;
 import code.powers.stances.LightningChargePower;
 import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static code.Blademaster.makeID;

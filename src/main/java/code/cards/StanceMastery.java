@@ -1,7 +1,5 @@
 package code.cards;
 
-import code.cards.AbstractBlademasterCard;
-
 import code.powers.StanceMasteryPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

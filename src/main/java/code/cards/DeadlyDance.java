@@ -1,8 +1,5 @@
 package code.cards;
 
-import code.actions.BleedingLoseHpAction;
-import code.cards.AbstractBlademasterCard;
-
 import code.powers.BleedingPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

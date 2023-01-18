@@ -46,7 +46,7 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
 
     @Override
     public void updateDescription() {
-        if (owner != null && ! owner.isPlayer) {
+        if (owner != null && !owner.isPlayer) {
             description = powerStrings.DESCRIPTIONS[2] + amount + powerStrings.DESCRIPTIONS[1];
         } else {
             description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];
@@ -64,7 +64,7 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
     }
 
     public void decrementAmount() {
-        amount -=3;
+        amount -= 3;
         if (amount < 0)
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         updateDescription();

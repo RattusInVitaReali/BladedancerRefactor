@@ -6,7 +6,6 @@ import code.cards.AbstractStanceCard;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -101,7 +100,7 @@ public class CardRenderPatch {
                             costColor = RESTRICTED_COST_COLOR;
                     }
                     costColor.a = __card_instance.transparency;
-                    String text = Integer.toString(((AbstractBlademasterCard)__card_instance).furyReq());
+                    String text = Integer.toString(((AbstractBlademasterCard) __card_instance).furyReq());
                     FontHelper.cardEnergyFont_L.getData().setScale(__card_instance.drawScale);
                     BitmapFont font = FontHelper.cardEnergyFont_L;
                     FontHelper.renderRotatedText(sb, font, text,
@@ -124,7 +123,7 @@ public class CardRenderPatch {
                             costColor = RESTRICTED_COST_COLOR;
                     }
                     costColor.a = __card_instance.transparency;
-                    String text = Integer.toString(((AbstractBlademasterCard)__card_instance).comboReq());
+                    String text = Integer.toString(((AbstractBlademasterCard) __card_instance).comboReq());
                     FontHelper.cardEnergyFont_L.getData().setScale(__card_instance.drawScale);
                     BitmapFont font = FontHelper.cardEnergyFont_L;
                     FontHelper.renderRotatedText(sb, font, text,

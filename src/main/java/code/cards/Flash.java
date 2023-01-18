@@ -1,7 +1,5 @@
 package code.cards;
 
-import basemod.cardmods.EtherealMod;
-import basemod.cardmods.ExhaustMod;
 import basemod.helpers.CardModifierManager;
 import code.modifiers.EtherealNoDescriptionMod;
 import code.modifiers.ExhaustNoDescriptionMod;
@@ -12,7 +10,6 @@ import code.util.BlademasterUtil;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

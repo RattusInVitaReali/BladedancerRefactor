@@ -1,8 +1,6 @@
 package code.cards;
 
 import code.actions.WindStanceAction;
-import code.cards.AbstractBlademasterCard;
-
 import code.powers.BleedingPower;
 import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

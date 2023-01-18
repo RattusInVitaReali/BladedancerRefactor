@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static code.Blademaster.modID;
 import static code.util.BlademasterUtil.getPlayerStance;
@@ -145,6 +144,10 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
     }
 
+    protected String getDescription() {
+        return cardStrings.DESCRIPTION;
+    }
+
     @Override
     protected void setDescription(String description) {
         rawDescription = description;
@@ -152,10 +155,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
             rawDescription += " " + Blademaster.modID + ":Conduit !" + Blademaster.modID + ":C!.";
         }
         initializeDescription();
-    }
-
-    protected String getDescription() {
-        return cardStrings.DESCRIPTION;
     }
 
     protected String getUpgradeDescription() {

@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import static code.Blademaster.makeID;
-import static code.util.BlademasterUtil.playerApplyPower;
 
 public class ComboPower extends AbstractBlademasterPower {
 

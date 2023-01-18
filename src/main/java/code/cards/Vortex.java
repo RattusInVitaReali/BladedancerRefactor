@@ -2,7 +2,6 @@ package code.cards;
 
 import code.powers.BleedingPower;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -45,7 +44,7 @@ public class Vortex extends AbstractStanceCard {
     @Override
     public void useWind(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
-        for (AbstractMonster monster: AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             playerApplyPower(monster, new WeakPower(monster, secondMagic, false));
         }
     }
@@ -53,7 +52,7 @@ public class Vortex extends AbstractStanceCard {
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
-        for (AbstractMonster monster: AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             playerApplyPower(monster, new VulnerablePower(monster, secondMagic, false));
         }
     }

@@ -4,6 +4,6 @@ import code.Blademaster;
 
 public interface OnStanceChangedPower {
 
-    public void onStanceChanged(Blademaster.BlademasterStance stance);
+    void onStanceChanged(Blademaster.BlademasterStance stance);
 
 }

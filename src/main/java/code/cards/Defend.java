@@ -1,6 +1,5 @@
 package code.cards;
 
-import code.actions.LightningStanceAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

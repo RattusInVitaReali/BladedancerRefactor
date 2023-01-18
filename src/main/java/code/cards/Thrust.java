@@ -2,11 +2,8 @@ package code.cards;
 
 import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.getPlayerLightningCharges;

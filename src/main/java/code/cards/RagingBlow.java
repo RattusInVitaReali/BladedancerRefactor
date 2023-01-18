@@ -26,7 +26,7 @@ public class RagingBlow extends AbstractStanceCard {
     private static final int FURY_REQ = 10;
 
     public RagingBlow() {
-        super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ,0);
+        super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);
         baseDamage = DAMAGE;
         setDescription(cardStrings.DESCRIPTION);
     }

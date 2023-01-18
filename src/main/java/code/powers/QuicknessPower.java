@@ -4,8 +4,6 @@ import code.Blademaster;
 import code.powers.interfaces.OnStanceChangedPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import static code.Blademaster.makeID;
 

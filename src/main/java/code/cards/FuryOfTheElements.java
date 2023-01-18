@@ -1,7 +1,5 @@
 package code.cards;
 
-import code.cards.AbstractBlademasterCard;
-
 import code.powers.stances.LightningChargePower;
 import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
