@@ -39,5 +39,6 @@ public class FuryOfTheElements extends AbstractBlademasterCard {
 
     @Override
     public void onUpgrade() {
+        this.furyCost = UPGRADE_FURY_REQ;
     }
 }

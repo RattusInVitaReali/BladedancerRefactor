@@ -282,6 +282,28 @@
     "DESCRIPTION": "Double an enemy's blademaster:Bleeding. Exhaust.",
     "NAME": "Rupture",
     "UPGRADE_DESCRIPTION": "Triple na enemy's blademaster:Bleeding. Exhaust."
+  },
+  "blademaster:PreciseBloodshed": {
+    "DESCRIPTION": "All blademaster:Bleeding you apply this turn is doubled. NL Exhaust.",
+    "NAME": "Precise Bloodshed",
+    "UPGRADE_DESCRIPTION": "All blademaster:Bleeding you apply this turn is doubled."
+  },
+  "blademaster:Everstorm": {
+    "DESCRIPTION": "If you're in a blademaster:Stance, your next blademaster:Stance card are played in both blademaster:Stances.",
+    "NAME": "Everstorm",
+    "UPGRADE_DESCRIPTION": "If you're in a blademaster:Stance, your next !M! blademaster:Stance cards are played in both blademaster:Stances."
+  },
+  "blademaster:HeartStab": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: apply !M! Vulnerable and Weak.",
+    "NAME": "Heat Stab",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: apply !M! Vulnerable, Weak and Frail."
+  },
+  "blademaster:BladeForm": {
+    "DESCRIPTION": "blademaster:Finisher. The first blademaster:Finisher you play each turn is played twice.",
+    "NAME": "Blade Form"
+  },
+  "blademaster:FleetFootwork": {
+    "DESCRIPTION": "blademaster:Finisher. Gain !M! Dexterity. At the end of your turn, heal !blademaster:M2! HP.",
+    "NAME": "Fleet Footwork"
   }
-
 }

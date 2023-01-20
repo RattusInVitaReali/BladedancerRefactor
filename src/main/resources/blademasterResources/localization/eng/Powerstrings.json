@@ -94,5 +94,34 @@
       "At the end of your turn, deal #b",
       " damage to a random enemy."
     ]
+  },
+  "blademaster:PreciseBloodshed": {
+    "NAME": "Precise Bloodshed",
+    "DESCRIPTIONS": [
+      "All #yBleeding you apply this turn is doubled."
+    ]
+  },
+  "blademaster:Everstorm": {
+    "NAME": "Everstorm",
+    "DESCRIPTIONS": [
+      "If you're in a #yStance, your next #yStance card will be played in both #yStances.",
+      "If you're in a #yStance, your next #b",
+      " #yStance cards will be played in both #yStances."
+    ]
+  },
+  "blademaster:BladeForm": {
+    "NAME": "Blade Form",
+    "DESCRIPTIONS": [
+      "The first #yFinisher you play each turn is played twice.",
+      "The first #b",
+      " #yFinishers you play each turn are played twice."
+    ]
+  },
+  "blademaster:Regeneration": {
+    "NAME": "Regeneration",
+    "DESCRIPTIONS": [
+      "At the end of your turn, heal #b",
+      " HP."
+    ]
   }
 }

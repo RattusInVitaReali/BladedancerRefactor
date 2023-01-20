@@ -22,7 +22,7 @@ public class StanceMasteryPower extends AbstractBlademasterPower {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power instanceof WindChargePower) {
+        if (power.ID.equals(WindChargePower.POWER_ID)) {
             if (!active) {
                 active = true;
                 return;
@@ -31,7 +31,7 @@ public class StanceMasteryPower extends AbstractBlademasterPower {
             active = false;
         }
 
-        if (power instanceof LightningChargePower) {
+        if (power.ID.equals(LightningChargePower.POWER_ID)) {
             if (!active) {
                 active = true;
                 return;
