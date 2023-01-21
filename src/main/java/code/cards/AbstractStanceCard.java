@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import org.jetbrains.annotations.NotNull;
 
 import static code.Blademaster.modID;
 import static code.util.BlademasterUtil.getPlayerStance;
@@ -65,12 +66,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         return newStrings;
     }
 
-    protected void setBaseConduit(int baseConduit) {
-        this.baseConduit = this.conduit = baseConduit;
-        processCardStrings();
-        updateDescription();
-    }
-
     private void processCardStrings() {
         cardStringsWind.DESCRIPTION = addConduit(cardStringsWind.DESCRIPTION);
         if (cardStringsWind.UPGRADE_DESCRIPTION != null) cardStringsWind.UPGRADE_DESCRIPTION = addConduit(cardStringsWind.UPGRADE_DESCRIPTION);
@@ -81,12 +76,18 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     private String addConduit(String description) {
         if (baseConduit > 0) {
             if (description.endsWith("Exhaust.")) {
-                description = description.replace("Exhaust.", "blademaster:Conduit !blademaster:CN!. NL Exhaust.");
+                description = description.replace("Exhaust.", "blademaster:Conduit !blademaster:C!. NL Exhaust.");
             } else {
                 description += " NL blademaster:Conduit !blademaster:C!.";
             }
         }
         return description;
+    }
+
+    protected void setBaseConduit(int baseConduit) {
+        this.baseConduit = this.conduit = baseConduit;
+        processCardStrings();
+        updateDescription();
     }
 
     public void setStance(BlademasterStance stance) {
@@ -105,7 +106,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
             return;
         }
         state = new_state;
-        System.out.println("CARD CHANGED STATE: " + this.name + " STATE: " + this.state);
         loadCardImage(state.getCardTextureString());
         updateDescription();
         superFlash(state.getFlashColor().cpy());

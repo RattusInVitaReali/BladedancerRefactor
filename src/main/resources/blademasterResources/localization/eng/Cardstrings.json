@@ -8,11 +8,19 @@
     "DESCRIPTION": "Gain !B! Block."
   },
   "blademaster:ThunderSlash": {
-    "DESCRIPTION": "Deal !D! damage. NL If you're in [#4A8CFF]Lightning[] [#4A8CFF]Stance[], deal !D! damage again.",
+    "DESCRIPTION": "Deal !D! damage.",
+    "NAME": "Thunder Slash"
+  },
+  "blademaster:ThunderSlash:LIGHTNING": {
+    "DESCRIPTION:": "Deal !D! damage [#9AE1FC]twice[].",
     "NAME": "Thunder Slash"
   },
   "blademaster:AirSlash": {
-    "DESCRIPTION": "Deal !D! damage. NL If you're in [#00FF2A]Wind[] [#00FF2A]Stance[], deal !D! damage again.",
+    "DESCRIPTION": "Deal !D! damage.",
+    "NAME": "Air Slash"
+  },
+  "blademaster:AirSlash:WIND": {
+    "DESCRIPTION": "Deal !D! damage [#9AFC9F]twice[].",
     "NAME": "Air Slash"
   },
   "blademaster:AspectOfLightning": {
@@ -294,7 +302,7 @@
     "UPGRADE_DESCRIPTION": "If you're in a blademaster:Stance, your next !M! blademaster:Stance cards are played in both blademaster:Stances."
   },
   "blademaster:HeartStab": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: apply !M! Vulnerable and Weak.",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: apply !M! Vulnerable and Weak and gain [E].",
     "NAME": "Heat Stab"
   },
   "blademaster:BladeForm": {

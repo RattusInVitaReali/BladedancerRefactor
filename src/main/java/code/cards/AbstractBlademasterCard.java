@@ -71,6 +71,7 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         if (comboReq() > 0)
             this.tags.add(BlademasterTags.COMBO_FINISHER);
         initializeTitle();
+        System.out.println("Created new blademaster card: " + cardStrings.NAME);
     }
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
