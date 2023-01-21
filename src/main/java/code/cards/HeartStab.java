@@ -19,8 +19,8 @@ public class HeartStab extends AbstractBlademasterCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int FURY_REQ = 15;
-    private static final int DAMAGE = 12;
+    private static final int FURY_REQ = 10;
+    private static final int DAMAGE = 14;
     private static final int UPGRADE_DAMAGE = 5;
     private static final int MAGIC = 99;
 
@@ -41,13 +41,10 @@ public class HeartStab extends AbstractBlademasterCard {
     public void useBloodied(AbstractPlayer p, AbstractMonster m) {
         playerApplyPower(m, new VulnerablePower(m, magicNumber, false));
         playerApplyPower(m, new WeakPower(m, magicNumber, false));
-        if (upgraded)
-            playerApplyPower(m, new FrailPower(m, magicNumber, false));
     }
 
     @Override
     public void onUpgrade() {
         upgradeDamage(UPGRADE_DAMAGE);
-        setUpgradeDescription();
     }
 }

@@ -17,8 +17,8 @@ public class FuriousStrike extends AbstractStanceCard {
     private static final int COST = 1;
     private static final int DAMAGE = 5;
     private static final int UPGRADE_DAMAGE = 3;
-    private static final int MAGIC = 8;
-    private static final int UPGRADE_MAGIC = 3;
+    private static final int MAGIC = 5;
+    private static final int UPGRADE_MAGIC = 5;
     private static final int CONDUIT = 1;
     private static final int UPGRADE_CONDUIT = 1;
 
@@ -26,8 +26,7 @@ public class FuriousStrike extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        baseConduit = conduit = CONDUIT;
-        updateDescription();
+        setBaseConduit(CONDUIT);
     }
 
     @Override

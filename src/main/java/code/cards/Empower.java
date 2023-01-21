@@ -25,9 +25,8 @@ public class Empower extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         baseSecondMagic = secondMagic = SECOND_MAGIC;
-        baseConduit = conduit = CONDUIT;
+        setBaseConduit(CONDUIT);
         exhaust = true;
-        updateDescription();
     }
 
     @Override

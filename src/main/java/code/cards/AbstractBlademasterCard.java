@@ -44,9 +44,11 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public int furyCost = 0;
     public int furyCostForTurn = furyCost;
     public boolean isFuryCostModified = false;
+    public boolean upgradedFuryCost = false;
     public int comboCost = 0;
     public int comboCostForTurn = comboCost;
     public boolean isComboCostModified = false;
+    public boolean upgradedComboCost = false;
 
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, 0, 0);
@@ -202,6 +204,34 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         setDescription(cardStrings.UPGRADE_DESCRIPTION);
     }
 
+    protected void upgradeFuryCost(int newFuryCost) {
+        int diff = this.furyCostForTurn - this.furyCost;
+        this.furyCost = newFuryCost;
+        if (this.furyCostForTurn > 0) {
+            this.furyCostForTurn = this.furyCost + diff;
+        }
+
+        if (this.furyCostForTurn < 0) {
+            this.furyCostForTurn = 0;
+        }
+
+        this.upgradedFuryCost = true;
+    }
+
+    protected void upgradeComboCost(int newComboCost) {
+        int diff = this.comboCostForTurn - this.comboCost;
+        this.comboCost = newComboCost;
+        if (this.comboCostForTurn > 0) {
+            this.comboCostForTurn = this.comboCost + diff;
+        }
+
+        if (this.comboCostForTurn < 0) {
+            this.comboCostForTurn = 0;
+        }
+
+        this.upgradedComboCost = true;
+    }
+    
     @Override
     public void upgrade() {
         if (!upgraded) {

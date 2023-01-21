@@ -14,8 +14,8 @@ public class Execute extends AbstractBlademasterCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
     private static final int DAMAGE = 5;
-    private static final int SECOND_DAMAGE = 8;
-    private static final int UPGRADE_SECOND_DAMAGE = 4;
+    private static final int SECOND_DAMAGE = 9;
+    private static final int UPGRADE_SECOND_DAMAGE = 5;
 
     public Execute() {
         super(ID, COST, TYPE, RARITY, TARGET);
@@ -26,6 +26,7 @@ public class Execute extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+        useBloodiedWrapper(p, m);
     }
 
     @Override

@@ -26,8 +26,7 @@ public class DragonStrike extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        baseConduit = conduit = CONDUIT;
-        updateDescription();
+        setBaseConduit(CONDUIT);
     }
 
     @Override

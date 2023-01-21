@@ -37,7 +37,7 @@ public class Flash extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET, fury, 0);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        baseConduit = conduit = CONDUIT;
+        setBaseConduit(CONDUIT);
         furyCost = fury;
         tags.add(BlademasterTags.FURY_FINISHER);
         setDescription(cardStrings.DESCRIPTION);

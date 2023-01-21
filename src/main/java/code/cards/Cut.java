@@ -15,7 +15,7 @@ public class Cut extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 0;
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 3;
     private static final int UPGRADE_DAMAGE = 2;
     private static final int CONDUIT = 1;
     private static final int UPGRADE_CONDUIT = 2;
@@ -23,8 +23,7 @@ public class Cut extends AbstractStanceCard {
     public Cut() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseConduit = conduit = CONDUIT;
-        updateDescription();
+        setBaseConduit(CONDUIT);
     }
 
     @Override

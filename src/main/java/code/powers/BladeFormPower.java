@@ -32,8 +32,7 @@ public class BladeFormPower extends AbstractBlademasterPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!card.purgeOnUse && this.amount > 0 && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() - this.cardsDoubledThisTurn <= this.amount
-                && (card.hasTag(BlademasterTags.COMBO_FINISHER) || card.hasTag(BlademasterTags.FURY_FINISHER))) {
+        if (!card.purgeOnUse && this.amount > 0 && cardsDoubledThisTurn < this.amount && (card.hasTag(BlademasterTags.COMBO_FINISHER) || card.hasTag(BlademasterTags.FURY_FINISHER))) {
             ++this.cardsDoubledThisTurn;
             this.flash();
             AbstractMonster m = null;

@@ -18,7 +18,7 @@ public class DeadlyDance extends AbstractBlademasterCard {
     private static final int BLOCK = 7;
     private static final int UPGRADE_BLOCK = 4;
     private static final int MAGIC = 7;
-    private static final int UPGRADE_MAGIC = 3;
+    private static final int UPGRADE_MAGIC = 4;
 
     public DeadlyDance() {
         super(ID, COST, TYPE, RARITY, TARGET);

@@ -11,6 +11,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -48,10 +49,44 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, int furyCost, int comboCost) {
         super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR, furyCost, comboCost);
         CardStrings windStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":WIND");
-        cardStringsWind = windStrings.NAME.equals("[MISSING_TITLE]") ? cardStrings : windStrings;
+        cardStringsWind = windStrings.NAME.equals("[MISSING_TITLE]") ? duplicateCardStrings(cardStrings) : windStrings;
         CardStrings lightningStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":LIGHTNING");
-        cardStringsLightning = lightningStrings.NAME.equals("[MISSING_TITLE]") ? cardStrings : lightningStrings;
+        cardStringsLightning = lightningStrings.NAME.equals("[MISSING_TITLE]") ? duplicateCardStrings(cardStrings) : lightningStrings;
+        processCardStrings();
         setStance(BlademasterStance.BASIC);
+    }
+
+    private CardStrings duplicateCardStrings(CardStrings cardStrings) {
+        CardStrings newStrings = new CardStrings();
+        newStrings.NAME = cardStrings.NAME;
+        newStrings.DESCRIPTION = cardStrings.DESCRIPTION;
+        newStrings.UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+        if (newStrings.EXTENDED_DESCRIPTION != null) newStrings.EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION.clone();
+        return newStrings;
+    }
+
+    protected void setBaseConduit(int baseConduit) {
+        this.baseConduit = this.conduit = baseConduit;
+        processCardStrings();
+        updateDescription();
+    }
+
+    private void processCardStrings() {
+        cardStringsWind.DESCRIPTION = addConduit(cardStringsWind.DESCRIPTION);
+        if (cardStringsWind.UPGRADE_DESCRIPTION != null) cardStringsWind.UPGRADE_DESCRIPTION = addConduit(cardStringsWind.UPGRADE_DESCRIPTION);
+        cardStringsLightning.DESCRIPTION = addConduit(cardStringsLightning.DESCRIPTION);
+        if (cardStringsLightning.UPGRADE_DESCRIPTION != null) cardStringsLightning.UPGRADE_DESCRIPTION = addConduit(cardStringsLightning.UPGRADE_DESCRIPTION);
+    }
+
+    private String addConduit(String description) {
+        if (baseConduit > 0) {
+            if (description.endsWith("Exhaust.")) {
+                description = description.replace("Exhaust.", "blademaster:Conduit !blademaster:CN!. NL Exhaust.");
+            } else {
+                description += " NL blademaster:Conduit !blademaster:C!.";
+            }
+        }
+        return description;
     }
 
     public void setStance(BlademasterStance stance) {
@@ -80,6 +115,13 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public void applyPowers() {
         super.applyPowers();
         setStance(getPlayerStance());
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractStanceCard card = (AbstractStanceCard)super.makeStatEquivalentCopy();
+        card.setStance(getPlayerStance());
+        return card;
     }
 
     public Texture getBackgroundOverlayTexture() {
@@ -146,15 +188,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     protected String getDescription() {
         return cardStrings.DESCRIPTION;
-    }
-
-    @Override
-    protected void setDescription(String description) {
-        rawDescription = description;
-        if (baseConduit > 0) {
-            rawDescription += " " + Blademaster.modID + ":Conduit !" + Blademaster.modID + ":C!.";
-        }
-        initializeDescription();
     }
 
     protected String getUpgradeDescription() {
@@ -227,15 +260,15 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     private void generatePreviewCards() {
         if (PREVIEW_WIND == null) {
-            PREVIEW_WIND = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_WIND = (AbstractStanceCard) this.makeStatEquivalentCopy();
             PREVIEW_WIND.setStance(BlademasterStance.WIND);
-            PREVIEW_WIND_UPGRADED = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_WIND_UPGRADED = (AbstractStanceCard) this.makeStatEquivalentCopy();
             PREVIEW_WIND_UPGRADED.setStance(BlademasterStance.WIND);
         }
         if (PREVIEW_LIGHTNING == null) {
-            PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeStatEquivalentCopy();
             PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
-            PREVIEW_LIGHTNING_UPGRADED = (AbstractStanceCard) this.makeCopy();
+            PREVIEW_LIGHTNING_UPGRADED = (AbstractStanceCard) this.makeStatEquivalentCopy();
             PREVIEW_LIGHTNING_UPGRADED.setStance(BlademasterStance.LIGHTNING);
         }
     }

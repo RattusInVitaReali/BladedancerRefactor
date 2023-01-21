@@ -123,5 +123,14 @@
       "At the end of your turn, heal #b",
       " HP."
     ]
+  },
+  "blademaster:Dedication": {
+    "NAME": "Dedication",
+    "DESCRIPTIONS": [
+      "You cannot exit #y",
+      " #yStance. Instead of changing #yStances, draw #b",
+      " card instead.",
+      " cards instead."
+    ]
   }
 }

@@ -26,11 +26,11 @@ public class Zephyr extends AbstractStanceCard {
     public Zephyr() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = ALL_DAMAGE;
+        isMultiDamage = true;
         baseSecondDamage = DAMAGE;
-        baseConduit = conduit = CONDUIT;
+        setBaseConduit(CONDUIT);
         this.exhaust = true;
         this.isEthereal = true;
-        setDescription(cardStrings.DESCRIPTION);
     }
 
     @Override

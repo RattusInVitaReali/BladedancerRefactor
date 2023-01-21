@@ -22,8 +22,7 @@ public class Sunder extends AbstractStanceCard {
     public Sunder() {
         super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);
         baseDamage = DAMAGE;
-        baseConduit = conduit = CONDUIT;
-        setDescription(cardStrings.DESCRIPTION);
+        setBaseConduit(CONDUIT);
     }
 
     @Override

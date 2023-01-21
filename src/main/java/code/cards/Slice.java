@@ -24,8 +24,7 @@ public class Slice extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        baseConduit = conduit = CONDUIT;
-        setDescription(cardStrings.DESCRIPTION);
+        setBaseConduit(CONDUIT);
     }
 
     @Override

@@ -26,9 +26,9 @@ public class Breeze extends AbstractStanceCard {
     public Breeze() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = ALL_DAMAGE;
+        isMultiDamage = true;
         baseSecondDamage = DAMAGE;
-        baseConduit = conduit = CONDUIT;
-        setDescription(cardStrings.DESCRIPTION);
+        setBaseConduit(CONDUIT);
     }
 
     @Override

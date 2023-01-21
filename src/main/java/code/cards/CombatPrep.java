@@ -13,7 +13,7 @@ public class CombatPrep extends AbstractStanceCard {
     public final static String ID = makeID("CombatPrep");
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
     private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;
@@ -23,8 +23,7 @@ public class CombatPrep extends AbstractStanceCard {
     public CombatPrep() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        baseConduit = conduit = CONDUIT;
-        setDescription(cardStrings.DESCRIPTION);
+        setBaseConduit(CONDUIT);
     }
 
     @Override

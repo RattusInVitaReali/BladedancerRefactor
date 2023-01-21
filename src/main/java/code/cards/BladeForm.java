@@ -36,7 +36,7 @@ public class BladeForm extends AbstractBlademasterCard {
 
     @Override
     public void onUpgrade() {
-        this.furyCost = UPGRADE_FURY_REQ;
-        this.comboCost = UPGRADE_COMBO_REQ;
+        upgradeFuryCost(UPGRADE_FURY_REQ);
+        upgradeComboCost(UPGRADE_COMBO_REQ);
     }
 }

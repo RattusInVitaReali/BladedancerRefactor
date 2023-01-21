@@ -27,11 +27,11 @@ public class Gale extends AbstractStanceCard {
     public Gale() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = ALL_DAMAGE;
+        isMultiDamage = true;
         baseSecondDamage = DAMAGE;
-        baseConduit = conduit = CONDUIT;
+        setBaseConduit(CONDUIT);
         this.exhaust = true;
         this.isEthereal = true;
-        setDescription(cardStrings.DESCRIPTION);
     }
 
     @Override

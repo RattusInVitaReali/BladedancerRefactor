@@ -21,7 +21,7 @@ public class Strike extends AbstractStanceCard {
     public Strike() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseConduit = conduit = CONDUIT;
+        setBaseConduit(CONDUIT);
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
         updateDescription();
