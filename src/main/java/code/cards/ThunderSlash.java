@@ -19,7 +19,6 @@ public class ThunderSlash extends AbstractStanceCard {
     public ThunderSlash() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
-        updateDescription();
     }
 
     @Override
@@ -29,8 +28,8 @@ public class ThunderSlash extends AbstractStanceCard {
 
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
-        damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-        damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+        useBasic(p, m);
+        damageMonster(m , damage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
     }
 
     @Override

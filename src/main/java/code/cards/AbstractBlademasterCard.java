@@ -24,12 +24,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import javax.smartcardio.Card;
+import java.util.HashMap;
+
 import static code.Blademaster.makeImagePath;
 import static code.Blademaster.modID;
 
 public abstract class AbstractBlademasterCard extends CustomCard {
 
-    protected final CardStrings cardStrings;
+    protected CardStrings cardStrings;
+    private static final HashMap<String, CardStrings> stringsMap = new HashMap<>();
 
     public int secondMagic;
     public int baseSecondMagic;
@@ -61,7 +65,7 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color, int furyCost, int comboCost) {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
-        cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
+        cardStrings = getCardStrings(this.cardID);
         setDescription(cardStrings.DESCRIPTION);
         name = originalName = cardStrings.NAME;
         this.furyCost = this.furyCostForTurn = furyCost;
@@ -71,7 +75,17 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         if (comboReq() > 0)
             this.tags.add(BlademasterTags.COMBO_FINISHER);
         initializeTitle();
-        System.out.println("Created new blademaster card: " + cardStrings.NAME);
+    }
+
+    private static CardStrings getCardStrings(String cardID) {
+        if (!stringsMap.containsKey(cardID)) {
+            stringsMap.put(cardID, loadCardStrings(cardID));
+        }
+        return stringsMap.get(cardID);
+    }
+
+    protected static CardStrings loadCardStrings(String cardID) {
+         return CardCrawlGame.languagePack.getCardStrings(cardID);
     }
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {

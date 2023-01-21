@@ -13,12 +13,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
 
 import static code.Blademaster.modID;
 import static code.util.BlademasterUtil.getPlayerStance;
@@ -26,8 +26,8 @@ import static code.util.BlademasterUtil.playerApplyPower;
 
 public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
-    protected final CardStrings cardStringsWind;
-    protected final CardStrings cardStringsLightning;
+    protected CardStrings windCardStrings;
+    protected CardStrings lightningCardStrings;
     private final BasicState BASIC_STATE = new BasicState();
     private final WindState WIND_STATE = new WindState();
     private final LightningState LIGHTNING_STATE = new LightningState();
@@ -37,10 +37,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public boolean isConduitModified;
     public StanceState state;
 
+    private static final HashMap<String, CardStrings> windStringsMap = new HashMap<>();
+    private static final HashMap<String, CardStrings> lightningStringsMap = new HashMap<>();
+
     private AbstractStanceCard PREVIEW_WIND = null;
-    private AbstractStanceCard PREVIEW_WIND_UPGRADED = null;
     private AbstractStanceCard PREVIEW_LIGHTNING = null;
-    private AbstractStanceCard PREVIEW_LIGHTNING_UPGRADED = null;
     private boolean renderPreviewCards = false;
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
@@ -49,15 +50,26 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, int furyCost, int comboCost) {
         super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR, furyCost, comboCost);
-        CardStrings windStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":WIND");
-        cardStringsWind = windStrings.NAME.equals("[MISSING_TITLE]") ? duplicateCardStrings(cardStrings) : windStrings;
-        CardStrings lightningStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID + ":LIGHTNING");
-        cardStringsLightning = lightningStrings.NAME.equals("[MISSING_TITLE]") ? duplicateCardStrings(cardStrings) : lightningStrings;
-        processCardStrings();
         setStance(BlademasterStance.BASIC);
     }
 
-    private CardStrings duplicateCardStrings(CardStrings cardStrings) {
+    CardStrings getStanceCardStrings(HashMap<String, CardStrings> map, String cardID, String STANCE) {
+        if (!map.containsKey(cardID)) {
+            map.put(cardID, loadStanceCardStrings(cardID, STANCE));
+        }
+        return map.get(cardID);
+    }
+
+    private CardStrings loadStanceCardStrings(String cardID, String STANCE) {
+        CardStrings strings = loadCardStrings(cardID + ":" + STANCE);
+        if (strings.NAME.equals("[MISSING_TITLE]")) {
+            strings = duplicateCardStrings(cardStrings);
+        }
+        processCardStrings(strings);
+        return strings;
+    }
+
+    private static CardStrings duplicateCardStrings(CardStrings cardStrings) {
         CardStrings newStrings = new CardStrings();
         newStrings.NAME = cardStrings.NAME;
         newStrings.DESCRIPTION = cardStrings.DESCRIPTION;
@@ -66,11 +78,9 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         return newStrings;
     }
 
-    private void processCardStrings() {
-        cardStringsWind.DESCRIPTION = addConduit(cardStringsWind.DESCRIPTION);
-        if (cardStringsWind.UPGRADE_DESCRIPTION != null) cardStringsWind.UPGRADE_DESCRIPTION = addConduit(cardStringsWind.UPGRADE_DESCRIPTION);
-        cardStringsLightning.DESCRIPTION = addConduit(cardStringsLightning.DESCRIPTION);
-        if (cardStringsLightning.UPGRADE_DESCRIPTION != null) cardStringsLightning.UPGRADE_DESCRIPTION = addConduit(cardStringsLightning.UPGRADE_DESCRIPTION);
+    private void processCardStrings(CardStrings strings) {
+        strings.DESCRIPTION = addConduit(strings.DESCRIPTION);
+        if (strings.UPGRADE_DESCRIPTION != null) strings.UPGRADE_DESCRIPTION = addConduit(strings.UPGRADE_DESCRIPTION);
     }
 
     private String addConduit(String description) {
@@ -86,7 +96,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     protected void setBaseConduit(int baseConduit) {
         this.baseConduit = this.conduit = baseConduit;
-        processCardStrings();
         updateDescription();
     }
 
@@ -94,9 +103,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         StanceState new_state;
         switch (stance) {
             case WIND:
+                windCardStrings = getStanceCardStrings(windStringsMap, this.cardID, "WIND");
                 new_state = WIND_STATE;
                 break;
             case LIGHTNING:
+                lightningCardStrings = getStanceCardStrings(lightningStringsMap, this.cardID, "LIGHTNING");
                 new_state = LIGHTNING_STATE;
                 break;
             default:
@@ -197,23 +208,23 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     protected String getWindDescription() {
-        return cardStringsWind.DESCRIPTION;
+        return windCardStrings.DESCRIPTION;
     }
 
     protected String getWindUpgradeDescription() {
-        if (cardStringsWind.UPGRADE_DESCRIPTION != null && !cardStringsWind.UPGRADE_DESCRIPTION.equals(""))
-            return cardStringsWind.UPGRADE_DESCRIPTION;
-        return cardStringsWind.DESCRIPTION;
+        if (windCardStrings.UPGRADE_DESCRIPTION != null && !windCardStrings.UPGRADE_DESCRIPTION.equals(""))
+            return windCardStrings.UPGRADE_DESCRIPTION;
+        return windCardStrings.DESCRIPTION;
     }
 
     protected String getLightningDescription() {
-        return cardStringsLightning.DESCRIPTION;
+        return lightningCardStrings.DESCRIPTION;
     }
 
     protected String getLightningUpgradeDescription() {
-        if (cardStringsLightning.UPGRADE_DESCRIPTION != null && !cardStringsLightning.UPGRADE_DESCRIPTION.equals(""))
-            return cardStringsLightning.UPGRADE_DESCRIPTION;
-        return cardStringsLightning.DESCRIPTION;
+        if (lightningCardStrings.UPGRADE_DESCRIPTION != null && !lightningCardStrings.UPGRADE_DESCRIPTION.equals(""))
+            return lightningCardStrings.UPGRADE_DESCRIPTION;
+        return lightningCardStrings.DESCRIPTION;
     }
 
     @Override
@@ -242,19 +253,17 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
                 return;
             }
             generatePreviewCards();
-            AbstractStanceCard previewWind = upgraded ? PREVIEW_WIND_UPGRADED : PREVIEW_WIND;
-            AbstractStanceCard previewLightning = upgraded ? PREVIEW_LIGHTNING_UPGRADED : PREVIEW_LIGHTNING;
             if (current_x > Settings.WIDTH * .75f) {
-                previewWind.current_x = previewLightning.current_x = current_x + IMG_WIDTH * drawScale * .9f;
+                PREVIEW_WIND.current_x = PREVIEW_LIGHTNING.current_x = current_x + IMG_WIDTH * drawScale * .9f;
             } else {
-                previewWind.current_x = previewLightning.current_x = current_x - IMG_WIDTH * drawScale * .9f;
+                PREVIEW_WIND.current_x = PREVIEW_LIGHTNING.current_x = current_x - IMG_WIDTH * drawScale * .9f;
             }
-            previewWind.current_y = current_y + IMG_HEIGHT / 2f * drawScale;
-            previewLightning.current_y = current_y - IMG_HEIGHT / 6f * drawScale;
+            PREVIEW_WIND.current_y = current_y + IMG_HEIGHT / 2f * drawScale;
+            PREVIEW_LIGHTNING.current_y = current_y - IMG_HEIGHT / 6f * drawScale;
             float previewDrawScale = drawScale / 1.5f;
-            previewWind.drawScale = previewLightning.drawScale = previewDrawScale;
-            previewWind.render(sb);
-            previewLightning.render(sb);
+            PREVIEW_WIND.drawScale = PREVIEW_LIGHTNING.drawScale = previewDrawScale;
+            PREVIEW_WIND.render(sb);
+            PREVIEW_LIGHTNING.render(sb);
         }
     }
 
@@ -262,14 +271,10 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         if (PREVIEW_WIND == null) {
             PREVIEW_WIND = (AbstractStanceCard) this.makeStatEquivalentCopy();
             PREVIEW_WIND.setStance(BlademasterStance.WIND);
-            PREVIEW_WIND_UPGRADED = (AbstractStanceCard) this.makeStatEquivalentCopy();
-            PREVIEW_WIND_UPGRADED.setStance(BlademasterStance.WIND);
         }
         if (PREVIEW_LIGHTNING == null) {
             PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeStatEquivalentCopy();
             PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
-            PREVIEW_LIGHTNING_UPGRADED = (AbstractStanceCard) this.makeStatEquivalentCopy();
-            PREVIEW_LIGHTNING_UPGRADED.setStance(BlademasterStance.LIGHTNING);
         }
     }
 

@@ -7,14 +7,6 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
-  "blademaster:ThunderSlash": {
-    "DESCRIPTION": "Deal !D! damage.",
-    "NAME": "Thunder Slash"
-  },
-  "blademaster:ThunderSlash:LIGHTNING": {
-    "DESCRIPTION:": "Deal !D! damage [#9AE1FC]twice[].",
-    "NAME": "Thunder Slash"
-  },
   "blademaster:AirSlash": {
     "DESCRIPTION": "Deal !D! damage.",
     "NAME": "Air Slash"
@@ -85,7 +77,7 @@
     "NAME": "Thrust"
   },
   "blademaster:Thrust:WIND": {
-    "DESCRIPTION": "Deal !D! damage. NL [#9AFC9F]Deal [WC] [#9AFC9F]damage.[]",
+    "DESCRIPTION": "Deal !D! damage. NL [#9AFC9F]Deal[] [WC] [#9AFC9F]damage.[]",
     "NAME": "Thrust"
   },
   "blademaster:Thrust:LIGHTNING": {
@@ -335,5 +327,13 @@
     "DESCRIPTION": "You cannot exit [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. Instead of changing blademaster:Stances, draw a card instead.",
     "NAME": "Dedication",
     "UPGRADE_DESCRIPTION": "Retain. NL You cannot exit [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. Instead of changing blademaster:Stances, draw a card instead."
+  },
+  "blademaster:ThunderSlash": {
+    "DESCRIPTION": "Deal !D! damage.",
+    "NAME": "Thunder Slash"
+  },
+  "blademaster:ThunderSlash:LIGHTNING": {
+    "DESCRIPTION": "Deal !D! damage [#9AE1FC]twice[].",
+    "NAME": "Thunder Slash"
   }
 }
