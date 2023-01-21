@@ -25,7 +25,6 @@ public class TraverseCut extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        updateDescription();
     }
 
     @Override

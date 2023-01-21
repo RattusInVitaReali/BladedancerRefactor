@@ -11,8 +11,11 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+
+import java.util.ArrayList;
 
 public class BlademasterUtil {
 
@@ -64,6 +67,14 @@ public class BlademasterUtil {
 
     public static int getPlayerLightningCharges() {
         return getPowerAmount(AbstractDungeon.player, LightningChargePower.POWER_ID);
+    }
+
+    public static ArrayList<AbstractMonster> getAliveMonsters() {
+        ArrayList<AbstractMonster> monsters = new ArrayList<>();
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            if (!m.isDeadOrEscaped()) monsters.add(m);
+        }
+        return monsters;
     }
 
 }

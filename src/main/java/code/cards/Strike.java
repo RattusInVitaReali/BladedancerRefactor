@@ -24,7 +24,6 @@ public class Strike extends AbstractStanceCard {
         setBaseConduit(CONDUIT);
         tags.add(CardTags.STRIKE);
         tags.add(CardTags.STARTER_STRIKE);
-        updateDescription();
     }
 
     @Override

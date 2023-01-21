@@ -22,7 +22,6 @@ public class AspectOfLightning extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         exhaust = true;
-        updateDescription();
     }
 
     @Override

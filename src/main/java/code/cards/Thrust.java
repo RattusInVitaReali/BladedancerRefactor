@@ -22,7 +22,6 @@ public class Thrust extends AbstractStanceCard {
     public Thrust() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
-        updateDescription();
     }
 
     @Override

@@ -311,7 +311,7 @@ public abstract class AbstractBlademasterCard extends CustomCard {
 
     }
 
-    protected boolean isBloodied(AbstractMonster m) {
+    public static boolean isBloodied(AbstractMonster m) {
         return (m.currentHealth <= m.maxHealth / 2);
     }
 

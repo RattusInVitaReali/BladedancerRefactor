@@ -335,5 +335,29 @@
   "blademaster:ThunderSlash:LIGHTNING": {
     "DESCRIPTION": "Deal !D! damage [#9AE1FC]twice[].",
     "NAME": "Thunder Slash"
+  },
+  "blademaster:WindSlash": {
+    "DESCRIPTION": "Deal !D! damage. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
+    "NAME": "Wind Slash"
+  },
+  "blademaster:Stormguard": {
+    "DESCRIPTION": "Gain !B! block. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "NAME": "Stormguard"
+  },
+  "blademaster:Whirlwind": {
+    "DESCRIPTION": "Deal !D! damage to ALL enemies X times. X increases by 1 for each blademaster:Bloodied enemy.",
+    "NAME": "Whirlwind"
+  },
+  "blademaster:Whirlwind:WIND": {
+    "DESCRIPTION": "Deal !D! damage [#9AFC9F]and[] blademaster:Conduit !M! to ALL enemies X times. X increases by 1 for each blademaster:Bloodied enemy.",
+    "NAME": "Whirlwind"
+  },
+  "blademaster:Whirlwind:LIGHTNING": {
+    "DESCRIPTION": "Deal !D! damage [#9AE1FC]and[] blademaster:Conduit !M! to ALL enemies X times. X increases by 1 for each blademaster:Bloodied enemy.",
+    "NAME": "Whirlwind"
+  },
+  "blademaster:BladeRuse": {
+    "DESCRIPTION": "Gain !B! Block. NL Repeat for each blademaster:Bloodied enemy.",
+    "NAME": "Blade Ruse"
   }
 }

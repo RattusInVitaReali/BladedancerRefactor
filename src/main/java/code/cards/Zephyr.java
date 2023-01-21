@@ -12,7 +12,7 @@ import static code.Blademaster.makeID;
 public class Zephyr extends AbstractStanceCard {
 
     public final static String ID = makeID("Zephyr");
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
