@@ -104,9 +104,9 @@
     "DESCRIPTION": "Apply !M! blademaster:Bleeding to ALL enemies. [#9AE1FC]Apply[] !blademaster:M2! Vulnerable [#9AE1FC]to[] [#9AE1FC]ALL[] [#9AE1FC]enemies.[]",
     "NAME": "Vortex"
   },
-  "blademaster:Slice": {
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
-    "NAME": "Slice"
+  "blademaster:Flutter": {
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards.",
+    "NAME": "Flutter"
   },
   "blademaster:ColdBlood": {
     "DESCRIPTION": "blademaster:Finisher. Gain !M! Dexterity. NL Gain !M! Strength.",
@@ -340,8 +340,16 @@
     "DESCRIPTION": "Deal !D! damage. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
     "NAME": "Wind Slash"
   },
+  "blademaster:WindSlash:WIND": {
+    "DESCRIPTION": "Deal !D! damage [#9AFC9F]twice[].",
+    "NAME": "Wind Slash"
+  },
   "blademaster:Stormguard": {
     "DESCRIPTION": "Gain !B! block. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "NAME": "Stormguard"
+  },
+  "blademaster:Stormguard:LIGHTNING": {
+    "DESCRIPTION": "Gain !B! Block [#9AE1FC]twice[].",
     "NAME": "Stormguard"
   },
   "blademaster:Whirlwind": {
@@ -359,5 +367,36 @@
   "blademaster:BladeRuse": {
     "DESCRIPTION": "Gain !B! Block. NL Repeat for each blademaster:Bloodied enemy.",
     "NAME": "Blade Ruse"
+  },
+  "blademaster:EnchantedBlade": {
+    "DESCRIPTION": "blademaster:Finisher. Gain !blademaster:M2! Strength. Draw !M! cards. NL Exhaust.",
+    "NAME": "Enchanted Blade"
+  },
+  "blademaster:Blitz": {
+    "DESCRIPTION": "Deal !D! damage and apply !M! blademaster:Bleeding to a random enemy !blademaster:M2! times.",
+    "NAME": "Blitz"
+  },
+  "blademaster:Carve": {
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! blademaster:Bleeding. NL Exhaust.",
+    "NAME": "Carve"
+  },
+  "blademaster:PracticedStrokes": {
+    "DESCRIPTION": "At the start of your turn, add a Carve to your hand.",
+    "NAME": "Practiced Strokes",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a Carve to your hand."
+  },
+  "blademaster:Feint": {
+    "DESCRIPTION": "Gain !B! Block. NL Add a Carve to your hand.",
+    "NAME": "Feint",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add a Carve+ to your hand."
+  },
+  "blademaster:Focused": {
+    "DESCRIPTION": "Whenever you trigger blademaster:Bloodied, gain !M! Block.",
+    "NAME": "Focused"
+  },
+  "blademaster:Relentless": {
+    "DESCRIPTION": "The first Carve you play each turn grants [E].",
+    "NAME": "Relentless",
+    "UPGRADE_DESCRIPTION": "The first !M! Carves you play each turn grant [E]."
   }
 }

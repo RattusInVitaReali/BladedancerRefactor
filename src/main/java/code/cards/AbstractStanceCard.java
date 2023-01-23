@@ -13,10 +13,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
 import java.util.HashMap;
 
@@ -268,14 +270,18 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     private void generatePreviewCards() {
-        if (PREVIEW_WIND == null) {
-            PREVIEW_WIND = (AbstractStanceCard) this.makeStatEquivalentCopy();
-            PREVIEW_WIND.setStance(BlademasterStance.WIND);
+        PREVIEW_WIND = (AbstractStanceCard) this.makeStatEquivalentCopy();
+        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_WIND.upgraded) {
+            PREVIEW_WIND.upgrade();
+            PREVIEW_WIND.displayUpgrades();
         }
-        if (PREVIEW_LIGHTNING == null) {
-            PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeStatEquivalentCopy();
-            PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
+        PREVIEW_WIND.setStance(BlademasterStance.WIND);
+        PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeStatEquivalentCopy();
+        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_LIGHTNING.upgraded) {
+            PREVIEW_LIGHTNING.upgrade();
+            PREVIEW_LIGHTNING.displayUpgrades();
         }
+        PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
     }
 
     private abstract class StanceState {

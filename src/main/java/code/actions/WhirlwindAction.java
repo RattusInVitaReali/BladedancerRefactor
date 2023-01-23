@@ -1,6 +1,7 @@
 package code.actions;
 
 import code.cards.AbstractBlademasterCard;
+import code.powers.MassacrePower;
 import code.powers.stances.AbstractStancePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
@@ -52,6 +53,8 @@ public class WhirlwindAction extends AbstractGameAction {
         for (AbstractMonster m : getAliveMonsters()) {
             if (AbstractBlademasterCard.isBloodied(m)) {
                 ++effect;
+                if (p.hasPower(MassacrePower.POWER_ID))
+                    ++effect;
             }
         }
 

@@ -3,7 +3,7 @@
     "NAME": "Dancer's Amulet",
     "FLAVOR": "Given to you by the fabled Bladed Ancer.",
     "DESCRIPTIONS": [
-      "Whenever you play 3 cards in a turn, draw 1 card."
+      "Whenever you play 5 cards, draw 1 card."
     ]
   }
 }

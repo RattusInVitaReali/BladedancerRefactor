@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import code.characters.BlademasterCharacter;
 import code.patches.BlademasterTags;
 import code.powers.ComboPower;
+import code.powers.FocusedPower;
 import code.powers.FuryPower;
 import code.powers.MassacrePower;
 import code.util.BlademasterUtil;
@@ -23,6 +24,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import javax.smartcardio.Card;
 import java.util.HashMap;
@@ -312,14 +314,17 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     }
 
     public static boolean isBloodied(AbstractMonster m) {
-        return (m.currentHealth <= m.maxHealth / 2);
+        return (m.currentHealth <= m.maxHealth * 0.66);
     }
 
     protected final void useBloodiedWrapper(AbstractPlayer p, AbstractMonster m) {
         if (isBloodied(m)) {
+            AbstractPower focused = p.getPower(FocusedPower.POWER_ID);
             useBloodied(p, m);
+            if (focused != null) focused.onSpecificTrigger();
             if (p.hasPower(MassacrePower.POWER_ID)) {
                 useBloodied(p, m);
+                if (focused != null) focused.onSpecificTrigger();
             }
         }
     }

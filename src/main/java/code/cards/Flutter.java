@@ -7,20 +7,20 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
 
-public class Slice extends AbstractStanceCard {
+public class Flutter extends AbstractStanceCard {
 
-    public final static String ID = makeID("Slice");
+    public final static String ID = makeID("Flutter");
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
-    private static final int UPGRADE_DAMAGE = 2;
-    private static final int MAGIC = 1;
+    private static final int DAMAGE = 6;
+    private static final int UPGRADE_DAMAGE = 3;
+    private static final int MAGIC = 2;
     private static final int CONDUIT = 1;
     private static final int UPGRADE_CONDUIT = 1;
 
-    public Slice() {
+    public Flutter() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;

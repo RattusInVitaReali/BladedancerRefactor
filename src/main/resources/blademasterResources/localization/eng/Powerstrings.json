@@ -132,5 +132,27 @@
       " card instead.",
       " cards instead."
     ]
+  },
+  "blademaster:PracticedStrokes": {
+    "NAME": "Practiced Strokes",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " #yCarve to your hand"
+    ]
+  },
+  "blademaster:Focused": {
+    "NAME": "Focused",
+    "DESCRIPTIONS": [
+      "Whenever you trigger #yBloodied, gain #b",
+      " #yBlock."
+    ]
+  },
+  "blademaster:Relentless": {
+    "NAME": "Relentless",
+    "DESCRIPTIONS": [
+      "The first #b",
+      " #yCarve you play each turn grants [E].",
+      " #yCarves you play each turn grant [E]."
+    ]
   }
 }

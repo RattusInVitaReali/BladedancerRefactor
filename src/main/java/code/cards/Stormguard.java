@@ -5,17 +5,18 @@ import code.cards.AbstractBlademasterCard;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.stances.AbstractStance;
 
 import static code.Blademaster.makeID;
 
-public class Stormguard extends AbstractBlademasterCard {
+public class Stormguard extends AbstractStanceCard {
 
     public final static String ID = makeID("Stormguard");
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 5;
     private static final int UPGRADE_BLOCK = 2;
 
     public Stormguard() {
@@ -24,9 +25,15 @@ public class Stormguard extends AbstractBlademasterCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useBasic(AbstractPlayer p, AbstractMonster m) {
         block(block);
         addToBot(new LightningStanceAction());
+    }
+
+    @Override
+    public void useLightning(AbstractPlayer p, AbstractMonster m) {
+        block(block);
+        block(block);
     }
 
     @Override

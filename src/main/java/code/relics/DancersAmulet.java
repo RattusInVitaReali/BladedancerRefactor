@@ -19,18 +19,18 @@ public class DancersAmulet extends AbstractBlademasterRelic {
     }
 
     @Override
-    public void atTurnStart() {
-        counter = 0;
-    }
-
-    @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         counter++;
-        if (counter >= 3) {
+        if (counter == 4) {
+            beginPulse();
+            return;
+        }
+        if (counter >= 5) {
             flash();
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             addToBot(new DrawCardAction(AbstractDungeon.player, 1));
             counter = 0;
+            stopPulse();
         }
     }
 

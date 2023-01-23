@@ -13,7 +13,7 @@ public class Execute extends AbstractBlademasterCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 7;
     private static final int SECOND_DAMAGE = 9;
     private static final int UPGRADE_SECOND_DAMAGE = 5;
 
