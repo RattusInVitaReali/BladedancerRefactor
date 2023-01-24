@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
+import static code.util.BlademasterUtil.getAliveMonsters;
 import static code.util.BlademasterUtil.playerApplyPower;
 
 public class UnrelentingWind extends AbstractBlademasterCard {
@@ -35,7 +36,7 @@ public class UnrelentingWind extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new WindStanceAction());
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             block(block);
             playerApplyPower(monster, new BleedingPower(monster, magicNumber));
             playerApplyPower(p, new WindChargePower(p, secondMagic));

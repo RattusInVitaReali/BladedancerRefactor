@@ -8,11 +8,16 @@ import code.cards.RagingBlow;
 import code.cards.Strike;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
+import code.powers.stances.AbstractStancePower;
+import code.powers.stances.LightningChargePower;
+import code.powers.stances.WindChargePower;
 import code.relics.DancersAmulet;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -25,9 +30,12 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.sun.jna.StringArray;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static code.Blademaster.*;
 import static code.characters.BlademasterCharacter.Enums.BLADEMASTER_COLOR;
@@ -49,7 +57,12 @@ public class BlademasterCharacter extends CustomPlayer {
             modID + "Resources/images/characters/blademaster/orb/layer2d.png",
             modID + "Resources/images/characters/blademaster/orb/layer3d.png",
             modID + "Resources/images/characters/blademaster/orb/layer4d.png",
-            modID + "Resources/images/characters/blademaster/orb/layer5d.png",};
+            modID + "Resources/images/characters/blademaster/orb/layer5d.png"
+    };
+
+    private static final float POWER_ICON_PADDING_X = Settings.isMobile ? (55.0F * Settings.scale) : (48.0F * Settings.scale);
+    private static final Color POWER_AMOUNT_COLOR = Color.WHITE.cpy();
+    private static final ArrayList<String> SPECIAL_POWERS = new ArrayList<>(Arrays.asList(ComboPower.POWER_ID, FuryPower.POWER_ID, WindChargePower.POWER_ID, LightningChargePower.POWER_ID));
 
     public BlademasterCharacter(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/characters/blademaster/orb/vfx.png", null), null, null);
@@ -183,6 +196,52 @@ public class BlademasterCharacter extends CustomPlayer {
         AbstractDungeon.actionManager.addToBottom(new BasicStanceAction());
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new ComboPower(this, 0)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new FuryPower(this, 0)));
+    }
+
+    @SpireOverride
+    public void renderPowerIcons(SpriteBatch sb, float x, float y) {
+        float offset = 10.0F * Settings.scale;
+        float specialOffset = 10.0F * Settings.scale;
+        for (AbstractPower p : this.powers) {
+            if (p instanceof AbstractStancePower) {
+                p.renderIcons(sb, x + (200.0F * Settings.scale), y - 20F * Settings.scale, POWER_AMOUNT_COLOR);
+            } else if (SPECIAL_POWERS.contains(p.ID)) {
+                if (Settings.isMobile) {
+                    p.renderIcons(sb, x + specialOffset, y - 93.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                } else {
+                    p.renderIcons(sb, x + specialOffset, y - 88.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                }
+                specialOffset += POWER_ICON_PADDING_X;
+            } else {
+                if (Settings.isMobile) {
+                    p.renderIcons(sb, x + offset, y - 53.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                } else {
+                    p.renderIcons(sb, x + offset, y - 48.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                }
+                offset += POWER_ICON_PADDING_X;
+            }
+        }
+        offset = 0.0F * Settings.scale;
+        specialOffset = 0.0F * Settings.scale;
+        for (AbstractPower p : this.powers) {
+            if (p instanceof AbstractStancePower) {
+                continue;
+            } else if (SPECIAL_POWERS.contains(p.ID)) {
+                if (Settings.isMobile) {
+                    p.renderAmount(sb, x + specialOffset + 32.0F * Settings.scale, y - 115.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                } else {
+                    p.renderAmount(sb, x + specialOffset + 32.0F * Settings.scale, y - 106.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                }
+                specialOffset += POWER_ICON_PADDING_X;
+            } else {
+                if (Settings.isMobile) {
+                    p.renderAmount(sb, x + offset + 32.0F * Settings.scale, y - 75.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                } else {
+                    p.renderAmount(sb, x + offset + 32.0F * Settings.scale, y - 66.0F * Settings.scale, POWER_AMOUNT_COLOR);
+                }
+                offset += POWER_ICON_PADDING_X;
+            }
+        }
     }
 
     public static class Enums {

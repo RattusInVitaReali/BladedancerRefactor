@@ -1,6 +1,7 @@
 package code.powers;
 
 import code.actions.BleedingLoseHpAction;
+import code.relics.PaperTeigr;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -10,6 +11,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+
+import java.awt.print.Paper;
 
 import static code.Blademaster.makeID;
 
@@ -31,7 +34,7 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
-            return damage * (1.2F);
+            return AbstractDungeon.player.hasRelic(PaperTeigr.ID) ? damage * 1.3F : damage * 1.2F;
         }
         return damage;
     }
@@ -46,11 +49,11 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
 
     @Override
     public void updateDescription() {
-        if (owner != null && !owner.isPlayer) {
-            description = powerStrings.DESCRIPTIONS[2] + amount + powerStrings.DESCRIPTIONS[1];
-        } else {
-            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];
-        }
+        boolean hasRelic = AbstractDungeon.player.hasRelic(PaperTeigr.ID);
+       description = powerStrings.DESCRIPTIONS[0] +
+               (hasRelic ? 30 : 20) + powerStrings.DESCRIPTIONS[1] +
+               amount + powerStrings.DESCRIPTIONS[2] +
+               (hasRelic ? 2 : 3) + powerStrings.DESCRIPTIONS[3];
     }
 
     @Override
@@ -64,7 +67,7 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
     }
 
     public void decrementAmount() {
-        amount -= 3;
+        amount -= AbstractDungeon.player.hasRelic(PaperTeigr.ID) ? 2 : 3;
         if (amount < 0)
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         updateDescription();

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
@@ -39,6 +40,7 @@ public class WhirlwindAction extends AbstractGameAction {
         this.charges = charges;
     }
 
+    @Override
     public void update() {
         int effect = EnergyPanel.totalCount;
         if (this.energyOnUse != -1) {
@@ -53,8 +55,11 @@ public class WhirlwindAction extends AbstractGameAction {
         for (AbstractMonster m : getAliveMonsters()) {
             if (AbstractBlademasterCard.isBloodied(m)) {
                 ++effect;
-                if (p.hasPower(MassacrePower.POWER_ID))
+                AbstractBlademasterCard.triggerBloodiedPowers(AbstractDungeon.player, m);
+                if (p.hasPower(MassacrePower.POWER_ID)) {
                     ++effect;
+                    AbstractBlademasterCard.triggerBloodiedPowers(AbstractDungeon.player, m);
+                }
             }
         }
 

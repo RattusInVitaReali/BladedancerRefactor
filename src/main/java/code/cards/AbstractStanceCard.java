@@ -13,7 +13,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -124,6 +123,10 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         superFlash(state.getFlashColor().cpy());
     }
 
+    public BlademasterStance getStance() {
+        return state.getStance();
+    }
+
     @Override
     public void applyPowers() {
         super.applyPowers();
@@ -133,7 +136,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     @Override
     public AbstractCard makeStatEquivalentCopy() {
         AbstractStanceCard card = (AbstractStanceCard)super.makeStatEquivalentCopy();
-        card.setStance(getPlayerStance());
+        card.setStance(getStance());
         return card;
     }
 
@@ -235,6 +238,21 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         updateDescription();
     }
 
+    private void generatePreviewCards() {
+        PREVIEW_WIND = (AbstractStanceCard) this.makeCopy();
+        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_WIND.upgraded) {
+            PREVIEW_WIND.upgrade();
+            PREVIEW_WIND.displayUpgrades();
+        }
+        PREVIEW_WIND.setStance(BlademasterStance.WIND);
+        PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeCopy();
+        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_LIGHTNING.upgraded) {
+            PREVIEW_LIGHTNING.upgrade();
+            PREVIEW_LIGHTNING.displayUpgrades();
+        }
+        PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
+    }
+
     @Override
     public void hover() {
         super.hover();
@@ -269,24 +287,27 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
     }
 
-    private void generatePreviewCards() {
-        PREVIEW_WIND = (AbstractStanceCard) this.makeStatEquivalentCopy();
-        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_WIND.upgraded) {
-            PREVIEW_WIND.upgrade();
-            PREVIEW_WIND.displayUpgrades();
+    public void renderStancePreviewInSingleView(SpriteBatch sb) {
+        generatePreviewCards();
+        if (PREVIEW_WIND != null) {
+            PREVIEW_WIND.current_x = 485.0F * Settings.scale;
+            PREVIEW_WIND.current_y = 795.0F * Settings.scale;
+            PREVIEW_WIND.drawScale = 0.8F;
+            PREVIEW_WIND.render(sb);
         }
-        PREVIEW_WIND.setStance(BlademasterStance.WIND);
-        PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeStatEquivalentCopy();
-        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_LIGHTNING.upgraded) {
-            PREVIEW_LIGHTNING.upgrade();
-            PREVIEW_LIGHTNING.displayUpgrades();
+        if (PREVIEW_LIGHTNING != null) {
+            PREVIEW_LIGHTNING.current_x = 485.0F * Settings.scale;
+            PREVIEW_LIGHTNING.current_y = 285.0F * Settings.scale;
+            PREVIEW_LIGHTNING.drawScale = 0.8F;
+            PREVIEW_LIGHTNING.render(sb);
         }
-        PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
     }
 
     private abstract class StanceState {
 
         public abstract void use(AbstractPlayer p, AbstractMonster m);
+
+        public abstract BlademasterStance getStance();
 
         public abstract String getCardTextureString();
 
@@ -305,6 +326,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         @Override
         public void use(AbstractPlayer p, AbstractMonster m) {
             AbstractStanceCard.this.useBasic(p, m);
+        }
+
+        @Override
+        public BlademasterStance getStance() {
+            return BlademasterStance.BASIC;
         }
 
         @Override
@@ -340,6 +366,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         public void use(AbstractPlayer p, AbstractMonster m) {
             AbstractStanceCard.this.useWind(p, m);
             AbstractStanceCard.this.conduit(p);
+        }
+
+        @Override
+        public BlademasterStance getStance() {
+            return BlademasterStance.WIND;
         }
 
         @Override
@@ -392,6 +423,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         public void use(AbstractPlayer p, AbstractMonster m) {
             AbstractStanceCard.this.useLightning(p, m);
             AbstractStanceCard.this.conduit(p);
+        }
+
+        @Override
+        public BlademasterStance getStance() {
+            return BlademasterStance.LIGHTNING;
         }
 
         @Override

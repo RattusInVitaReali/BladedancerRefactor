@@ -14,6 +14,7 @@ public class WindChargePower extends AbstractBlademasterPower {
 
     public WindChargePower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+        priority = 5;
     }
 
 }

@@ -39,14 +39,6 @@ public class Carve extends AbstractBlademasterCard {
     }
 
     @Override
-    public void triggerOnGlowCheck() {
-        RelentlessPower power = (RelentlessPower) AbstractDungeon.player.getPower(RelentlessPower.POWER_ID);
-        if (power == null) return;
-        if (power.energyGranted < power.amount)
-            glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
-    }
-
-    @Override
     public void onUpgrade() {
         upgradeDamage(UPGRADE_DAMAGE);
         upgradeMagicNumber(UPGRADE_MAGIC);

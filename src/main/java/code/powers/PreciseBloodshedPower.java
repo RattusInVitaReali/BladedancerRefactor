@@ -29,7 +29,7 @@ public class PreciseBloodshedPower extends AbstractBlademasterPower {
                 active = true;
                 return;
             }
-            addToBot(new ApplyPowerAction(target, owner, new BleedingPower(target, power.amount)));
+            addToTop(new ApplyPowerAction(target, owner, new BleedingPower(target, power.amount)));
             active = false;
         }
     }

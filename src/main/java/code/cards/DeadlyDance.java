@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
+import static code.util.BlademasterUtil.getAliveMonsters;
 import static code.util.BlademasterUtil.playerApplyPower;
 
 public class DeadlyDance extends AbstractBlademasterCard {
@@ -29,7 +30,7 @@ public class DeadlyDance extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         block(block);
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             playerApplyPower(monster, new BleedingPower(monster, magicNumber));
         }
     }

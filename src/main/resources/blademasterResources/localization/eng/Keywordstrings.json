@@ -20,7 +20,7 @@
       "charge",
       "charges"
     ],
-    "DESCRIPTION": "Some #yStance-based cards have bonuses that depend on these."
+    "DESCRIPTION": "Some #yStance cards have bonuses that depend on these."
   },
   {
     "PROPER_NAME": "Bleeding",
@@ -42,6 +42,6 @@
     "NAMES": [
       "bloodied"
     ],
-    "DESCRIPTION": "Applies if the target is below #y50% health."
+    "DESCRIPTION": "Applies if the target is at or below #y66% health."
   }
 ]

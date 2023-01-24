@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
 import static code.Blademaster.makeID;
+import static code.util.BlademasterUtil.getAliveMonsters;
 import static code.util.BlademasterUtil.playerApplyPower;
 
 public class Vortex extends AbstractStanceCard {
@@ -36,7 +37,7 @@ public class Vortex extends AbstractStanceCard {
     public void useBasic(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction("ATTACK_HEAVY"));
         addToBot(new VFXAction(p, new CleaveEffect(), .1f));
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             playerApplyPower(monster, new BleedingPower(monster, magicNumber));
         }
     }
@@ -44,7 +45,7 @@ public class Vortex extends AbstractStanceCard {
     @Override
     public void useWind(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             playerApplyPower(monster, new WeakPower(monster, secondMagic, false));
         }
     }
@@ -52,7 +53,7 @@ public class Vortex extends AbstractStanceCard {
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             playerApplyPower(monster, new VulnerablePower(monster, secondMagic, false));
         }
     }

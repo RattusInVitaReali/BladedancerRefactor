@@ -29,7 +29,7 @@ public class FuryOfTheElements extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         consumeFinisherCost();
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             lightningEffect(monster);
         }
         damageAllMonsters(DamageInfo.createDamageMatrix(2 * (getPlayerWindCharges() + getPlayerLightningCharges())), AbstractGameAction.AttackEffect.SLASH_HEAVY);

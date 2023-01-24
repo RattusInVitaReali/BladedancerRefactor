@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
+import static code.util.BlademasterUtil.getAliveMonsters;
 
 public class LightningDraw extends AbstractBlademasterCard {
 
@@ -31,7 +32,7 @@ public class LightningDraw extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         consumeFinisherCost();
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             BlademasterUtil.lightningEffect(monster);
             damageMonster(monster, damage, AbstractGameAction.AttackEffect.NONE);
             BlademasterUtil.playerApplyPower(monster, new BleedingPower(monster, magicNumber));

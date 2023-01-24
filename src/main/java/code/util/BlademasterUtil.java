@@ -33,7 +33,7 @@ public class BlademasterUtil {
     }
 
     public static AbstractStancePower getPlayerStancePower() {
-        if (!AbstractDungeon.isPlayerInDungeon())
+        if (!AbstractDungeon.isPlayerInDungeon() || AbstractDungeon.player == null)
             return null;
         for (AbstractPower power : AbstractDungeon.player.powers) {
             if (power instanceof AbstractStancePower) return (AbstractStancePower) power;

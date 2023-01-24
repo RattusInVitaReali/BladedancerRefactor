@@ -20,7 +20,6 @@ public class Blitz extends AbstractBlademasterCard {
     private static final int COST = 2;
     private static final int DAMAGE = 3;
     private static final int MAGIC = 6;
-    private static final int UPGRADE_MAGIC = 2;
     private static final int SECOND_MAGIC = 3;
     private static final int UPGRADE_SECOND_MAGIC = 1;
 
@@ -38,7 +37,6 @@ public class Blitz extends AbstractBlademasterCard {
 
     @Override
     public void onUpgrade() {
-        upgradeMagicNumber(UPGRADE_MAGIC);
         upgradeSecondMagic(UPGRADE_SECOND_MAGIC);
     }
 }

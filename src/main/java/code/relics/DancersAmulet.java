@@ -19,6 +19,11 @@ public class DancersAmulet extends AbstractBlademasterRelic {
     }
 
     @Override
+    public void atBattleStart() {
+        counter = 0;
+    }
+
+    @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         counter++;
         if (counter == 4) {

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
+import static code.util.BlademasterUtil.getAliveMonsters;
 
 public class BloodbathPower extends AbstractBlademasterPower {
 
@@ -22,7 +23,7 @@ public class BloodbathPower extends AbstractBlademasterPower {
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.type == AbstractCard.CardType.SKILL) {
             this.flash();
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            for (AbstractMonster monster : getAliveMonsters()) {
                 addToBot(new ApplyPowerAction(monster, owner, new BleedingPower(monster, amount)));
             }
         }

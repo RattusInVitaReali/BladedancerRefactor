@@ -1,6 +1,7 @@
 package code.powers;
 
 import code.cards.Carve;
+import code.powers.interfaces.OnBloodiedPower;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
 
-public class RelentlessPower extends AbstractBlademasterPower {
+public class RelentlessPower extends AbstractBlademasterPower implements OnBloodiedPower {
 
     public static final String POWER_ID = makeID("Relentless");
     public static final PowerType TYPE = PowerType.BUFF;
@@ -28,8 +29,8 @@ public class RelentlessPower extends AbstractBlademasterPower {
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card instanceof Carve && energyGranted < amount) {
+    public void onBloodied(AbstractMonster monster) {
+        if (energyGranted < amount) {
             flash();
             ++energyGranted;
             addToBot(new GainEnergyAction(1));
@@ -39,9 +40,9 @@ public class RelentlessPower extends AbstractBlademasterPower {
     @Override
     public void updateDescription() {
         if (amount > 1) {
-            description = powerStrings.DESCRIPTIONS[0] + powerStrings.DESCRIPTIONS[2];
+            description = powerStrings.DESCRIPTIONS[1] + powerStrings.DESCRIPTIONS[2];
         } else {
-            description = powerStrings.DESCRIPTIONS[0] + powerStrings.DESCRIPTIONS[1];
+            description = powerStrings.DESCRIPTIONS[0];
         }
     }
 

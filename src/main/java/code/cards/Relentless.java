@@ -17,7 +17,6 @@ public class Relentless extends AbstractBlademasterCard {
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 1;
     private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
 
     public Relentless() {
         super(ID, COST, TYPE, RARITY, TARGET);
@@ -31,7 +30,7 @@ public class Relentless extends AbstractBlademasterCard {
 
     @Override
     public void onUpgrade() {
-        upgradeMagicNumber(UPGRADE_MAGIC);
+        this.isInnate = true;
         setUpgradeDescription();
     }
 }

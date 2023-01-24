@@ -25,7 +25,8 @@ public class Flash extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 0;
-    private static final int FURY_REQ_PER_USE = 10;
+    private static final int FURY_REQ = 12;
+    private static final int FURY_REQ_PER_USE = 6;
     private static final int DAMAGE = 8;
     private static final int UPGRADE_DAMAGE = 3;
     private static final int MAGIC = 3;
@@ -38,13 +39,10 @@ public class Flash extends AbstractStanceCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
         setBaseConduit(CONDUIT);
-        furyCost = fury;
-        tags.add(BlademasterTags.FURY_FINISHER);
-        setDescription(cardStrings.DESCRIPTION);
     }
 
     public Flash() {
-        this(FURY_REQ_PER_USE);
+        this(FURY_REQ);
     }
 
     @Override
@@ -52,9 +50,8 @@ public class Flash extends AbstractStanceCard {
         consumeFinisherCost();
         damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         playerApplyPower(m, new BleedingPower(m, magicNumber));
-        Flash newFlash = new Flash(furyReq() + FURY_REQ_PER_USE);
-        newFlash.setStance(getPlayerStance());
-        if (upgraded) newFlash.upgrade();
+        Flash newFlash = (Flash) makeStatEquivalentCopy();
+        newFlash.setFuryCostForTurn(furyCostForTurn + FURY_REQ_PER_USE);
         CardModifierManager.addModifier(newFlash, new ExhaustNoDescriptionMod());
         CardModifierManager.addModifier(newFlash, new EtherealNoDescriptionMod());
         addToBot(new MakeTempCardInHandAction(newFlash));
@@ -65,8 +62,7 @@ public class Flash extends AbstractStanceCard {
         this.glowColor = Color.WHITE.cpy();
         if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq()) {
             this.glowColor = Color.ORANGE.cpy();
-            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq())
-                superFlash(glowColor);
+            superFlash(glowColor);
         }
     }
 

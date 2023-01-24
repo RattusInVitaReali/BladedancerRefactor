@@ -36,12 +36,13 @@ public class RagingBlow extends AbstractStanceCard {
         consumeFinisherCost();
         addToBot(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.1F));
         damageMonster(m, damage, AbstractGameAction.AttackEffect.NONE);
+        useBloodiedWrapper(p, m);
     }
 
     @Override
     public void useWind(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster monster : getAliveMonsters()) {
             lightningEffect(monster);
             damageMonster(monster, getPlayerWindCharges(), AbstractGameAction.AttackEffect.NONE);
         }

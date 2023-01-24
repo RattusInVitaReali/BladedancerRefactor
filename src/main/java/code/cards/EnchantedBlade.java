@@ -15,7 +15,7 @@ public class EnchantedBlade extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
-    private static final int COMBO_REQ = 3;
+    private static final int COMBO_REQ = 2;
     private static final int MAGIC = 3;
     private static final int UPGRADE_MAGIC = 1;
     private static final int SECOND_MAGIC = 1;

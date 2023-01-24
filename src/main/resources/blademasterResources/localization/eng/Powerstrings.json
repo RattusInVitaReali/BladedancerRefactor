@@ -47,9 +47,10 @@
   "blademaster:Bleeding": {
     "NAME": "Bleeding",
     "DESCRIPTIONS": [
-      "Take 20% more damage from attacks. At the start of your turn, lose #b",
-      " HP. Bleeding decays by 3 at the end of each round.",
-      "Takes 20% more damage from attacks. At the start of its turn, loses #b"
+      "Takes #b",
+      "% more damage from attacks. At the start of its turn, loses #b",
+      " HP. #yBleeding decays by #b",
+      " at the end of every round."
     ]
   },
   "blademaster:Momentum": {
@@ -143,16 +144,16 @@
   "blademaster:Focused": {
     "NAME": "Focused",
     "DESCRIPTIONS": [
-      "Whenever you trigger #yBloodied, gain #b",
+      "Whenever you trigger a #yBloodied effect, gain #b",
       " #yBlock."
     ]
   },
   "blademaster:Relentless": {
     "NAME": "Relentless",
     "DESCRIPTIONS": [
-      "The first #b",
-      " #yCarve you play each turn grants [E].",
-      " #yCarves you play each turn grant [E]."
+      "Gain [E] the first time you trigger a #yBloodied effect each turn.",
+      "Gain [E] the first #b",
+      " times you trigger a #yBloodied effect each turn."
     ]
   }
 }

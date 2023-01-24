@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -88,7 +89,7 @@ public class CardRenderPatch {
             if (__card_instance instanceof AbstractBlademasterCard) {
 
                 if (__card_instance.hasTag(BlademasterTags.FURY_FINISHER)) {
-                    Texture texture = ((AbstractBlademasterCard) __card_instance).getFuryOverlayTexture();
+                    Texture texture = AbstractBlademasterCard.getFuryOverlayTexture();
                     renderImage(__card_instance, sb, __card_instance.current_x - 512, __card_instance.current_y - 512, texture);
 
 
@@ -112,7 +113,7 @@ public class CardRenderPatch {
                 }
 
                 if (__card_instance.hasTag(BlademasterTags.COMBO_FINISHER)) {
-                    Texture texture = ((AbstractBlademasterCard) __card_instance).getComboOverlayTexture();
+                    Texture texture = AbstractBlademasterCard.getComboOverlayTexture();
                     renderImage(__card_instance, sb, __card_instance.current_x - 512, __card_instance.current_y - 512, texture);
 
                     Color costColor = Color.WHITE.cpy();

@@ -3,7 +3,42 @@
     "NAME": "Dancer's Amulet",
     "FLAVOR": "Given to you by the fabled Bladed Ancer.",
     "DESCRIPTIONS": [
-      "Whenever you play 5 cards, draw 1 card."
+      "Whenever you play #b5 cards, draw #b1 card."
+    ]
+  },
+  "blademaster:CastIronTeapot": {
+    "NAME": "Cast-iron Teapot",
+    "FLAVOR": "Seems to siphon blood from the dead...",
+    "DESCRIPTIONS": [
+      "Whenever an enemy dies of Bleeding, heal #b4 HP."
+    ]
+  },
+  "blademaster:FancyChopsticks": {
+    "NAME": "Fancy Chopsticks",
+    "FLAVOR": "Upon closer examination, they seem pretty regular.",
+    "DESCRIPTIONS": [
+      "The first time you play a Finisher each turn, draw a card."
+    ]
+  },
+  "blademaster:KomodoDragonSkull": {
+    "NAME": "Komodo Dragon Skull",
+    "FLAVOR": "Seems to make nearby wounds fester.",
+    "DESCRIPTIONS": [
+      "Whenever you apply Bleeding, apply #b2 Poison as well."
+    ]
+  },
+  "blademaster:OminousHairpin": {
+    "NAME": "Ominous Hairpin",
+    "FLAVOR": "Looks like it was not only stabbed into hair...",
+    "DESCRIPTIONS": [
+      "Bleeding enemies take #b4 damage at the end of your turn."
+    ]
+  },
+  "blademaster:PaperTeigr": {
+    "NAME": "Paper Teigr",
+    "FLAVOR": "A paper folded in a shape of a creature you don't recognize.",
+    "DESCRIPTIONS": [
+      "Bleeding only decays by #b2 every turn. Bleeding enemies take #b30% more damage instead of #b20%."
     ]
   }
 }

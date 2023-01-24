@@ -1,6 +1,7 @@
 package code.actions;
 
 import code.powers.BleedingPower;
+import code.relics.CastIronTeapot;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import static code.Blademaster.makeID;
@@ -44,6 +46,10 @@ public class BleedingLoseHpAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.clearPostCombatActions();
             }
             AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
+            if (target.currentHealth <= amount) {
+                AbstractRelic castIronTeapot = AbstractDungeon.player.getRelic(CastIronTeapot.ID);
+                if (castIronTeapot != null) castIronTeapot.onTrigger();
+            }
         }
     }
 }

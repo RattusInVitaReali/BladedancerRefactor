@@ -4,6 +4,7 @@ import code.cards.AbstractBlademasterCard;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
@@ -27,25 +28,14 @@ public class BladeRuse extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         block(block);
-        useBloodiedWrapper(p, m);
+        for (AbstractMonster monster : getAliveMonsters()) {
+            useBloodiedWrapper(p, monster);
+        }
     }
 
     @Override
     public void useBloodied(AbstractPlayer p, AbstractMonster m) {
-        addToBot(bladeRuseAction());
-    }
-
-    private AbstractGameAction bladeRuseAction() {
-        return new AbstractGameAction() {
-            @Override
-            public void update() {
-                for (AbstractMonster m : getAliveMonsters()) {
-                    if (isBloodied(m)) {
-                        block(block);
-                    }
-                }
-            }
-        };
+        block(block);
     }
 
     @Override

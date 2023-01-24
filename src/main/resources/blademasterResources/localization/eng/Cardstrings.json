@@ -222,7 +222,7 @@
     "NAME": "Backstep"
   },
   "blademaster:Flash": {
-    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a copy of this card to your hand that costs 10 more [#FF4500]Fury[].",
+    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a copy of this card to your hand that costs 6 more [#FF4500]Fury[].",
     "NAME": "Flash"
   },
   "blademaster:KiBarrier": {
@@ -230,7 +230,7 @@
     "NAME": "Ki Barrier"
   },
   "blademaster:HighVoltage": {
-    "DESCRIPTION": "Gain [WC] + [LC] Block.",
+    "DESCRIPTION": "Gain [WC] + [LC] Block. NL Exhaust.",
     "NAME": "High Voltage"
   },
   "blademaster:Stability": {
@@ -395,8 +395,12 @@
     "NAME": "Focused"
   },
   "blademaster:Relentless": {
-    "DESCRIPTION": "The first Carve you play each turn grants [E].",
+    "DESCRIPTION": "Gain [E] the first time you trigger a blademaster:Bloodied effect. ",
     "NAME": "Relentless",
-    "UPGRADE_DESCRIPTION": "The first !M! Carves you play each turn grant [E]."
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain [E] the first time you trigger a blademaster:Bloodied effect."
+  },
+  "blademaster:Anklebiter": {
+    "DESCRIPTION": "Apply !blademaster:M2! blademaster:Bleeding and !M! Weak. NL blademaster:Bloodied: Gain !B! Block.",
+    "NAME": "Anklebiter"
   }
 }
