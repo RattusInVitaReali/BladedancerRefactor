@@ -63,6 +63,9 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public boolean isComboCostModified = false;
     public boolean upgradedComboCost = false;
 
+    private int prevFury = 0;
+    private int prevCombo = 0;
+
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, 0, 0);
     }
@@ -139,13 +142,15 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
         if (furyReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq()) {
             this.glowColor = Color.ORANGE.cpy();
-            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq())
+            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq() && prevFury < furyReq())
                 superFlash(glowColor);
+            prevFury = BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID);
         }
         if (comboReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq()) {
             this.glowColor = Color.RED.cpy();
-            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) == comboReq())
+            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq() && prevCombo < comboReq())
                 superFlash(glowColor);
+            prevCombo = BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID);
         }
     }
 

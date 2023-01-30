@@ -15,9 +15,10 @@ public class Reversal extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
-    private static final int DAMAGE = 4;
-    private static final int BLOCK = 4;
+    private static final int DAMAGE = 5;
+    private static final int UPGRADE_DAMAGE = 2;
+    private static final int BLOCK = 5;
+    private static final int UPGRADE_BLOCK = 2;
 
     public Reversal() {
         super(ID, COST, TYPE, RARITY, TARGET);
@@ -46,6 +47,7 @@ public class Reversal extends AbstractStanceCard {
 
     @Override
     public void onUpgrade() {
-        upgradeBaseCost(UPGRADED_COST);
+        upgradeDamage(UPGRADE_DAMAGE);
+        upgradeBlock(UPGRADE_BLOCK);
     }
 }

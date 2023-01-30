@@ -24,7 +24,7 @@ public class Zephyr extends AbstractStanceCard {
     private static final int UPGRADE_CONDUIT = 1;
 
     public Zephyr() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, CardColor.COLORLESS, 0, 0);
         baseDamage = ALL_DAMAGE;
         isMultiDamage = true;
         baseSecondDamage = DAMAGE;

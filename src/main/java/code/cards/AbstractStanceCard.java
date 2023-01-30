@@ -4,7 +4,6 @@ import code.Blademaster;
 import code.Blademaster.BlademasterStance;
 import code.characters.BlademasterCharacter;
 import code.powers.stances.AbstractStancePower;
-import code.util.BlademasterUtil;
 import code.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -17,13 +16,14 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
 import java.util.HashMap;
 
 import static code.Blademaster.modID;
-import static code.util.BlademasterUtil.getPlayerStance;
-import static code.util.BlademasterUtil.playerApplyPower;
+import static code.util.BlademasterUtil.*;
+import static code.util.BlademasterUtil.getPlayerStancePower;
 
 public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
@@ -50,7 +50,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, int furyCost, int comboCost) {
-        super(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR, furyCost, comboCost);
+        this(cardID, cost, type, rarity, target, BlademasterCharacter.Enums.BLADEMASTER_COLOR, furyCost, comboCost);
+    }
+
+    public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color, int furyCost, int comboCost) {
+        super(cardID, cost, type, rarity, target, color, furyCost, comboCost);
         setStance(BlademasterStance.BASIC);
     }
 
@@ -166,10 +170,16 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     protected void conduit(AbstractPlayer p) {
-        AbstractStancePower stance = BlademasterUtil.getPlayerStancePower();
-        if (stance != null && conduit > 0) {
-            playerApplyPower(p, stance.getChargePower(p, conduit));
-        }
+        conduit(p, conduit);
+    }
+
+    protected void conduit(AbstractPlayer p, int amount) {
+        AbstractStancePower power = getPlayerStancePower();
+        AbstractPower chargesPower = null;
+        if (power != null)
+            chargesPower = power.getChargePower(p, amount);
+        if (chargesPower != null)
+            playerApplyPower(p, chargesPower);
     }
 
     @Override
@@ -240,13 +250,13 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     private void generatePreviewCards() {
         PREVIEW_WIND = (AbstractStanceCard) this.makeCopy();
-        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_WIND.upgraded) {
+        if (SingleCardViewPopup.isViewingUpgrade) {
             PREVIEW_WIND.upgrade();
             PREVIEW_WIND.displayUpgrades();
         }
         PREVIEW_WIND.setStance(BlademasterStance.WIND);
         PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeCopy();
-        if (SingleCardViewPopup.isViewingUpgrade && !PREVIEW_LIGHTNING.upgraded) {
+        if (SingleCardViewPopup.isViewingUpgrade) {
             PREVIEW_LIGHTNING.upgrade();
             PREVIEW_LIGHTNING.displayUpgrades();
         }
@@ -290,16 +300,43 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public void renderStancePreviewInSingleView(SpriteBatch sb) {
         generatePreviewCards();
         if (PREVIEW_WIND != null) {
-            PREVIEW_WIND.current_x = 485.0F * Settings.scale;
+            PREVIEW_WIND.current_x = Settings.WIDTH * 0.5F - 480.0F * Settings.scale;
             PREVIEW_WIND.current_y = 795.0F * Settings.scale;
             PREVIEW_WIND.drawScale = 0.8F;
             PREVIEW_WIND.render(sb);
         }
         if (PREVIEW_LIGHTNING != null) {
-            PREVIEW_LIGHTNING.current_x = 485.0F * Settings.scale;
+            PREVIEW_LIGHTNING.current_x = Settings.WIDTH * 0.5F - 480.0F * Settings.scale;
             PREVIEW_LIGHTNING.current_y = 285.0F * Settings.scale;
             PREVIEW_LIGHTNING.drawScale = 0.8F;
             PREVIEW_LIGHTNING.render(sb);
+        }
+    }
+
+    @Override
+    public void renderCardPreviewInSingleView(SpriteBatch sb) {
+        cardsToPreview.current_x = Settings.WIDTH * 0.5F - 750.0F * Settings.scale;
+        cardsToPreview.current_y = 795.0F * Settings.scale;
+        cardsToPreview.drawScale = 0.8F;
+        if (cardsToPreview.upgraded) {
+            cardsToPreview.displayUpgrades();
+        }
+        cardsToPreview.render(sb);
+    }
+
+    @Override
+    public void renderCardPreview(SpriteBatch sb) {
+        if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
+            float tmpScale = drawScale * 0.8F;
+            if (this.current_x > (float)Settings.WIDTH * 0.75F) {
+                cardsToPreview.current_x = current_x + (IMG_WIDTH * 0.9F + IMG_WIDTH * 0.9F * 0.8F + 16.0F) * drawScale;
+            } else {
+                cardsToPreview.current_x = current_x - (IMG_WIDTH * 0.9F + IMG_WIDTH * 0.9F * 0.8F + 16.0F) * drawScale;
+            }
+
+            cardsToPreview.current_y = current_y + (IMG_HEIGHT / 2.0F - IMG_HEIGHT / 2.0F * 0.8F) * drawScale;
+            cardsToPreview.drawScale = tmpScale;
+            cardsToPreview.render(sb);
         }
     }
 

@@ -28,6 +28,7 @@ public class Breeze extends AbstractStanceCard {
         baseDamage = ALL_DAMAGE;
         isMultiDamage = true;
         baseSecondDamage = DAMAGE;
+        cardsToPreview = new Gale();
         setBaseConduit(CONDUIT);
     }
 
@@ -46,5 +47,6 @@ public class Breeze extends AbstractStanceCard {
         upgradeDamage(UPGRADE_ALL_DAMAGE);
         upgradeSecondDamage(UPGRADE_DAMAGE);
         upgradeConduit(UPGRADE_CONDUIT);
+        cardsToPreview.upgrade();
     }
 }

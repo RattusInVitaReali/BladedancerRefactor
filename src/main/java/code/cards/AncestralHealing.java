@@ -1,8 +1,13 @@
 package code.cards;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static code.Blademaster.makeID;
 
@@ -18,6 +23,8 @@ public class AncestralHealing extends AbstractStanceCard {
     private static final int CONDUIT = 3;
     private static final int UPGRADE_CONDUIT = 2;
 
+    private static final String[] POWERS_TO_REDUCE = { WeakPower.POWER_ID, VulnerablePower.POWER_ID, FrailPower.POWER_ID };
+
     public AncestralHealing() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
@@ -28,6 +35,12 @@ public class AncestralHealing extends AbstractStanceCard {
     @Override
     public void useBasic(AbstractPlayer p, AbstractMonster m) {
         addToBot(new HealAction(p, p, this.magicNumber, .8f));
+        for (String powerID : POWERS_TO_REDUCE) {
+            AbstractPower power = p.getPower(powerID);
+            if (power != null) {
+                addToBot(new RemoveSpecificPowerAction(p, p, power));
+            }
+        }
     }
 
     @Override

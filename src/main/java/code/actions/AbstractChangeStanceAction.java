@@ -35,6 +35,8 @@ public abstract class AbstractChangeStanceAction extends AbstractGameAction {
                     isDone = true;
                 }
             });
+            isDone = true;
+            return;
         }
         AbstractPlayer p = AbstractDungeon.player;
         playerApplyPower(p, getStancePower(p));

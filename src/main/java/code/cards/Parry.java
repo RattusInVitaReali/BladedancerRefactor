@@ -10,14 +10,14 @@ import static code.util.BlademasterUtil.playerApplyPower;
 public class Parry extends AbstractStanceCard {
 
     public final static String ID = makeID("Parry");
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
     private static final int BLOCK = 6;
     private static final int UPGRADE_BLOCK = 3;
-    private static final int MAGIC = 5;
-    private static final int UPGRADE_MAGIC = 5;
+    private static final int MAGIC = 6;
+    private static final int UPGRADE_MAGIC = 6;
     private static final int CONDUIT = 1;
     private static final int UPGRADE_CONDUIT = 1;
 

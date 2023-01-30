@@ -36,28 +36,28 @@
     "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
   },
   "blademaster:Cut": {
-    "DESCRIPTION": "Deal !D! damage. NL On Stance switch, add this card from the Discard pile to your Hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you change blademaster:Stances, return this from the discard pile to your Hand.",
     "NAME": "Cut"
   },
   "blademaster:DragonStrike": {
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! [#860037]Combo[].",
     "NAME": "Dragon Strike"
   },
-  "blademaster:FuriousStrike": {
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! [#FF4500]Fury[].",
-    "NAME": "Furious Strike"
+  "blademaster:Pierce": {
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable.",
+    "NAME": "Pierce"
   },
   "blademaster:Empower": {
-    "DESCRIPTION": "Gain [E] . Draw !M! card. NL Exhaust.",
+    "DESCRIPTION": "Gain [E] . NL  Draw !M! cards. NL Exhaust.",
     "NAME": "Empower",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] . Draw !M! cards. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] . NL Draw !M! cards. NL Exhaust."
   },
   "blademaster:Gust": {
     "DESCRIPTION": "Innate. NL Gain !B! Block. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Exhaust.",
     "NAME": "Gust"
   },
   "blademaster:ThunderingOpener": {
-    "DESCRIPTION": "Innate. NL Deal !D! damage. Enter [#4A8CFF]πLightning[] [#4A8CFF]Stance[]. NL Exhaust.",
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Enter [#4A8CFF]πLightning[] [#4A8CFF]Stance[]. NL Exhaust.",
     "NAME": "Thundering Opener"
   },
   "blademaster:TraverseCut": {
@@ -109,7 +109,7 @@
     "NAME": "Flutter"
   },
   "blademaster:ColdBlood": {
-    "DESCRIPTION": "blademaster:Finisher. Gain !M! Dexterity. NL Gain !M! Strength.",
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Dexterity. NL Gain !M! Strength.",
     "NAME": "Cold Blood"
   },
   "blademaster:Sharpen": {
@@ -122,7 +122,7 @@
     "NAME": "Deadly Dance"
   },
   "blademaster:RagingBlow": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL blademaster:Bloodied: Deals double damage.",
     "NAME": "Raging Blow"
   },
   "blademaster:RagingBlow:WIND": {
@@ -159,7 +159,7 @@
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever you change Stances, draw 1 card."
   },
   "blademaster:RollingTyphoon": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage.",
    "NAME": "Rolling Typhoon"
   },
   "blademaster:RollingTyphoon:WIND": {
@@ -180,7 +180,7 @@
     "NAME": "Stormstrike"
   },
   "blademaster:EnchantedCuirass": {
-    "DESCRIPTION": "blademaster:Finisher. Gain !M! Block at the end of each turn.",
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Block at the end of each turn.",
     "NAME": "Enchanted Cuirass"
   },
   "blademaster:FuryOfTheElements": {
@@ -204,8 +204,8 @@
     "NAME": "Reversal"
   },
   "blademaster:ThreePointStrike": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage thrice. Gain !B! Block. Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "blademaster:Finisher. Deal !D! damage thrice. Gain !B! Block. Draw !M! cards.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage thrice. NL Gain !B! Block. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage thrice. NL Gain !B! Block. NL Draw !M! cards.",
     "NAME": "Three Point Strike"
   },
   "blademaster:UnrelentingWind": {
@@ -214,7 +214,7 @@
     "UPGRADE_DESCRIPTION": "blademaster:Finisher. [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [WC] [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies."
   },
   "blademaster:Sunder": {
-    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL Apply !M! Weak.",
     "NAME": "Sunder"
   },
   "blademaster:Backstep": {
@@ -222,8 +222,9 @@
     "NAME": "Backstep"
   },
   "blademaster:Flash": {
-    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a copy of this card to your hand that costs 6 more [#FF4500]Fury[].",
-    "NAME": "Flash"
+    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a *Flash to your hand that costs 6 more [#FF4500]Fury[].",
+    "NAME": "Flash",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a *Flash+ to your hand that costs 6 more [#FF4500]Fury[]."
   },
   "blademaster:KiBarrier": {
     "DESCRIPTION": "blademaster:Finisher. NL Gain !B! block. NL Block is not removed at the end of your turn.",
@@ -231,10 +232,11 @@
   },
   "blademaster:HighVoltage": {
     "DESCRIPTION": "Gain [WC] + [LC] Block. NL Exhaust.",
-    "NAME": "High Voltage"
+    "NAME": "High Voltage",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [WC] + [LC] Block. NL Exhaust."
   },
   "blademaster:Stability": {
-    "DESCRIPTION": "Gain !B! Block. Gain !M! Artifact. NL Exhaust.",
+    "DESCRIPTION": "Gain !B! Block. Gain !M! Artifact. Reduce your Weak, Vulnerable and Frail by !M!. NL Exhaust.",
     "NAME": "Stability"
   },
   "blademaster:BloodyBlow": {
@@ -242,7 +244,7 @@
     "NAME": "Bloody Blow"
   },
   "blademaster:AncestralHealing": {
-    "DESCRIPTION": "Restore !M! health. Exhaust.",
+    "DESCRIPTION": "Restore !M! health. Remove your Weak, Vulnerable and Frail. Exhaust.",
     "NAME": "Ancestral Healing"
   },
   "blademaster:Bloodbath": {
@@ -250,21 +252,23 @@
     "NAME": "Bloodbath"
   },
   "blademaster:Breeze": {
-    "DESCRIPTION": "Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a Gale to your hand.",
-    "NAME": "Breeze"
+    "DESCRIPTION": "Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a *Gale to your hand.",
+    "NAME": "Breeze",
+    "UPGRADE_DESCRIPTION": "Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a *Gale+ to your hand."
   },
   "blademaster:Gale": {
-    "DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a Zephyr to your hand. Exhaust.",
-    "NAME": "Gale"
+    "DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a *Zephyr to your hand. Exhaust.",
+    "NAME": "Gale",
+    "UPGRADE_DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a *Zephyr+ to your hand. Exhaust."
   },
   "blademaster:Zephyr": {
     "DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Exhaust.",
     "NAME": "Zephyr"
   },
   "blademaster:CombatPrep": {
-    "DESCRIPTION": "Next turn, gain [E] and draw !M! card.",
+    "DESCRIPTION": "Next turn, draw !M! card and gain [E].",
     "NAME": "Combat Prep",
-    "UPGRADE_DESCRIPTION": "Next turn, gain [E] [E] and draw !M! cards."
+    "UPGRADE_DESCRIPTION": "Next turn, draw !M! cards and gain [E] [E]."
   },
   "blademaster:Execute": {
     "DESCRIPTION": "Deal !D! damage. NL blademaster:Bloodied: deal !blademaster:D2! additional damage.",
@@ -279,9 +283,9 @@
     "NAME": "Overcharge"
   },
   "blademaster:Rupture": {
-    "DESCRIPTION": "Double an enemy's blademaster:Bleeding. Exhaust.",
+    "DESCRIPTION": "Double an enemy's blademaster:Bleeding. NL Exhaust.",
     "NAME": "Rupture",
-    "UPGRADE_DESCRIPTION": "Triple na enemy's blademaster:Bleeding. Exhaust."
+    "UPGRADE_DESCRIPTION": "Triple na enemy's blademaster:Bleeding. NL Exhaust."
   },
   "blademaster:PreciseBloodshed": {
     "DESCRIPTION": "All blademaster:Bleeding you apply this turn is doubled. NL Exhaust.",
@@ -298,11 +302,11 @@
     "NAME": "Heat Stab"
   },
   "blademaster:BladeForm": {
-    "DESCRIPTION": "blademaster:Finisher. The first blademaster:Finisher you play each turn is played twice.",
+    "DESCRIPTION": "blademaster:Finisher. NL The first blademaster:Finisher you play each turn is played twice.",
     "NAME": "Blade Form"
   },
   "blademaster:FleetFootwork": {
-    "DESCRIPTION": "blademaster:Finisher. Gain !M! Dexterity. At the end of your turn, heal !blademaster:M2! HP.",
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Dexterity. At the end of your turn, heal !blademaster:M2! HP.",
     "NAME": "Fleet Footwork"
   },
   "blademaster:Parry": {
@@ -310,7 +314,7 @@
     "NAME": "Parry"
   },
   "blademaster:Deflect": {
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [#860037]Combo[].",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak.",
     "NAME": "Deflect"
   },
   "blademaster:Dedication": {
@@ -369,7 +373,7 @@
     "NAME": "Blade Ruse"
   },
   "blademaster:EnchantedBlade": {
-    "DESCRIPTION": "blademaster:Finisher. Gain !blademaster:M2! Strength. Draw !M! cards. NL Exhaust.",
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !blademaster:M2! Strength. Draw !M! cards. NL Exhaust.",
     "NAME": "Enchanted Blade"
   },
   "blademaster:Blitz": {
@@ -381,26 +385,55 @@
     "NAME": "Carve"
   },
   "blademaster:PracticedStrokes": {
-    "DESCRIPTION": "At the start of your turn, add a Carve to your hand.",
+    "DESCRIPTION": "At the start of your turn, add a *Carve to your hand.",
     "NAME": "Practiced Strokes",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a Carve to your hand."
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a *Carve to your hand."
   },
   "blademaster:Feint": {
-    "DESCRIPTION": "Gain !B! Block. NL Add a Carve to your hand.",
+    "DESCRIPTION": "Gain !B! Block. NL Add a *Carve to your hand.",
     "NAME": "Feint",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add a Carve+ to your hand."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add a *Carve+ to your hand."
   },
   "blademaster:Focused": {
     "DESCRIPTION": "Whenever you trigger blademaster:Bloodied, gain !M! Block.",
     "NAME": "Focused"
   },
   "blademaster:Relentless": {
-    "DESCRIPTION": "Gain [E] the first time you trigger a blademaster:Bloodied effect. ",
+    "DESCRIPTION": "The first time you trigger a blademaster:Bloodied effect each turn, gain [E]",
     "NAME": "Relentless",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain [E] the first time you trigger a blademaster:Bloodied effect."
+    "UPGRADE_DESCRIPTION": "Innate. NL The first time you trigger a blademaster:Bloodied effect each turn, gain [E]"
   },
   "blademaster:Anklebiter": {
     "DESCRIPTION": "Apply !blademaster:M2! blademaster:Bleeding and !M! Weak. NL blademaster:Bloodied: Gain !B! Block.",
     "NAME": "Anklebiter"
+  },
+  "blademaster:Flicker": {
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. blademaster:Bloodied: gain [E] NL and draw !blademaster:M2! card.",
+    "NAME": "Flicker"
+  },
+  "blademaster:Flicker:WIND": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: gain [E] , draw !blademaster:M2! card [#9AFC9F]and[] blademaster:Conduit !M!.",
+    "NAME": "Flicker"
+  },
+  "blademaster:Flicker:LIGHTNING": {
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: gain [E] , draw !blademaster:M2! card [#9AE1FC]and[] blademaster:Conduit !M!.",
+    "NAME": "Flicker"
+  },
+  "blademaster:PerfectStorm": {
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [#FF4500]Fury[]. NL Gain !blademaster:M2! [#860037]Combo[].",
+    "NAME": "Perfect Storm"
+  },
+  "blademaster:Quickstep": {
+    "DESCRIPTION": "Whenever you change blademaster:Stances, gain !M! Block.",
+    "NAME": "Quickstep"
+  },
+  "blademaster:Harmony": {
+    "DESCRIPTION": "[#FF4500]Fury[] and [#860037]Combo[] are not removed at the end of your turn.",
+    "NAME": "Harmony",
+    "UPGRADE_DESCRIPTION": "Retain. NL [#FF4500]Fury[] and [#860037]Combo[] are not removed at the end of your turn."
+  },
+  "blademaster:Evade": {
+    "DESCRIPTION": "Draw !M! cards.",
+    "NAME": "Evade"
   }
 }

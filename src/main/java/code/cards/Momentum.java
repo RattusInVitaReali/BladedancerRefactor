@@ -10,11 +10,11 @@ import static code.util.BlademasterUtil.playerApplyPower;
 public class Momentum extends AbstractBlademasterCard {
 
     public final static String ID = makeID("Momentum");
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 1;
-    private static final int MAGIC = 8;
+    private static final int MAGIC = 9;
     private static final int UPGRADE_MAGIC = 4;
 
     public Momentum() {

@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.actions.LightningStanceAction;
 import code.powers.BleedingPower;
 import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -37,6 +38,7 @@ public class LightningDraw extends AbstractBlademasterCard {
             damageMonster(monster, damage, AbstractGameAction.AttackEffect.NONE);
             BlademasterUtil.playerApplyPower(monster, new BleedingPower(monster, magicNumber));
         }
+        addToBot(new LightningStanceAction());
     }
 
     @Override

@@ -11,12 +11,12 @@ import static code.util.BlademasterUtil.playerApplyPower;
 public class DragonStrike extends AbstractStanceCard {
 
     public final static String ID = makeID("DragonStrike");
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
-    private static final int UPGRADE_DAMAGE = 2;
+    private static final int DAMAGE = 7;
+    private static final int UPGRADE_DAMAGE = 3;
     private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;
     private static final int CONDUIT = 1;
@@ -27,6 +27,7 @@ public class DragonStrike extends AbstractStanceCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
         setBaseConduit(CONDUIT);
+        tags.add(CardTags.STRIKE);
     }
 
     @Override

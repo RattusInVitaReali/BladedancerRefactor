@@ -28,7 +28,7 @@ public class FuryPower extends AbstractBlademasterPower {
 
     @Override
     public void atStartOfTurn() {
-        if (owner != null) {
+        if (owner != null && !owner.hasPower(HarmonyPower.POWER_ID)) {
             amount = 0;
             updateDescription();
         }

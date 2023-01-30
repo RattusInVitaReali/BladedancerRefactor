@@ -14,8 +14,7 @@ public class Empower extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 0;
-    private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int MAGIC = 2;
     private static final int SECOND_MAGIC = 1;
     private static final int UPGRADE_SECOND_MAGIC = 1;
     private static final int CONDUIT = 3;
@@ -37,9 +36,7 @@ public class Empower extends AbstractStanceCard {
 
     @Override
     public void onUpgrade() {
-        upgradeMagicNumber(UPGRADE_MAGIC);
         upgradeSecondMagic(UPGRADE_SECOND_MAGIC);
         upgradeConduit(UPGRADE_CONDUIT);
-        setUpgradeDescription();
     }
 }

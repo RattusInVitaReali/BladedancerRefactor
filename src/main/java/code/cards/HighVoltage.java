@@ -29,5 +29,6 @@ public class HighVoltage extends AbstractBlademasterCard {
     @Override
     public void onUpgrade() {
         this.retain = true;
+        setUpgradeDescription();
     }
 }

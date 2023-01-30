@@ -12,12 +12,12 @@ import static code.util.BlademasterUtil.getPlayerWindCharges;
 public class Thrust extends AbstractStanceCard {
 
     public final static String ID = makeID("Thrust");
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
-    private static final int UPGRADE_DAMAGE = 2;
+    private static final int DAMAGE = 6;
+    private static final int UPGRADE_DAMAGE = 3;
 
     public Thrust() {
         super(ID, COST, TYPE, RARITY, TARGET);

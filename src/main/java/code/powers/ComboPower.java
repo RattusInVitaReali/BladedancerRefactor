@@ -27,7 +27,7 @@ public class ComboPower extends AbstractBlademasterPower {
 
     @Override
     public void atStartOfTurn() {
-        if (AbstractDungeon.player != null) {
+        if (AbstractDungeon.player != null && !owner.hasPower(HarmonyPower.POWER_ID)) {
             amount = 0;
             updateDescription();
         }

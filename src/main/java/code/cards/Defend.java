@@ -21,6 +21,7 @@ public class Defend extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
         setBaseConduit(CONDUIT);
+        tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override

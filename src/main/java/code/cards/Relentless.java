@@ -12,10 +12,10 @@ import static code.util.BlademasterUtil.playerApplyPower;
 public class Relentless extends AbstractBlademasterCard {
 
     public final static String ID = makeID("Relentless");
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int MAGIC = 1;
 
     public Relentless() {

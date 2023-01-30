@@ -27,7 +27,7 @@
     "NAMES": [
       "bleeding"
     ],
-    "DESCRIPTION": "Take damage at the start of the turn, and take #y20% more damage from attacks."
+    "DESCRIPTION": "Take damage at the start of the turn, and take #b20% more damage from attacks."
   },
   {
     "PROPER_NAME": "Finisher",
@@ -35,13 +35,27 @@
       "finisher",
       "finishers"
     ],
-    "DESCRIPTION": "Requires #yFury or #yCombo to be played."
+    "DESCRIPTION": "Requires [#FF4500]Fury[] or [#860037]Combo[] to be played."
+  },
+  {
+    "PROPER_NAME": "Fury",
+    "NAMES": [
+      "fury"
+    ],
+    "DESCRIPTION": "Used for #yFinishers. Gain [#FF4500]Fury[] by dealing attack damage."
+  },
+  {
+    "PROPER_NAME": "Combo",
+    "NAMES": [
+      "combo"
+    ],
+    "DESCRIPTION": "Used for #yFinishers. Gain [#860037]Combo[] by playing cards."
   },
   {
     "PROPER_NAME": "Bloodied",
     "NAMES": [
       "bloodied"
     ],
-    "DESCRIPTION": "Applies if the target is at or below #y66% health."
+    "DESCRIPTION": "Applies if the target is at or below #b66% health."
   }
 ]

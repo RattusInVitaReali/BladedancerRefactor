@@ -19,13 +19,13 @@
     ]
   },
   "blademaster:WindCharge": {
-    "NAME": "Wind Charges",
+    "NAME": "Wind Charge",
     "DESCRIPTIONS": [
       "#yWind #yStance #yCharges. Used for #yWind #yStance cards."
     ]
   },
   "blademaster:LightningCharge": {
-    "NAME": "Lightning Charges",
+    "NAME": "Lightning Charge",
     "DESCRIPTIONS": [
       "#yLightning #yStance #yCharges. Used for #yLightning #yStance cards."
     ]
@@ -33,15 +33,15 @@
   "blademaster:Combo": {
     "NAME": "Combo",
     "DESCRIPTIONS": [
-      "Resource used for playing #bFinishers. Combo is reset to 0 at the end of your turn. NL You currently have #b",
-      " Combo. Gain more by playing cards!"
+      "Resource used for playing #yFinishers. #yCombo is reset to #b0 at the end of your turn. NL You currently have #b",
+      " #yCombo. Gain more by playing cards!"
     ]
   },
   "blademaster:Fury": {
     "NAME": "Fury",
     "DESCRIPTIONS": [
-      "Resource used for playing #bFinishers. Fury is reset to 0 at the end of your turn. NL You currently have #b",
-      " Fury. Gain more by dealing damage!"
+      "Resource used for playing #yFinishers. #yFury is reset to #b0 at the end of your turn. NL You currently have #b",
+      " #yFury. Gain more by dealing damage!"
     ]
   },
   "blademaster:Bleeding": {
@@ -56,14 +56,14 @@
   "blademaster:Momentum": {
     "NAME": "Momentum",
     "DESCRIPTIONS": [
-      "Whenever you switch #yStances, deal #b",
+      "Whenever you change #yStances, deal #b",
       " damage to ALL enemies."
     ]
   },
   "blademaster:Quickness": {
     "NAME": "Quickness",
     "DESCRIPTIONS": [
-      "Whenever you change your #yStance, draw #b",
+      "Whenever you change #yStances, draw #b",
       " card.",
       " cards."
     ]
@@ -154,6 +154,19 @@
       "Gain [E] the first time you trigger a #yBloodied effect each turn.",
       "Gain [E] the first #b",
       " times you trigger a #yBloodied effect each turn."
+    ]
+  },
+  "blademaster:Quickstep": {
+    "NAME": "Quickstep",
+    "DESCRIPTIONS": [
+      "Whenever you change #yStances, gain #b",
+      " #yBlock."
+      ]
+  },
+  "blademaster:Harmony": {
+    "NAME": "Harmony",
+    "DESCRIPTIONS": [
+      "#yCombo and #yFury are not removed at the end of your turn."
     ]
   }
 }

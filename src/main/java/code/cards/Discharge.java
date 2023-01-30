@@ -14,7 +14,7 @@ import static code.util.BlademasterUtil.playerApplyPower;
 public class Discharge extends AbstractStanceCard {
 
     public final static String ID = makeID("Discharge");
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
@@ -40,7 +40,7 @@ public class Discharge extends AbstractStanceCard {
         useBasic(p, m);
         AbstractMonster monster = AbstractDungeon.getRandomMonster();
         BlademasterUtil.lightningEffect(monster);
-        damageMonster(monster, BlademasterUtil.getPlayerLightningCharges(), AbstractGameAction.AttackEffect.NONE);
+        damageMonster(monster, BlademasterUtil.getPlayerWindCharges(), AbstractGameAction.AttackEffect.NONE);
         playerApplyPower(monster, new VulnerablePower(monster, magicNumber, false));
     }
 

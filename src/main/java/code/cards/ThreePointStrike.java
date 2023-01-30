@@ -27,6 +27,7 @@ public class ThreePointStrike extends AbstractBlademasterCard {
         baseDamage = DAMAGE;
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
+        tags.add(CardTags.STRIKE);
     }
 
     @Override

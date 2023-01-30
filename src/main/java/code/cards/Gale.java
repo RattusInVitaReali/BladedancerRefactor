@@ -25,10 +25,11 @@ public class Gale extends AbstractStanceCard {
     private static final int UPGRADE_CONDUIT = 1;
 
     public Gale() {
-        super(ID, COST, TYPE, RARITY, TARGET);
+        super(ID, COST, TYPE, RARITY, TARGET, CardColor.COLORLESS, 0, 0);
         baseDamage = ALL_DAMAGE;
         isMultiDamage = true;
         baseSecondDamage = DAMAGE;
+        cardsToPreview = new Zephyr();
         setBaseConduit(CONDUIT);
         this.exhaust = true;
         this.isEthereal = true;
@@ -54,5 +55,6 @@ public class Gale extends AbstractStanceCard {
         upgradeDamage(UPGRADE_ALL_DAMAGE);
         upgradeSecondDamage(UPGRADE_DAMAGE);
         upgradeConduit(UPGRADE_CONDUIT);
+        cardsToPreview.upgrade();
     }
 }
