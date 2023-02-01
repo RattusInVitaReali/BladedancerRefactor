@@ -1,10 +1,10 @@
 package code.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.TooltipInfo;
 import code.characters.BlademasterCharacter;
 import code.patches.BlademasterTags;
 import code.powers.ComboPower;
-import code.powers.FocusedPower;
 import code.powers.FuryPower;
 import code.powers.MassacrePower;
 import code.powers.interfaces.OnBloodiedPower;
@@ -28,18 +28,21 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import org.lwjgl.Sys;
 
-import javax.smartcardio.Card;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-import static code.Blademaster.makeImagePath;
-import static code.Blademaster.modID;
+import static code.Blademaster.*;
 
+@SuppressWarnings("BooleanMethodIsAlwaysInverted")
 public abstract class AbstractBlademasterCard extends CustomCard {
 
     protected CardStrings cardStrings;
     private static final HashMap<String, CardStrings> stringsMap = new HashMap<>();
+
+    protected static final CardStrings tooltipCardStrings = getCardStrings(makeID("AbstractBlademasterCard"));
+    protected static final String[] tooltips = tooltipCardStrings.EXTENDED_DESCRIPTION;
 
     public static TextureAtlas.AtlasRegion furySCVPTexture = ImageHelper.asAtlasRegion(TextureLoader.getTexture(modID + "Resources/images/1024/Fury.png"));
     public static TextureAtlas.AtlasRegion comboSCVPTexture = ImageHelper.asAtlasRegion(TextureLoader.getTexture(modID + "Resources/images/1024/Combo.png"));
@@ -216,6 +219,23 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         if (upgradedComboCost) {
             isComboCostModified = true;
         }
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        List<TooltipInfo> list = new ArrayList<>();
+        if (rawDescription.contains("ChargeIcon]")) {
+            list.add(new TooltipInfo(tooltips[0], tooltips[1]));
+        }
+        if (hasTag(BlademasterTags.FURY_FINISHER) ||
+            rawDescription.contains("]Fury[")) {
+            list.add(new TooltipInfo(tooltips[2], tooltips[3]));
+        }
+        if (hasTag(BlademasterTags.COMBO_FINISHER) ||
+            rawDescription.contains("]Combo[")) {
+            list.add(new TooltipInfo(tooltips[4], tooltips[5]));
+        }
+        return list;
     }
 
     protected void upgradeSecondMagic(int amount) {

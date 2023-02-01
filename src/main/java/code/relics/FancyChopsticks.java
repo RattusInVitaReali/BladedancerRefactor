@@ -31,6 +31,7 @@ public class FancyChopsticks extends AbstractBlademasterRelic {
         if ((card.hasTag(BlademasterTags.COMBO_FINISHER) || card.hasTag(BlademasterTags.FURY_FINISHER)) && !appliedThisTurn) {
             flash();
             addToBot(new DrawCardAction(1));
+            appliedThisTurn = true;
         }
     }
 

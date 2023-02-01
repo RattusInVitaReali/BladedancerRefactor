@@ -1,0 +1,9 @@
+{
+  "blademaster:BleedingPotion": {
+    "NAME": "Bleeding Potion",
+    "DESCRIPTIONS": [
+      "Apply #b",
+      " #yBleeding to target enemy."
+    ]
+  }
+}

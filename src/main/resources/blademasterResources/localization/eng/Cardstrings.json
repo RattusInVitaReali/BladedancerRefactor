@@ -1,4 +1,18 @@
 {
+  "blademaster:AbstractBlademasterCard": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "Charge [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon]",
+      "Some #yStance cards have bonuses that depend on these. NL Gain #yCharges by playing #yConduit cards.",
+      "Fury",
+      "Used for #yFinishers. Gain [#FF4500]Fury[] by dealing attack damage.",
+      "Combo",
+      "Used for #yFinishers. Gain [#860037]Combo[] by playing cards.",
+      "Conduit",
+      "Gain [blademaster:WindChargeIcon] in [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Gain [blademaster:LightningChargeIcon] in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
+    ]
+  },
   "blademaster:Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
@@ -65,11 +79,11 @@
     "NAME": "Traverse Cut"
   },
   "blademaster:TraverseCut:WIND": {
-    "DESCRIPTION": "Deal !D! damage twice. NL [#9AFC9F]Apply[] !M! [#9AFC9F]Weak.[]",
+    "DESCRIPTION": "Deal !D! damage twice. NL [#9AFC9F]Apply[] !M! Weak.",
     "NAME": "Traverse Cut"
   },
   "blademaster:TraverseCut:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage twice. NL [#9AE1FC]Apply[] !M! [#9AE1FC]Vulnerable.[]",
+    "DESCRIPTION": "Deal !D! damage twice. NL [#9AE1FC]Apply[] !M! Vulnerable.",
     "NAME": "Traverse Cut"
   },
   "blademaster:Thrust": {
@@ -77,11 +91,11 @@
     "NAME": "Thrust"
   },
   "blademaster:Thrust:WIND": {
-    "DESCRIPTION": "Deal !D! damage. NL [#9AFC9F]Deal[] [WC] [#9AFC9F]damage.[]",
+    "DESCRIPTION": "Deal !D! damage. NL [#9AFC9F]Deal[] [blademaster:WindChargeIcon] [#9AFC9F]damage.[]",
     "NAME": "Thrust"
   },
   "blademaster:Thrust:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Deal[] [LC] [#9AE1FC]damage.[]",
+    "DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Deal[] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
     "NAME": "Thrust"
   },
   "blademaster:ChargingUp": {
@@ -126,11 +140,11 @@
     "NAME": "Raging Blow"
   },
   "blademaster:RagingBlow:WIND": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AFC9F]Consume[] [#9AFC9F]your [] [WC] [#9AFC9F]to[] [#9AFC9F]deal[] [WC] [#9AFC9F]damage[] [#9AFC9F]to[] [#9AFC9F]ALL[] [#9AFC9F]enemies.[]",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AFC9F]Consume[] [#9AFC9F]your [] [blademaster:WindChargeIcon] [#9AFC9F]to[] [#9AFC9F]deal[] [blademaster:WindChargeIcon] [#9AFC9F]damage[] [#9AFC9F]to[] [#9AFC9F]ALL[] [#9AFC9F]enemies.[]",
     "NAME": "Raging Blow"
   },
   "blademaster:RagingBlow:LIGHTNING": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AE1FC]Consume[] [#9AE1FC]your[] [LC] [#9AE1FC]to[] [#9AE1FC]deal[] [LC] [LC] [#9AE1FC]damage.[]",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AE1FC]Consume[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
     "NAME": "Raging Blow"
   },
   "blademaster:LightningDraw": {
@@ -142,11 +156,11 @@
     "NAME": "Discharge"
   },
   "blademaster:Discharge:WIND": {
-    "DESCRIPTION": "Gain !B! Block. NL [#9AFC9F]Deal [WC] [#9AFC9F]damage[] [#9AFC9F]and[] [#9AFC9F]apply[] !M! Weak [#9AFC9F]to[] [#9AFC9F]a[] [#9AFC9F]random[] [#9AFC9F]enemy.[]",
+    "DESCRIPTION": "Gain !B! Block. NL [#9AFC9F]Deal [blademaster:WindChargeIcon] [#9AFC9F]damage[] [#9AFC9F]and[] [#9AFC9F]apply[] !M! Weak [#9AFC9F]to[] [#9AFC9F]a[] [#9AFC9F]random[] [#9AFC9F]enemy.[]",
     "NAME": "Discharge"
   },
   "blademaster:Discharge:LIGHTNING": {
-    "DESCRIPTION": "Gain !B! Block. NL [#9AE1FC]Deal [LC] [#9AE1FC]damage[] [#9AE1FC]and[] [#9AE1FC]apply[] !M! Vulnerable [#9AE1FC]to[] [#9AE1FC]a[] [#9AE1FC]random[] [#9AE1FC]enemy.[]",
+    "DESCRIPTION": "Gain !B! Block. NL [#9AE1FC]Deal [blademaster:LightningChargeIcon] [#9AE1FC]damage[] [#9AE1FC]and[] [#9AE1FC]apply[] !M! Vulnerable [#9AE1FC]to[] [#9AE1FC]a[] [#9AE1FC]random[] [#9AE1FC]enemy.[]",
     "NAME": "Discharge"
   },
   "blademaster:Momentum": {
@@ -163,11 +177,11 @@
    "NAME": "Rolling Typhoon"
   },
   "blademaster:RollingTyphoon:WIND": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AFC9F]Apply[] [WC] blademaster:Bleeding.",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AFC9F]Apply[] [blademaster:WindChargeIcon] blademaster:Bleeding.",
     "NAME": "Rolling Typhoon"
   },
   "blademaster:RollingTyphoon:LIGHTNING": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AE1FC]Gain[] [LC] [LC] [#9AE1FC]Block.[]",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AE1FC]Gain[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] Block.",
     "NAME": "Rolling Typhoon"
   },
   "blademaster:StanceMastery": {
@@ -175,8 +189,8 @@
     "NAME": "Stance Mastery"
   },
   "blademaster:Stormstrike": {
-    "DESCRIPTION": "Deal !D! damage. Consume ALL your [LC] to deal [LC] [LC] additional damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Consume ALL your  [LC] to deal [LC] [LC] [LC] additional damage.",
+    "DESCRIPTION": "Deal !D! damage. Consume ALL your [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] additional damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Consume ALL your  [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] additional damage.",
     "NAME": "Stormstrike"
   },
   "blademaster:EnchantedCuirass": {
@@ -184,11 +198,11 @@
     "NAME": "Enchanted Cuirass"
   },
   "blademaster:FuryOfTheElements": {
-    "DESCRIPTION": "blademaster:Finisher. Consume ALL your [WC] [LC] to deal [WC] [WC] + [LC] [LC] damage to ALL enemies.",
+    "DESCRIPTION": "blademaster:Finisher. Consume ALL your [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon] to deal NL [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] damage NL to ALL enemies.",
     "NAME": "Fury Of The Elements"
   },
   "blademaster:Hailwind": {
-    "DESCRIPTION": "Consume ALL your [WC] to deal !D! damage per [WC].",
+    "DESCRIPTION": "Consume ALL your [blademaster:WindChargeIcon] NL to deal !D! damage per [blademaster:WindChargeIcon] consumed.",
     "NAME": "Hailwind"
   },
   "blademaster:Reversal": {
@@ -209,9 +223,9 @@
     "NAME": "Three Point Strike"
   },
   "blademaster:UnrelentingWind": {
-    "DESCRIPTION": "blademaster:Finisher. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies.",
+    "DESCRIPTION": "blademaster:Finisher. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] per enemy. NL Apply !M! blademaster:Bleeding to ALL enemies.",
     "NAME": "Unrelenting Wind",
-    "UPGRADE_DESCRIPTION": "blademaster:Finisher. [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [WC] [WC] [WC] [WC] per enemy. Apply !M! blademaster:Bleeding to ALL enemies."
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] per enemy. NL Apply !M! blademaster:Bleeding to ALL enemies."
   },
   "blademaster:Sunder": {
     "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL Apply !M! Weak.",
@@ -231,9 +245,9 @@
     "NAME": "Ki Barrier"
   },
   "blademaster:HighVoltage": {
-    "DESCRIPTION": "Gain [WC] + [LC] Block. NL Exhaust.",
+    "DESCRIPTION": "Gain [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] Block. NL Exhaust.",
     "NAME": "High Voltage",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain [WC] + [LC] Block. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] Block. NL Exhaust."
   },
   "blademaster:Stability": {
     "DESCRIPTION": "Gain !B! Block. Gain !M! Artifact. Reduce your Weak, Vulnerable and Frail by !M!. NL Exhaust.",
@@ -279,7 +293,7 @@
     "NAME": "Massacre"
   },
   "blademaster:Overcharge": {
-    "DESCRIPTION": "At the end of your turn, deal [WC] + [LC] damage to a random enemy.",
+    "DESCRIPTION": "At the end of your turn, deal [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] NL damage to a random enemy.",
     "NAME": "Overcharge"
   },
   "blademaster:Rupture": {
@@ -399,9 +413,9 @@
     "NAME": "Focused"
   },
   "blademaster:Relentless": {
-    "DESCRIPTION": "The first time you trigger a blademaster:Bloodied effect each turn, gain [E]",
+    "DESCRIPTION": "The first time you trigger a blademaster:Bloodied effect each turn, gain [E].",
     "NAME": "Relentless",
-    "UPGRADE_DESCRIPTION": "Innate. NL The first time you trigger a blademaster:Bloodied effect each turn, gain [E]"
+    "UPGRADE_DESCRIPTION": "Innate. NL The first time you trigger a blademaster:Bloodied effect each turn, gain [E]."
   },
   "blademaster:Anklebiter": {
     "DESCRIPTION": "Apply !blademaster:M2! blademaster:Bleeding and !M! Weak. NL blademaster:Bloodied: Gain !B! Block.",

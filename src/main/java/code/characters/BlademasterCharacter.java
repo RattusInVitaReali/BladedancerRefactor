@@ -2,43 +2,53 @@ package code.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
+import code.Blademaster;
 import code.actions.BasicStanceAction;
 import code.cards.Defend;
 import code.cards.RagingBlow;
 import code.cards.Strike;
+import code.patches.BlademasterTags;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
 import code.powers.stances.AbstractStancePower;
 import code.powers.stances.LightningChargePower;
 import code.powers.stances.WindChargePower;
 import code.relics.DancersAmulet;
+import code.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.sun.jna.StringArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static code.Blademaster.*;
 import static code.characters.BlademasterCharacter.Enums.BLADEMASTER_COLOR;
+import static code.patches.BlademasterTags.FURY_FINISHER;
 
 public class BlademasterCharacter extends CustomPlayer {
 
@@ -74,7 +84,6 @@ public class BlademasterCharacter extends CustomPlayer {
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
-
         loadAnimation(BLADEMASTER_SKELETON_ATLAS, BLADEMASTER_SKELETON_JSON, 1f);
         if (MathUtils.random(100) == 69) {
             state.setAnimation(0, "Thonk", true);
@@ -112,19 +121,19 @@ public class BlademasterCharacter extends CustomPlayer {
 
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("UNLOCK_PING", MathUtils.random(-0.2F, 0.2F));
+        CardCrawlGame.sound.playA("ATTACK_IRON_2", MathUtils.random(-0.2F, 0.2F));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false);
     }
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "UNLOCK_PING";
+        return "ATTACK_IRON_2";
     }
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 8;
+        return 4;
     }
 
     @Override
@@ -175,9 +184,28 @@ public class BlademasterCharacter extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.FIRE,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.FIRE};
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.SLASH_HEAVY,
+                AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+                AbstractGameAction.AttackEffect.SLASH_HEAVY,
+                AbstractGameAction.AttackEffect.SLASH_HEAVY,
+                AbstractGameAction.AttackEffect.SLASH_VERTICAL,
+                AbstractGameAction.AttackEffect.SLASH_HEAVY
+        };
+    }
+
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList<>();
+        panels.add(new CutscenePanel(BLADEMASTER_TRUE_VICTORY_1, "ATTACK_IRON_1"));
+        panels.add(new CutscenePanel(BLADEMASTER_TRUE_VICTORY_2, "TURN_EFFECT"));
+        panels.add(new CutscenePanel(BLADEMASTER_TRUE_VICTORY_3, "CEILING_BOOM_3"));
+        return panels;
+    }
+
+    @Override
+    public Texture getCutsceneBg() {
+        return TextureLoader.getTexture(BLADEMASTER_TRUE_VICTORY_BG);
     }
 
     @Override
@@ -188,6 +216,40 @@ public class BlademasterCharacter extends CustomPlayer {
     @Override
     public String getVampireText() {
         return TEXT[2];
+    }
+
+    private void playAnimation(String animation) {
+        state.setAnimation(0, animation, false);
+        state.addAnimation(0, "Idle", true, 0.0f);
+    }
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        super.useCard(c, monster, energyOnUse);
+        if ((c.hasTag(FURY_FINISHER) || c.hasTag(BlademasterTags.COMBO_FINISHER)) && c.type == AbstractCard.CardType.ATTACK) {
+            int rand = MathUtils.random(0, 2);
+            switch (rand) {
+                case 0:
+                    playAnimation("Strike1");
+                    break;
+                case 1:
+                    playAnimation("Strike2");
+                    break;
+                case 2:
+                    playAnimation("Strike3");
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - this.currentBlock > 0) {
+            AnimationState.TrackEntry e = this.state.setAnimation(0, "OnHit", false);
+            this.state.addAnimation(0, "Idle", true, 0.0F);
+            e.setTimeScale(0.8F);
+        }
+        super.damage(info);
     }
 
     @Override

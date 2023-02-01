@@ -12,15 +12,17 @@
     "NAMES": [
       "conduit"
     ],
-    "DESCRIPTION": "If you're in a #yStance, gain #yCharges."
+    "DESCRIPTION": "Gain [blademaster:WindChargeIcon] in [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Gain [blademaster:LightningChargeIcon] in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
   },
   {
-    "PROPER_NAME": "Charge",
+    "PROPER_NAME": "Charge [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon]",
     "NAMES": [
       "charge",
-      "charges"
+      "charges",
+      "[blademaster:WindChargeIcon]",
+      "[blademaster:LightningChargeIcon]"
     ],
-    "DESCRIPTION": "Some #yStance cards have bonuses that depend on these."
+    "DESCRIPTION": "Some #yStance cards have bonuses that depend on these. NL Gain #yCharges by playing #yConduit cards."
   },
   {
     "PROPER_NAME": "Bleeding",

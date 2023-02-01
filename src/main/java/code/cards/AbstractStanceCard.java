@@ -1,5 +1,6 @@
 package code.cards;
 
+import basemod.helpers.TooltipInfo;
 import code.Blademaster;
 import code.Blademaster.BlademasterStance;
 import code.characters.BlademasterCharacter;
@@ -14,12 +15,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
 import java.util.HashMap;
+import java.util.List;
 
 import static code.Blademaster.modID;
 import static code.util.BlademasterUtil.*;
@@ -105,6 +108,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     public void setStance(BlademasterStance stance) {
+        if (getStance() == stance) return;
         StanceState new_state;
         switch (stance) {
             case WIND:
@@ -118,9 +122,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
             default:
                 new_state = BASIC_STATE;
         }
-        if (state == new_state) {
-            return;
-        }
         state = new_state;
         loadCardImage(state.getCardTextureString());
         updateDescription();
@@ -128,6 +129,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     public BlademasterStance getStance() {
+        if (state == null) return BlademasterStance.NONE;
         return state.getStance();
     }
 
@@ -261,6 +263,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
             PREVIEW_LIGHTNING.displayUpgrades();
         }
         PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
+        initializeDescription();
     }
 
     @Override
@@ -273,6 +276,43 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public void unhover() {
         super.unhover();
         renderPreviewCards = false;
+    }
+
+    public void getStanceVariantKeywords() {
+        if (PREVIEW_WIND == null || PREVIEW_LIGHTNING == null) return;
+        for (String word : PREVIEW_WIND.rawDescription.split(" ")) {
+            String keywordTmp = word.toLowerCase();
+            keywordTmp = keywordTmp.replace(",", "");
+            keywordTmp = keywordTmp.replace(".", "");
+            keywordTmp = dedupeKeyword(keywordTmp);
+            if (GameDictionary.keywords.containsKey(keywordTmp)) {
+                if (!this.keywords.contains(keywordTmp))
+                    this.keywords.add(keywordTmp);
+            }
+        }
+        for (String word : PREVIEW_LIGHTNING.rawDescription.split(" ")) {
+            String keywordTmp = word.toLowerCase();
+            keywordTmp = keywordTmp.replace(",", "");
+            keywordTmp = keywordTmp.replace(".", "");
+            keywordTmp = dedupeKeyword(keywordTmp);
+            if (GameDictionary.keywords.containsKey(keywordTmp)) {
+                if (!this.keywords.contains(keywordTmp))
+                    this.keywords.add(keywordTmp);
+            }
+        }
+    }
+
+    private String dedupeKeyword(String keyword) {
+        String retVal = (String) GameDictionary.parentWord.get(keyword);
+        if (retVal != null)
+            return retVal;
+        return keyword;
+    }
+
+    @Override
+    public void initializeDescription() {
+        super.initializeDescription();
+        getStanceVariantKeywords();
     }
 
     @Override
@@ -340,7 +380,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
     }
 
-    private abstract class StanceState {
+    private static abstract class StanceState {
 
         public abstract void use(AbstractPlayer p, AbstractMonster m);
 

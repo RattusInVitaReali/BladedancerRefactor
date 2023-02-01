@@ -9,17 +9,18 @@ import code.cards.cardvars.ConduitNumber;
 import code.cards.cardvars.SecondDamage;
 import code.cards.cardvars.SecondMagicNumber;
 import code.characters.BlademasterCharacter;
+import code.icons.LightningChargeIcon;
+import code.icons.WindChargeIcon;
+import code.potions.BleedingPotion;
 import code.relics.AbstractBlademasterRelic;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.nio.charset.StandardCharsets;
@@ -31,7 +32,8 @@ public class Blademaster implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        EditCharactersSubscriber {
+        EditCharactersSubscriber,
+        PostInitializeSubscriber {
 
     public static final String modID = "blademaster";
     public static final String SHOULDER1 = modID + "Resources/images/characters/blademaster/shoulder.png";
@@ -39,6 +41,10 @@ public class Blademaster implements
     public static final String CORPSE = modID + "Resources/images/characters/blademaster/corpse.png";
     public static final String BLADEMASTER_SKELETON_ATLAS = modID + "Resources/images/characters/blademaster/blademaster.atlas";
     public static final String BLADEMASTER_SKELETON_JSON = modID + "Resources/images/characters/blademaster/blademaster.json";
+    public static final String BLADEMASTER_TRUE_VICTORY_BG = modID + "Resources/images/scenes/blademasterBg.png";
+    public static final String BLADEMASTER_TRUE_VICTORY_1 = modID + "Resources/images/scenes/blademaster1.png";
+    public static final String BLADEMASTER_TRUE_VICTORY_2 = modID + "Resources/images/scenes/blademaster2.png";
+    public static final String BLADEMASTER_TRUE_VICTORY_3 = modID + "Resources/images/scenes/blademaster3.png";
     private static final String ATTACK_S_ART = modID + "Resources/images/512/Attack.png";
     private static final String SKILL_S_ART = modID + "Resources/images/512/Skill.png";
     private static final String POWER_S_ART = modID + "Resources/images/512/Power.png";
@@ -126,9 +132,13 @@ public class Blademaster implements
 
     @Override
     public void receiveEditCards() {
+        CustomIconHelper.addCustomIcon(WindChargeIcon.get());
+        CustomIconHelper.addCustomIcon(LightningChargeIcon.get());
+
         BaseMod.addDynamicVariable(new SecondMagicNumber());
         BaseMod.addDynamicVariable(new SecondDamage());
         BaseMod.addDynamicVariable(new ConduitNumber());
+
         new AutoAdd(modID)
                 .packageFilter(AbstractBlademasterCard.class)
                 .setDefaultSeen(true)
@@ -144,6 +154,8 @@ public class Blademaster implements
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/" + getLangString() + "/Charstrings.json");
 
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/" + getLangString() + "/Powerstrings.json");
+
+        BaseMod.loadCustomStringsFile(PotionStrings.class, modID + "Resources/localization/" + getLangString() + "/Potionstrings.json");
     }
 
     @Override
@@ -162,9 +174,15 @@ public class Blademaster implements
         }
     }
 
+    @Override
+    public void receivePostInitialize() {
+        BaseMod.addPotion(BleedingPotion.class, BleedingPotion.LIQUID_COLOR, BleedingPotion.HYBRID_COLOR, BleedingPotion.SPOTS_COLOR, BleedingPotion.POTION_ID, BlademasterCharacter.Enums.THE_BLADEMASTER);
+    }
+
     public enum BlademasterStance {
         BASIC,
         WIND,
-        LIGHTNING
+        LIGHTNING,
+        NONE
     }
 }

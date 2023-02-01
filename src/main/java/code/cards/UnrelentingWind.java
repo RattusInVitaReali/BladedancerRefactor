@@ -48,5 +48,6 @@ public class UnrelentingWind extends AbstractBlademasterCard {
         upgradeBlock(UPGRADE_BLOCK);
         upgradeMagicNumber(UPGRADE_MAGIC);
         upgradeSecondMagic(UPGRADE_SECOND_MAGIC);
+        setUpgradeDescription();
     }
 }
