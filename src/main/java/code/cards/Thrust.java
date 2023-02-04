@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.Blademaster;
 import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,10 +19,12 @@ public class Thrust extends AbstractStanceCard {
     private static final int COST = 1;
     private static final int DAMAGE = 6;
     private static final int UPGRADE_DAMAGE = 3;
+    private static final int SECOND_DAMAGE = 0;
 
     public Thrust() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseSecondDamage = SECOND_DAMAGE;
     }
 
     @Override
@@ -33,14 +36,42 @@ public class Thrust extends AbstractStanceCard {
     public void useWind(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
         BlademasterUtil.lightningEffect(m);
-        damageMonster(m, getPlayerWindCharges(), AbstractGameAction.AttackEffect.NONE);
+        damageMonster(m, secondDamage, AbstractGameAction.AttackEffect.NONE);
     }
 
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
         BlademasterUtil.lightningEffect(m);
-        damageMonster(m, getPlayerLightningCharges(), AbstractGameAction.AttackEffect.NONE);
+        damageMonster(m, secondDamage, AbstractGameAction.AttackEffect.NONE);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (getStance() == Blademaster.BlademasterStance.BASIC) return;
+        if (getStance() == Blademaster.BlademasterStance.WIND) {
+            baseSecondDamage = getPlayerWindCharges();
+            if (baseSecondDamage != SECOND_DAMAGE) {
+                rawDescription = windCardStrings.DESCRIPTION;
+                rawDescription += windCardStrings.EXTENDED_DESCRIPTION[0];
+                isSecondDamageModified = true;
+            }
+        }
+        if (getStance() == Blademaster.BlademasterStance.LIGHTNING) {
+            baseSecondDamage = getPlayerLightningCharges();
+            if (baseSecondDamage != SECOND_DAMAGE) {
+                rawDescription = windCardStrings.DESCRIPTION;
+                rawDescription += lightningCardStrings.EXTENDED_DESCRIPTION[0];
+                isSecondDamageModified = true;
+            }
+        }
+        initializeDescription();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        updateDescription();
     }
 
     @Override

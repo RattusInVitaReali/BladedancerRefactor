@@ -51,7 +51,7 @@
     "UPGRADE_DESCRIPTION": "Enter [#00FF2A]Wind[] [#00FF2A]Stance[]."
   },
   "blademaster:AspectOfWind:WIND": {
-    "DESCRIPTION": "blademaster:Conduit !M!. Exhaust.",
+    "DESCRIPTION": "blademaster:Conduit !M!. NL Exhaust.",
     "NAME":"Aspect of Wind",
     "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
   },
@@ -98,11 +98,17 @@
   },
   "blademaster:Thrust:WIND": {
     "DESCRIPTION": "Deal !D! damage. NL [#9AFC9F]Deal[] [blademaster:WindChargeIcon] [#9AFC9F]damage.[]",
-    "NAME": "Thrust"
+    "NAME": "Thrust",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !blademaster:D2! additional damage.)"
+    ]
   },
   "blademaster:Thrust:LIGHTNING": {
     "DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Deal[] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
-    "NAME": "Thrust"
+    "NAME": "Thrust",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !blademaster:D2! additional damage.)"
+    ]
   },
   "blademaster:ChargingUp": {
     "DESCRIPTION": "Gain !B! Block.",
@@ -189,9 +195,9 @@
     "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AE1FC]Gain[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] Block.",
     "NAME": "Rolling Typhoon"
   },
-  "blademaster:StanceMastery": {
+  "blademaster:Overcharge": {
     "DESCRIPTION": "Whenever you gain a blademaster:Charge, gain an additional blademaster:Charge.",
-    "NAME": "Stance Mastery"
+    "NAME": "Overcharge"
   },
   "blademaster:Stormstrike": {
     "DESCRIPTION": "Deal !D! damage. Consume ALL your [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] additional damage.",
@@ -202,9 +208,12 @@
     "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Block at the end of each turn.",
     "NAME": "Enchanted Cuirass"
   },
-  "blademaster:FuryOfTheElements": {
+  "blademaster:Requiem": {
     "DESCRIPTION": "blademaster:Finisher. Consume ALL your [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon] to deal NL [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] damage NL to ALL enemies.",
-    "NAME": "Fury Of The Elements"
+    "NAME": "Requiem",
+    "EXTENDED_DESCRIPTION": [
+      "blademaster:Finisher. Consume ALL your [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon] to deal NL [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] = !D! damage to ALL enemies."
+    ]
   },
   "blademaster:Hailwind": {
     "DESCRIPTION": "Consume ALL your [blademaster:WindChargeIcon] NL to deal !D! damage per [blademaster:WindChargeIcon] consumed.",
@@ -296,10 +305,6 @@
   "blademaster:Massacre": {
     "DESCRIPTION": "blademaster:Bloodied effects apply an additional time.",
     "NAME": "Massacre"
-  },
-  "blademaster:Overcharge": {
-    "DESCRIPTION": "At the end of your turn, deal [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] NL damage to a random enemy.",
-    "NAME": "Overcharge"
   },
   "blademaster:Rupture": {
     "DESCRIPTION": "Double an enemy's blademaster:Bleeding. NL Exhaust.",

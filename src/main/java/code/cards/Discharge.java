@@ -41,7 +41,7 @@ public class Discharge extends AbstractStanceCard {
         AbstractMonster monster = AbstractDungeon.getRandomMonster();
         BlademasterUtil.lightningEffect(monster);
         damageMonster(monster, BlademasterUtil.getPlayerWindCharges(), AbstractGameAction.AttackEffect.NONE);
-        playerApplyPower(monster, new VulnerablePower(monster, magicNumber, false));
+        playerApplyPower(monster, new WeakPower(monster, magicNumber, false));
     }
 
     @Override
@@ -50,7 +50,7 @@ public class Discharge extends AbstractStanceCard {
         AbstractMonster monster = AbstractDungeon.getRandomMonster();
         BlademasterUtil.lightningEffect(monster);
         damageMonster(monster, BlademasterUtil.getPlayerLightningCharges(), AbstractGameAction.AttackEffect.NONE);
-        playerApplyPower(monster, new WeakPower(monster, magicNumber, false));
+        playerApplyPower(monster, new VulnerablePower(monster, magicNumber, false));
     }
 
     @Override

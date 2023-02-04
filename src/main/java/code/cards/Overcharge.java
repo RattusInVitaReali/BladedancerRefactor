@@ -13,20 +13,22 @@ public class Overcharge extends AbstractBlademasterCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    private static final int COST = 1;
-
+    private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
+    private static final int MAGIC = 1;
 
     public Overcharge() {
         super(ID, COST, TYPE, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        playerApplyPower(p, new OverchargePower(p));
+        playerApplyPower(p, new OverchargePower(p, magicNumber));
     }
 
     @Override
     public void onUpgrade() {
-        this.isInnate = true;
+        upgradeBaseCost(UPGRADED_COST);
     }
 }

@@ -68,8 +68,8 @@
       " cards."
     ]
   },
-  "blademaster:StanceMastery": {
-    "NAME": "Stance Mastery",
+  "blademaster:Overcharge": {
+    "NAME": "Overcharge",
     "DESCRIPTIONS": [
       "Whenever you gain a #yCharge, gain #b",
       " additional #yCharge.",
@@ -87,13 +87,6 @@
     "NAME": "Massacre",
     "DESCRIPTIONS": [
       "Your #yBloodied effects are applied an additional time."
-    ]
-  },
-  "blademaster:Overcharge": {
-    "NAME": "Overcharge",
-    "DESCRIPTIONS": [
-      "At the end of your turn, deal #b",
-      " damage to a random enemy."
     ]
   },
   "blademaster:PreciseBloodshed": {

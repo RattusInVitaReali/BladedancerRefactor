@@ -50,6 +50,8 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     private AbstractStanceCard PREVIEW_LIGHTNING = null;
     private boolean renderPreviewCards = false;
 
+    private boolean stancePreviewDisplayUpgrades = false;
+
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, 0, 0);
     }
@@ -201,6 +203,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
             conduit = baseConduit;
             isConduitModified = true;
         }
+        stancePreviewDisplayUpgrades = true;
     }
 
     protected void upgradeConduit(int amount) {
@@ -254,17 +257,19 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     private void generatePreviewCards() {
-        PREVIEW_WIND = (AbstractStanceCard) this.makeCopy();
+        PREVIEW_WIND = (AbstractStanceCard) this.makeStatEquivalentCopy();
         if (SingleCardViewPopup.isViewingUpgrade) {
             PREVIEW_WIND.upgrade();
             PREVIEW_WIND.displayUpgrades();
         }
+        if (stancePreviewDisplayUpgrades) PREVIEW_WIND.displayUpgrades();
         PREVIEW_WIND.setStance(BlademasterStance.WIND);
-        PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeCopy();
+        PREVIEW_LIGHTNING = (AbstractStanceCard) this.makeStatEquivalentCopy();
         if (SingleCardViewPopup.isViewingUpgrade) {
             PREVIEW_LIGHTNING.upgrade();
             PREVIEW_LIGHTNING.displayUpgrades();
         }
+        if (stancePreviewDisplayUpgrades) PREVIEW_LIGHTNING.displayUpgrades();
         PREVIEW_LIGHTNING.setStance(BlademasterStance.LIGHTNING);
         initializeDescription();
     }
