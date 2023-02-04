@@ -2,6 +2,7 @@ package code.cards;
 
 import code.cards.AbstractBlademasterCard;
 
+import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -23,6 +24,7 @@ public class BladeRuse extends AbstractBlademasterCard {
     public BladeRuse() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

@@ -5,15 +5,14 @@ import code.powers.BleedingPower;
 import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.getAliveMonsters;
 
-public class LightningDraw extends AbstractBlademasterCard {
+public class StormCleave extends AbstractBlademasterCard {
 
-    public final static String ID = makeID("LightningDraw");
+    public final static String ID = makeID("StormCleave");
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
@@ -24,7 +23,7 @@ public class LightningDraw extends AbstractBlademasterCard {
     private static final int UPGRADE_MAGIC = 3;
     private static final int FURY_REQ = 20;
 
-    public LightningDraw() {
+    public StormCleave() {
         super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;

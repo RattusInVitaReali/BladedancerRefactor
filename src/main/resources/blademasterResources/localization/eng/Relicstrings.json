@@ -40,5 +40,26 @@
     "DESCRIPTIONS": [
       "Bleeding only decays by #b2 every turn. Bleeding enemies take #b30% more damage instead of #b20%."
     ]
+  },
+  "blademaster:BlademastersAmulet": {
+    "NAME": "Blademaster's Amulet",
+    "FLAVOR": "A medallion of the old guard of the Bladedancers.",
+    "DESCRIPTIONS": [
+      "Whenever you play #b3 cards in a turn, draw #b1 card."
+    ]
+  },
+  "blademaster:SwordBladeShards": {
+    "NAME": "Sword Blade Shards",
+    "FLAVOR": "Sharp enough to sever a finger with no effort.",
+    "DESCRIPTIONS": [
+      "#yBleeding enemies are considered #yBloodied."
+    ]
+  },
+  "blademaster:TeigrClaw": {
+    "NAME": "Teigr Claw",
+    "FLAVOR": "If the owner of this claw failed to best the Spire, what hopes do you have?",
+    "DESCRIPTIONS": [
+      "Enemies are considered #yBloodied at #b75% HP rather than #b60%."
+    ]
   }
 }

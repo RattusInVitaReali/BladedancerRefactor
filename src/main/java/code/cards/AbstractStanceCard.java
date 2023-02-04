@@ -4,6 +4,7 @@ import basemod.helpers.TooltipInfo;
 import code.Blademaster;
 import code.Blademaster.BlademasterStance;
 import code.characters.BlademasterCharacter;
+import code.patches.BlademasterTags;
 import code.powers.stances.AbstractStancePower;
 import code.util.TextureLoader;
 import com.badlogic.gdx.Gdx;
@@ -21,6 +22,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -176,6 +178,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     protected void conduit(AbstractPlayer p, int amount) {
+        if (amount == 0) return;
         AbstractStancePower power = getPlayerStancePower();
         AbstractPower chargesPower = null;
         if (power != null)
@@ -276,6 +279,41 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public void unhover() {
         super.unhover();
         renderPreviewCards = false;
+    }
+
+    // Ugly but works, boli me kurac
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        List<TooltipInfo> list = new ArrayList<>();
+        if (rawDescription.contains("ChargeIcon]")
+                || (PREVIEW_WIND != null && PREVIEW_WIND.rawDescription.contains("ChargeIcon]"))
+                || (PREVIEW_LIGHTNING != null && PREVIEW_LIGHTNING.rawDescription.contains("ChargeIcon]"))) {
+            list.add(new TooltipInfo(tooltips[0], tooltips[1]));
+        }
+        if (rawDescription.contains("]Wind[")
+                || (PREVIEW_WIND != null && PREVIEW_WIND.rawDescription.contains("]Wind["))
+                || (PREVIEW_LIGHTNING != null && PREVIEW_LIGHTNING.rawDescription.contains("]Wind["))) {
+            list.add(new TooltipInfo(tooltips[8], tooltips[9]));
+        }
+        if (rawDescription.contains("]Lightning[")
+                || (PREVIEW_WIND != null && PREVIEW_WIND.rawDescription.contains("]Lightning["))
+                || (PREVIEW_LIGHTNING != null && PREVIEW_LIGHTNING.rawDescription.contains("]Lightning["))) {
+            list.add(new TooltipInfo(tooltips[10], tooltips[11]));
+        }
+        if (rawDescription.contains("]Basic[")
+                || (PREVIEW_WIND != null && PREVIEW_WIND.rawDescription.contains("]Basic["))
+                || (PREVIEW_LIGHTNING != null && PREVIEW_LIGHTNING.rawDescription.contains("]Basic["))) {
+            list.add(new TooltipInfo(tooltips[12], tooltips[13]));
+        }
+        if (hasTag(BlademasterTags.FURY_FINISHER) ||
+                rawDescription.contains("]Fury[")) {
+            list.add(new TooltipInfo(tooltips[2], tooltips[3]));
+        }
+        if (hasTag(BlademasterTags.COMBO_FINISHER) ||
+                rawDescription.contains("]Combo[")) {
+            list.add(new TooltipInfo(tooltips[4], tooltips[5]));
+        }
+        return list;
     }
 
     public void getStanceVariantKeywords() {

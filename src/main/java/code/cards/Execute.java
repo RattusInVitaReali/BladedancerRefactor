@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -21,6 +22,7 @@ public class Execute extends AbstractBlademasterCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseSecondDamage = SECOND_DAMAGE;
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

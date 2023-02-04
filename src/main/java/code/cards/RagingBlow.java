@@ -1,5 +1,7 @@
 package code.cards;
 
+import code.Blademaster;
+import code.patches.BlademasterTags;
 import code.powers.MassacrePower;
 import code.powers.stances.LightningChargePower;
 import code.powers.stances.WindChargePower;
@@ -29,6 +31,7 @@ public class RagingBlow extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);
         baseDamage = DAMAGE;
         setDescription(cardStrings.DESCRIPTION);
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

@@ -2,6 +2,7 @@ package code.cards;
 
 import code.cards.AbstractBlademasterCard;
 
+import code.patches.BlademasterTags;
 import code.powers.BleedingPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -31,6 +32,7 @@ public class Anklebiter extends AbstractBlademasterCard {
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = MAGIC;
         baseSecondMagic = secondMagic = SECOND_MAGIC;
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

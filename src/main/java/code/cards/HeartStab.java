@@ -2,6 +2,7 @@ package code.cards;
 
 import code.cards.AbstractBlademasterCard;
 
+import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,6 +32,7 @@ public class HeartStab extends AbstractBlademasterCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
         baseSecondMagic = secondMagic = SECOND_MAGIC;
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

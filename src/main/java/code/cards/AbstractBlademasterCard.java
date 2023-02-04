@@ -4,10 +4,13 @@ import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
 import code.characters.BlademasterCharacter;
 import code.patches.BlademasterTags;
+import code.powers.BleedingPower;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
 import code.powers.MassacrePower;
 import code.powers.interfaces.OnBloodiedPower;
+import code.relics.SwordBladeShards;
+import code.relics.TeigrClaw;
 import code.util.BlademasterUtil;
 import code.util.ImageHelper;
 import code.util.TextureLoader;
@@ -29,11 +32,13 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import javax.tools.Tool;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import static code.Blademaster.*;
+import static code.util.BlademasterUtil.getAliveMonsters;
 
 @SuppressWarnings("BooleanMethodIsAlwaysInverted")
 public abstract class AbstractBlademasterCard extends CustomCard {
@@ -66,11 +71,12 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public boolean isComboCostModified = false;
     public boolean upgradedComboCost = false;
 
-    private int prevFury = 0;
-    private int prevCombo = 0;
-
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, 0, 0);
+    }
+
+    public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+        this(cardID, cost, type, rarity, target, color, 0, 0);
     }
 
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, int furyCost, int comboCost) {
@@ -143,17 +149,11 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
-        if (furyReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq()) {
-            this.glowColor = Color.ORANGE.cpy();
-            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID) >= furyReq() && prevFury < furyReq())
-                superFlash(glowColor);
-            prevFury = BlademasterUtil.getPowerAmount(AbstractDungeon.player, FuryPower.POWER_ID);
-        }
-        if (comboReq() > 0 && BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq()) {
-            this.glowColor = Color.RED.cpy();
-            if (BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID) >= comboReq() && prevCombo < comboReq())
-                superFlash(glowColor);
-            prevCombo = BlademasterUtil.getPowerAmount(AbstractDungeon.player, ComboPower.POWER_ID);
+        if (hasTag(BlademasterTags.BLOODIED)) {
+            for (AbstractMonster monster : getAliveMonsters()) {
+                if (isBloodied(monster)) {
+                    this.glowColor = GOLD_BORDER_GLOW_COLOR;                }
+            }
         }
     }
 
@@ -226,6 +226,15 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         List<TooltipInfo> list = new ArrayList<>();
         if (rawDescription.contains("ChargeIcon]")) {
             list.add(new TooltipInfo(tooltips[0], tooltips[1]));
+        }
+        if (rawDescription.contains("]Wind[")) {
+            list.add(new TooltipInfo(tooltips[8], tooltips[9]));
+        }
+        if (rawDescription.contains("]Lightning[")) {
+            list.add(new TooltipInfo(tooltips[10], tooltips[11]));
+        }
+        if (rawDescription.contains("]Basic[")) {
+            list.add(new TooltipInfo(tooltips[12], tooltips[13]));
         }
         if (hasTag(BlademasterTags.FURY_FINISHER) ||
             rawDescription.contains("]Fury[")) {
@@ -352,7 +361,9 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     }
 
     public static boolean isBloodied(AbstractMonster m) {
-        return (m.currentHealth <= m.maxHealth * 0.66);
+        return (m.currentHealth <= m.maxHealth * 0.6)
+                || (m.currentHealth <= m.maxHealth * 0.75 && AbstractDungeon.player.hasRelic(TeigrClaw.ID))
+                || (m.hasPower(BleedingPower.POWER_ID) && AbstractDungeon.player.hasRelic(SwordBladeShards.ID));
     }
 
     protected final void useBloodiedWrapper(AbstractPlayer p, AbstractMonster m) {

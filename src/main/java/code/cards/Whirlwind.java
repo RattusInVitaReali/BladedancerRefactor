@@ -1,6 +1,7 @@
 package code.cards;
 
 import code.actions.WhirlwindAction;
+import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -24,6 +25,7 @@ public class Whirlwind extends AbstractStanceCard {
         baseDamage = DAMAGE;
         this.isMultiDamage = true;
         baseMagicNumber = magicNumber = MAGIC;
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

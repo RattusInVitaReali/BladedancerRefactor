@@ -1,6 +1,7 @@
 package code.cards;
 
 import code.Blademaster;
+import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -29,6 +30,7 @@ public class Flicker extends AbstractStanceCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
         baseSecondMagic = secondMagic = SECOND_MAGIC;
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

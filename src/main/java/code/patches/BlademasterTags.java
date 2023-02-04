@@ -8,4 +8,6 @@ public class BlademasterTags {
     public static AbstractCard.CardTags COMBO_FINISHER;
     @SpireEnum
     public static AbstractCard.CardTags FURY_FINISHER;
+    @SpireEnum
+    public static AbstractCard.CardTags BLOODIED;
 }

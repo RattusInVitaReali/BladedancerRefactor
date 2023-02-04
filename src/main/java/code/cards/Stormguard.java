@@ -17,7 +17,7 @@ public class Stormguard extends AbstractStanceCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
     private static final int BLOCK = 5;
-    private static final int UPGRADE_BLOCK = 2;
+    private static final int UPGRADE_BLOCK = 3;
 
     public Stormguard() {
         super(ID, COST, TYPE, RARITY, TARGET);

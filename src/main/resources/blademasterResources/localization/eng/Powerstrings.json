@@ -2,46 +2,46 @@
   "blademaster:BasicStance": {
     "NAME": "Basic Stance",
     "DESCRIPTIONS": [
-      "You are in #yBasic #yStance."
+      "You are in [#737373]Basic[] [#737373]Stance[]."
     ]
   },
 
   "blademaster:WindStance": {
     "NAME": "Wind Stance",
     "DESCRIPTIONS": [
-      "You are in #yWind #yStance."
+      "You are in [#00FF2A]Wind[] [#00FF2A]Stance[]."
     ]
   },
   "blademaster:LightningStance": {
     "NAME": "Lighting Stance",
     "DESCRIPTIONS": [
-      "You are in #yLighting #yStance."
+      "You are in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
     ]
   },
   "blademaster:WindCharge": {
     "NAME": "Wind Charge",
     "DESCRIPTIONS": [
-      "#yWind #yStance #yCharges. Used for #yWind #yStance cards."
+      "[#00FF2A]Wind[] [#00FF2A]Stance[] #yCharges. Used for [#00FF2A]Wind[] [#00FF2A]Stance[] cards."
     ]
   },
   "blademaster:LightningCharge": {
     "NAME": "Lightning Charge",
     "DESCRIPTIONS": [
-      "#yLightning #yStance #yCharges. Used for #yLightning #yStance cards."
+      "[#4A8CFF]Lightning[] [#4A8CFF]Stance[] #yCharges. Used for [#4A8CFF]Lightning[] [#4A8CFF]Stance[] cards."
     ]
   },
   "blademaster:Combo": {
     "NAME": "Combo",
     "DESCRIPTIONS": [
-      "Resource used for playing #yFinishers. #yCombo is reset to #b0 at the end of your turn. NL You currently have #b",
-      " #yCombo. Gain more by playing cards!"
+      "Resource used for playing #yFinishers. [#860037]Combo[] is reset to #b0 at the end of your turn. NL You currently have #b",
+      " [#860037]Combo[]. Gain more by playing cards!"
     ]
   },
   "blademaster:Fury": {
     "NAME": "Fury",
     "DESCRIPTIONS": [
-      "Resource used for playing #yFinishers. #yFury is reset to #b0 at the end of your turn. NL You currently have #b",
-      " #yFury. Gain more by dealing damage!"
+      "Resource used for playing #yFinishers. [#FF4500]Fury[] is reset to #b0 at the end of your turn. NL You currently have #b",
+      " [#FF4500]Fury[]. Gain more by dealing damage!"
     ]
   },
   "blademaster:Bleeding": {
@@ -166,7 +166,7 @@
   "blademaster:Harmony": {
     "NAME": "Harmony",
     "DESCRIPTIONS": [
-      "#yCombo and #yFury are not removed at the end of your turn."
+      "[#860037]Combo[] and [#FF4500]Fury[] are not removed at the end of your turn."
     ]
   }
 }

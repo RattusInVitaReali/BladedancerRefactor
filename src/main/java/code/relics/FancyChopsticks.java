@@ -12,7 +12,7 @@ import static code.Blademaster.makeID;
 public class FancyChopsticks extends AbstractBlademasterRelic {
 
     public static final String ID = makeID("FancyChopsticks");
-    private static final RelicTier TIER = RelicTier.COMMON;
+    private static final RelicTier TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     private boolean appliedThisTurn = false;

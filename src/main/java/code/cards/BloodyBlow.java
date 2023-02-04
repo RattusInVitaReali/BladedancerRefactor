@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.patches.BlademasterTags;
 import code.powers.BleedingPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,6 +28,7 @@ public class BloodyBlow extends AbstractStanceCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
         setBaseConduit(CONDUIT);
+        tags.add(BlademasterTags.BLOODIED);
     }
 
     @Override

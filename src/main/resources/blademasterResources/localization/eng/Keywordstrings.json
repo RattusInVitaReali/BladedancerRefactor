@@ -8,11 +8,11 @@
     "DESCRIPTION": "A #yStance which modifies how certain cards function."
   },
   {
-    "PROPER_NAME": "Conduit",
+    "PROPER_NAME": "Conduit X",
     "NAMES": [
       "conduit"
     ],
-    "DESCRIPTION": "Gain [blademaster:WindChargeIcon] in [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Gain [blademaster:LightningChargeIcon] in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
+    "DESCRIPTION": "Gain X [blademaster:WindChargeIcon] in [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Gain X [blademaster:LightningChargeIcon] in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
   },
   {
     "PROPER_NAME": "Charge [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon]",
@@ -58,6 +58,6 @@
     "NAMES": [
       "bloodied"
     ],
-    "DESCRIPTION": "Applies if the target is at or below #b66% health."
+    "DESCRIPTION": "Applies if the target is at or below #b60% HP."
   }
 ]

@@ -14,8 +14,8 @@ public class Momentum extends AbstractBlademasterCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 1;
-    private static final int MAGIC = 9;
-    private static final int UPGRADE_MAGIC = 4;
+    private static final int MAGIC = 8;
+    private static final int UPGRADE_MAGIC = 3;
 
     public Momentum() {
         super(ID, COST, TYPE, RARITY, TARGET);

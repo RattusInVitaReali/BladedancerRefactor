@@ -13,7 +13,7 @@ import static code.Blademaster.makeID;
 public class KomodoDragonSkull extends AbstractBlademasterRelic implements OnApplyPowerRelic {
 
     public static final String ID = makeID("KomodoDragonSkull");
-    private static final RelicTier TIER = RelicTier.UNCOMMON;
+    private static final RelicTier TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     private static final int POISON = 2;

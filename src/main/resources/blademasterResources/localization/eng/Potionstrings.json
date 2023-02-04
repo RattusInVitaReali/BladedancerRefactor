@@ -5,5 +5,19 @@
       "Apply #b",
       " #yBleeding to target enemy."
     ]
+  },
+  "blademaster:StancePotion": {
+    "NAME": "Stance Potion",
+    "DESCRIPTIONS": [
+      "Enter [#00FF2A]Wind[] [#00FF2A]Stance[] or [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
+    ]
+  },
+  "blademaster:FinisherPotion": {
+    "NAME": "Finisher Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " [#860037]Combo[]. NL Gain #b",
+      " [#FF4500]Fury[]."
+    ]
   }
 }
