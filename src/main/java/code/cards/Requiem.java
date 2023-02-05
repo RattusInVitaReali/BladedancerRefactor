@@ -45,8 +45,12 @@ public class Requiem extends AbstractBlademasterCard {
     public void applyPowers() {
         baseDamage = 2 * (getPlayerWindCharges() + getPlayerLightningCharges());
         super.applyPowers();
-        isDamageModified = baseDamage != DAMAGE;
-        rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        if (baseDamage != DAMAGE) {
+            isDamageModified = true;
+            rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        } else {
+            rawDescription = cardStrings.DESCRIPTION;
+        }
         initializeDescription();
     }
 

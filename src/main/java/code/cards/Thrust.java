@@ -48,22 +48,27 @@ public class Thrust extends AbstractStanceCard {
 
     @Override
     public void applyPowers() {
-        super.applyPowers();
         if (getStance() == Blademaster.BlademasterStance.BASIC) return;
         if (getStance() == Blademaster.BlademasterStance.WIND) {
             baseSecondDamage = getPlayerWindCharges();
+            super.applyPowers();
             if (baseSecondDamage != SECOND_DAMAGE) {
                 rawDescription = windCardStrings.DESCRIPTION;
                 rawDescription += windCardStrings.EXTENDED_DESCRIPTION[0];
                 isSecondDamageModified = true;
+            } else {
+                rawDescription = windCardStrings.DESCRIPTION;
             }
         }
         if (getStance() == Blademaster.BlademasterStance.LIGHTNING) {
             baseSecondDamage = getPlayerLightningCharges();
+            super.applyPowers();
             if (baseSecondDamage != SECOND_DAMAGE) {
-                rawDescription = windCardStrings.DESCRIPTION;
+                rawDescription = lightningCardStrings.DESCRIPTION;
                 rawDescription += lightningCardStrings.EXTENDED_DESCRIPTION[0];
                 isSecondDamageModified = true;
+            } else {
+                rawDescription = lightningCardStrings.DESCRIPTION;
             }
         }
         initializeDescription();

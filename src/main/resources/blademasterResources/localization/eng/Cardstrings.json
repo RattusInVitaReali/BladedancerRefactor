@@ -169,11 +169,17 @@
   },
   "blademaster:Discharge:WIND": {
     "DESCRIPTION": "Gain !B! Block. NL [#9AFC9F]Deal [blademaster:WindChargeIcon] [#9AFC9F]damage[] [#9AFC9F]and[] [#9AFC9F]apply[] !M! Weak [#9AFC9F]to[] [#9AFC9F]a[] [#9AFC9F]random[] [#9AFC9F]enemy.[]",
-    "NAME": "Discharge"
+    "NAME": "Discharge",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !B! Block. NL [#9AFC9F]Deal [blademaster:WindChargeIcon] = !D! [#9AFC9F]damage[] [#9AFC9F]and[] [#9AFC9F]apply[] !M! Weak [#9AFC9F]to[] [#9AFC9F]a[] [#9AFC9F]random[] [#9AFC9F]enemy.[]"
+    ]
   },
   "blademaster:Discharge:LIGHTNING": {
     "DESCRIPTION": "Gain !B! Block. NL [#9AE1FC]Deal [blademaster:LightningChargeIcon] [#9AE1FC]damage[] [#9AE1FC]and[] [#9AE1FC]apply[] !M! Vulnerable [#9AE1FC]to[] [#9AE1FC]a[] [#9AE1FC]random[] [#9AE1FC]enemy.[]",
-    "NAME": "Discharge"
+    "NAME": "Discharge",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !B! Block. NL [#9AE1FC]Deal [blademaster:LightningChargeIcon] = !D! [#9AE1FC]damage[] [#9AE1FC]and[] [#9AE1FC]apply[] !M! Vulnerable [#9AE1FC]to[] [#9AE1FC]a[] [#9AE1FC]random[] [#9AE1FC]enemy.[]"
+    ]
   },
   "blademaster:Momentum": {
     "DESCRIPTION": "Whenever you change blademaster:Stances, deal !M! damage to ALL enemies.",
@@ -200,9 +206,13 @@
     "NAME": "Overcharge"
   },
   "blademaster:Stormstrike": {
-    "DESCRIPTION": "Deal !D! damage. Consume ALL your [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] additional damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Consume ALL your  [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] additional damage.",
-    "NAME": "Stormstrike"
+    "DESCRIPTION": "Deal !D! damage. Consume ALL your [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Consume ALL your  [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] damage.",
+    "NAME": "Stormstrike",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. Consume ALL your [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] = !blademaster:D2! damage.",
+      "Deal !D! damage. Consume ALL your  [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] = !blademaster:D2! damage."
+    ]
   },
   "blademaster:EnchantedCuirass": {
     "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Block at the end of each turn.",
@@ -217,7 +227,10 @@
   },
   "blademaster:Hailwind": {
     "DESCRIPTION": "Consume ALL your [blademaster:WindChargeIcon] NL to deal !D! damage per [blademaster:WindChargeIcon] consumed.",
-    "NAME": "Hailwind"
+    "NAME": "Hailwind",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Consumes !M! [blademaster:WindChargeIcon] .)"
+    ]
   },
   "blademaster:Reversal": {
     "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block.",
@@ -261,7 +274,10 @@
   "blademaster:HighVoltage": {
     "DESCRIPTION": "Gain [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] Block. NL Exhaust.",
     "NAME": "High Voltage",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] Block. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] Block. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Grants !B! Block.)"
+    ]
   },
   "blademaster:Stability": {
     "DESCRIPTION": "Gain !B! Block. Gain !M! Artifact. Reduce your Weak, Vulnerable and Frail by !M!. NL Exhaust.",
@@ -299,7 +315,7 @@
     "UPGRADE_DESCRIPTION": "Next turn, draw !M! cards and gain [E] [E]."
   },
   "blademaster:Execute": {
-    "DESCRIPTION": "Deal !D! damage. NL blademaster:Bloodied: deal !blademaster:D2! additional damage.",
+    "DESCRIPTION": "Deal !D! damage. NL blademaster:Bloodied: deal !blademaster:D2! damage.",
     "NAME": "Execute"
   },
   "blademaster:Massacre": {

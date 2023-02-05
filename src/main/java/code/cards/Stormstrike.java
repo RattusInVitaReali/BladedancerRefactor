@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
+import static code.util.BlademasterUtil.getPlayerLightningCharges;
+import static code.util.BlademasterUtil.getPlayerWindCharges;
 
 public class Stormstrike extends AbstractBlademasterCard {
 
@@ -18,6 +20,7 @@ public class Stormstrike extends AbstractBlademasterCard {
     private static final int COST = 1;
     private static final int DAMAGE = 9;
     private static final int UPGRADE_DAMAGE = 3;
+    private static final int SECOND_DAMAGE = 0;
     private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
 
@@ -25,6 +28,7 @@ public class Stormstrike extends AbstractBlademasterCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        baseSecondDamage = SECOND_DAMAGE;
         tags.add(CardTags.STRIKE);
     }
 
@@ -32,8 +36,26 @@ public class Stormstrike extends AbstractBlademasterCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
         BlademasterUtil.lightningEffect(m);
-        damageMonster(m, BlademasterUtil.getPlayerLightningCharges() * magicNumber, AbstractGameAction.AttackEffect.NONE);
+        damageMonster(m, secondDamage, AbstractGameAction.AttackEffect.NONE);
         addToBot(new RemoveSpecificPowerAction(p, p, LightningChargePower.POWER_ID));
+    }
+
+    @Override
+    public void applyPowers() {
+        baseSecondDamage = magicNumber * getPlayerLightningCharges();
+        super.applyPowers();
+        if (baseSecondDamage != SECOND_DAMAGE) {
+            isSecondDamageModified = true;
+            rawDescription = upgraded ? cardStrings.EXTENDED_DESCRIPTION[1] : cardStrings.EXTENDED_DESCRIPTION[0];
+        } else {
+            rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
+        }
+        initializeDescription();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        setDescription(cardStrings.DESCRIPTION);
     }
 
     @Override

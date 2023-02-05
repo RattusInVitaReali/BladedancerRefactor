@@ -20,19 +20,40 @@ public class Hailwind extends AbstractBlademasterCard {
     private static final int COST = 1;
     private static final int DAMAGE = 3;
     private static final int UPGRADE_DAMAGE = 1;
+    private static final int MAGIC = 0;
 
     public Hailwind() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < getPlayerWindCharges(); i++) {
+        for (int i = 0; i < magicNumber; i++) {
             addToBot(new VFXAction(new ThrowDaggerEffect(m.hb_x, m.hb_y)));
             damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
         }
         addToBot(new RemoveSpecificPowerAction(p, p, WindChargePower.POWER_ID));
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        magicNumber = getPlayerWindCharges();
+        if (magicNumber != baseMagicNumber) {
+            isMagicNumberModified = true;
+            rawDescription = cardStrings.DESCRIPTION;
+            rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+        } else {
+            rawDescription = cardStrings.DESCRIPTION;
+        }
+        initializeDescription();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        setDescription(cardStrings.DESCRIPTION);
     }
 
     @Override
