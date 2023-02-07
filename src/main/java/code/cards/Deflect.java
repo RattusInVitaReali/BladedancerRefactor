@@ -1,12 +1,8 @@
 package code.cards;
 
-import code.powers.ComboPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.playerApplyPower;

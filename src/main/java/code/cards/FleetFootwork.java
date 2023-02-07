@@ -1,12 +1,9 @@
 package code.cards;
 
-import code.cards.AbstractBlademasterCard;
-
 import code.powers.RegenerationPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.RegenerateMonsterPower;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.playerApplyPower;

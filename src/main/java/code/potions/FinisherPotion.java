@@ -2,7 +2,6 @@ package code.potions;
 
 import basemod.abstracts.CustomPotion;
 import code.Blademaster;
-import code.powers.BleedingPower;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
 import com.badlogic.gdx.graphics.Color;
@@ -18,6 +17,9 @@ import static code.util.BlademasterUtil.playerApplyPower;
 public class FinisherPotion extends CustomPotion {
 
     public static final String POTION_ID = Blademaster.makeID("FinisherPotion");
+    public static final Color LIQUID_COLOR = new Color(227.F / 255.F, 95.F / 255.F, 0.F / 255.F, 1);
+    public static final Color HYBRID_COLOR = new Color(135.F / 255.F, 57.F / 255.F, 0.F / 255.F, 1);
+    public static final Color SPOTS_COLOR = new Color(238.F / 255.F, 238.F / 255.F, 238.F / 255.F, 1);
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     private static final String NAME = potionStrings.NAME;
     private static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
@@ -25,10 +27,6 @@ public class FinisherPotion extends CustomPotion {
     private static final PotionSize SIZE = PotionSize.S;
     private static final int POTENCY = 4;
     private static final int FURY_POTENCY_MULTIPLIER = 5;
-
-    public static final Color LIQUID_COLOR = new Color(227.F / 255.F, 95.F / 255.F, 0.F / 255.F, 1);
-    public static final Color HYBRID_COLOR = new Color(135.F / 255.F, 57.F / 255.F, 0.F / 255.F, 1);
-    public static final Color SPOTS_COLOR = new Color(238.F / 255.F, 238.F / 255.F, 238.F / 255.F, 1);
 
     public FinisherPotion() {
         super(NAME, POTION_ID, RARITY, SIZE, PotionColor.NONE);

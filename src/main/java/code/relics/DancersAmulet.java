@@ -16,10 +16,6 @@ public class DancersAmulet extends AbstractBlademasterRelic {
 
     public DancersAmulet() {
         super(ID, TIER, LANDING_SOUND);
-    }
-
-    @Override
-    public void atBattleStart() {
         counter = 0;
     }
 
@@ -37,11 +33,6 @@ public class DancersAmulet extends AbstractBlademasterRelic {
             counter = 0;
             stopPulse();
         }
-    }
-
-    @Override
-    public void onVictory() {
-        counter = -1;
     }
 
 }

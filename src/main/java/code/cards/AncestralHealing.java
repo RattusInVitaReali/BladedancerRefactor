@@ -23,7 +23,7 @@ public class AncestralHealing extends AbstractStanceCard {
     private static final int CONDUIT = 3;
     private static final int UPGRADE_CONDUIT = 2;
 
-    private static final String[] POWERS_TO_REDUCE = { WeakPower.POWER_ID, VulnerablePower.POWER_ID, FrailPower.POWER_ID };
+    private static final String[] POWERS_TO_REDUCE = {WeakPower.POWER_ID, VulnerablePower.POWER_ID, FrailPower.POWER_ID};
 
     public AncestralHealing() {
         super(ID, COST, TYPE, RARITY, TARGET);

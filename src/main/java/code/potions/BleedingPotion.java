@@ -15,16 +15,15 @@ import static code.util.BlademasterUtil.playerApplyPower;
 public class BleedingPotion extends CustomPotion {
 
     public static final String POTION_ID = Blademaster.makeID("BleedingPotion");
+    public static final Color LIQUID_COLOR = new Color(155.F / 255.F, 0.F / 255.F, 0.F / 255.F, 1);
+    public static final Color HYBRID_COLOR = new Color(200.F / 255.F, 0.F / 255.F, 0.F / 255.F, 1);
+    public static final Color SPOTS_COLOR = new Color(238.F / 255.F, 238.F / 255.F, 238.F / 255.F, 1);
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     private static final String NAME = potionStrings.NAME;
     private static final String[] DESCRIPTIONS = potionStrings.DESCRIPTIONS;
     private static final PotionRarity RARITY = PotionRarity.COMMON;
     private static final PotionSize SIZE = PotionSize.H;
     private static final int POTENCY = 9;
-
-    public static final Color LIQUID_COLOR = new Color(155.F / 255.F, 0.F / 255.F, 0.F / 255.F, 1);
-    public static final Color HYBRID_COLOR = new Color(200.F / 255.F, 0.F / 255.F, 0.F / 255.F, 1);
-    public static final Color SPOTS_COLOR = new Color(238.F / 255.F, 238.F / 255.F, 238.F / 255.F, 1);
 
     public BleedingPotion() {
         super(NAME, POTION_ID, RARITY, SIZE, PotionColor.NONE);

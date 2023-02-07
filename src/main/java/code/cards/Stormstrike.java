@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.getPlayerLightningCharges;
-import static code.util.BlademasterUtil.getPlayerWindCharges;
 
 public class Stormstrike extends AbstractBlademasterCard {
 

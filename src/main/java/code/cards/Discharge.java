@@ -86,7 +86,7 @@ public class Discharge extends AbstractStanceCard {
     public void onMoveToDiscard() {
         updateDescription();
     }
-    
+
     @Override
     public void onUpgrade() {
         upgradeBlock(UPGRADE_BLOCK);

@@ -2,7 +2,6 @@ package code.cards.choiceCards;
 
 import code.actions.LightningStanceAction;
 import code.cards.AbstractBlademasterCard;
-
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

@@ -1,8 +1,6 @@
 package code.powers;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import static code.Blademaster.makeID;
 

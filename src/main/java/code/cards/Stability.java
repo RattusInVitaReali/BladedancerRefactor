@@ -23,7 +23,7 @@ public class Stability extends AbstractBlademasterCard {
     private static final int BLOCK = 6;
     private static final int UPGRADE_BLOCK = 3;
 
-    private static final String[] POWERS_TO_REDUCE = { WeakPower.POWER_ID, VulnerablePower.POWER_ID, FrailPower.POWER_ID };
+    private static final String[] POWERS_TO_REDUCE = {WeakPower.POWER_ID, VulnerablePower.POWER_ID, FrailPower.POWER_ID};
 
     public Stability() {
         super(ID, COST, TYPE, RARITY, TARGET);

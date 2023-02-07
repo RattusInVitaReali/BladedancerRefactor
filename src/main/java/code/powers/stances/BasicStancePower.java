@@ -1,7 +1,6 @@
 package code.powers.stances;
 
 import code.Blademaster;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 

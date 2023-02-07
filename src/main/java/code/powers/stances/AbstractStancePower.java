@@ -3,12 +3,8 @@ package code.powers.stances;
 import code.Blademaster;
 import code.actions.UpdateStanceAction;
 import code.powers.AbstractBlademasterPower;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractStancePower extends AbstractBlademasterPower {

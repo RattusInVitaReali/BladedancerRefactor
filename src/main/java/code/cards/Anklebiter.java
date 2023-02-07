@@ -1,14 +1,10 @@
 package code.cards;
 
-import code.cards.AbstractBlademasterCard;
-
 import code.patches.BlademasterTags;
 import code.powers.BleedingPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
-
-import java.util.WeakHashMap;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.playerApplyPower;

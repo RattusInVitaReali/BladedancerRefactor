@@ -1,8 +1,6 @@
 package code.cards;
 
 import code.actions.WindStanceAction;
-import code.cards.AbstractBlademasterCard;
-
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

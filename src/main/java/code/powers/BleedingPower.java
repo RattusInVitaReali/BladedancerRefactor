@@ -12,8 +12,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-import java.awt.print.Paper;
-
 import static code.Blademaster.makeID;
 
 public class BleedingPower extends AbstractBlademasterPower implements HealthBarRenderPower {
@@ -21,6 +19,7 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
     public static final String POWER_ID = makeID("Bleeding");
     public static final PowerType TYPE = PowerType.DEBUFF;
     public static final boolean TURN_BASED = true;
+    private static final Color COLOR = new Color(.4f, 0f, 0f, 1.f);
 
     public BleedingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -50,10 +49,10 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
     @Override
     public void updateDescription() {
         boolean hasRelic = AbstractDungeon.player.hasRelic(PaperTeigr.ID);
-       description = powerStrings.DESCRIPTIONS[0] +
-               (hasRelic ? 30 : 20) + powerStrings.DESCRIPTIONS[1] +
-               amount + powerStrings.DESCRIPTIONS[2] +
-               (hasRelic ? 2 : 3) + powerStrings.DESCRIPTIONS[3];
+        description = powerStrings.DESCRIPTIONS[0] +
+                (hasRelic ? 30 : 20) + powerStrings.DESCRIPTIONS[1] +
+                amount + powerStrings.DESCRIPTIONS[2] +
+                (hasRelic ? 2 : 3) + powerStrings.DESCRIPTIONS[3];
     }
 
     @Override
@@ -63,12 +62,12 @@ public class BleedingPower extends AbstractBlademasterPower implements HealthBar
 
     @Override
     public Color getColor() {
-        return Color.SCARLET;
+        return COLOR;
     }
 
     public void decrementAmount() {
         amount -= AbstractDungeon.player.hasRelic(PaperTeigr.ID) ? 2 : 3;
-        if (amount < 0)
+        if (amount <= 0)
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         updateDescription();
     }

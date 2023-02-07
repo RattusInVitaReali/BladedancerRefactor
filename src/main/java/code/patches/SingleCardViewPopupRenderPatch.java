@@ -3,9 +3,7 @@ package code.patches;
 import basemod.ReflectionHacks;
 import code.cards.AbstractBlademasterCard;
 import code.cards.AbstractStanceCard;
-import code.util.ImageHelper;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -26,7 +24,7 @@ public class SingleCardViewPopupRenderPatch {
     public static void getRenderMethod() {
         if (renderHelperMethod == null) {
             try {
-                renderHelperMethod = SingleCardViewPopup.class.getDeclaredMethod("renderHelper", SpriteBatch.class, float.class, float.class,  TextureAtlas.AtlasRegion.class);
+                renderHelperMethod = SingleCardViewPopup.class.getDeclaredMethod("renderHelper", SpriteBatch.class, float.class, float.class, TextureAtlas.AtlasRegion.class);
             } catch (NoSuchMethodException e) {
                 if (!renderReflectFailureNotified) {
                     renderReflectFailureNotified = true;
@@ -63,26 +61,26 @@ public class SingleCardViewPopupRenderPatch {
             AbstractCard card = ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
             if (card.hasTag(BlademasterTags.FURY_FINISHER) && !card.isLocked && card.isSeen) {
                 AbstractBlademasterCard blademasterCard = (AbstractBlademasterCard) card;
-                renderImage(__instance, sb, (float)Settings.WIDTH / 2.0F - 270.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 230.0F * Settings.scale, AbstractBlademasterCard.furySCVPTexture);
+                renderImage(__instance, sb, (float) Settings.WIDTH / 2.0F - 270.0F * Settings.scale, (float) Settings.HEIGHT / 2.0F + 230.0F * Settings.scale, AbstractBlademasterCard.furySCVPTexture);
                 Color c;
                 if (blademasterCard.isFuryCostModified) {
                     c = Settings.GREEN_TEXT_COLOR;
                 } else {
                     c = Settings.CREAM_COLOR;
                 }
-                FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(blademasterCard.furyCost), (float)Settings.WIDTH / 2.0F - 316.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
+                FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(blademasterCard.furyCost), (float) Settings.WIDTH / 2.0F - 316.0F * Settings.scale, (float) Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
             }
 
             if (card.hasTag(BlademasterTags.COMBO_FINISHER) && !card.isLocked && card.isSeen) {
                 AbstractBlademasterCard blademasterCard = (AbstractBlademasterCard) card;
-                renderImage(__instance, sb, (float)Settings.WIDTH / 2.0F - 270.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 80.0F * Settings.scale, AbstractBlademasterCard.comboSCVPTexture);
+                renderImage(__instance, sb, (float) Settings.WIDTH / 2.0F - 270.0F * Settings.scale, (float) Settings.HEIGHT / 2.0F + 80.0F * Settings.scale, AbstractBlademasterCard.comboSCVPTexture);
                 Color c;
-                if (((AbstractBlademasterCard) blademasterCard).isComboCostModified) {
+                if (blademasterCard.isComboCostModified) {
                     c = Settings.GREEN_TEXT_COLOR;
                 } else {
                     c = Settings.CREAM_COLOR;
                 }
-                FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(blademasterCard.comboCost), (float)Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 104.0F * Settings.scale, c);
+                FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(blademasterCard.comboCost), (float) Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float) Settings.HEIGHT / 2.0F + 104.0F * Settings.scale, c);
             }
 
         }

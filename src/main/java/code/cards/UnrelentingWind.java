@@ -4,7 +4,6 @@ import code.actions.WindStanceAction;
 import code.powers.BleedingPower;
 import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
@@ -35,6 +34,7 @@ public class UnrelentingWind extends AbstractBlademasterCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        consumeFinisherCost();
         addToBot(new WindStanceAction());
         for (AbstractMonster monster : getAliveMonsters()) {
             block(block);

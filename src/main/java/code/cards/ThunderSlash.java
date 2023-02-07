@@ -29,7 +29,7 @@ public class ThunderSlash extends AbstractStanceCard {
     @Override
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
-        damageMonster(m , damage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        damageMonster(m, damage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
     }
 
     @Override

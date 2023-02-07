@@ -17,7 +17,7 @@ public class TraverseCut extends AbstractStanceCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
     private static final int DAMAGE = 4;
-    private static final int UPGRADE_DAMAGE = 1;
+    private static final int UPGRADE_DAMAGE = 2;
     private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;
 

@@ -2,7 +2,6 @@ package code.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
-import code.Blademaster;
 import code.actions.BasicStanceAction;
 import code.cards.Defend;
 import code.cards.RagingBlow;
@@ -40,7 +39,6 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.sun.jna.StringArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -287,7 +285,6 @@ public class BlademasterCharacter extends CustomPlayer {
         specialOffset = 0.0F * Settings.scale;
         for (AbstractPower p : this.powers) {
             if (p instanceof AbstractStancePower) {
-                continue;
             } else if (SPECIAL_POWERS.contains(p.ID)) {
                 if (Settings.isMobile) {
                     p.renderAmount(sb, x + specialOffset + 32.0F * Settings.scale, y - 115.0F * Settings.scale, POWER_AMOUNT_COLOR);

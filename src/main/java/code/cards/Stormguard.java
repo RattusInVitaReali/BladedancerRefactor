@@ -1,11 +1,8 @@
 package code.cards;
 
 import code.actions.LightningStanceAction;
-import code.cards.AbstractBlademasterCard;
-
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.stances.AbstractStance;
 
 import static code.Blademaster.makeID;
 

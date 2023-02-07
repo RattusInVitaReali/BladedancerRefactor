@@ -28,12 +28,11 @@ import java.util.List;
 
 import static code.Blademaster.modID;
 import static code.util.BlademasterUtil.*;
-import static code.util.BlademasterUtil.getPlayerStancePower;
 
 public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
-    protected CardStrings windCardStrings;
-    protected CardStrings lightningCardStrings;
+    private static final HashMap<String, CardStrings> windStringsMap = new HashMap<>();
+    private static final HashMap<String, CardStrings> lightningStringsMap = new HashMap<>();
     private final BasicState BASIC_STATE = new BasicState();
     private final WindState WIND_STATE = new WindState();
     private final LightningState LIGHTNING_STATE = new LightningState();
@@ -42,10 +41,8 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public boolean upgradedConduit;
     public boolean isConduitModified;
     public StanceState state;
-
-    private static final HashMap<String, CardStrings> windStringsMap = new HashMap<>();
-    private static final HashMap<String, CardStrings> lightningStringsMap = new HashMap<>();
-
+    protected CardStrings windCardStrings;
+    protected CardStrings lightningCardStrings;
     private AbstractStanceCard PREVIEW_WIND = null;
     private AbstractStanceCard PREVIEW_LIGHTNING = null;
     private boolean renderPreviewCards = false;
@@ -65,6 +62,16 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         setStance(BlademasterStance.BASIC);
     }
 
+    private static CardStrings duplicateCardStrings(CardStrings cardStrings) {
+        CardStrings newStrings = new CardStrings();
+        newStrings.NAME = cardStrings.NAME;
+        newStrings.DESCRIPTION = cardStrings.DESCRIPTION;
+        newStrings.UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+        if (newStrings.EXTENDED_DESCRIPTION != null)
+            newStrings.EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION.clone();
+        return newStrings;
+    }
+
     CardStrings getStanceCardStrings(HashMap<String, CardStrings> map, String cardID, String STANCE) {
         if (!map.containsKey(cardID)) {
             map.put(cardID, loadStanceCardStrings(cardID, STANCE));
@@ -79,15 +86,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         }
         processCardStrings(strings);
         return strings;
-    }
-
-    private static CardStrings duplicateCardStrings(CardStrings cardStrings) {
-        CardStrings newStrings = new CardStrings();
-        newStrings.NAME = cardStrings.NAME;
-        newStrings.DESCRIPTION = cardStrings.DESCRIPTION;
-        newStrings.UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-        if (newStrings.EXTENDED_DESCRIPTION != null) newStrings.EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION.clone();
-        return newStrings;
     }
 
     private void processCardStrings(CardStrings strings) {
@@ -111,6 +109,11 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         updateDescription();
     }
 
+    public BlademasterStance getStance() {
+        if (state == null) return BlademasterStance.NONE;
+        return state.getStance();
+    }
+
     public void setStance(BlademasterStance stance) {
         if (getStance() == stance) return;
         StanceState new_state;
@@ -132,11 +135,6 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
         superFlash(state.getFlashColor().cpy());
     }
 
-    public BlademasterStance getStance() {
-        if (state == null) return BlademasterStance.NONE;
-        return state.getStance();
-    }
-
     @Override
     public void applyPowers() {
         super.applyPowers();
@@ -145,7 +143,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
 
     @Override
     public AbstractCard makeStatEquivalentCopy() {
-        AbstractStanceCard card = (AbstractStanceCard)super.makeStatEquivalentCopy();
+        AbstractStanceCard card = (AbstractStanceCard) super.makeStatEquivalentCopy();
         card.setStance(getStance());
         return card;
     }
@@ -257,6 +255,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     private void generatePreviewCards() {
+        if (PREVIEW_WIND != null && PREVIEW_LIGHTNING != null) return;
         PREVIEW_WIND = (AbstractStanceCard) this.makeStatEquivalentCopy();
         if (SingleCardViewPopup.isViewingUpgrade) {
             PREVIEW_WIND.upgrade();
@@ -283,6 +282,8 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     @Override
     public void unhover() {
         super.unhover();
+        PREVIEW_WIND = null;
+        PREVIEW_LIGHTNING = null;
         renderPreviewCards = false;
     }
 
@@ -346,7 +347,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     }
 
     private String dedupeKeyword(String keyword) {
-        String retVal = (String) GameDictionary.parentWord.get(keyword);
+        String retVal = GameDictionary.parentWord.get(keyword);
         if (retVal != null)
             return retVal;
         return keyword;
@@ -411,7 +412,7 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public void renderCardPreview(SpriteBatch sb) {
         if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
             float tmpScale = drawScale * 0.8F;
-            if (this.current_x > (float)Settings.WIDTH * 0.75F) {
+            if (this.current_x > (float) Settings.WIDTH * 0.75F) {
                 cardsToPreview.current_x = current_x + (IMG_WIDTH * 0.9F + IMG_WIDTH * 0.9F * 0.8F + 16.0F) * drawScale;
             } else {
                 cardsToPreview.current_x = current_x - (IMG_WIDTH * 0.9F + IMG_WIDTH * 0.9F * 0.8F + 16.0F) * drawScale;

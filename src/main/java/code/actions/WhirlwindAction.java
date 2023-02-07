@@ -4,8 +4,6 @@ import code.cards.AbstractBlademasterCard;
 import code.powers.MassacrePower;
 import code.powers.stances.AbstractStancePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -22,10 +20,10 @@ import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 import static code.util.BlademasterUtil.*;
 
 public class WhirlwindAction extends AbstractGameAction {
-    public int[] multiDamage;
+    public final int[] multiDamage;
     private boolean freeToPlayOnce = false;
-    private DamageInfo.DamageType damageType;
-    private AbstractPlayer p;
+    private final DamageInfo.DamageType damageType;
+    private final AbstractPlayer p;
     private int energyOnUse = -1;
     private int charges = 0;
 
@@ -64,7 +62,7 @@ public class WhirlwindAction extends AbstractGameAction {
         }
 
         if (effect > 0) {
-            for(int i = 0; i < effect; ++i) {
+            for (int i = 0; i < effect; ++i) {
                 if (i == 0) {
                     addToBot(new SFXAction("ATTACK_WHIRLWIND"));
                     addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));

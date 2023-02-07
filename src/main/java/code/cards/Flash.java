@@ -3,7 +3,6 @@ package code.cards;
 import basemod.helpers.CardModifierManager;
 import code.modifiers.EtherealNoDescriptionMod;
 import code.modifiers.ExhaustNoDescriptionMod;
-import code.patches.BlademasterTags;
 import code.powers.BleedingPower;
 import code.powers.FuryPower;
 import code.util.BlademasterUtil;
@@ -15,7 +14,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
-import static code.util.BlademasterUtil.getPlayerStance;
 import static code.util.BlademasterUtil.playerApplyPower;
 
 public class Flash extends AbstractStanceCard {

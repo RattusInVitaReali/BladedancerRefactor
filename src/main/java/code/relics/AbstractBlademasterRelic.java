@@ -11,7 +11,7 @@ import static code.Blademaster.modID;
 
 public abstract class AbstractBlademasterRelic extends CustomRelic {
 
-    public AbstractCard.CardColor color;
+    public final AbstractCard.CardColor color;
 
     public AbstractBlademasterRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx) {
         super(setId, TextureLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + ".png")), tier, sfx);

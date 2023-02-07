@@ -19,6 +19,7 @@ public class PracticedStrokes extends AbstractBlademasterCard {
     public PracticedStrokes() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        cardsToPreview = new Carve();
     }
 
     @Override

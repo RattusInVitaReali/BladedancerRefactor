@@ -4,11 +4,8 @@ import code.powers.stances.LightningChargePower;
 import code.powers.stances.WindChargePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import java.util.prefs.BackingStoreException;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.*;

@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static code.Blademaster.makeID;
-import static code.util.BlademasterUtil.playerApplyPower;
 
 public class Flicker extends AbstractStanceCard {
 

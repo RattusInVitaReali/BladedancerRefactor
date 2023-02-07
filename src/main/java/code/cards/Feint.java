@@ -1,10 +1,6 @@
 package code.cards;
 
-import code.cards.AbstractBlademasterCard;
-
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.green.BladeDance;
-import com.megacrit.cardcrawl.cards.green.StormOfSteel;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

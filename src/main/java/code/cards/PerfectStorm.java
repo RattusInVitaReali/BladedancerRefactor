@@ -1,7 +1,5 @@
 package code.cards;
 
-import code.cards.AbstractBlademasterCard;
-
 import code.powers.ComboPower;
 import code.powers.FuryPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

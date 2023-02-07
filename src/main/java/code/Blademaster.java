@@ -181,7 +181,7 @@ public class Blademaster implements
         BaseMod.addPotion(BleedingPotion.class, BleedingPotion.LIQUID_COLOR, BleedingPotion.HYBRID_COLOR, BleedingPotion.SPOTS_COLOR, BleedingPotion.POTION_ID, BlademasterCharacter.Enums.THE_BLADEMASTER);
         BaseMod.addPotion(StancePotion.class, StancePotion.LIQUID_COLOR, StancePotion.HYBRID_COLOR, StancePotion.SPOTS_COLOR, StancePotion.POTION_ID, BlademasterCharacter.Enums.THE_BLADEMASTER);
         BaseMod.addPotion(FinisherPotion.class, FinisherPotion.LIQUID_COLOR, FinisherPotion.HYBRID_COLOR, FinisherPotion.SPOTS_COLOR, FinisherPotion.POTION_ID, BlademasterCharacter.Enums.THE_BLADEMASTER);
-        
+
     }
 
     public enum BlademasterStance {

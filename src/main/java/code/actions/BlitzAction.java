@@ -12,11 +12,11 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import static code.util.BlademasterUtil.playerApplyPower;
 
 public class BlitzAction extends AbstractGameAction {
-    private DamageInfo info;
     private static final float DURATION = 0.01F;
     private static final float POST_ATTACK_WAIT_DUR = 0.2F;
+    private final DamageInfo info;
     private int numTimes;
-    private int bleedingStacks;
+    private final int bleedingStacks;
 
     public BlitzAction(AbstractCreature target, DamageInfo info, int numTimes, int bleedingStacks) {
         this.info = info;
@@ -36,7 +36,7 @@ public class BlitzAction extends AbstractGameAction {
         this.numTimes = numTimes;
         this.bleedingStacks = bleedingStacks;
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.addToTop(new BlitzAction(AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng), info, numTimes, bleedingStacks));
+            this.addToTop(new BlitzAction(AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng), info, numTimes, bleedingStacks));
         }
 
     }
@@ -56,12 +56,12 @@ public class BlitzAction extends AbstractGameAction {
                 playerApplyPower(target, new BleedingPower(target, bleedingStacks));
                 if (this.numTimes > 1 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                     --this.numTimes;
-                    this.addToTop(new BlitzAction(AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng), this.info, this.numTimes, this.bleedingStacks));
+                    this.addToTop(new BlitzAction(AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng), this.info, this.numTimes, this.bleedingStacks));
                 }
 
                 this.addToTop(new WaitAction(0.2F));
             } else {
-                this.addToTop(new BlitzAction(AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng), this.info, this.numTimes, this.bleedingStacks));
+                this.addToTop(new BlitzAction(AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng), this.info, this.numTimes, this.bleedingStacks));
             }
 
             this.isDone = true;

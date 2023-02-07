@@ -1,8 +1,6 @@
 package code.relics;
 
-import code.Blademaster;
 import code.patches.BlademasterTags;
-import code.powers.FuryPower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

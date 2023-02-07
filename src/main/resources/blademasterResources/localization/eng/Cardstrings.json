@@ -148,16 +148,22 @@
     "NAME": "Deadly Dance"
   },
   "blademaster:RagingBlow": {
-    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL blademaster:Bloodied: Deals double damage.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL blademaster:Bloodied: Deals double damage.",
     "NAME": "Raging Blow"
   },
   "blademaster:RagingBlow:WIND": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AFC9F]Consume[] [#9AFC9F]your [] [blademaster:WindChargeIcon] [#9AFC9F]to[] [#9AFC9F]deal[] [blademaster:WindChargeIcon] [#9AFC9F]damage[] [#9AFC9F]to[] [#9AFC9F]ALL[] [#9AFC9F]enemies.[]",
-    "NAME": "Raging Blow"
+    "DESCRIPTION": "blademaster:Finisher. Deal !blademaster:D2! damage. blademaster:Bloodied: Deals double damage. [#9AFC9F]Consume[] [#9AFC9F]your [] [blademaster:WindChargeIcon] [#9AFC9F]to[] [#9AFC9F]deal[] [blademaster:WindChargeIcon] [#9AFC9F]damage[] [#9AFC9F]to[] [#9AFC9F]ALL[] [#9AFC9F]enemies.[]",
+    "NAME": "Raging Blow",
+    "EXTENDED_DESCRIPTION": [
+      "blademaster:Finisher. Deal !blademaster:D2! damage. blademaster:Bloodied: Deals double damage. [#9AFC9F]Consume[] [#9AFC9F]your [] [blademaster:WindChargeIcon] [#9AFC9F]to[] [#9AFC9F]deal[] [blademaster:WindChargeIcon] [#9AFC9F]=[] !D! [#9AFC9F]damage[] [#9AFC9F]to[] [#9AFC9F]ALL[] [#9AFC9F]enemies.[]"
+    ]
   },
   "blademaster:RagingBlow:LIGHTNING": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: Deals double damage. [#9AE1FC]Consume[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
-    "NAME": "Raging Blow"
+    "DESCRIPTION": "blademaster:Finisher. Deal !blademaster:D2! damage. blademaster:Bloodied: Deals double damage. [#9AE1FC]Consume[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
+    "NAME": "Raging Blow",
+    "EXTENDED_DESCRIPTION": [
+      "blademaster:Finisher. Deal !blademaster:D2! damage. blademaster:Bloodied: Deals double damage. [#9AE1FC]Consume[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]=[] !D! [#9AE1FC]damage.[]"
+    ]
   },
   "blademaster:StormCleave": {
     "DESCRIPTION": "blademaster:Finisher. Deal !D! damage and apply !M! blademaster:Bleeding to ALL enemies. Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
@@ -319,7 +325,7 @@
     "NAME": "Execute"
   },
   "blademaster:Massacre": {
-    "DESCRIPTION": "blademaster:Bloodied effects apply an additional time.",
+    "DESCRIPTION": "blademaster:Finisher. NL blademaster:Bloodied effects apply an additional time.",
     "NAME": "Massacre"
   },
   "blademaster:Rupture": {
