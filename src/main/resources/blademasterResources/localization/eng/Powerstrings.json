@@ -161,5 +161,12 @@
     "DESCRIPTIONS": [
       "[#860037]Combo[] and [#FF4500]Fury[] are not removed at the end of your turn."
     ]
+  },
+  "blademaster:FleetFootwork": {
+    "NAME": "Fleet Footwork",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " [#860037]Combo[] at the start of your turn."
+    ]
   }
 }

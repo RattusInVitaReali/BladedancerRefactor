@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.powers.FleetFootworkPower;
 import code.powers.RegenerationPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -19,7 +20,6 @@ public class FleetFootwork extends AbstractBlademasterCard {
     private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
     private static final int SECOND_MAGIC = 1;
-    private static final int UPGRADE_SECOND_MAGIC = 1;
 
     public FleetFootwork() {
         super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);
@@ -31,12 +31,11 @@ public class FleetFootwork extends AbstractBlademasterCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         consumeFinisherCost();
         playerApplyPower(p, new DexterityPower(p, magicNumber));
-        playerApplyPower(p, new RegenerationPower(p, secondMagic));
+        playerApplyPower(p, new FleetFootworkPower(p, secondMagic));
     }
 
     @Override
     public void onUpgrade() {
         upgradeMagicNumber(UPGRADE_MAGIC);
-        upgradeSecondMagic(UPGRADE_SECOND_MAGIC);
     }
 }

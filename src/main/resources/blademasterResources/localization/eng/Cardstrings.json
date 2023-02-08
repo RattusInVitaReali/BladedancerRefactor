@@ -139,8 +139,7 @@
     "NAME": "Cold Blood"
   },
   "blademaster:Sharpen": {
-    "DESCRIPTION": "Gain !B! Block. NL Upgrade a random card in your hand for the rest of the combat.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Upgrade !M! random cards in your hand for the rest of the combat.",
+    "DESCRIPTION": "Gain !B! Block. NL Upgrade !M! random cards in your hand for the rest of the combat.",
     "NAME": "Sharpen"
   },
   "blademaster:DeadlyDance": {
@@ -261,7 +260,7 @@
     "UPGRADE_DESCRIPTION": "blademaster:Finisher. Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. Gain !B! Block and [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] per enemy. NL Apply !M! blademaster:Bleeding to ALL enemies."
   },
   "blademaster:Sunder": {
-    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL Apply !M! Weak.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage.",
     "NAME": "Sunder"
   },
   "blademaster:Backstep": {
@@ -290,7 +289,7 @@
     "NAME": "Stability"
   },
   "blademaster:BloodyBlow": {
-    "DESCRIPTION": "Dead !D! damage. NL blademaster:Bloodied: apply !M! blademaster:Bleeding.",
+    "DESCRIPTION": "Deal !D! damage. NL blademaster:Bloodied: apply !M! blademaster:Bleeding.",
     "NAME": "Bloody Blow"
   },
   "blademaster:AncestralHealing": {
@@ -316,9 +315,9 @@
     "NAME": "Zephyr"
   },
   "blademaster:CombatPrep": {
-    "DESCRIPTION": "Next turn, draw !M! card and gain [E].",
+    "DESCRIPTION": "Next turn, draw !blademaster:M2! cards and gain [E].",
     "NAME": "Combat Prep",
-    "UPGRADE_DESCRIPTION": "Next turn, draw !M! cards and gain [E] [E]."
+    "UPGRADE_DESCRIPTION": "Next turn, draw !blademaster:M2! cards and gain [E] [E]."
   },
   "blademaster:Execute": {
     "DESCRIPTION": "Deal !D! damage. NL blademaster:Bloodied: deal !blademaster:D2! damage.",
@@ -331,7 +330,7 @@
   "blademaster:Rupture": {
     "DESCRIPTION": "Double an enemy's blademaster:Bleeding. NL Exhaust.",
     "NAME": "Rupture",
-    "UPGRADE_DESCRIPTION": "Triple na enemy's blademaster:Bleeding. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Triple an enemy's blademaster:Bleeding. NL Exhaust."
   },
   "blademaster:PreciseBloodshed": {
     "DESCRIPTION": "All blademaster:Bleeding you apply this turn is doubled. NL Exhaust.",
@@ -345,14 +344,14 @@
   },
   "blademaster:HeartStab": {
     "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. blademaster:Bloodied: apply !M! Vulnerable and Weak and gain [E].",
-    "NAME": "Heat Stab"
+    "NAME": "Heart Stab"
   },
   "blademaster:BladeForm": {
     "DESCRIPTION": "blademaster:Finisher. NL The first blademaster:Finisher you play each turn is played twice.",
     "NAME": "Blade Form"
   },
   "blademaster:FleetFootwork": {
-    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Dexterity. At the end of your turn, heal !blademaster:M2! HP.",
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Dexterity. NL Gain !blademaster:M2! [#860037]Combo[] at the start of your turn.",
     "NAME": "Fleet Footwork"
   },
   "blademaster:Parry": {
@@ -491,5 +490,25 @@
   "blademaster:ChooseLightning": {
     "DESCRIPTION": "Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
     "NAME": "Lightning Stance"
+  },
+  "blademaster:Abscond": {
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, draw !M! additional cards.",
+    "NAME": "Abscond"
+  },
+  "blademaster:WindBarrier": {
+    "DESCRIPTION": "Gain !B! Block. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Exhaust.",
+    "NAME": "Wind Barrier"
+  },
+  "blademaster:WindBarrier:WIND": {
+    "DESCRIPTION": "Gain !B! Block. NL [#9AFC9F]Prevent[] [#9AFC9F]the[] [#9AFC9F]next[] [#9AFC9F]time[] [#9AFC9F]you[] [#9AFC9F]would[] [#9AFC9F]lose[] [#9AFC9F]HP.[] NL Exhaust.",
+    "NAME": "Wind Barrier"
+  },
+  "blademaster:GoForTheArm": {
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL Apply !blademaster:M2! Weak.",
+    "NAME": "Go for the Arm"
+  },
+  "blademaster:GoForTheArm:WIND": {
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL Apply !blademaster:M2! Weak. NL [#9AFC9F]Enemy[] [#9AFC9F]loses[] !M! Strength [#9AFC9F]this[] [#9AFC9F]turn.[]",
+    "NAME": "Go for the Arm"
   }
 }

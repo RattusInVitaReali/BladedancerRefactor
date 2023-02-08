@@ -15,8 +15,8 @@ public class EnchantedCuirass extends AbstractBlademasterCard {
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 0;
     private static final int COMBO_REQ = 5;
-    private static final int MAGIC = 11;
-    private static final int UPGRADE_MAGIC = 4;
+    private static final int MAGIC = 7;
+    private static final int UPGRADE_MAGIC = 3;
 
     public EnchantedCuirass() {
         super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);

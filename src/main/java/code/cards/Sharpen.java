@@ -14,7 +14,8 @@ public class Sharpen extends AbstractBlademasterCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 0;
     private static final int BLOCK = 3;
-    private static final int MAGIC = 1;
+    private static final int UPGRADE_BLOCK = 2;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
 
     public Sharpen() {
@@ -25,14 +26,15 @@ public class Sharpen extends AbstractBlademasterCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new UpgradeRandomCardAction());
-        if (upgraded)
+        block(block);
+        for (int i = 0; i < magicNumber; i++) {
             addToBot(new UpgradeRandomCardAction());
+        }
     }
 
     @Override
     public void onUpgrade() {
+        upgradeBlock(UPGRADE_BLOCK);
         upgradeMagicNumber(UPGRADE_MAGIC);
-        setUpgradeDescription();
     }
 }
