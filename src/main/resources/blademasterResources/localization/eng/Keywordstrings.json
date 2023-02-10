@@ -37,21 +37,21 @@
       "finisher",
       "finishers"
     ],
-    "DESCRIPTION": "Requires [#FF4500]Fury[] or [#860037]Combo[] to be played."
+    "DESCRIPTION": "Requires [#FF4500]Fury[] or [#860037]Combo[] to be played. #yFinishers cannot generate [#FF4500]Fury[] and [#860037]Combo[]."
   },
   {
     "PROPER_NAME": "Fury",
     "NAMES": [
       "fury"
     ],
-    "DESCRIPTION": "Used for #yFinishers. Gain [#FF4500]Fury[] by dealing attack damage."
+    "DESCRIPTION": "Used for #yFinishers. Gain [#FF4500]Fury[] by dealing attack damage. #yFinishers cannot generate [#FF4500]Fury[]."
   },
   {
     "PROPER_NAME": "Combo",
     "NAMES": [
       "combo"
     ],
-    "DESCRIPTION": "Used for #yFinishers. Gain [#860037]Combo[] by playing cards."
+    "DESCRIPTION": "Used for #yFinishers. Gain [#860037]Combo[] by playing cards. #yFinishers cannot generate [#860037]Combo[]."
   },
   {
     "PROPER_NAME": "Bloodied",

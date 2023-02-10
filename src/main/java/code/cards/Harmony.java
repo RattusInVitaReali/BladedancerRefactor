@@ -27,7 +27,7 @@ public class Harmony extends AbstractBlademasterCard {
 
     @Override
     public void onUpgrade() {
-        this.retain = true;
+        selfRetain = true;
         setUpgradeDescription();
     }
 }

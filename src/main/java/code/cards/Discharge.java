@@ -58,7 +58,9 @@ public class Discharge extends AbstractStanceCard {
 
     @Override
     public void applyPowers() {
-        if (getStance() == Blademaster.BlademasterStance.BASIC) return;
+        if (getStance() == Blademaster.BlademasterStance.BASIC) {
+            super.applyPowers();
+        }
         if (getStance() == Blademaster.BlademasterStance.WIND) {
             baseDamage = getPlayerWindCharges();
             super.applyPowers();

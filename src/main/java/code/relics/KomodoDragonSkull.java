@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import static code.Blademaster.makeID;
@@ -24,7 +25,7 @@ public class KomodoDragonSkull extends AbstractBlademasterRelic implements OnApp
 
     @Override
     public boolean onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.ID.equals(BleedingPower.POWER_ID)) {
+        if (power.ID.equals(BleedingPower.POWER_ID) && target != null && !target.hasPower(ArtifactPower.POWER_ID)) {
             flash();
             addToTop(new ApplyPowerAction(power.owner, AbstractDungeon.player, new PoisonPower(power.owner, AbstractDungeon.player, POISON)));
         }

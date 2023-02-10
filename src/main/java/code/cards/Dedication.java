@@ -29,6 +29,6 @@ public class Dedication extends AbstractStanceCard {
 
     @Override
     public void onUpgrade() {
-        this.retain = true;
+        selfRetain = true;
     }
 }

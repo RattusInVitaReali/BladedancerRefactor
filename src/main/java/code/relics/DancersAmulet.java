@@ -24,6 +24,7 @@ public class DancersAmulet extends AbstractBlademasterRelic {
         counter++;
         if (counter == 4) {
             beginPulse();
+            pulse = true;
             return;
         }
         if (counter >= 5) {

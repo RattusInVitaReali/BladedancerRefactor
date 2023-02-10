@@ -19,12 +19,12 @@ public class GoForTheArm extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 12;
-    private static final int UPGRADE_DAMAGE = 4;
-    private static final int MAGIC = 2;
+    private static final int DAMAGE = 10;
+    private static final int UPGRADE_DAMAGE = 3;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_MAGIC = 1;
     private static final int SECOND_MAGIC = 1;
-    private static final int FURY_REQ = 15;
+    private static final int FURY_REQ = 10;
 
     public GoForTheArm() {
         super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);

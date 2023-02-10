@@ -6,9 +6,9 @@
       "Charge [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon]",
       "Some #yStance cards have bonuses that depend on these. NL Gain #yCharges by playing #yConduit cards.",
       "Fury",
-      "Used for #yFinishers. Gain [#FF4500]Fury[] by dealing attack damage.",
+      "Used for #yFinishers. Gain [#FF4500]Fury[] by dealing attack damage. #yFinishers cannot generate [#FF4500]Fury[]",
       "Combo",
-      "Used for #yFinishers. Gain [#860037]Combo[] by playing cards.",
+      "Used for #yFinishers. Gain [#860037]Combo[] by playing cards. #yFinishers cannot generate [#860037]Combo[]",
       "Conduit X",
       "Gain X [blademaster:WindChargeIcon] in [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Gain X [blademaster:LightningChargeIcon] in [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
       "Wind Stance",
@@ -56,7 +56,7 @@
     "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
   },
   "blademaster:Cut": {
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you change blademaster:Stances, return this from the discard pile to your Hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you change blademaster:Stances, return this from the discard pile to your hand.",
     "NAME": "Cut"
   },
   "blademaster:DragonStrike": {
@@ -211,12 +211,16 @@
     "NAME": "Overcharge"
   },
   "blademaster:Stormstrike": {
-    "DESCRIPTION": "Deal !D! damage. Consume ALL your [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Consume ALL your  [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] damage.",
+    "DESCRIPTION": "Deal !D! damage.",
+    "NAME": "Stormstrike"
+  },
+  "blademaster:Stormstrike:LIGHTNING": {
+    "DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
     "NAME": "Stormstrike",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. Consume ALL your [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] = !blademaster:D2! damage.",
-      "Deal !D! damage. Consume ALL your  [blademaster:LightningChargeIcon] NL to deal [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] = !blademaster:D2! damage."
+      "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] NL [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]=[] !blademaster:D2! [#9AE1FC]damage.[]",
+      "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] NL [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]=[] !blademaster:D2! [#9AE1FC]damage.[]"
     ]
   },
   "blademaster:EnchantedCuirass": {
@@ -228,13 +232,6 @@
     "NAME": "Requiem",
     "EXTENDED_DESCRIPTION": [
       "blademaster:Finisher. Consume ALL your [blademaster:WindChargeIcon] [blademaster:LightningChargeIcon] to deal NL [blademaster:WindChargeIcon] [blademaster:WindChargeIcon] + [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] = !D! damage to ALL enemies."
-    ]
-  },
-  "blademaster:Hailwind": {
-    "DESCRIPTION": "Consume ALL your [blademaster:WindChargeIcon] NL to deal !D! damage per [blademaster:WindChargeIcon] consumed.",
-    "NAME": "Hailwind",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Consumes !M! [blademaster:WindChargeIcon] .)"
     ]
   },
   "blademaster:Reversal": {
@@ -442,7 +439,7 @@
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add a *Carve+ to your hand."
   },
   "blademaster:Focused": {
-    "DESCRIPTION": "Whenever you trigger blademaster:Bloodied, gain !M! Block.",
+    "DESCRIPTION": "Whenever you trigger a blademaster:Bloodied effect, gain !M! Block.",
     "NAME": "Focused"
   },
   "blademaster:Relentless": {
@@ -510,5 +507,15 @@
   "blademaster:GoForTheArm:WIND": {
     "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL Apply !blademaster:M2! Weak. NL [#9AFC9F]Enemy[] [#9AFC9F]loses[] !M! Strength [#9AFC9F]this[] [#9AFC9F]turn.[]",
     "NAME": "Go for the Arm"
+  },
+  "blademaster:LightningSheath": {
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile into your hand. NL Exhaust.",
+    "NAME": "Lightning Sheath",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile into your hand."
+  },
+  "blademaster:LightningSheath:LIGHTNING": {
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile [#9AE1FC]and[] [#9AE1FC]a[] [#9AE1FC]card[] [#9AE1FC]from[] [#9AE1FC]your[] [#9AE1FC]draw[] [#9AE1FC]pile[] into your hand. NL Exhaust.",
+    "NAME": "Lightning Sheath",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile [#9AE1FC]and[] [#9AE1FC]a[] [#9AE1FC]card[] [#9AE1FC]from[] [#9AE1FC]your[] [#9AE1FC]draw[] [#9AE1FC]pile[] into your hand."
   }
 }
