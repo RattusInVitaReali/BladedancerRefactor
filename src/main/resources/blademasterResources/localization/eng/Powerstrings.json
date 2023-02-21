@@ -86,7 +86,9 @@
   "blademaster:Massacre": {
     "NAME": "Massacre",
     "DESCRIPTIONS": [
-      "Your #yBloodied effects are applied an additional time."
+      "Your #yBloodied effects are triggered #b",
+      " additional time.",
+      " additional times."
     ]
   },
   "blademaster:PreciseBloodshed": {

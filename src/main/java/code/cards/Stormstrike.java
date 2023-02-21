@@ -51,6 +51,7 @@ public class Stormstrike extends AbstractStanceCard {
     public void applyPowers() {
         if (getStance() == Blademaster.BlademasterStance.BASIC) {
             super.applyPowers();
+            return;
         }
         if (getStance() == Blademaster.BlademasterStance.LIGHTNING) {
             baseSecondDamage = magicNumber * getPlayerLightningCharges();

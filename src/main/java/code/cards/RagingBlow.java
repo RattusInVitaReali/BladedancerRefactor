@@ -73,7 +73,7 @@ public class RagingBlow extends AbstractStanceCard {
         super.calculateCardDamage(m);
         if (isBloodied(m)) {
             if (AbstractDungeon.player.hasPower(MassacrePower.POWER_ID))
-                secondDamage *= 3;
+                secondDamage *= 2 + getPowerAmount(AbstractDungeon.player, MassacrePower.POWER_ID);
             else
                 secondDamage *= 2;
             this.isSecondDamageModified = true;
@@ -82,7 +82,10 @@ public class RagingBlow extends AbstractStanceCard {
 
     @Override
     public void applyPowers() {
-        if (getStance() == Blademaster.BlademasterStance.BASIC) return;
+        if (getStance() == Blademaster.BlademasterStance.BASIC) {
+            super.applyPowers();
+            return;
+        }
         if (getStance() == Blademaster.BlademasterStance.WIND) {
             baseDamage = getPlayerWindCharges();
             super.applyPowers();

@@ -46,8 +46,8 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     private AbstractStanceCard PREVIEW_WIND = null;
     private AbstractStanceCard PREVIEW_LIGHTNING = null;
     private boolean renderPreviewCards = false;
-
     private boolean stancePreviewDisplayUpgrades = false;
+    public boolean everstorm = false;
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, 0, 0);
@@ -138,7 +138,8 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        setStance(getPlayerStance());
+        if (!everstorm)
+            setStance(getPlayerStance());
     }
 
     @Override

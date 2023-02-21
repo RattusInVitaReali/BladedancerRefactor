@@ -265,9 +265,9 @@
     "NAME": "Backstep"
   },
   "blademaster:Flash": {
-    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a *Flash to your hand that costs 6 more [#FF4500]Fury[].",
+    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a temporary *Flash to your hand that costs 6 more [#FF4500]Fury[].",
     "NAME": "Flash",
-    "UPGRADE_DESCRIPTION": "blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a *Flash+ to your hand that costs 6 more [#FF4500]Fury[]."
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a temporary *Flash+ to your hand that costs 6 more [#FF4500]Fury[]."
   },
   "blademaster:KiBarrier": {
     "DESCRIPTION": "blademaster:Finisher. NL Gain !B! block. NL Block is not removed at the end of your turn.",
@@ -321,7 +321,7 @@
     "NAME": "Execute"
   },
   "blademaster:Massacre": {
-    "DESCRIPTION": "blademaster:Finisher. NL blademaster:Bloodied effects apply an additional time.",
+    "DESCRIPTION": "blademaster:Finisher. NL blademaster:Bloodied effects trigger an additional time.",
     "NAME": "Massacre"
   },
   "blademaster:Rupture": {
@@ -412,9 +412,9 @@
     "NAME": "Whirlwind",
     "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies X times. X increases by 1 for each blademaster:Bloodied enemy. NL blademaster:Conduit 2X."
   },
-  "blademaster:BladeRuse": {
+  "blademaster:BladeWard": {
     "DESCRIPTION": "Gain !B! Block. NL Repeat for each blademaster:Bloodied enemy.",
-    "NAME": "Blade Ruse"
+    "NAME": "Blade Ward"
   },
   "blademaster:EnchantedBlade": {
     "DESCRIPTION": "blademaster:Finisher. NL Gain !blademaster:M2! Strength. Draw !M! cards. NL Exhaust.",

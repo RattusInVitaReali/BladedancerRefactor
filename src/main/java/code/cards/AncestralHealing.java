@@ -29,7 +29,8 @@ public class AncestralHealing extends AbstractStanceCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         setBaseConduit(CONDUIT);
-        this.exhaust = true;
+        exhaust = true;
+        tags.add(CardTags.HEALING);
     }
 
     @Override

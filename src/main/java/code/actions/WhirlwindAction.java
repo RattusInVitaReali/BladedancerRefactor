@@ -55,8 +55,10 @@ public class WhirlwindAction extends AbstractGameAction {
                 ++effect;
                 AbstractBlademasterCard.triggerBloodiedPowers(AbstractDungeon.player, m);
                 if (p.hasPower(MassacrePower.POWER_ID)) {
-                    ++effect;
-                    AbstractBlademasterCard.triggerBloodiedPowers(AbstractDungeon.player, m);
+                    for (int i = 0; i < getPowerAmount(p, MassacrePower.POWER_ID); i++) {
+                        ++effect;
+                        AbstractBlademasterCard.triggerBloodiedPowers(AbstractDungeon.player, m);
+                    }
                 }
             }
         }

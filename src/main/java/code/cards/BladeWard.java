@@ -7,9 +7,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.getAliveMonsters;
 
-public class BladeRuse extends AbstractBlademasterCard {
+public class BladeWard extends AbstractBlademasterCard {
 
-    public final static String ID = makeID("BladeRuse");
+    public final static String ID = makeID("BladeWard");
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
@@ -17,7 +17,7 @@ public class BladeRuse extends AbstractBlademasterCard {
     private static final int BLOCK = 6;
     private static final int UPGRADE_BLOCK = 3;
 
-    public BladeRuse() {
+    public BladeWard() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseBlock = BLOCK;
         tags.add(BlademasterTags.BLOODIED);

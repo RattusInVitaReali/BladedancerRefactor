@@ -31,7 +31,7 @@
     "NAME": "Ominous Hairpin",
     "FLAVOR": "Looks like it was not only stabbed into hair...",
     "DESCRIPTIONS": [
-      "Bleeding enemies take #b4 damage at the end of your turn."
+      "#yBloodied enemies take #b5 damage at the start of your turn."
     ]
   },
   "blademaster:PaperTeigr": {

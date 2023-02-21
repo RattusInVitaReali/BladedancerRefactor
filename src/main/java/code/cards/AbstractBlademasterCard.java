@@ -373,8 +373,10 @@ public abstract class AbstractBlademasterCard extends CustomCard {
             useBloodied(p, m);
             triggerBloodiedPowers(p, m);
             if (p.hasPower(MassacrePower.POWER_ID)) {
-                useBloodied(p, m);
-                triggerBloodiedPowers(p, m);
+                for (int i = 0; i < BlademasterUtil.getPowerAmount(p, MassacrePower.POWER_ID); i++) {
+                    useBloodied(p, m);
+                    triggerBloodiedPowers(p, m);
+                }
             }
         }
     }

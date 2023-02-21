@@ -36,7 +36,9 @@ public class EverstormPower extends AbstractBlademasterPower {
             AbstractCard tmp = card.makeSameInstanceOf();
             Blademaster.BlademasterStance otherStance = getPlayerStance() == Blademaster.BlademasterStance.WIND ?
                     Blademaster.BlademasterStance.LIGHTNING : Blademaster.BlademasterStance.WIND;
+            ((AbstractStanceCard) tmp).everstorm = true;
             ((AbstractStanceCard) tmp).setStance(otherStance);
+            tmp.applyPowers();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = card.current_x;
             tmp.current_y = card.current_y;

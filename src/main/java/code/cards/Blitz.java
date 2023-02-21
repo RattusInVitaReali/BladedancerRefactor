@@ -28,7 +28,9 @@ public class Blitz extends AbstractBlademasterCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new BlitzAction(new DamageInfo(p, damage, damageTypeForTurn), secondMagic, magicNumber));
+        for (int i = 0; i < secondMagic; i++) {
+            addToBot(new BlitzAction(this));
+        }
     }
 
     @Override

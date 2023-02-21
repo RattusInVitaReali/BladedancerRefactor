@@ -15,7 +15,7 @@ public class OminousHairpin extends AbstractBlademasterRelic {
     private static final RelicTier TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 5;
 
     public OminousHairpin() {
         super(ID, TIER, LANDING_SOUND);

@@ -11,12 +11,16 @@ public class MassacrePower extends AbstractBlademasterPower {
     public static final boolean TURN_BASED = false;
 
     public MassacrePower(AbstractCreature owner) {
-        super(POWER_ID, TYPE, TURN_BASED, owner, -1);
+        super(POWER_ID, TYPE, TURN_BASED, owner, 1);
     }
 
     @Override
     public void updateDescription() {
-        description = powerStrings.DESCRIPTIONS[0];
+        if (amount > 1) {
+            description = powerStrings.DESCRIPTIONS[0] + powerStrings.DESCRIPTIONS[2];
+        } else {
+            description = powerStrings.DESCRIPTIONS[0] + powerStrings.DESCRIPTIONS[1];
+        }
     }
 
 }

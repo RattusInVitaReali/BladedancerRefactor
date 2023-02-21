@@ -8,7 +8,9 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
@@ -37,6 +39,10 @@ public class BleedingLoseHpAction extends AbstractGameAction {
                 this.target.tint.color = Color.SCARLET.cpy();
                 this.target.tint.changeColor(Color.WHITE.cpy());
                 this.target.damage(new DamageInfo(this.source, this.amount, DamageInfo.DamageType.HP_LOSS));
+                if ((((AbstractMonster)target).isDying || target.currentHealth <= 0) && !target.halfDead && !target.hasPower(MinionPower.POWER_ID)) {
+                    AbstractRelic castIronTeapot = AbstractDungeon.player.getRelic(CastIronTeapot.ID);
+                    if (castIronTeapot != null) castIronTeapot.onTrigger();
+                }
             }
             AbstractPower p = this.target.getPower(makeID("Bleeding"));
             if (p != null) {
@@ -46,10 +52,6 @@ public class BleedingLoseHpAction extends AbstractGameAction {
                 AbstractDungeon.actionManager.clearPostCombatActions();
             }
             AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
-            if (target.currentHealth <= amount) {
-                AbstractRelic castIronTeapot = AbstractDungeon.player.getRelic(CastIronTeapot.ID);
-                if (castIronTeapot != null) castIronTeapot.onTrigger();
-            }
         }
     }
 }
