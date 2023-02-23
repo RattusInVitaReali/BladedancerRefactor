@@ -1,7 +1,7 @@
 package code.cards;
 
 import code.actions.BlitzAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -29,7 +29,7 @@ public class Blitz extends AbstractBlademasterCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < secondMagic; i++) {
-            addToBot(new BlitzAction(this));
+            addToBot(new BlitzAction(this, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
     }
 

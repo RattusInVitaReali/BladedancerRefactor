@@ -20,6 +20,7 @@ public class PreciseBloodshed extends AbstractBlademasterCard {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         this.exhaust = true;
+        this.selfRetain = true;
     }
 
     @Override

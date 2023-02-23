@@ -1,7 +1,6 @@
 package code.cards;
 
 import code.powers.FleetFootworkPower;
-import code.powers.RegenerationPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;

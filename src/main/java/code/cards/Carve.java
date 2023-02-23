@@ -15,10 +15,10 @@ public class Carve extends AbstractBlademasterCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
-    private static final int UPGRADE_DAMAGE = 3;
-    private static final int MAGIC = 6;
-    private static final int UPGRADE_MAGIC = 3;
+    private static final int DAMAGE = 3;
+    private static final int UPGRADE_DAMAGE = 2;
+    private static final int MAGIC = 9;
+    private static final int UPGRADE_MAGIC = 4;
 
     public Carve() {
         super(ID, COST, TYPE, RARITY, TARGET, CardColor.COLORLESS, 0, 0);

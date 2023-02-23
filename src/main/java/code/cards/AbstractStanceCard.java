@@ -41,13 +41,13 @@ public abstract class AbstractStanceCard extends AbstractBlademasterCard {
     public boolean upgradedConduit;
     public boolean isConduitModified;
     public StanceState state;
+    public boolean everstorm = false;
     protected CardStrings windCardStrings;
     protected CardStrings lightningCardStrings;
     private AbstractStanceCard PREVIEW_WIND = null;
     private AbstractStanceCard PREVIEW_LIGHTNING = null;
     private boolean renderPreviewCards = false;
     private boolean stancePreviewDisplayUpgrades = false;
-    public boolean everstorm = false;
 
     public AbstractStanceCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, 0, 0);

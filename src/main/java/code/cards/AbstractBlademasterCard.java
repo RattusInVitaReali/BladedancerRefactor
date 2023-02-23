@@ -4,10 +4,7 @@ import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
 import code.characters.BlademasterCharacter;
 import code.patches.BlademasterTags;
-import code.powers.BleedingPower;
-import code.powers.ComboPower;
-import code.powers.FuryPower;
-import code.powers.MassacrePower;
+import code.powers.*;
 import code.powers.interfaces.OnBloodiedPower;
 import code.relics.SwordBladeShards;
 import code.relics.TeigrClaw;
@@ -41,11 +38,12 @@ import static code.util.BlademasterUtil.getAliveMonsters;
 @SuppressWarnings("BooleanMethodIsAlwaysInverted")
 public abstract class AbstractBlademasterCard extends CustomCard {
 
+    public static final TextureAtlas.AtlasRegion furySCVPTexture = ImageHelper.asAtlasRegion(TextureLoader.getTexture(modID + "Resources/images/1024/Fury.png"));
+    public static final TextureAtlas.AtlasRegion comboSCVPTexture = ImageHelper.asAtlasRegion(TextureLoader.getTexture(modID + "Resources/images/1024/Combo.png"));
     private static final HashMap<String, CardStrings> stringsMap = new HashMap<>();
     protected static final CardStrings tooltipCardStrings = getCardStrings(makeID("AbstractBlademasterCard"));
     protected static final String[] tooltips = tooltipCardStrings.EXTENDED_DESCRIPTION;
-    public static final TextureAtlas.AtlasRegion furySCVPTexture = ImageHelper.asAtlasRegion(TextureLoader.getTexture(modID + "Resources/images/1024/Fury.png"));
-    public static final TextureAtlas.AtlasRegion comboSCVPTexture = ImageHelper.asAtlasRegion(TextureLoader.getTexture(modID + "Resources/images/1024/Combo.png"));
+    protected final CardStrings cardStrings;
     public int secondMagic;
     public int baseSecondMagic;
     public boolean upgradedSecondMagic;
@@ -62,7 +60,6 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public int comboCostForTurn = comboCost;
     public boolean isComboCostModified = false;
     public boolean upgradedComboCost = false;
-    protected final CardStrings cardStrings;
 
     public AbstractBlademasterCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, 0, 0);
@@ -131,7 +128,8 @@ public abstract class AbstractBlademasterCard extends CustomCard {
     public static boolean isBloodied(AbstractMonster m) {
         return (m.currentHealth <= m.maxHealth * 0.6)
                 || (m.currentHealth <= m.maxHealth * 0.75 && AbstractDungeon.player.hasRelic(TeigrClaw.ID))
-                || (m.hasPower(BleedingPower.POWER_ID) && AbstractDungeon.player.hasRelic(SwordBladeShards.ID));
+                || (m.hasPower(BleedingPower.POWER_ID) && AbstractDungeon.player.hasRelic(SwordBladeShards.ID))
+                || (m.hasPower(MarkedForDeathPower.POWER_ID));
     }
 
     public static void triggerBloodiedPowers(AbstractPlayer p, AbstractMonster m) {
@@ -148,16 +146,17 @@ public abstract class AbstractBlademasterCard extends CustomCard {
             secondDamage = baseSecondDamage;
 
             int tmp = baseDamage;
+            boolean prevMultiDamage = isMultiDamage;
             baseDamage = baseSecondDamage;
+            isMultiDamage = false;
 
             super.applyPowers();
-
             secondDamage = damage;
-            baseDamage = tmp;
-
-            super.applyPowers();
-
             isSecondDamageModified = (secondDamage != baseSecondDamage);
+
+            baseDamage = tmp;
+            isMultiDamage = prevMultiDamage;
+            super.applyPowers();
         } else super.applyPowers();
     }
 
@@ -179,16 +178,17 @@ public abstract class AbstractBlademasterCard extends CustomCard {
             secondDamage = baseSecondDamage;
 
             int tmp = baseDamage;
+            boolean prevMultiDamage = isMultiDamage;
             baseDamage = baseSecondDamage;
+            isMultiDamage = false;
 
             super.calculateCardDamage(mo);
-
             secondDamage = damage;
-            baseDamage = tmp;
-
-            super.calculateCardDamage(mo);
-
             isSecondDamageModified = (secondDamage != baseSecondDamage);
+
+            baseDamage = tmp;
+            isMultiDamage = prevMultiDamage;
+            super.calculateCardDamage(mo);
         } else super.calculateCardDamage(mo);
     }
 

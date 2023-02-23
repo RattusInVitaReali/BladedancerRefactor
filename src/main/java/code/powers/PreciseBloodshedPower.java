@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 
 import static code.Blademaster.makeID;
 
@@ -22,7 +23,7 @@ public class PreciseBloodshedPower extends AbstractBlademasterPower {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.ID.equals(BleedingPower.POWER_ID) && source == owner) {
+        if (power.ID.equals(BleedingPower.POWER_ID) && source == owner && !target.hasPower(ArtifactPower.POWER_ID)) {
             if (!active) {
                 active = true;
                 return;

@@ -5,7 +5,6 @@
       "You are in [#737373]Basic[] [#737373]Stance[]."
     ]
   },
-
   "blademaster:WindStance": {
     "NAME": "Wind Stance",
     "DESCRIPTIONS": [
@@ -156,7 +155,7 @@
     "DESCRIPTIONS": [
       "Whenever you change #yStances, gain #b",
       " #yBlock."
-      ]
+    ]
   },
   "blademaster:Harmony": {
     "NAME": "Harmony",
@@ -169,6 +168,12 @@
     "DESCRIPTIONS": [
       "Gain #b",
       " [#860037]Combo[] at the start of your turn."
+    ]
+  },
+  "blademaster:MarkedForDeath": {
+    "NAME": "Marked for Death",
+    "DESCRIPTIONS": [
+      "This enemy is always #yBloodied."
     ]
   }
 }

@@ -39,7 +39,7 @@ public class BleedingLoseHpAction extends AbstractGameAction {
                 this.target.tint.color = Color.SCARLET.cpy();
                 this.target.tint.changeColor(Color.WHITE.cpy());
                 this.target.damage(new DamageInfo(this.source, this.amount, DamageInfo.DamageType.HP_LOSS));
-                if ((((AbstractMonster)target).isDying || target.currentHealth <= 0) && !target.halfDead && !target.hasPower(MinionPower.POWER_ID)) {
+                if ((((AbstractMonster) target).isDying || target.currentHealth <= 0) && !target.halfDead && !target.hasPower(MinionPower.POWER_ID)) {
                     AbstractRelic castIronTeapot = AbstractDungeon.player.getRelic(CastIronTeapot.ID);
                     if (castIronTeapot != null) castIronTeapot.onTrigger();
                 }

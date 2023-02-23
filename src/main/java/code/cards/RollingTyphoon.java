@@ -35,8 +35,8 @@ public class RollingTyphoon extends AbstractStanceCard {
     public void useBasic(AbstractPlayer p, AbstractMonster m) {
         consumeFinisherCost();
         addToBot(new VFXAction(new GrandFinalEffect(), .8f));
-        damageAllMonsters(multiDamage, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         damageMonster(m, secondDamage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        damageAllMonsters(multiDamage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
     }
 
     @Override

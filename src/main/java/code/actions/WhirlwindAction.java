@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
@@ -21,9 +22,9 @@ import static code.util.BlademasterUtil.*;
 
 public class WhirlwindAction extends AbstractGameAction {
     public final int[] multiDamage;
-    private boolean freeToPlayOnce = false;
     private final DamageInfo.DamageType damageType;
     private final AbstractPlayer p;
+    private boolean freeToPlayOnce = false;
     private int energyOnUse = -1;
     private int charges = 0;
 
@@ -45,9 +46,9 @@ public class WhirlwindAction extends AbstractGameAction {
             effect = this.energyOnUse;
         }
 
-        if (this.p.hasRelic("Chemical X")) {
+        if (this.p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            this.p.getRelic("Chemical X").flash();
+            this.p.getRelic(ChemicalX.ID).flash();
         }
 
         for (AbstractMonster m : getAliveMonsters()) {

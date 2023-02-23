@@ -29,7 +29,7 @@
     "NAMES": [
       "bleeding"
     ],
-    "DESCRIPTION": "Take damage at the start of the turn, and take #b20% more damage from attacks."
+    "DESCRIPTION": "#yBleeding creatures lose HP at the start of their turn, and take #b20% more damage from attacks. Each turn, #yBleeding is reduced by #b3."
   },
   {
     "PROPER_NAME": "Finisher",

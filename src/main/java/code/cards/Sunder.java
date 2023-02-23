@@ -3,11 +3,8 @@ package code.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static code.Blademaster.makeID;
-import static code.util.BlademasterUtil.playerApplyPower;
 
 public class Sunder extends AbstractStanceCard {
 

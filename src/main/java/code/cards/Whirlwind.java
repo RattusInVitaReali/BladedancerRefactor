@@ -22,7 +22,7 @@ public class Whirlwind extends AbstractStanceCard {
     public Whirlwind() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.isMultiDamage = true;
+        isMultiDamage = true;
         baseMagicNumber = magicNumber = MAGIC;
         tags.add(BlademasterTags.BLOODIED);
     }

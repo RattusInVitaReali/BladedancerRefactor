@@ -37,22 +37,22 @@
   },
   "blademaster:AspectOfLightning": {
     "DESCRIPTION": "Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. NL Exhaust.",
-    "NAME":"Aspect of Lightning",
+    "NAME": "Aspect of Lightning",
     "UPGRADE_DESCRIPTION": "Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
   },
   "blademaster:AspectOfLightning:LIGHTNING": {
     "DESCRIPTION": "blademaster:Conduit !M!. NL Exhaust.",
-    "NAME":"Aspect of Lightning",
+    "NAME": "Aspect of Lightning",
     "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
   },
   "blademaster:AspectOfWind": {
     "DESCRIPTION": "Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Exhaust.",
-    "NAME":"Aspect of Wind",
+    "NAME": "Aspect of Wind",
     "UPGRADE_DESCRIPTION": "Enter [#00FF2A]Wind[] [#00FF2A]Stance[]."
   },
   "blademaster:AspectOfWind:WIND": {
     "DESCRIPTION": "blademaster:Conduit !M!. NL Exhaust.",
-    "NAME":"Aspect of Wind",
+    "NAME": "Aspect of Wind",
     "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
   },
   "blademaster:Cut": {
@@ -195,15 +195,15 @@
     "NAME": "Quickness"
   },
   "blademaster:RollingTyphoon": {
-    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage.",
-   "NAME": "Rolling Typhoon"
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies.",
+    "NAME": "Rolling Typhoon"
   },
   "blademaster:RollingTyphoon:WIND": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AFC9F]Apply[] [blademaster:WindChargeIcon] blademaster:Bleeding.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies. NL [#9AFC9F]Apply[] [blademaster:WindChargeIcon] blademaster:Bleeding.",
     "NAME": "Rolling Typhoon"
   },
   "blademaster:RollingTyphoon:LIGHTNING": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage to ALL enemies. Deal !blademaster:D2! damage. [#9AE1FC]Gain[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] Block.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies. NL [#9AE1FC]Gain[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] Block.",
     "NAME": "Rolling Typhoon"
   },
   "blademaster:Overcharge": {
@@ -261,11 +261,11 @@
     "NAME": "Sunder"
   },
   "blademaster:Backstep": {
-    "DESCRIPTION":"Gain !B! Block. NL Enter [#737373]Basic[] [#737373]Stance[].",
+    "DESCRIPTION": "Gain !B! Block. NL Enter [#737373]Basic[] [#737373]Stance[].",
     "NAME": "Backstep"
   },
   "blademaster:Flash": {
-    "DESCRIPTION":"blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a temporary *Flash to your hand that costs 6 more [#FF4500]Fury[].",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a temporary *Flash to your hand that costs 6 more [#FF4500]Fury[].",
     "NAME": "Flash",
     "UPGRADE_DESCRIPTION": "blademaster:Finisher. Deal !D! damage. Apply !M! blademaster:Bleeding. Add a temporary *Flash+ to your hand that costs 6 more [#FF4500]Fury[]."
   },
@@ -308,7 +308,7 @@
     "UPGRADE_DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Add a *Zephyr+ to your hand. Exhaust."
   },
   "blademaster:Zephyr": {
-    "DESCRIPTION": "Ethereal. Deal !blademaster:D2! damage. Deal !D! damage to ALL enemies. Exhaust.",
+    "DESCRIPTION": "Ethereal. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies. NL Exhaust.",
     "NAME": "Zephyr"
   },
   "blademaster:CombatPrep": {
@@ -330,9 +330,9 @@
     "UPGRADE_DESCRIPTION": "Triple an enemy's blademaster:Bleeding. NL Exhaust."
   },
   "blademaster:PreciseBloodshed": {
-    "DESCRIPTION": "All blademaster:Bleeding you apply this turn is doubled. NL Exhaust.",
+    "DESCRIPTION": "Retain. NL All blademaster:Bleeding you apply this turn is doubled. NL Exhaust.",
     "NAME": "Precise Bloodshed",
-    "UPGRADE_DESCRIPTION": "All blademaster:Bleeding you apply this turn is doubled."
+    "UPGRADE_DESCRIPTION": "Retain. NL All blademaster:Bleeding you apply this turn is doubled."
   },
   "blademaster:Everstorm": {
     "DESCRIPTION": "If you're in a blademaster:Stance, your next blademaster:Stance card is played in both blademaster:Stances.",
@@ -517,5 +517,9 @@
     "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile [#9AE1FC]and[] [#9AE1FC]a[] [#9AE1FC]card[] [#9AE1FC]from[] [#9AE1FC]your[] [#9AE1FC]draw[] [#9AE1FC]pile[] into your hand. NL Exhaust.",
     "NAME": "Lightning Sheath",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile [#9AE1FC]and[] [#9AE1FC]a[] [#9AE1FC]card[] [#9AE1FC]from[] [#9AE1FC]your[] [#9AE1FC]draw[] [#9AE1FC]pile[] into your hand."
+  },
+  "blademaster:MarkedForDeath": {
+    "DESCRIPTION": "Enemy is always considered blademaster:Bloodied. NL Enemy loses !M! Strength. NL Exhaust.",
+    "NAME": "Marked for Death"
   }
 }

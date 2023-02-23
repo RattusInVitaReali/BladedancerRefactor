@@ -54,7 +54,7 @@ public class FuryPower extends AbstractBlademasterPower {
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if ((info.type == DamageInfo.DamageType.NORMAL) && (owner != null) && canGain) {
-            flash();
+            flashWithoutSound();
             amount += info.output;
             updateDescription();
         }
