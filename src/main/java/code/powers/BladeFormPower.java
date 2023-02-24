@@ -15,23 +15,41 @@ public class BladeFormPower extends AbstractBlademasterPower {
 
     public static final String POWER_ID = makeID("BladeForm");
     public static final PowerType TYPE = PowerType.BUFF;
-    public static final boolean TURN_BASED = true;
+    public static final boolean TURN_BASED = false;
 
     private int cardsDoubledThisTurn = 0;
 
     public BladeFormPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+        isTwoAmount = true;
     }
 
     @Override
     public void atStartOfTurn() {
-        this.cardsDoubledThisTurn = 0;
+        cardsDoubledThisTurn = 0;
+        amount2 = amount;
+        updateDescription();
+    }
+
+    @Override
+    public void onInitialApplication() {
+        amount2 = amount;
+        updateDescription();
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        amount2 += stackAmount;
+        updateDescription();
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (!card.purgeOnUse && this.amount > 0 && cardsDoubledThisTurn < this.amount && (card.hasTag(BlademasterTags.COMBO_FINISHER) || card.hasTag(BlademasterTags.FURY_FINISHER))) {
-            ++this.cardsDoubledThisTurn;
+            ++cardsDoubledThisTurn;
+            --amount2;
+            updateDescription();
             this.flash();
             AbstractMonster m = null;
             if (action.target != null) {
@@ -57,9 +75,14 @@ public class BladeFormPower extends AbstractBlademasterPower {
     @Override
     public void updateDescription() {
         if (amount > 1) {
-            description = powerStrings.DESCRIPTIONS[1] + powerStrings.DESCRIPTIONS[2];
+            description = powerStrings.DESCRIPTIONS[1] + amount + powerStrings.DESCRIPTIONS[2];
         } else {
             description = powerStrings.DESCRIPTIONS[0];
+        }
+        if (amount2 == 1) {
+            description += amount2 + powerStrings.DESCRIPTIONS[3];
+        } else {
+            description += amount2 + powerStrings.DESCRIPTIONS[4];
         }
     }
 }

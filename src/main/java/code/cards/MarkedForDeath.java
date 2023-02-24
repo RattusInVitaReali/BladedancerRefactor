@@ -21,6 +21,7 @@ public class MarkedForDeath extends AbstractBlademasterCard {
     public MarkedForDeath() {
         super(ID, COST, TYPE, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        exhaust = true;
     }
 
     @Override

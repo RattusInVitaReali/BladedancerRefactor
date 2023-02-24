@@ -44,7 +44,10 @@ public class PreciseBloodshedPower extends AbstractBlademasterPower {
 
     @Override
     public void updateDescription() {
-        this.description = powerStrings.DESCRIPTIONS[0];
+        if (amount > 1) {
+            description = powerStrings.DESCRIPTIONS[1] + amount + powerStrings.DESCRIPTIONS[2];
+        } else
+            description = powerStrings.DESCRIPTIONS[0];
     }
 
 }

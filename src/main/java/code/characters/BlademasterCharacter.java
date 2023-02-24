@@ -284,7 +284,9 @@ public class BlademasterCharacter extends CustomPlayer {
         offset = 0.0F * Settings.scale;
         specialOffset = 0.0F * Settings.scale;
         for (AbstractPower p : this.powers) {
-            if (SPECIAL_POWERS.contains(p.ID)) {
+            if (p instanceof AbstractStancePower) {
+
+            } else if (SPECIAL_POWERS.contains(p.ID)) {
                 if (Settings.isMobile) {
                     p.renderAmount(sb, x + specialOffset + 32.0F * Settings.scale, y - 115.0F * Settings.scale, POWER_AMOUNT_COLOR);
                 } else {

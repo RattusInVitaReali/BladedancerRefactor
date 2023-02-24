@@ -17,8 +17,8 @@ import static code.Blademaster.modID;
 public abstract class AbstractBlademasterPower extends AbstractPower {
     public static final Color redColor2 = Color.RED.cpy();
     public static final Color greenColor2 = Color.GREEN.cpy();
-    public final int amount2 = -1;
-    public final boolean isTwoAmount = false;
+    public int amount2 = -1;
+    public boolean isTwoAmount = false;
     public final boolean canGoNegative2 = false;
     protected final PowerStrings powerStrings;
 
@@ -55,14 +55,14 @@ public abstract class AbstractBlademasterPower extends AbstractPower {
         super.renderAmount(sb, x, y, c);
         if (!isTwoAmount)
             return;
-        if (amount2 > 0) {
+        if (amount2 >= 0) {
             if (!isTurnBased) {
                 greenColor2.a = c.a;
                 c = greenColor2;
             }
 
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount2), x, y + 15.0F * Settings.scale, fontScale, c);
-        } else if (amount2 < 0 && canGoNegative2) {
+        } else if (canGoNegative2) {
             redColor2.a = c.a;
             c = redColor2;
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount2), x, y + 15.0F * Settings.scale, fontScale, c);

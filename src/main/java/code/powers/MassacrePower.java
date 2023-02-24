@@ -17,9 +17,9 @@ public class MassacrePower extends AbstractBlademasterPower {
     @Override
     public void updateDescription() {
         if (amount > 1) {
-            description = powerStrings.DESCRIPTIONS[0] + powerStrings.DESCRIPTIONS[2];
+            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[2];
         } else {
-            description = powerStrings.DESCRIPTIONS[0] + powerStrings.DESCRIPTIONS[1];
+            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];
         }
     }
 

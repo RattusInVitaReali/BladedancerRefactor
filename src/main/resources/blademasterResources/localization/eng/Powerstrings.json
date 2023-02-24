@@ -93,7 +93,9 @@
   "blademaster:PreciseBloodshed": {
     "NAME": "Precise Bloodshed",
     "DESCRIPTIONS": [
-      "All #yBleeding you apply this turn is doubled."
+      "All #yBleeding you apply this turn is doubled.",
+      "All #yBleeding you apply in the next #b",
+      " turns is doubled."
     ]
   },
   "blademaster:Everstorm": {
@@ -107,9 +109,11 @@
   "blademaster:BladeForm": {
     "NAME": "Blade Form",
     "DESCRIPTIONS": [
-      "The first #yFinisher you play each turn is played twice.",
+      "The first #yFinisher you play each turn is played twice. NL (You have #b",
       "The first #b",
-      " #yFinishers you play each turn are played twice."
+      " #yFinishers you play each turn are played twice. NL (You have #b",
+      " use left this turn.)",
+      " uses left this turn.)"
     ]
   },
   "blademaster:Regeneration": {
@@ -147,7 +151,9 @@
     "DESCRIPTIONS": [
       "Gain [E] the first time you trigger a #yBloodied effect each turn.",
       "Gain [E] the first #b",
-      " times you trigger a #yBloodied effect each turn."
+      " times you trigger a #yBloodied effect each turn. NL (You have #b",
+      " use left this turn.)",
+      " uses left this turn.)"
     ]
   },
   "blademaster:Quickstep": {
