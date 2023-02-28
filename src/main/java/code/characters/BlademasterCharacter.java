@@ -1,11 +1,14 @@
 package code.characters;
 
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import code.actions.BasicStanceAction;
+import code.cards.AbstractBlademasterCard;
 import code.cards.Defend;
 import code.cards.RagingBlow;
 import code.cards.Strike;
+import code.effects.BloodiedAuraEffect;
 import code.patches.BlademasterTags;
 import code.powers.ComboPower;
 import code.powers.FuryPower;
@@ -14,6 +17,7 @@ import code.powers.stances.LightningChargePower;
 import code.powers.stances.WindChargePower;
 import code.relics.DancersAmulet;
 import code.util.TextureLoader;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -22,6 +26,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
+import com.evacipated.cardcrawl.modthespire.lib.SpireSuper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -39,14 +44,20 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static code.Blademaster.*;
+import static code.cards.AbstractBlademasterCard.isBloodied;
 import static code.characters.BlademasterCharacter.Enums.BLADEMASTER_COLOR;
 import static code.patches.BlademasterTags.FURY_FINISHER;
+import static code.util.BlademasterUtil.getAliveMonsters;
 
 public class BlademasterCharacter extends CustomPlayer {
 
@@ -71,6 +82,10 @@ public class BlademasterCharacter extends CustomPlayer {
     private static final float POWER_ICON_PADDING_X = Settings.isMobile ? (55.0F * Settings.scale) : (48.0F * Settings.scale);
     private static final Color POWER_AMOUNT_COLOR = Color.WHITE.cpy();
     private static final ArrayList<String> SPECIAL_POWERS = new ArrayList<>(Arrays.asList(ComboPower.POWER_ID, FuryPower.POWER_ID, WindChargePower.POWER_ID, LightningChargePower.POWER_ID));
+
+    private float particleTimer = 0.0f;
+    private boolean bloodiedParticles = false;
+    private boolean bloodiedBehind = false;
 
     public BlademasterCharacter(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/characters/blademaster/orb/vfx.png", null), null, null);
@@ -301,6 +316,44 @@ public class BlademasterCharacter extends CustomPlayer {
                 }
                 offset += POWER_ICON_PADDING_X;
             }
+        }
+    }
+
+    @Override
+    public void updateInput() {
+        super.updateInput();
+        if ((isHoveringDropZone && isDraggingCard) || inSingleTargetMode) {
+            updateBloodiedParticles();
+        } else {
+            bloodiedParticles = false;
+        }
+    }
+
+    private void updateBloodiedParticles() {
+        if (hoveredCard == null) return;
+        if (!hoveredCard.hasTag(BlademasterTags.BLOODIED)) return;
+        if (!bloodiedParticles) {
+            particleTimer = -1.f;
+            bloodiedParticles = true;
+        }
+        particleTimer -= Gdx.graphics.getDeltaTime();
+        if (particleTimer < 0.0F) {
+            bloodiedBehind = !bloodiedBehind;
+            for (AbstractMonster monster : getAliveMonsters()) {
+                if (isBloodied(monster)) {
+                    BloodiedAuraEffect effect = new BloodiedAuraEffect(monster, bloodiedBehind);
+                    AbstractDungeon.effectsQueue.add(effect);
+                    if (particleTimer <= -1.f) {
+                        for (int i = 1; i < 5; i++) {
+                            bloodiedBehind = !bloodiedBehind;
+                            BloodiedAuraEffect startEffect = new BloodiedAuraEffect(monster, bloodiedBehind);
+                            startEffect.duration -= i * .4f;
+                            AbstractDungeon.effectsQueue.add(startEffect);
+                        }
+                    }
+                }
+            }
+            particleTimer = MathUtils.random(0.35F, 0.45F);
         }
     }
 

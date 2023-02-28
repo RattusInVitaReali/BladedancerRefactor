@@ -15,6 +15,7 @@ import code.potions.BleedingPotion;
 import code.potions.FinisherPotion;
 import code.potions.StancePotion;
 import code.relics.AbstractBlademasterRelic;
+import code.util.ImageHelper;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
@@ -22,6 +23,7 @@ import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -181,7 +183,7 @@ public class Blademaster implements
         BaseMod.addPotion(BleedingPotion.class, BleedingPotion.LIQUID_COLOR, BleedingPotion.HYBRID_COLOR, BleedingPotion.SPOTS_COLOR, BleedingPotion.POTION_ID, BlademasterCharacter.Enums.THE_BLADEMASTER);
         BaseMod.addPotion(StancePotion.class, StancePotion.LIQUID_COLOR, StancePotion.HYBRID_COLOR, StancePotion.SPOTS_COLOR, StancePotion.POTION_ID, BlademasterCharacter.Enums.THE_BLADEMASTER);
         BaseMod.addPotion(FinisherPotion.class, FinisherPotion.LIQUID_COLOR, FinisherPotion.HYBRID_COLOR, FinisherPotion.SPOTS_COLOR, FinisherPotion.POTION_ID, BlademasterCharacter.Enums.THE_BLADEMASTER);
-
+        BaseMod.registerModBadge(ImageMaster.loadImage(makeImagePath("modBadge.png")), "The Bladedancer", "Rattus", "Bladed Ancer.", null);
     }
 
     public enum BlademasterStance {
