@@ -15,10 +15,10 @@ public class DeadlyDance extends AbstractBlademasterCard {
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 2;
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 10;
     private static final int UPGRADE_BLOCK = 4;
     private static final int MAGIC = 7;
-    private static final int UPGRADE_MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 3;
 
     public DeadlyDance() {
         super(ID, COST, TYPE, RARITY, TARGET);

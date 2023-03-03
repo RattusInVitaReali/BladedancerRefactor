@@ -30,12 +30,10 @@ public class BlitzAction extends AbstractGameAction {
     @Override
     public void update() {
         target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
-        if (target != null) {
-            card.calculateCardDamage((AbstractMonster) target);
-            addToTop(new ApplyPowerAction(target, AbstractDungeon.player, new BleedingPower(target, card.magicNumber)));
-            addToTop(new DamageAction(target, new DamageInfo(AbstractDungeon.player, card.damage, card.damageTypeForTurn), effect));
-        }
-
+        if (target == null) return;
+        card.calculateCardDamage((AbstractMonster) target);
+        addToTop(new ApplyPowerAction(target, AbstractDungeon.player, new BleedingPower(target, card.magicNumber)));
+        addToTop(new DamageAction(target, new DamageInfo(AbstractDungeon.player, card.damage, card.damageTypeForTurn), effect));
         isDone = true;
     }
 }

@@ -42,6 +42,7 @@ public class Discharge extends AbstractStanceCard {
     public void useWind(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
         AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+        if (monster == null) return;
         BlademasterUtil.lightningEffect(monster);
         calculateCardDamage(monster);
         damageMonster(monster, damage, AbstractGameAction.AttackEffect.NONE);
@@ -52,6 +53,7 @@ public class Discharge extends AbstractStanceCard {
     public void useLightning(AbstractPlayer p, AbstractMonster m) {
         useBasic(p, m);
         AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+        if (monster == null) return;
         BlademasterUtil.lightningEffect(monster);
         calculateCardDamage(monster);
         damageMonster(monster, damage, AbstractGameAction.AttackEffect.NONE);

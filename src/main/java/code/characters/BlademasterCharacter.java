@@ -3,6 +3,7 @@ package code.characters;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
+import code.Blademaster;
 import code.actions.BasicStanceAction;
 import code.cards.AbstractBlademasterCard;
 import code.cards.Defend;
@@ -330,6 +331,7 @@ public class BlademasterCharacter extends CustomPlayer {
     }
 
     private void updateBloodiedParticles() {
+        if (!Blademaster.bloodiedParticlesEnabled()) return;
         if (hoveredCard == null) return;
         if (!hoveredCard.hasTag(BlademasterTags.BLOODIED)) return;
         if (!bloodiedParticles) {
