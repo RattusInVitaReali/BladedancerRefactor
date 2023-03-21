@@ -13,9 +13,9 @@ public class Sunder extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
-    private static final int COMBO_REQ = 3;
-    private static final int DAMAGE = 18;
-    private static final int UPGRADE_DAMAGE = 6;
+    private static final int COMBO_REQ = 2;
+    private static final int DAMAGE = 14;
+    private static final int UPGRADE_DAMAGE = 4;
     private static final int CONDUIT = 4;
     private static final int UPGRADE_CONDUIT = 2;
 

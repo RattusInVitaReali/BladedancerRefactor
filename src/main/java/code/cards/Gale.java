@@ -19,8 +19,8 @@ public class Gale extends AbstractStanceCard {
     private static final int COST = 1;
     private static final int ALL_DAMAGE = 4;
     private static final int UPGRADE_ALL_DAMAGE = 1;
-    private static final int DAMAGE = 5;
-    private static final int UPGRADE_DAMAGE = 2;
+    private static final int DAMAGE = 4;
+    private static final int UPGRADE_DAMAGE = 1;
     private static final int CONDUIT = 1;
     private static final int UPGRADE_CONDUIT = 1;
 

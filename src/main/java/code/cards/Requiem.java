@@ -18,8 +18,8 @@ public class Requiem extends AbstractBlademasterCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 0;
     private static final int DAMAGE = 0;
-    private static final int FURY_REQ = 25;
-    private static final int UPGRADE_FURY_REQ = 20;
+    private static final int FURY_REQ = 15;
+    private static final int UPGRADE_FURY_REQ = 10;
 
     public Requiem() {
         super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);

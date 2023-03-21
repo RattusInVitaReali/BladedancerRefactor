@@ -17,7 +17,7 @@ public class ColdBlood extends AbstractBlademasterCard {
     private static final int COST = 0;
     private static final int MAGIC = 4;
     private static final int UPGRADE_MAGIC = 2;
-    private static final int COMBO_REQ = 6;
+    private static final int COMBO_REQ = 5;
 
     public ColdBlood() {
         super(ID, COST, TYPE, RARITY, TARGET, 0, COMBO_REQ);

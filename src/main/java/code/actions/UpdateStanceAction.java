@@ -20,6 +20,7 @@ public class UpdateStanceAction extends AbstractGameAction {
         allCards.addAll(AbstractDungeon.player.drawPile.group);
         allCards.addAll(AbstractDungeon.player.discardPile.group);
         allCards.addAll(AbstractDungeon.player.hand.group);
+        allCards.addAll(AbstractDungeon.player.limbo.group);
         for (AbstractCard card : allCards) {
             if (card instanceof AbstractStanceCard) {
                 ((AbstractStanceCard) card).setStance(stance);

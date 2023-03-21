@@ -21,12 +21,13 @@ public class StormCleave extends AbstractBlademasterCard {
     private static final int UPGRADE_DAMAGE = 4;
     private static final int MAGIC = 5;
     private static final int UPGRADE_MAGIC = 3;
-    private static final int FURY_REQ = 20;
+    private static final int FURY_REQ = 15;
 
     public StormCleave() {
         super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        exhaust = true;
     }
 
     @Override

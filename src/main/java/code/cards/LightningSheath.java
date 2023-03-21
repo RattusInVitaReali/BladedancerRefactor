@@ -40,6 +40,5 @@ public class LightningSheath extends AbstractStanceCard {
     @Override
     public void onUpgrade() {
         upgradeBlock(UPGRADE_BLOCK);
-        exhaust = false;
     }
 }

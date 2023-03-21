@@ -15,7 +15,7 @@ public class Blitz extends AbstractBlademasterCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 2;
     private static final int DAMAGE = 3;
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 3;
     private static final int SECOND_MAGIC = 3;
     private static final int UPGRADE_SECOND_MAGIC = 1;
 

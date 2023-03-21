@@ -21,7 +21,7 @@ public class RollingTyphoon extends AbstractStanceCard {
     private static final int UPGRADE_MULTI_DAMAGE = 3;
     private static final int DAMAGE = 15;
     private static final int UPGRADE_DAMAGE = 7;
-    private static final int FURY_REQ = 30;
+    private static final int FURY_REQ = 20;
 
     public RollingTyphoon() {
         super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);

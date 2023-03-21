@@ -14,8 +14,8 @@ public class Massacre extends AbstractBlademasterCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     private static final int COST = 0;
-    private static final int FURY_REQ = 30;
-    private static final int UPGRADE_FURY_REQ = 25;
+    private static final int FURY_REQ = 25;
+    private static final int UPGRADE_FURY_REQ = 20;
 
     public Massacre() {
         super(ID, COST, TYPE, RARITY, TARGET, FURY_REQ, 0);

@@ -165,7 +165,7 @@
     ]
   },
   "blademaster:StormCleave": {
-    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage and apply !M! blademaster:Bleeding to ALL enemies. Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "DESCRIPTION": "blademaster:Finisher. Deal !D! damage and apply !M! blademaster:Bleeding to ALL enemies. Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. NL Exhaust.",
     "NAME": "Storm Cleave"
   },
   "blademaster:Discharge": {
@@ -510,16 +510,18 @@
   },
   "blademaster:LightningSheath": {
     "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile into your hand. NL Exhaust.",
-    "NAME": "Lightning Sheath",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile into your hand."
+    "NAME": "Lightning Sheath"
   },
   "blademaster:LightningSheath:LIGHTNING": {
     "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile [#9AE1FC]and[] [#9AE1FC]a[] [#9AE1FC]card[] [#9AE1FC]from[] [#9AE1FC]your[] [#9AE1FC]draw[] [#9AE1FC]pile[] into your hand. NL Exhaust.",
-    "NAME": "Lightning Sheath",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile [#9AE1FC]and[] [#9AE1FC]a[] [#9AE1FC]card[] [#9AE1FC]from[] [#9AE1FC]your[] [#9AE1FC]draw[] [#9AE1FC]pile[] into your hand."
+    "NAME": "Lightning Sheath"
   },
   "blademaster:MarkedForDeath": {
     "DESCRIPTION": "Enemy is always considered blademaster:Bloodied. NL Enemy loses !M! Strength. NL Exhaust.",
     "NAME": "Marked for Death"
+  },
+  "blademaster:Cyclone": {
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage to ALL enemies. NL Gain !M! Intangible. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Exhaust.",
+    "NAME": "Cyclone"
   }
 }
