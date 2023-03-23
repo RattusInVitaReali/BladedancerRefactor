@@ -14,7 +14,7 @@ public class Abscond extends AbstractStanceCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 8;
     private static final int UPGRADE_BLOCK = 3;
     private static final int MAGIC = 2;
     private static final int CONDUIT = 1;

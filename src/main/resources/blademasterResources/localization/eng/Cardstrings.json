@@ -131,7 +131,7 @@
     "NAME": "Vortex"
   },
   "blademaster:Flutter": {
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards.",
+    "DESCRIPTION": "Deal !D! damage twice. NL Draw !M! cards.",
     "NAME": "Flutter"
   },
   "blademaster:ColdBlood": {
@@ -523,5 +523,9 @@
   "blademaster:Cyclone": {
     "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage to ALL enemies. NL Gain !M! Intangible. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Exhaust.",
     "NAME": "Cyclone"
+  },
+  "blademaster:Unchained": {
+    "DESCRIPTION": "Add a random blademaster:Finisher into your hand. NL It costs 0 this turn. NL Exhaust",
+    "NAME": "Unchained"
   }
 }

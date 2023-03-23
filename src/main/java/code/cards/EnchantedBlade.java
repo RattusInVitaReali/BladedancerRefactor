@@ -16,9 +16,9 @@ public class EnchantedBlade extends AbstractStanceCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
     private static final int COMBO_REQ = 2;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
-    private static final int SECOND_MAGIC = 1;
+    private static final int SECOND_MAGIC = 3;
     private static final int CONDUIT = 3;
     private static final int UPGRADE_CONDUIT = 2;
 
@@ -33,8 +33,8 @@ public class EnchantedBlade extends AbstractStanceCard {
     @Override
     public void useBasic(AbstractPlayer p, AbstractMonster m) {
         consumeFinisherCost();
-        playerApplyPower(p, new StrengthPower(p, secondMagic));
-        addToBot(new DrawCardAction(p, magicNumber));
+        playerApplyPower(p, new StrengthPower(p, magicNumber));
+        addToBot(new DrawCardAction(p, secondMagic));
     }
 
     @Override

@@ -213,8 +213,10 @@ public abstract class AbstractBlademasterCard extends CustomCard {
         card.baseSecondMagic = baseSecondMagic;
         card.furyCost = furyCost;
         card.furyCostForTurn = furyCostForTurn;
+        card.isFuryCostModified = isFuryCostModified;
         card.comboCost = comboCost;
         card.comboCostForTurn = comboCostForTurn;
+        card.isComboCostModified = isComboCostModified;
         return card;
     }
 
