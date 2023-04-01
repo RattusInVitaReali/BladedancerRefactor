@@ -1,5 +1,6 @@
-package code.cards;
+package code.deprecated;
 
+import code.cards.AbstractStanceCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

@@ -1,5 +1,6 @@
 package code.cards;
 
+import code.powers.EnchantedBladePower;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -18,7 +19,7 @@ public class EnchantedBlade extends AbstractStanceCard {
     private static final int COMBO_REQ = 2;
     private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
-    private static final int SECOND_MAGIC = 3;
+    private static final int SECOND_MAGIC = 5;
     private static final int CONDUIT = 3;
     private static final int UPGRADE_CONDUIT = 2;
 
@@ -34,7 +35,7 @@ public class EnchantedBlade extends AbstractStanceCard {
     public void useBasic(AbstractPlayer p, AbstractMonster m) {
         consumeFinisherCost();
         playerApplyPower(p, new StrengthPower(p, magicNumber));
-        addToBot(new DrawCardAction(p, secondMagic));
+        playerApplyPower(p, new EnchantedBladePower(p, secondMagic));
     }
 
     @Override

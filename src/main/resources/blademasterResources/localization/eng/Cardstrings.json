@@ -36,24 +36,20 @@
     "NAME": "Air Slash"
   },
   "blademaster:AspectOfLightning": {
-    "DESCRIPTION": "Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. NL Exhaust.",
-    "NAME": "Aspect of Lightning",
-    "UPGRADE_DESCRIPTION": "Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
+    "DESCRIPTION": "Draw !blademaster:M2! cards. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "NAME": "Aspect of Lightning"
   },
   "blademaster:AspectOfLightning:LIGHTNING": {
-    "DESCRIPTION": "blademaster:Conduit !M!. NL Exhaust.",
-    "NAME": "Aspect of Lightning",
-    "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
+    "DESCRIPTION": "Draw !blademaster:M2! cards. NL blademaster:Conduit !M!.",
+    "NAME": "Aspect of Lightning"
   },
   "blademaster:AspectOfWind": {
-    "DESCRIPTION": "Enter [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Exhaust.",
-    "NAME": "Aspect of Wind",
-    "UPGRADE_DESCRIPTION": "Enter [#00FF2A]Wind[] [#00FF2A]Stance[]."
+    "DESCRIPTION": "Draw !blademaster:M2! cards. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
+    "NAME": "Aspect of Wind"
   },
   "blademaster:AspectOfWind:WIND": {
-    "DESCRIPTION": "blademaster:Conduit !M!. NL Exhaust.",
-    "NAME": "Aspect of Wind",
-    "UPGRADE_DESCRIPTION": "blademaster:Conduit !M!."
+    "DESCRIPTION": "Draw !blademaster:M2! cards. NL blademaster:Conduit !M!.",
+    "NAME": "Aspect of Wind"
   },
   "blademaster:Cut": {
     "DESCRIPTION": "Deal !D! damage. NL Whenever you change blademaster:Stances, return this from the discard pile to your hand.",
@@ -147,7 +143,7 @@
     "NAME": "Deadly Dance"
   },
   "blademaster:RagingBlow": {
-    "DESCRIPTION": "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL blademaster:Bloodied: Deals double damage.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage. NL blademaster:Bloodied: Deals double damage.",
     "NAME": "Raging Blow"
   },
   "blademaster:RagingBlow:WIND": {
@@ -383,11 +379,11 @@
     "NAME": "Thunder Slash"
   },
   "blademaster:WindSlash": {
-    "DESCRIPTION": "Deal !D! damage. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
     "NAME": "Wind Slash"
   },
   "blademaster:WindSlash:WIND": {
-    "DESCRIPTION": "Deal !D! damage [#9AFC9F]twice[].",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies [#9AFC9F]twice[].",
     "NAME": "Wind Slash"
   },
   "blademaster:Stormguard": {
@@ -417,7 +413,7 @@
     "NAME": "Blade Ward"
   },
   "blademaster:EnchantedBlade": {
-    "DESCRIPTION": "blademaster:Finisher. NL Gain !blademaster:M2! Strength. Draw !M! cards. NL Exhaust.",
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Strength. NL Gain !blademaster:M2! [#FF4500]Fury[] at the start of your turn. NL Exhaust.",
     "NAME": "Enchanted Blade"
   },
   "blademaster:Blitz": {
@@ -527,5 +523,29 @@
   "blademaster:Unchained": {
     "DESCRIPTION": "Add a random blademaster:Finisher into your hand. NL It costs 0 this turn. NL Exhaust",
     "NAME": "Unchained"
+  },
+  "blademaster:TimeToStrike": {
+    "DESCRIPTION": "Gain !M! Strength. NL At the end of your turn, lose !blademaster:M2! Strength. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "NAME": "Time to Strike"
+  },
+  "blademaster:TimeToStrike:LIGHTNING": {
+    "DESCRIPTION": "Gain !M! Strength. NL At the end of your turn, lose !blademaster:M2! Strength. NL blademaster:Conduit !M!.",
+    "NAME": "Time to Strike"
+  },
+  "blademaster:TimeToLeave": {
+    "DESCRIPTION": "Gain !M! Dexterity. NL At the end of your turn, lose !blademaster:M2! Dexterity. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
+    "NAME": "Time to Leave"
+  },
+  "blademaster:TimeToLeave:WIND": {
+    "DESCRIPTION": "Gain !M! Dexterity. NL At the end of your turn, lose !blademaster:M2! Dexterity. NL blademaster:Conduit !M!.",
+    "NAME": "Time to Leave"
+  },
+  "blademaster:RideTheWind": {
+    "DESCRIPTION": "Gain !B! Block.",
+    "NAME": "Ride the Wind"
+  },
+  "blademaster:RideTheWind:WIND": {
+    "DESCRIPTION": "Gain !B! Block. NL [#9AFC9F]Draw[] !M! [#9AFC9F]cards.[]",
+    "NAME": "Ride the Wind"
   }
 }

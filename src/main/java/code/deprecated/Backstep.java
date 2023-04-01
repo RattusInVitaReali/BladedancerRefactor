@@ -1,6 +1,7 @@
-package code.cards;
+package code.deprecated;
 
 import code.actions.BasicStanceAction;
+import code.cards.AbstractBlademasterCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 

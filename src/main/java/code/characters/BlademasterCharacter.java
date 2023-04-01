@@ -1,13 +1,13 @@
 package code.characters;
 
-import basemod.ReflectionHacks;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import code.Blademaster;
 import code.actions.BasicStanceAction;
-import code.cards.AbstractBlademasterCard;
 import code.cards.Defend;
 import code.cards.RagingBlow;
+import code.cards.Thrust;
+import code.deprecated.OldRagingBlow;
 import code.cards.Strike;
 import code.effects.BloodiedAuraEffect;
 import code.patches.BlademasterTags;
@@ -27,7 +27,6 @@ import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
-import com.evacipated.cardcrawl.modthespire.lib.SpireSuper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -45,10 +44,6 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
-import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -119,9 +114,10 @@ public class BlademasterCharacter extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Strike.ID);
         }
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             retVal.add(Defend.ID);
         }
+        retVal.add(Thrust.ID);
         retVal.add(RagingBlow.ID);
         return retVal;
     }
@@ -172,7 +168,7 @@ public class BlademasterCharacter extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new RagingBlow();
+        return new OldRagingBlow();
     }
 
     @Override

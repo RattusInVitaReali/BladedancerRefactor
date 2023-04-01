@@ -181,5 +181,12 @@
     "DESCRIPTIONS": [
       "This enemy is always #yBloodied."
     ]
+  },
+  "blademaster:EnchantedBlade": {
+    "NAME": "Enchanted Blade",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " [#FF4500]Fury[] at the start of your turn."
+    ]
   }
 }

@@ -13,7 +13,7 @@ import static code.util.BlademasterUtil.getPlayerWindCharges;
 public class Thrust extends AbstractStanceCard {
 
     public final static String ID = makeID("Thrust");
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;

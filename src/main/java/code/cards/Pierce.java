@@ -16,7 +16,7 @@ public class Pierce extends AbstractStanceCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final int COST = 1;
     private static final int DAMAGE = 7;
-    private static final int UPGRADE_DAMAGE = 3;
+    private static final int UPGRADE_DAMAGE = 1;
     private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;
     private static final int CONDUIT = 1;
