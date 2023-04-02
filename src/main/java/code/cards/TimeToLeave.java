@@ -18,9 +18,8 @@ public class TimeToLeave extends AbstractStanceCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final int COST = 1;
     private static final int MAGIC = 3;
-    private static final int UPGRADE_MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 1;
     private static final int SECOND_MAGIC = 2;
-    private static final int UPGRADE_SECOND_MAGIC = 2;
 
     public TimeToLeave() {
         super(ID, COST, TYPE, RARITY, TARGET);
@@ -45,6 +44,5 @@ public class TimeToLeave extends AbstractStanceCard {
     @Override
     public void onUpgrade() {
         upgradeMagicNumber(UPGRADE_MAGIC);
-        upgradeSecondMagic(UPGRADE_SECOND_MAGIC);
     }
 }

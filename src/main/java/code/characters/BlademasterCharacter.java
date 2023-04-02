@@ -317,9 +317,9 @@ public class BlademasterCharacter extends CustomPlayer {
     }
 
     @Override
-    public void updateInput() {
-        super.updateInput();
-        if ((isHoveringDropZone && isDraggingCard) || inSingleTargetMode) {
+    public void update() {
+        super.update();
+        if ((isHoveringDropZone && isDraggingCard) || inSingleTargetMode || !Blademaster.bloodiedParticlesOnlyOnHover()) {
             updateBloodiedParticles();
         } else {
             bloodiedParticles = false;
@@ -328,8 +328,10 @@ public class BlademasterCharacter extends CustomPlayer {
 
     private void updateBloodiedParticles() {
         if (!Blademaster.bloodiedParticlesEnabled()) return;
-        if (hoveredCard == null) return;
-        if (!hoveredCard.hasTag(BlademasterTags.BLOODIED)) return;
+        if (Blademaster.bloodiedParticlesOnlyOnHover()) {
+            if (hoveredCard == null) return;
+            if (!hoveredCard.hasTag(BlademasterTags.BLOODIED)) return;
+        }
         if (!bloodiedParticles) {
             particleTimer = -1.f;
             bloodiedParticles = true;

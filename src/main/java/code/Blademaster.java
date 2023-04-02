@@ -114,6 +114,7 @@ public class Blademaster implements
         try {
             Properties defaults = new Properties();
             defaults.put("BloodiedParticles", Boolean.toString(true));
+            defaults.put("BloodiedParticlesOnlyOnHover", Boolean.toString(true));
             config = new SpireConfig("blademaster", "config", defaults);
         } catch (IOException e) {
             e.printStackTrace();
@@ -122,6 +123,10 @@ public class Blademaster implements
 
     public static boolean bloodiedParticlesEnabled() {
         return config != null && config.getBool("BloodiedParticles");
+    }
+
+    public static boolean bloodiedParticlesOnlyOnHover() {
+        return config != null && config.getBool("BloodiedParticlesOnlyOnHover");
     }
 
     private String getLangString() {
@@ -221,6 +226,19 @@ public class Blademaster implements
                     }
                 });
         settingsPanel.addUIElement(bloodiedButton);
+        ModLabeledToggleButton bloodiedParticlesOnlyOnHover = new ModLabeledToggleButton(buttonStrings.TEXT[1], 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, bloodiedParticlesOnlyOnHover(), settingsPanel, l -> {},
+                button -> {
+                    if (config != null) {
+                        config.setBool("BloodiedParticlesOnlyOnHover", button.enabled);
+                        try {
+                            config.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(bloodiedParticlesOnlyOnHover);
+
         BaseMod.registerModBadge(ImageMaster.loadImage(makeImagePath("modBadge.png")), "The Bladedancer", "Rattus", "Bladed Ancer.", settingsPanel);
     }
 

@@ -1,7 +1,8 @@
 {
   "blademaster:ModConfig": {
     "TEXT": [
-      "Enable particles for Bloodied enemies."
+      "Enable particles for Bloodied enemies.",
+      "Show Bloodied particles only when hovering Bloodied-dependent cards."
     ]
   }
 }
