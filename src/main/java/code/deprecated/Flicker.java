@@ -1,6 +1,7 @@
-package code.cards;
+package code.deprecated;
 
 import code.Blademaster;
+import code.cards.AbstractStanceCard;
 import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;

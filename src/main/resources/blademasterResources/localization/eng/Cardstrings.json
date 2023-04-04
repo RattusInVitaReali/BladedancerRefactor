@@ -547,5 +547,15 @@
   "blademaster:RideTheWind:WIND": {
     "DESCRIPTION": "Gain !B! Block. NL [#9AFC9F]Draw[] !M! [#9AFC9F]cards.[]",
     "NAME": "Ride the Wind"
+  },
+  "blademaster:InnerFire": {
+    "DESCRIPTION": "blademaster:Finisher. NL Gain [E] [E] .",
+    "NAME": "Inner Fire",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. NL Gain [E] [E] [E] ."
+  },
+  "blademaster:FightingSpirit": {
+    "DESCRIPTION": "blademaster:Finisher. NL Gain [E] [E] .",
+    "NAME": "Fighting Spirit",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. NL Gain [E] [E] [E] ."
   }
 }

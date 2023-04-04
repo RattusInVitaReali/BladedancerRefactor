@@ -5,8 +5,10 @@ import code.powers.interfaces.OnStanceChangedPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
 import static code.Blademaster.makeID;
@@ -23,7 +25,12 @@ public class MomentumPower extends AbstractBlademasterPower implements OnStanceC
 
     @Override
     public void onStanceChanged(Blademaster.BlademasterStance stance) {
-        addToBot(new VFXAction(new CleaveEffect()));
+        this.addToBot(new SFXAction("ATTACK_HEAVY"));
+        if (Settings.FAST_MODE) {
+            this.addToBot(new VFXAction(new CleaveEffect()));
+        } else {
+            this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.2F));
+        }
         addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
     }
 

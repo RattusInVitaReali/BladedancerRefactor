@@ -71,6 +71,8 @@ public class BlademasterUtil {
 
     public static ArrayList<AbstractMonster> getAliveMonsters() {
         ArrayList<AbstractMonster> monsters = new ArrayList<>();
+        if (AbstractDungeon.getMonsters() == null) return monsters;
+        if (AbstractDungeon.getMonsters().monsters == null) return monsters;
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
             if (!m.isDeadOrEscaped()) monsters.add(m);
         }

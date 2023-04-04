@@ -43,6 +43,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
@@ -317,12 +319,14 @@ public class BlademasterCharacter extends CustomPlayer {
     }
 
     @Override
-    public void update() {
-        super.update();
-        if ((isHoveringDropZone && isDraggingCard) || inSingleTargetMode || !Blademaster.bloodiedParticlesOnlyOnHover()) {
-            updateBloodiedParticles();
-        } else {
-            bloodiedParticles = false;
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT || AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !this.isDead) {
+            if ((isHoveringDropZone && isDraggingCard) || inSingleTargetMode || !Blademaster.bloodiedParticlesOnlyOnHover()) {
+                updateBloodiedParticles();
+            } else {
+                bloodiedParticles = false;
+            }
         }
     }
 
