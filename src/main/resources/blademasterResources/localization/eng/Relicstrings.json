@@ -10,35 +10,35 @@
     "NAME": "Cast-iron Teapot",
     "FLAVOR": "Seems to siphon blood from the dead...",
     "DESCRIPTIONS": [
-      "Whenever an enemy dies of Bleeding, heal #b4 HP."
+      "Whenever an enemy dies of #yblademaster:Bleeding, heal #b4 HP."
     ]
   },
   "blademaster:FancyChopsticks": {
     "NAME": "Fancy Chopsticks",
     "FLAVOR": "Upon closer examination, they seem pretty regular.",
     "DESCRIPTIONS": [
-      "The first time you play a #yFinisher each turn, draw a card."
+      "The first time you play a #yblademaster:Finisher each turn, draw a card."
     ]
   },
   "blademaster:KomodoDragonSkull": {
     "NAME": "Komodo Dragon Skull",
     "FLAVOR": "Seems to make nearby wounds fester.",
     "DESCRIPTIONS": [
-      "Whenever you apply Bleeding, apply #b2 Poison as well."
+      "Whenever you apply #yblademaster:Bleeding, apply #b2 #yPoison as well."
     ]
   },
   "blademaster:OminousHairpin": {
     "NAME": "Ominous Hairpin",
     "FLAVOR": "Looks like it was not only stabbed into hair...",
     "DESCRIPTIONS": [
-      "#yBloodied enemies take #b5 damage at the start of your turn."
+      "#yblademaster:Bloodied enemies take #b5 damage at the start of your turn."
     ]
   },
   "blademaster:PaperTeigr": {
     "NAME": "Paper Teigr",
     "FLAVOR": "A paper folded in a shape of a creature you don't recognize.",
     "DESCRIPTIONS": [
-      "Bleeding only decays by #b2 every turn. Bleeding enemies take #b30% more damage instead of #b20%."
+      "#yblademaster:Bleeding only decays by #b2 every turn. #yblademaster:Bleeding enemies take #b30% more damage instead of #b20%."
     ]
   },
   "blademaster:BlademastersAmulet": {
@@ -52,28 +52,28 @@
     "NAME": "Sword Blade Shards",
     "FLAVOR": "Sharp enough to sever a finger with no effort.",
     "DESCRIPTIONS": [
-      "#yBleeding enemies are considered #yBloodied."
+      "#yblademaster:Bleeding enemies are considered #yblademaster:Bloodied."
     ]
   },
   "blademaster:TeigrClaw": {
     "NAME": "Teigr Claw",
     "FLAVOR": "If the owner of this claw failed to best the Spire, what hopes do you have?",
     "DESCRIPTIONS": [
-      "Enemies are considered #yBloodied at #b75% HP rather than #b60%."
+      "Enemies are considered #yblademaster:Bloodied at #b75% HP rather than #b60%."
     ]
   },
   "blademaster:CupOfGrace": {
     "NAME": "Cup of Grace",
     "FLAVOR": "Full of grass.",
     "DESCRIPTIONS": [
-      "The first time you play a #yFinisher each turn, gain [E] ."
+      "The first time you play a #yblademaster:Finisher each turn, gain [E] ."
     ]
   },
   "blademaster:PaperDregon": {
     "NAME": "Paper Dregon",
     "FLAVOR": "You are unsure if this creature even existed.",
     "DESCRIPTIONS": [
-      "Enemies with Vulnerable take #b75% more damage while in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. NL Enemies with Weak deal #b40% less damage while in [#00FF2A]Wind[] [#00FF2A]Stance[]."
+      "Behaves like #yPaper #yblademaster:Krane while in [#00FF2A]Wind[] [#00FF2A]Stance[]. NL Behaves like #yPaper #yblademaster:Phrog while in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]."
     ]
   }
 }

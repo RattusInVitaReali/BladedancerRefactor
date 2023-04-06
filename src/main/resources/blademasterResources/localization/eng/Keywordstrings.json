@@ -59,5 +59,19 @@
       "bloodied"
     ],
     "DESCRIPTION": "Applies if the target is at or below #b60% HP."
+  },
+  {
+    "PROPER_NAME": "Paper Krane",
+    "NAMES": [
+      "krane"
+    ],
+    "DESCRIPTION": "Enemies with #yWeak deal #b40% less damage rather than #b25%."
+  },
+  {
+    "PROPER_NAME": "Paper Phrog",
+    "NAMES": [
+      "phrog"
+    ],
+    "DESCRIPTION": "Enemies with #yVulnerable take #b75% more damage rather than #b50%."
   }
 ]

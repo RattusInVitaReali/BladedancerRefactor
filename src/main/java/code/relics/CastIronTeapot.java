@@ -1,6 +1,7 @@
 package code.relics;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import static code.Blademaster.makeID;
@@ -20,6 +21,7 @@ public class CastIronTeapot extends AbstractBlademasterRelic {
     @Override
     public void onTrigger() {
         flash();
+        addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, HEAL));
     }
 }
