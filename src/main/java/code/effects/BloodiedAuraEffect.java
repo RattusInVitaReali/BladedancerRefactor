@@ -12,17 +12,16 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 public class BloodiedAuraEffect extends AbstractGameEffect {
+    public static boolean switcher = true;
+    private final TextureAtlas.AtlasRegion img;
     private float x;
     private float y;
     private float vY;
-    private final TextureAtlas.AtlasRegion img;
-    public static boolean switcher = true;
 
     public BloodiedAuraEffect(AbstractMonster monster, boolean behind) {
         this.img = ImageMaster.EXHAUST_L;
@@ -31,8 +30,8 @@ public class BloodiedAuraEffect extends AbstractGameEffect {
         this.color = new Color(.5f, .0f, .0f, .0f);
         this.x = monster.hb.cX + MathUtils.random(-monster.hb.width / 16.0F, monster.hb.width / 16.0F);
         this.y = monster.hb.cY + MathUtils.random(-monster.hb.height / 16.0F, monster.hb.height / 12.0F);
-        this.x -= (float)this.img.packedWidth / 2.0F;
-        this.y -= (float)this.img.packedHeight / 2.0F;
+        this.x -= (float) this.img.packedWidth / 2.0F;
+        this.y -= (float) this.img.packedHeight / 2.0F;
         this.renderBehind = true;
         this.rotation = MathUtils.random(360.0F);
         if (behind) {
@@ -69,7 +68,7 @@ public class BloodiedAuraEffect extends AbstractGameEffect {
     public void render(SpriteBatch sb) {
         sb.setColor(this.color);
         sb.setBlendFunction(770, 1);
-        sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, (float)this.img.packedHeight / 2.0F, (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
+        sb.draw(this.img, this.x, this.y, (float) this.img.packedWidth / 2.0F, (float) this.img.packedHeight / 2.0F, (float) this.img.packedWidth, (float) this.img.packedHeight, this.scale, this.scale, this.rotation);
         sb.setBlendFunction(770, 771);
     }
 

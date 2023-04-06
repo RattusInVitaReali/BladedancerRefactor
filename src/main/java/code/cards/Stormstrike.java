@@ -21,7 +21,7 @@ public class Stormstrike extends AbstractStanceCard {
     private static final int DAMAGE = 12;
     private static final int UPGRADE_DAMAGE = 4;
     private static final int SECOND_DAMAGE = 0;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
 
     public Stormstrike() {

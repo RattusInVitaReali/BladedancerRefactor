@@ -17,7 +17,6 @@ import code.potions.BleedingPotion;
 import code.potions.FinisherPotion;
 import code.potions.StancePotion;
 import code.relics.AbstractBlademasterRelic;
-import code.util.ImageHelper;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
@@ -214,7 +213,8 @@ public class Blademaster implements
 
         UIStrings buttonStrings = CardCrawlGame.languagePack.getUIString("blademaster:ModConfig");
         ModPanel settingsPanel = new ModPanel();
-        ModLabeledToggleButton bloodiedButton = new ModLabeledToggleButton(buttonStrings.TEXT[0], 350, 750, Settings.CREAM_COLOR, FontHelper.charDescFont, bloodiedParticlesEnabled(), settingsPanel, l -> {},
+        ModLabeledToggleButton bloodiedButton = new ModLabeledToggleButton(buttonStrings.TEXT[0], 350, 750, Settings.CREAM_COLOR, FontHelper.charDescFont, bloodiedParticlesEnabled(), settingsPanel, l -> {
+        },
                 button -> {
                     if (config != null) {
                         config.setBool("BloodiedParticles", button.enabled);
@@ -226,7 +226,8 @@ public class Blademaster implements
                     }
                 });
         settingsPanel.addUIElement(bloodiedButton);
-        ModLabeledToggleButton bloodiedParticlesOnlyOnHover = new ModLabeledToggleButton(buttonStrings.TEXT[1], 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, bloodiedParticlesOnlyOnHover(), settingsPanel, l -> {},
+        ModLabeledToggleButton bloodiedParticlesOnlyOnHover = new ModLabeledToggleButton(buttonStrings.TEXT[1], 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, bloodiedParticlesOnlyOnHover(), settingsPanel, l -> {
+        },
                 button -> {
                     if (config != null) {
                         config.setBool("BloodiedParticlesOnlyOnHover", button.enabled);

@@ -6,9 +6,8 @@ import code.Blademaster;
 import code.actions.BasicStanceAction;
 import code.cards.Defend;
 import code.cards.RagingBlow;
-import code.cards.Thrust;
-import code.deprecated.OldRagingBlow;
 import code.cards.Strike;
+import code.cards.Thrust;
 import code.effects.BloodiedAuraEffect;
 import code.patches.BlademasterTags;
 import code.powers.ComboPower;
@@ -170,7 +169,7 @@ public class BlademasterCharacter extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new OldRagingBlow();
+        return new RagingBlow();
     }
 
     @Override

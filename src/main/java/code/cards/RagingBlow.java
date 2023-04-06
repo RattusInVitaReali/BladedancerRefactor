@@ -1,7 +1,5 @@
 package code.cards;
 
-import code.cards.AbstractBlademasterCard;
-
 import code.patches.BlademasterTags;
 import code.powers.MassacrePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

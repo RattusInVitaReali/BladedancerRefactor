@@ -17,7 +17,7 @@
     "NAME": "Fancy Chopsticks",
     "FLAVOR": "Upon closer examination, they seem pretty regular.",
     "DESCRIPTIONS": [
-      "The first time you play a Finisher each turn, draw a card."
+      "The first time you play a #yFinisher each turn, draw a card."
     ]
   },
   "blademaster:KomodoDragonSkull": {
@@ -60,6 +60,20 @@
     "FLAVOR": "If the owner of this claw failed to best the Spire, what hopes do you have?",
     "DESCRIPTIONS": [
       "Enemies are considered #yBloodied at #b75% HP rather than #b60%."
+    ]
+  },
+  "blademaster:CupOfGrace": {
+    "NAME": "Cup of Grace",
+    "FLAVOR": "Full of grass.",
+    "DESCRIPTIONS": [
+      "The first time you play a #yFinisher each turn, gain [E] ."
+    ]
+  },
+  "blademaster:PaperDregon": {
+    "NAME": "Paper Dregon",
+    "FLAVOR": "You are unsure if this creature even existed.",
+    "DESCRIPTIONS": [
+      "Enemies with Vulnerable take #b75% more damage while in [#4A8CFF]Lightning[] [#4A8CFF]Stance[]. NL Enemies with Weak deal #b40% less damage while in [#00FF2A]Wind[] [#00FF2A]Stance[]."
     ]
   }
 }

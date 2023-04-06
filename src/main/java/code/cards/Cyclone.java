@@ -1,12 +1,14 @@
 package code.cards;
 
 import code.actions.WindStanceAction;
-import code.cards.AbstractBlademasterCard;
-
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
 import static code.Blademaster.makeID;
 import static code.util.BlademasterUtil.playerApplyPower;
@@ -33,7 +35,14 @@ public class Cyclone extends AbstractBlademasterCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        damageAllMonsters(multiDamage, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        consumeFinisherCost();
+        this.addToBot(new SFXAction("ATTACK_HEAVY"));
+        if (Settings.FAST_MODE) {
+            this.addToBot(new VFXAction(new CleaveEffect()));
+        } else {
+            this.addToBot(new VFXAction(p, new CleaveEffect(), 0.2F));
+        }
+        damageAllMonsters(multiDamage, AbstractGameAction.AttackEffect.NONE);
         playerApplyPower(p, new IntangiblePlayerPower(p, magicNumber));
         addToBot(new WindStanceAction());
     }

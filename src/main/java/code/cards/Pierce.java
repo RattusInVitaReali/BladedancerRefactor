@@ -27,7 +27,6 @@ public class Pierce extends AbstractStanceCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
         setBaseConduit(CONDUIT);
-        tags.add(CardTags.STRIKE);
     }
 
     @Override

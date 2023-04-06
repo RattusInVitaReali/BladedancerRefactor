@@ -17,10 +17,10 @@ import static code.Blademaster.modID;
 public abstract class AbstractBlademasterPower extends AbstractPower {
     public static final Color redColor2 = Color.RED.cpy();
     public static final Color greenColor2 = Color.GREEN.cpy();
-    public int amount2 = -1;
-    public boolean isTwoAmount = false;
     public final boolean canGoNegative2 = false;
     protected final PowerStrings powerStrings;
+    public int amount2 = -1;
+    public boolean isTwoAmount = false;
 
     public AbstractBlademasterPower(String ID, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
         this.ID = ID;

@@ -7,9 +7,12 @@ import code.util.BlademasterUtil;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
+
+import static code.util.BlademasterUtil.getAliveMonsters;
 
 public class UpdateStanceAction extends AbstractGameAction {
 
@@ -30,6 +33,11 @@ public class UpdateStanceAction extends AbstractGameAction {
         for (AbstractPower power : AbstractDungeon.player.powers) {
             if (power instanceof OnStanceChangedPower) {
                 ((OnStanceChangedPower) power).onStanceChanged(stance);
+            }
+        }
+        for (AbstractMonster monster : getAliveMonsters()) {
+            for (AbstractPower power : monster.powers) {
+                power.updateDescription();
             }
         }
         isDone = true;

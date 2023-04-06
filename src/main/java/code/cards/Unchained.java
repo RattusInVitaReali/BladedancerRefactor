@@ -1,13 +1,9 @@
 package code.cards;
 
-import code.Blademaster;
-import code.cards.AbstractBlademasterCard;
-
 import code.patches.BlademasterTags;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -32,13 +28,6 @@ public class Unchained extends AbstractBlademasterCard {
         exhaust = true;
     }
 
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard card = returnTrulyRandomFinisherInCombat();
-        card.setCostForTurn(0);
-        addToBot(new MakeTempCardInHandAction(card));
-    }
-
     public static AbstractCard returnTrulyRandomFinisherInCombat() {
         ArrayList<AbstractCard> list = new ArrayList<>();
         for (AbstractCard c : srcCommonCardPool.group) {
@@ -60,6 +49,13 @@ public class Unchained extends AbstractBlademasterCard {
             }
         }
         return list.get(cardRandomRng.random(list.size() - 1));
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractCard card = returnTrulyRandomFinisherInCombat().makeCopy();
+        card.setCostForTurn(0);
+        addToBot(new MakeTempCardInHandAction(card));
     }
 
     @Override

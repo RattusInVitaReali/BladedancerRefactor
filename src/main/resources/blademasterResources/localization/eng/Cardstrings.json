@@ -36,19 +36,19 @@
     "NAME": "Air Slash"
   },
   "blademaster:AspectOfLightning": {
-    "DESCRIPTION": "Draw !blademaster:M2! cards. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
+    "DESCRIPTION": "Draw !M! cards. NL Enter [#4A8CFF]Lightning[] [#4A8CFF]Stance[].",
     "NAME": "Aspect of Lightning"
   },
   "blademaster:AspectOfLightning:LIGHTNING": {
-    "DESCRIPTION": "Draw !blademaster:M2! cards. NL blademaster:Conduit !M!.",
+    "DESCRIPTION": "Draw !M! cards. NL Gain [E] .",
     "NAME": "Aspect of Lightning"
   },
   "blademaster:AspectOfWind": {
-    "DESCRIPTION": "Draw !blademaster:M2! cards. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
+    "DESCRIPTION": "Draw !M! cards. NL Enter [#00FF2A]Wind[] [#00FF2A]Stance[].",
     "NAME": "Aspect of Wind"
   },
   "blademaster:AspectOfWind:WIND": {
-    "DESCRIPTION": "Draw !blademaster:M2! cards. NL blademaster:Conduit !M!.",
+    "DESCRIPTION": "Draw !M! cards. NL Gain [E] .",
     "NAME": "Aspect of Wind"
   },
   "blademaster:Cut": {
@@ -196,11 +196,17 @@
   },
   "blademaster:RollingTyphoon:WIND": {
     "DESCRIPTION": "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies. NL [#9AFC9F]Apply[] [blademaster:WindChargeIcon] blademaster:Bleeding.",
-    "NAME": "Rolling Typhoon"
+    "NAME": "Rolling Typhoon",
+    "EXTENDED_DESCRIPTION": [
+      "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies. NL [#9AFC9F]Apply[] [blademaster:WindChargeIcon] = !M! blademaster:Bleeding."
+    ]
   },
   "blademaster:RollingTyphoon:LIGHTNING": {
     "DESCRIPTION": "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies. NL [#9AE1FC]Gain[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] Block.",
-    "NAME": "Rolling Typhoon"
+    "NAME": "Rolling Typhoon",
+    "EXTENDED_DESCRIPTION": [
+      "blademaster:Finisher. NL Deal !blademaster:D2! damage. NL Deal !D! damage to ALL enemies. NL [#9AE1FC]Gain[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] = !B! Block."
+    ]
   },
   "blademaster:Overcharge": {
     "DESCRIPTION": "Whenever you gain a blademaster:Charge, gain an additional blademaster:Charge.",
@@ -211,12 +217,12 @@
     "NAME": "Stormstrike"
   },
   "blademaster:Stormstrike:LIGHTNING": {
-    "DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
+    "DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]damage.[]",
     "NAME": "Stormstrike",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] NL [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]=[] !blademaster:D2! [#9AE1FC]damage.[]",
-      "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] NL [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]=[] !blademaster:D2! [#9AE1FC]damage.[]"
+      "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] NL [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]=[] !blademaster:D2! [#9AE1FC]damage.[]",
+      "Deal !D! damage. NL [#9AE1FC]Consume[] [#9AE1FC]ALL[] [#9AE1FC]your[] [blademaster:LightningChargeIcon] NL [#9AE1FC]to[] [#9AE1FC]deal[] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [blademaster:LightningChargeIcon] [#9AE1FC]=[] !blademaster:D2! [#9AE1FC]damage.[]"
     ]
   },
   "blademaster:EnchantedCuirass": {
@@ -243,8 +249,8 @@
     "NAME": "Reversal"
   },
   "blademaster:ThreePointStrike": {
-    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage thrice. NL Gain !B! Block. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage thrice. NL Gain !B! Block. NL Draw !M! cards.",
+    "DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage 3 times. NL Gain !B! Block. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "blademaster:Finisher. NL Deal !D! damage 3 times. NL Gain !B! Block. NL Draw !M! cards.",
     "NAME": "Three Point Strike"
   },
   "blademaster:UnrelentingWind": {
