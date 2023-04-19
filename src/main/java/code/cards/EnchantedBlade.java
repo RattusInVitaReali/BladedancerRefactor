@@ -13,7 +13,7 @@ public class EnchantedBlade extends AbstractStanceCard {
     public final static String ID = makeID("EnchantedBlade");
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     private static final int COST = 1;
     private static final int COMBO_REQ = 2;
     private static final int MAGIC = 2;
@@ -27,7 +27,6 @@ public class EnchantedBlade extends AbstractStanceCard {
         baseMagicNumber = magicNumber = MAGIC;
         baseSecondMagic = secondMagic = SECOND_MAGIC;
         baseConduit = conduit = CONDUIT;
-        this.exhaust = true;
     }
 
     @Override

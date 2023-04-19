@@ -419,7 +419,7 @@
     "NAME": "Blade Ward"
   },
   "blademaster:EnchantedBlade": {
-    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Strength. NL Gain !blademaster:M2! [#FF4500]Fury[] at the start of your turn. NL Exhaust.",
+    "DESCRIPTION": "blademaster:Finisher. NL Gain !M! Strength. NL Gain !blademaster:M2! [#FF4500]Fury[] at the start of your turn.",
     "NAME": "Enchanted Blade"
   },
   "blademaster:Blitz": {
